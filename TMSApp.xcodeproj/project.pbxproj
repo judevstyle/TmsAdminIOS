@@ -3,19 +3,45 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43C02A52D78B77370A2AEE77 /* Pods_TMSApp_TMSAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CD1BD90AFB294103F69E86C /* Pods_TMSApp_TMSAppUITests.framework */; };
+		4D346C5FA69DDB6D6396EADE /* Pods_TMSAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20480C8FB5A3102C2068456C /* Pods_TMSAppTests.framework */; };
+		8D115DF66119DEE986E16BA4 /* Pods_TMSApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40276A60BDA1976017E50C87 /* Pods_TMSApp.framework */; };
 		EF55E8EE2614F3B700915D1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E8ED2614F3B700915D1C /* AppDelegate.swift */; };
-		EF55E8F02614F3B700915D1C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E8EF2614F3B700915D1C /* SceneDelegate.swift */; };
 		EF55E8F22614F3B700915D1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E8F12614F3B700915D1C /* ViewController.swift */; };
-		EF55E8F52614F3B700915D1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF55E8F32614F3B700915D1C /* Main.storyboard */; };
 		EF55E8F82614F3B700915D1C /* TMSApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF55E8F62614F3B700915D1C /* TMSApp.xcdatamodeld */; };
 		EF55E8FA2614F3B800915D1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF55E8F92614F3B800915D1C /* Assets.xcassets */; };
 		EF55E8FD2614F3B800915D1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF55E8FB2614F3B800915D1C /* LaunchScreen.storyboard */; };
 		EF55E9082614F3B800915D1C /* TMSAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E9072614F3B800915D1C /* TMSAppTests.swift */; };
 		EF55E9132614F3B800915D1C /* TMSAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E9122614F3B800915D1C /* TMSAppUITests.swift */; };
+		EF55E92C2614F4D500915D1C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF55E92B2614F4D500915D1C /* Colors.xcassets */; };
+		EF55E9322614F4F900915D1C /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF55E9312614F4F900915D1C /* Splash.storyboard */; };
+		EF55E93F2614F51B00915D1C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E93E2614F51B00915D1C /* SplashViewController.swift */; };
+		EF55E9522614F5CE00915D1C /* SukhumvitSet-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF55E94C2614F5CE00915D1C /* SukhumvitSet-Bold.ttf */; };
+		EF55E9532614F5CE00915D1C /* SukhumvitSet-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF55E94D2614F5CE00915D1C /* SukhumvitSet-SemiBold.ttf */; };
+		EF55E9542614F5CE00915D1C /* SukhumvitSet-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF55E94E2614F5CE00915D1C /* SukhumvitSet-Medium.ttf */; };
+		EF55E9552614F5CE00915D1C /* SukhumvitSet-Text.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF55E94F2614F5CE00915D1C /* SukhumvitSet-Text.ttf */; };
+		EF55E9562614F5CE00915D1C /* SukhumvitSet-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF55E9502614F5CE00915D1C /* SukhumvitSet-Light.ttf */; };
+		EF55E9572614F5CE00915D1C /* SukhumvitSet-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF55E9512614F5CE00915D1C /* SukhumvitSet-Thin.ttf */; };
+		EF55E95E2614F6D100915D1C /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E95D2614F6D100915D1C /* UserDefaults+Extension.swift */; };
+		EF55E9692614F6E300915D1C /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E9622614F6E300915D1C /* UITextField+Extension.swift */; };
+		EF55E96A2614F6E300915D1C /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E9632614F6E300915D1C /* UIFont+Extension.swift */; };
+		EF55E96B2614F6E300915D1C /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E9642614F6E300915D1C /* UIImageView+Extension.swift */; };
+		EF55E96C2614F6E300915D1C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E9652614F6E300915D1C /* UIColor+Extension.swift */; };
+		EF55E96D2614F6E300915D1C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E9662614F6E300915D1C /* UIView+Extension.swift */; };
+		EF55E96E2614F6E300915D1C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E9672614F6E300915D1C /* UIViewController+Extension.swift */; };
+		EF55E96F2614F6E300915D1C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E9682614F6E300915D1C /* UIButton+Extension.swift */; };
+		EF55E9742614F6F000915D1C /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E9732614F6F000915D1C /* Notification+Extension.swift */; };
+		EF55E9842614F81200915D1C /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = EF55E9832614F81200915D1C /* NVActivityIndicatorView */; };
+		EF55E9862614F81200915D1C /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = EF55E9852614F81200915D1C /* NVActivityIndicatorViewExtended */; };
+		EF55E98C2614F87500915D1C /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = EF55E98B2614F87500915D1C /* Moya */; };
+		EF55E98E2614F87500915D1C /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = EF55E98D2614F87500915D1C /* ReactiveMoya */; };
+		EF55E9902614F87500915D1C /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = EF55E98F2614F87500915D1C /* RxMoya */; };
+		EF55E9962614F8B600915D1C /* RadioGroup in Frameworks */ = {isa = PBXBuildFile; productRef = EF55E9952614F8B600915D1C /* RadioGroup */; };
+		EF55E99C2614F8DA00915D1C /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = EF55E99B2614F8DA00915D1C /* SocketIO */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,11 +62,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E5F9DEA6F618170DA0F7B89 /* Pods-TMSApp-TMSAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMSApp-TMSAppUITests.release.xcconfig"; path = "Target Support Files/Pods-TMSApp-TMSAppUITests/Pods-TMSApp-TMSAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1CD1BD90AFB294103F69E86C /* Pods_TMSApp_TMSAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMSApp_TMSAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20480C8FB5A3102C2068456C /* Pods_TMSAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMSAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A66D53FBAE5464A5C9E599A /* Pods-TMSApp-TMSAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMSApp-TMSAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-TMSApp-TMSAppUITests/Pods-TMSApp-TMSAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		40276A60BDA1976017E50C87 /* Pods_TMSApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMSApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43E92420FA149A651E027B90 /* Pods-TMSAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMSAppTests.release.xcconfig"; path = "Target Support Files/Pods-TMSAppTests/Pods-TMSAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		829279A9B8DF7F5A348CF243 /* Pods-TMSApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMSApp.debug.xcconfig"; path = "Target Support Files/Pods-TMSApp/Pods-TMSApp.debug.xcconfig"; sourceTree = "<group>"; };
+		B6BE57EB110F1D5FD1D51761 /* Pods-TMSAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMSAppTests.debug.xcconfig"; path = "Target Support Files/Pods-TMSAppTests/Pods-TMSAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DA81F2E0EF4C483B6A33D4F6 /* Pods-TMSApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMSApp.release.xcconfig"; path = "Target Support Files/Pods-TMSApp/Pods-TMSApp.release.xcconfig"; sourceTree = "<group>"; };
 		EF55E8EA2614F3B700915D1C /* TMSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF55E8ED2614F3B700915D1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EF55E8EF2614F3B700915D1C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EF55E8F12614F3B700915D1C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EF55E8F42614F3B700915D1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EF55E8F72614F3B700915D1C /* TMSApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMSApp.xcdatamodel; sourceTree = "<group>"; };
 		EF55E8F92614F3B800915D1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF55E8FC2614F3B800915D1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +84,24 @@
 		EF55E90E2614F3B800915D1C /* TMSAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMSAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF55E9122614F3B800915D1C /* TMSAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSAppUITests.swift; sourceTree = "<group>"; };
 		EF55E9142614F3B800915D1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF55E92B2614F4D500915D1C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		EF55E9312614F4F900915D1C /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		EF55E93E2614F51B00915D1C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		EF55E94C2614F5CE00915D1C /* SukhumvitSet-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SukhumvitSet-Bold.ttf"; sourceTree = "<group>"; };
+		EF55E94D2614F5CE00915D1C /* SukhumvitSet-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SukhumvitSet-SemiBold.ttf"; sourceTree = "<group>"; };
+		EF55E94E2614F5CE00915D1C /* SukhumvitSet-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SukhumvitSet-Medium.ttf"; sourceTree = "<group>"; };
+		EF55E94F2614F5CE00915D1C /* SukhumvitSet-Text.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SukhumvitSet-Text.ttf"; sourceTree = "<group>"; };
+		EF55E9502614F5CE00915D1C /* SukhumvitSet-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SukhumvitSet-Light.ttf"; sourceTree = "<group>"; };
+		EF55E9512614F5CE00915D1C /* SukhumvitSet-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SukhumvitSet-Thin.ttf"; sourceTree = "<group>"; };
+		EF55E95D2614F6D100915D1C /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		EF55E9622614F6E300915D1C /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		EF55E9632614F6E300915D1C /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		EF55E9642614F6E300915D1C /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		EF55E9652614F6E300915D1C /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		EF55E9662614F6E300915D1C /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		EF55E9672614F6E300915D1C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		EF55E9682614F6E300915D1C /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		EF55E9732614F6F000915D1C /* Notification+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +109,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF55E9962614F8B600915D1C /* RadioGroup in Frameworks */,
+				EF55E99C2614F8DA00915D1C /* SocketIO in Frameworks */,
+				EF55E9902614F87500915D1C /* RxMoya in Frameworks */,
+				EF55E9862614F81200915D1C /* NVActivityIndicatorViewExtended in Frameworks */,
+				EF55E9842614F81200915D1C /* NVActivityIndicatorView in Frameworks */,
+				EF55E98C2614F87500915D1C /* Moya in Frameworks */,
+				EF55E98E2614F87500915D1C /* ReactiveMoya in Frameworks */,
+				8D115DF66119DEE986E16BA4 /* Pods_TMSApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D346C5FA69DDB6D6396EADE /* Pods_TMSAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +132,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43C02A52D78B77370A2AEE77 /* Pods_TMSApp_TMSAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C951F4F62619BB6ECFCE94E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				829279A9B8DF7F5A348CF243 /* Pods-TMSApp.debug.xcconfig */,
+				DA81F2E0EF4C483B6A33D4F6 /* Pods-TMSApp.release.xcconfig */,
+				2A66D53FBAE5464A5C9E599A /* Pods-TMSApp-TMSAppUITests.debug.xcconfig */,
+				0E5F9DEA6F618170DA0F7B89 /* Pods-TMSApp-TMSAppUITests.release.xcconfig */,
+				B6BE57EB110F1D5FD1D51761 /* Pods-TMSAppTests.debug.xcconfig */,
+				43E92420FA149A651E027B90 /* Pods-TMSAppTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6C9613166A8590390A65CC6A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				40276A60BDA1976017E50C87 /* Pods_TMSApp.framework */,
+				1CD1BD90AFB294103F69E86C /* Pods_TMSApp_TMSAppUITests.framework */,
+				20480C8FB5A3102C2068456C /* Pods_TMSAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EF55E8E12614F3B700915D1C = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +169,8 @@
 				EF55E9062614F3B800915D1C /* TMSAppTests */,
 				EF55E9112614F3B800915D1C /* TMSAppUITests */,
 				EF55E8EB2614F3B700915D1C /* Products */,
+				0C951F4F62619BB6ECFCE94E /* Pods */,
+				6C9613166A8590390A65CC6A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,11 +187,11 @@
 		EF55E8EC2614F3B700915D1C /* TMSApp */ = {
 			isa = PBXGroup;
 			children = (
+				EF55E95B2614F69000915D1C /* Classes */,
+				EF55E9282614F4AB00915D1C /* Resource */,
+				EF55E9272614F4A000915D1C /* Scene */,
 				EF55E8ED2614F3B700915D1C /* AppDelegate.swift */,
-				EF55E8EF2614F3B700915D1C /* SceneDelegate.swift */,
 				EF55E8F12614F3B700915D1C /* ViewController.swift */,
-				EF55E8F32614F3B700915D1C /* Main.storyboard */,
-				EF55E8F92614F3B800915D1C /* Assets.xcassets */,
 				EF55E8FB2614F3B800915D1C /* LaunchScreen.storyboard */,
 				EF55E8FE2614F3B800915D1C /* Info.plist */,
 				EF55E8F62614F3B700915D1C /* TMSApp.xcdatamodeld */,
@@ -131,6 +217,78 @@
 			path = TMSAppUITests;
 			sourceTree = "<group>";
 		};
+		EF55E9272614F4A000915D1C /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				EF55E9302614F4E800915D1C /* Splash */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		EF55E9282614F4AB00915D1C /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				EF55E92A2614F4C400915D1C /* Assets */,
+				EF55E9292614F4BD00915D1C /* Fonts */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		EF55E9292614F4BD00915D1C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EF55E94C2614F5CE00915D1C /* SukhumvitSet-Bold.ttf */,
+				EF55E9502614F5CE00915D1C /* SukhumvitSet-Light.ttf */,
+				EF55E94E2614F5CE00915D1C /* SukhumvitSet-Medium.ttf */,
+				EF55E94D2614F5CE00915D1C /* SukhumvitSet-SemiBold.ttf */,
+				EF55E94F2614F5CE00915D1C /* SukhumvitSet-Text.ttf */,
+				EF55E9512614F5CE00915D1C /* SukhumvitSet-Thin.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		EF55E92A2614F4C400915D1C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				EF55E8F92614F3B800915D1C /* Assets.xcassets */,
+				EF55E92B2614F4D500915D1C /* Colors.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		EF55E9302614F4E800915D1C /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				EF55E9312614F4F900915D1C /* Splash.storyboard */,
+				EF55E93E2614F51B00915D1C /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		EF55E95B2614F69000915D1C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				EF55E95C2614F6A000915D1C /* Extensions */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		EF55E95C2614F6A000915D1C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EF55E9732614F6F000915D1C /* Notification+Extension.swift */,
+				EF55E9682614F6E300915D1C /* UIButton+Extension.swift */,
+				EF55E9652614F6E300915D1C /* UIColor+Extension.swift */,
+				EF55E9632614F6E300915D1C /* UIFont+Extension.swift */,
+				EF55E9642614F6E300915D1C /* UIImageView+Extension.swift */,
+				EF55E9622614F6E300915D1C /* UITextField+Extension.swift */,
+				EF55E9662614F6E300915D1C /* UIView+Extension.swift */,
+				EF55E9672614F6E300915D1C /* UIViewController+Extension.swift */,
+				EF55E95D2614F6D100915D1C /* UserDefaults+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,15 +296,26 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF55E9172614F3B800915D1C /* Build configuration list for PBXNativeTarget "TMSApp" */;
 			buildPhases = (
+				CC77496B0B446329150AF5F9 /* [CP] Check Pods Manifest.lock */,
 				EF55E8E62614F3B700915D1C /* Sources */,
 				EF55E8E72614F3B700915D1C /* Frameworks */,
 				EF55E8E82614F3B700915D1C /* Resources */,
+				948E1D08B963013514ABE81D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = TMSApp;
+			packageProductDependencies = (
+				EF55E9832614F81200915D1C /* NVActivityIndicatorView */,
+				EF55E9852614F81200915D1C /* NVActivityIndicatorViewExtended */,
+				EF55E98B2614F87500915D1C /* Moya */,
+				EF55E98D2614F87500915D1C /* ReactiveMoya */,
+				EF55E98F2614F87500915D1C /* RxMoya */,
+				EF55E9952614F8B600915D1C /* RadioGroup */,
+				EF55E99B2614F8DA00915D1C /* SocketIO */,
+			);
 			productName = TMSApp;
 			productReference = EF55E8EA2614F3B700915D1C /* TMSApp.app */;
 			productType = "com.apple.product-type.application";
@@ -155,6 +324,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF55E91A2614F3B800915D1C /* Build configuration list for PBXNativeTarget "TMSAppTests" */;
 			buildPhases = (
+				543406CC999B571743C0E71F /* [CP] Check Pods Manifest.lock */,
 				EF55E8FF2614F3B800915D1C /* Sources */,
 				EF55E9002614F3B800915D1C /* Frameworks */,
 				EF55E9012614F3B800915D1C /* Resources */,
@@ -173,9 +343,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF55E91D2614F3B800915D1C /* Build configuration list for PBXNativeTarget "TMSAppUITests" */;
 			buildPhases = (
+				9D032796B0327D0D57866030 /* [CP] Check Pods Manifest.lock */,
 				EF55E90A2614F3B800915D1C /* Sources */,
 				EF55E90B2614F3B800915D1C /* Frameworks */,
 				EF55E90C2614F3B800915D1C /* Resources */,
+				24502AA6404551186F61585A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -218,6 +390,12 @@
 				Base,
 			);
 			mainGroup = EF55E8E12614F3B700915D1C;
+			packageReferences = (
+				EF55E9822614F81200915D1C /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
+				EF55E98A2614F87500915D1C /* XCRemoteSwiftPackageReference "Moya" */,
+				EF55E9942614F8B600915D1C /* XCRemoteSwiftPackageReference "RadioGroup" */,
+				EF55E99A2614F8DA00915D1C /* XCRemoteSwiftPackageReference "socket" */,
+			);
 			productRefGroup = EF55E8EB2614F3B700915D1C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -235,8 +413,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF55E8FD2614F3B800915D1C /* LaunchScreen.storyboard in Resources */,
+				EF55E92C2614F4D500915D1C /* Colors.xcassets in Resources */,
+				EF55E9542614F5CE00915D1C /* SukhumvitSet-Medium.ttf in Resources */,
+				EF55E9572614F5CE00915D1C /* SukhumvitSet-Thin.ttf in Resources */,
+				EF55E9562614F5CE00915D1C /* SukhumvitSet-Light.ttf in Resources */,
 				EF55E8FA2614F3B800915D1C /* Assets.xcassets in Resources */,
-				EF55E8F52614F3B700915D1C /* Main.storyboard in Resources */,
+				EF55E9532614F5CE00915D1C /* SukhumvitSet-SemiBold.ttf in Resources */,
+				EF55E9322614F4F900915D1C /* Splash.storyboard in Resources */,
+				EF55E9522614F5CE00915D1C /* SukhumvitSet-Bold.ttf in Resources */,
+				EF55E9552614F5CE00915D1C /* SukhumvitSet-Text.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,15 +441,127 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		24502AA6404551186F61585A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TMSApp-TMSAppUITests/Pods-TMSApp-TMSAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TMSApp-TMSAppUITests/Pods-TMSApp-TMSAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TMSApp-TMSAppUITests/Pods-TMSApp-TMSAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		543406CC999B571743C0E71F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TMSAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		948E1D08B963013514ABE81D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TMSApp/Pods-TMSApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TMSApp/Pods-TMSApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TMSApp/Pods-TMSApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D032796B0327D0D57866030 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TMSApp-TMSAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC77496B0B446329150AF5F9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TMSApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EF55E8E62614F3B700915D1C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF55E96A2614F6E300915D1C /* UIFont+Extension.swift in Sources */,
+				EF55E96E2614F6E300915D1C /* UIViewController+Extension.swift in Sources */,
 				EF55E8F82614F3B700915D1C /* TMSApp.xcdatamodeld in Sources */,
+				EF55E96B2614F6E300915D1C /* UIImageView+Extension.swift in Sources */,
+				EF55E96C2614F6E300915D1C /* UIColor+Extension.swift in Sources */,
+				EF55E96F2614F6E300915D1C /* UIButton+Extension.swift in Sources */,
 				EF55E8F22614F3B700915D1C /* ViewController.swift in Sources */,
 				EF55E8EE2614F3B700915D1C /* AppDelegate.swift in Sources */,
-				EF55E8F02614F3B700915D1C /* SceneDelegate.swift in Sources */,
+				EF55E9692614F6E300915D1C /* UITextField+Extension.swift in Sources */,
+				EF55E95E2614F6D100915D1C /* UserDefaults+Extension.swift in Sources */,
+				EF55E96D2614F6E300915D1C /* UIView+Extension.swift in Sources */,
+				EF55E93F2614F51B00915D1C /* SplashViewController.swift in Sources */,
+				EF55E9742614F6F000915D1C /* Notification+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,14 +597,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EF55E8F32614F3B700915D1C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EF55E8F42614F3B700915D1C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EF55E8FB2614F3B800915D1C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -437,6 +726,7 @@
 		};
 		EF55E9182614F3B800915D1C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 829279A9B8DF7F5A348CF243 /* Pods-TMSApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -456,6 +746,7 @@
 		};
 		EF55E9192614F3B800915D1C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA81F2E0EF4C483B6A33D4F6 /* Pods-TMSApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -475,6 +766,7 @@
 		};
 		EF55E91B2614F3B800915D1C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6BE57EB110F1D5FD1D51761 /* Pods-TMSAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -497,6 +789,7 @@
 		};
 		EF55E91C2614F3B800915D1C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43E92420FA149A651E027B90 /* Pods-TMSAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -519,6 +812,7 @@
 		};
 		EF55E91E2614F3B800915D1C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A66D53FBAE5464A5C9E599A /* Pods-TMSApp-TMSAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -539,6 +833,7 @@
 		};
 		EF55E91F2614F3B800915D1C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E5F9DEA6F618170DA0F7B89 /* Pods-TMSApp-TMSAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -597,6 +892,79 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EF55E9822614F81200915D1C /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
+		EF55E98A2614F87500915D1C /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.0.1;
+			};
+		};
+		EF55E9942614F8B600915D1C /* XCRemoteSwiftPackageReference "RadioGroup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yonat/RadioGroup";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.3;
+			};
+		};
+		EF55E99A2614F8DA00915D1C /* XCRemoteSwiftPackageReference "socket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 16.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EF55E9832614F81200915D1C /* NVActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF55E9822614F81200915D1C /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorView;
+		};
+		EF55E9852614F81200915D1C /* NVActivityIndicatorViewExtended */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF55E9822614F81200915D1C /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorViewExtended;
+		};
+		EF55E98B2614F87500915D1C /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF55E98A2614F87500915D1C /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		EF55E98D2614F87500915D1C /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF55E98A2614F87500915D1C /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		EF55E98F2614F87500915D1C /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF55E98A2614F87500915D1C /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+		EF55E9952614F8B600915D1C /* RadioGroup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF55E9942614F8B600915D1C /* XCRemoteSwiftPackageReference "RadioGroup" */;
+			productName = RadioGroup;
+		};
+		EF55E99B2614F8DA00915D1C /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF55E99A2614F8DA00915D1C /* XCRemoteSwiftPackageReference "socket" */;
+			productName = SocketIO;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		EF55E8F62614F3B700915D1C /* TMSApp.xcdatamodeld */ = {
