@@ -35,13 +35,8 @@
 		EF55E96E2614F6E300915D1C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E9672614F6E300915D1C /* UIViewController+Extension.swift */; };
 		EF55E96F2614F6E300915D1C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E9682614F6E300915D1C /* UIButton+Extension.swift */; };
 		EF55E9742614F6F000915D1C /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E9732614F6F000915D1C /* Notification+Extension.swift */; };
-		EF55E9842614F81200915D1C /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = EF55E9832614F81200915D1C /* NVActivityIndicatorView */; };
-		EF55E9862614F81200915D1C /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = EF55E9852614F81200915D1C /* NVActivityIndicatorViewExtended */; };
-		EF55E98C2614F87500915D1C /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = EF55E98B2614F87500915D1C /* Moya */; };
-		EF55E98E2614F87500915D1C /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = EF55E98D2614F87500915D1C /* ReactiveMoya */; };
-		EF55E9902614F87500915D1C /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = EF55E98F2614F87500915D1C /* RxMoya */; };
-		EF55E9962614F8B600915D1C /* RadioGroup in Frameworks */ = {isa = PBXBuildFile; productRef = EF55E9952614F8B600915D1C /* RadioGroup */; };
-		EF55E99C2614F8DA00915D1C /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = EF55E99B2614F8DA00915D1C /* SocketIO */; };
+		EF5FFB1C261A1C5600C9C43B /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = EF5FFB1B261A1C5600C9C43B /* NVActivityIndicatorView */; };
+		EF5FFB1E261A1C5600C9C43B /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = EF5FFB1D261A1C5600C9C43B /* NVActivityIndicatorViewExtended */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,13 +104,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF55E9962614F8B600915D1C /* RadioGroup in Frameworks */,
-				EF55E99C2614F8DA00915D1C /* SocketIO in Frameworks */,
-				EF55E9902614F87500915D1C /* RxMoya in Frameworks */,
-				EF55E9862614F81200915D1C /* NVActivityIndicatorViewExtended in Frameworks */,
-				EF55E9842614F81200915D1C /* NVActivityIndicatorView in Frameworks */,
-				EF55E98C2614F87500915D1C /* Moya in Frameworks */,
-				EF55E98E2614F87500915D1C /* ReactiveMoya in Frameworks */,
+				EF5FFB1E261A1C5600C9C43B /* NVActivityIndicatorViewExtended in Frameworks */,
+				EF5FFB1C261A1C5600C9C43B /* NVActivityIndicatorView in Frameworks */,
 				8D115DF66119DEE986E16BA4 /* Pods_TMSApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,13 +298,8 @@
 			);
 			name = TMSApp;
 			packageProductDependencies = (
-				EF55E9832614F81200915D1C /* NVActivityIndicatorView */,
-				EF55E9852614F81200915D1C /* NVActivityIndicatorViewExtended */,
-				EF55E98B2614F87500915D1C /* Moya */,
-				EF55E98D2614F87500915D1C /* ReactiveMoya */,
-				EF55E98F2614F87500915D1C /* RxMoya */,
-				EF55E9952614F8B600915D1C /* RadioGroup */,
-				EF55E99B2614F8DA00915D1C /* SocketIO */,
+				EF5FFB1B261A1C5600C9C43B /* NVActivityIndicatorView */,
+				EF5FFB1D261A1C5600C9C43B /* NVActivityIndicatorViewExtended */,
 			);
 			productName = TMSApp;
 			productReference = EF55E8EA2614F3B700915D1C /* TMSApp.app */;
@@ -391,10 +376,7 @@
 			);
 			mainGroup = EF55E8E12614F3B700915D1C;
 			packageReferences = (
-				EF55E9822614F81200915D1C /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
-				EF55E98A2614F87500915D1C /* XCRemoteSwiftPackageReference "Moya" */,
-				EF55E9942614F8B600915D1C /* XCRemoteSwiftPackageReference "RadioGroup" */,
-				EF55E99A2614F8DA00915D1C /* XCRemoteSwiftPackageReference "socket" */,
+				EF5FFB1A261A1C5600C9C43B /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
 			);
 			productRefGroup = EF55E8EB2614F3B700915D1C /* Products */;
 			projectDirPath = "";
@@ -659,7 +641,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -714,7 +696,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -733,6 +715,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y46GLN8894;
 				INFOPLIST_FILE = TMSApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -753,6 +736,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y46GLN8894;
 				INFOPLIST_FILE = TMSApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -773,7 +757,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y46GLN8894;
 				INFOPLIST_FILE = TMSAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -796,7 +780,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y46GLN8894;
 				INFOPLIST_FILE = TMSAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -894,7 +878,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EF55E9822614F81200915D1C /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
+		EF5FFB1A261A1C5600C9C43B /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView.git";
 			requirement = {
@@ -902,67 +886,18 @@
 				minimumVersion = 5.1.1;
 			};
 		};
-		EF55E98A2614F87500915D1C /* XCRemoteSwiftPackageReference "Moya" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Moya/Moya.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 14.0.1;
-			};
-		};
-		EF55E9942614F8B600915D1C /* XCRemoteSwiftPackageReference "RadioGroup" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/yonat/RadioGroup";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.4.3;
-			};
-		};
-		EF55E99A2614F8DA00915D1C /* XCRemoteSwiftPackageReference "socket" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 16.0.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EF55E9832614F81200915D1C /* NVActivityIndicatorView */ = {
+		EF5FFB1B261A1C5600C9C43B /* NVActivityIndicatorView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EF55E9822614F81200915D1C /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			package = EF5FFB1A261A1C5600C9C43B /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
 			productName = NVActivityIndicatorView;
 		};
-		EF55E9852614F81200915D1C /* NVActivityIndicatorViewExtended */ = {
+		EF5FFB1D261A1C5600C9C43B /* NVActivityIndicatorViewExtended */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EF55E9822614F81200915D1C /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			package = EF5FFB1A261A1C5600C9C43B /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
 			productName = NVActivityIndicatorViewExtended;
-		};
-		EF55E98B2614F87500915D1C /* Moya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EF55E98A2614F87500915D1C /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = Moya;
-		};
-		EF55E98D2614F87500915D1C /* ReactiveMoya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EF55E98A2614F87500915D1C /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = ReactiveMoya;
-		};
-		EF55E98F2614F87500915D1C /* RxMoya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EF55E98A2614F87500915D1C /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = RxMoya;
-		};
-		EF55E9952614F8B600915D1C /* RadioGroup */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EF55E9942614F8B600915D1C /* XCRemoteSwiftPackageReference "RadioGroup" */;
-			productName = RadioGroup;
-		};
-		EF55E99B2614F8DA00915D1C /* SocketIO */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EF55E99A2614F8DA00915D1C /* XCRemoteSwiftPackageReference "socket" */;
-			productName = SocketIO;
 		};
 /* End XCSwiftPackageProductDependency section */
 

@@ -8,7 +8,8 @@
 import UIKit
 import CoreData
 
-@main
+//@main
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
