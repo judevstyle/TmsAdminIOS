@@ -11,13 +11,11 @@
 		4D346C5FA69DDB6D6396EADE /* Pods_TMSAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20480C8FB5A3102C2068456C /* Pods_TMSAppTests.framework */; };
 		8D115DF66119DEE986E16BA4 /* Pods_TMSApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40276A60BDA1976017E50C87 /* Pods_TMSApp.framework */; };
 		EF55E8EE2614F3B700915D1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E8ED2614F3B700915D1C /* AppDelegate.swift */; };
-		EF55E8F22614F3B700915D1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E8F12614F3B700915D1C /* ViewController.swift */; };
 		EF55E8F82614F3B700915D1C /* TMSApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF55E8F62614F3B700915D1C /* TMSApp.xcdatamodeld */; };
 		EF55E8FA2614F3B800915D1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF55E8F92614F3B800915D1C /* Assets.xcassets */; };
 		EF55E8FD2614F3B800915D1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF55E8FB2614F3B800915D1C /* LaunchScreen.storyboard */; };
 		EF55E9082614F3B800915D1C /* TMSAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E9072614F3B800915D1C /* TMSAppTests.swift */; };
 		EF55E9132614F3B800915D1C /* TMSAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E9122614F3B800915D1C /* TMSAppUITests.swift */; };
-		EF55E92C2614F4D500915D1C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF55E92B2614F4D500915D1C /* Colors.xcassets */; };
 		EF55E9322614F4F900915D1C /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF55E9312614F4F900915D1C /* Splash.storyboard */; };
 		EF55E93F2614F51B00915D1C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E93E2614F51B00915D1C /* SplashViewController.swift */; };
 		EF55E9522614F5CE00915D1C /* SukhumvitSet-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF55E94C2614F5CE00915D1C /* SukhumvitSet-Bold.ttf */; };
@@ -35,6 +33,22 @@
 		EF55E96E2614F6E300915D1C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E9672614F6E300915D1C /* UIViewController+Extension.swift */; };
 		EF55E96F2614F6E300915D1C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E9682614F6E300915D1C /* UIButton+Extension.swift */; };
 		EF55E9742614F6F000915D1C /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E9732614F6F000915D1C /* Notification+Extension.swift */; };
+		EF5E7290264EDBB500F5EE47 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5E728F264EDBB500F5EE47 /* LoginViewController.swift */; };
+		EF5E7295264EDBBC00F5EE47 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF5E7294264EDBBC00F5EE47 /* Login.storyboard */; };
+		EF5E729E264EE73800F5EE47 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5E729D264EE73800F5EE47 /* NavigationManager.swift */; };
+		EF5E72A8264EED7B00F5EE47 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5E72A7264EED7B00F5EE47 /* MainTabBarViewController.swift */; };
+		EF5E72B2264EEED000F5EE47 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5E72B1264EEED000F5EE47 /* MainViewController.swift */; };
+		EF5E72BA264EEED800F5EE47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF5E72B9264EEED800F5EE47 /* Main.storyboard */; };
+		EF5E72BF264EF05E00F5EE47 /* MainTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF5E72BE264EF05E00F5EE47 /* MainTabBar.storyboard */; };
+		EF5E72C5264EF93700F5EE47 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5E72C4264EF93700F5EE47 /* DateFormatter.swift */; };
+		EF5E72D4264EFEAA00F5EE47 /* Shipment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF5E72D3264EFEAA00F5EE47 /* Shipment.storyboard */; };
+		EF5E72D9264EFEB000F5EE47 /* ShipmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5E72D8264EFEB000F5EE47 /* ShipmentViewController.swift */; };
+		EF5E72DE264EFECC00F5EE47 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF5E72DD264EFECC00F5EE47 /* Order.storyboard */; };
+		EF5E72E3264EFED300F5EE47 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5E72E2264EFED300F5EE47 /* OrderViewController.swift */; };
+		EF5E72E8264EFEFA00F5EE47 /* Appeal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF5E72E7264EFEFA00F5EE47 /* Appeal.storyboard */; };
+		EF5E72ED264EFF0200F5EE47 /* AppealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5E72EC264EFF0200F5EE47 /* AppealViewController.swift */; };
+		EF5E72F2264EFF1E00F5EE47 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF5E72F1264EFF1E00F5EE47 /* Menu.storyboard */; };
+		EF5E72F7264EFF2700F5EE47 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5E72F6264EFF2700F5EE47 /* MenuViewController.swift */; };
 		EF5FFB1C261A1C5600C9C43B /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = EF5FFB1B261A1C5600C9C43B /* NVActivityIndicatorView */; };
 		EF5FFB1E261A1C5600C9C43B /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = EF5FFB1D261A1C5600C9C43B /* NVActivityIndicatorViewExtended */; };
 /* End PBXBuildFile section */
@@ -68,7 +82,6 @@
 		DA81F2E0EF4C483B6A33D4F6 /* Pods-TMSApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMSApp.release.xcconfig"; path = "Target Support Files/Pods-TMSApp/Pods-TMSApp.release.xcconfig"; sourceTree = "<group>"; };
 		EF55E8EA2614F3B700915D1C /* TMSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF55E8ED2614F3B700915D1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EF55E8F12614F3B700915D1C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EF55E8F72614F3B700915D1C /* TMSApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMSApp.xcdatamodel; sourceTree = "<group>"; };
 		EF55E8F92614F3B800915D1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF55E8FC2614F3B800915D1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,7 +92,6 @@
 		EF55E90E2614F3B800915D1C /* TMSAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMSAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF55E9122614F3B800915D1C /* TMSAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSAppUITests.swift; sourceTree = "<group>"; };
 		EF55E9142614F3B800915D1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EF55E92B2614F4D500915D1C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		EF55E9312614F4F900915D1C /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		EF55E93E2614F51B00915D1C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		EF55E94C2614F5CE00915D1C /* SukhumvitSet-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SukhumvitSet-Bold.ttf"; sourceTree = "<group>"; };
@@ -97,6 +109,22 @@
 		EF55E9672614F6E300915D1C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		EF55E9682614F6E300915D1C /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		EF55E9732614F6F000915D1C /* Notification+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
+		EF5E728F264EDBB500F5EE47 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EF5E7294264EDBBC00F5EE47 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		EF5E729D264EE73800F5EE47 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		EF5E72A7264EED7B00F5EE47 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		EF5E72B1264EEED000F5EE47 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		EF5E72B9264EEED800F5EE47 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		EF5E72BE264EF05E00F5EE47 /* MainTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBar.storyboard; sourceTree = "<group>"; };
+		EF5E72C4264EF93700F5EE47 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		EF5E72D3264EFEAA00F5EE47 /* Shipment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shipment.storyboard; sourceTree = "<group>"; };
+		EF5E72D8264EFEB000F5EE47 /* ShipmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentViewController.swift; sourceTree = "<group>"; };
+		EF5E72DD264EFECC00F5EE47 /* Order.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
+		EF5E72E2264EFED300F5EE47 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		EF5E72E7264EFEFA00F5EE47 /* Appeal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Appeal.storyboard; sourceTree = "<group>"; };
+		EF5E72EC264EFF0200F5EE47 /* AppealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppealViewController.swift; sourceTree = "<group>"; };
+		EF5E72F1264EFF1E00F5EE47 /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
+		EF5E72F6264EFF2700F5EE47 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,11 +205,12 @@
 		EF55E8EC2614F3B700915D1C /* TMSApp */ = {
 			isa = PBXGroup;
 			children = (
+				EF5E72C3264EF90900F5EE47 /* Utility */,
+				EF5E729C264EE71700F5EE47 /* Helpers */,
 				EF55E95B2614F69000915D1C /* Classes */,
 				EF55E9282614F4AB00915D1C /* Resource */,
 				EF55E9272614F4A000915D1C /* Scene */,
 				EF55E8ED2614F3B700915D1C /* AppDelegate.swift */,
-				EF55E8F12614F3B700915D1C /* ViewController.swift */,
 				EF55E8FB2614F3B800915D1C /* LaunchScreen.storyboard */,
 				EF55E8FE2614F3B800915D1C /* Info.plist */,
 				EF55E8F62614F3B700915D1C /* TMSApp.xcdatamodeld */,
@@ -210,6 +239,8 @@
 		EF55E9272614F4A000915D1C /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				EF5E72A5264EED1400F5EE47 /* Main */,
+				EF5E728D264EDB9E00F5EE47 /* Login */,
 				EF55E9302614F4E800915D1C /* Splash */,
 			);
 			path = Scene;
@@ -241,7 +272,6 @@
 			isa = PBXGroup;
 			children = (
 				EF55E8F92614F3B800915D1C /* Assets.xcassets */,
-				EF55E92B2614F4D500915D1C /* Colors.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -277,6 +307,106 @@
 				EF55E95D2614F6D100915D1C /* UserDefaults+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EF5E728D264EDB9E00F5EE47 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EF5E728F264EDBB500F5EE47 /* LoginViewController.swift */,
+				EF5E7294264EDBBC00F5EE47 /* Login.storyboard */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		EF5E729C264EE71700F5EE47 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EF5E729D264EE73800F5EE47 /* NavigationManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		EF5E72A5264EED1400F5EE47 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				EF5E72AF264EEEB700F5EE47 /* Views */,
+				EF5E72A6264EED5700F5EE47 /* MainTabBar */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		EF5E72A6264EED5700F5EE47 /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				EF5E72A7264EED7B00F5EE47 /* MainTabBarViewController.swift */,
+				EF5E72BE264EF05E00F5EE47 /* MainTabBar.storyboard */,
+			);
+			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		EF5E72AF264EEEB700F5EE47 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EF5E72CF264EFE8A00F5EE47 /* Menu */,
+				EF5E72CE264EFE7B00F5EE47 /* Appeal */,
+				EF5E72CD264EFE3D00F5EE47 /* Order */,
+				EF5E72CC264EFE3500F5EE47 /* Shipment */,
+				EF5E72B0264EEEC100F5EE47 /* Main */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EF5E72B0264EEEC100F5EE47 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				EF5E72B1264EEED000F5EE47 /* MainViewController.swift */,
+				EF5E72B9264EEED800F5EE47 /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		EF5E72C3264EF90900F5EE47 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				EF5E72C4264EF93700F5EE47 /* DateFormatter.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		EF5E72CC264EFE3500F5EE47 /* Shipment */ = {
+			isa = PBXGroup;
+			children = (
+				EF5E72D3264EFEAA00F5EE47 /* Shipment.storyboard */,
+				EF5E72D8264EFEB000F5EE47 /* ShipmentViewController.swift */,
+			);
+			path = Shipment;
+			sourceTree = "<group>";
+		};
+		EF5E72CD264EFE3D00F5EE47 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				EF5E72DD264EFECC00F5EE47 /* Order.storyboard */,
+				EF5E72E2264EFED300F5EE47 /* OrderViewController.swift */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		EF5E72CE264EFE7B00F5EE47 /* Appeal */ = {
+			isa = PBXGroup;
+			children = (
+				EF5E72E7264EFEFA00F5EE47 /* Appeal.storyboard */,
+				EF5E72EC264EFF0200F5EE47 /* AppealViewController.swift */,
+			);
+			path = Appeal;
+			sourceTree = "<group>";
+		};
+		EF5E72CF264EFE8A00F5EE47 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				EF5E72F1264EFF1E00F5EE47 /* Menu.storyboard */,
+				EF5E72F6264EFF2700F5EE47 /* MenuViewController.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,15 +525,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF55E8FD2614F3B800915D1C /* LaunchScreen.storyboard in Resources */,
-				EF55E92C2614F4D500915D1C /* Colors.xcassets in Resources */,
 				EF55E9542614F5CE00915D1C /* SukhumvitSet-Medium.ttf in Resources */,
 				EF55E9572614F5CE00915D1C /* SukhumvitSet-Thin.ttf in Resources */,
 				EF55E9562614F5CE00915D1C /* SukhumvitSet-Light.ttf in Resources */,
 				EF55E8FA2614F3B800915D1C /* Assets.xcassets in Resources */,
+				EF5E72BA264EEED800F5EE47 /* Main.storyboard in Resources */,
 				EF55E9532614F5CE00915D1C /* SukhumvitSet-SemiBold.ttf in Resources */,
 				EF55E9322614F4F900915D1C /* Splash.storyboard in Resources */,
 				EF55E9522614F5CE00915D1C /* SukhumvitSet-Bold.ttf in Resources */,
+				EF5E72E8264EFEFA00F5EE47 /* Appeal.storyboard in Resources */,
+				EF5E72BF264EF05E00F5EE47 /* MainTabBar.storyboard in Resources */,
+				EF5E72F2264EFF1E00F5EE47 /* Menu.storyboard in Resources */,
+				EF5E7295264EDBBC00F5EE47 /* Login.storyboard in Resources */,
+				EF5E72DE264EFECC00F5EE47 /* Order.storyboard in Resources */,
 				EF55E9552614F5CE00915D1C /* SukhumvitSet-Text.ttf in Resources */,
+				EF5E72D4264EFEAA00F5EE47 /* Shipment.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,15 +667,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF5E72D9264EFEB000F5EE47 /* ShipmentViewController.swift in Sources */,
+				EF5E72A8264EED7B00F5EE47 /* MainTabBarViewController.swift in Sources */,
+				EF5E7290264EDBB500F5EE47 /* LoginViewController.swift in Sources */,
 				EF55E96A2614F6E300915D1C /* UIFont+Extension.swift in Sources */,
 				EF55E96E2614F6E300915D1C /* UIViewController+Extension.swift in Sources */,
 				EF55E8F82614F3B700915D1C /* TMSApp.xcdatamodeld in Sources */,
 				EF55E96B2614F6E300915D1C /* UIImageView+Extension.swift in Sources */,
 				EF55E96C2614F6E300915D1C /* UIColor+Extension.swift in Sources */,
+				EF5E72C5264EF93700F5EE47 /* DateFormatter.swift in Sources */,
+				EF5E72B2264EEED000F5EE47 /* MainViewController.swift in Sources */,
+				EF5E72F7264EFF2700F5EE47 /* MenuViewController.swift in Sources */,
+				EF5E72E3264EFED300F5EE47 /* OrderViewController.swift in Sources */,
+				EF5E72ED264EFF0200F5EE47 /* AppealViewController.swift in Sources */,
 				EF55E96F2614F6E300915D1C /* UIButton+Extension.swift in Sources */,
-				EF55E8F22614F3B700915D1C /* ViewController.swift in Sources */,
 				EF55E8EE2614F3B700915D1C /* AppDelegate.swift in Sources */,
 				EF55E9692614F6E300915D1C /* UITextField+Extension.swift in Sources */,
+				EF5E729E264EE73800F5EE47 /* NavigationManager.swift in Sources */,
 				EF55E95E2614F6D100915D1C /* UserDefaults+Extension.swift in Sources */,
 				EF55E96D2614F6E300915D1C /* UIView+Extension.swift in Sources */,
 				EF55E93F2614F51B00915D1C /* SplashViewController.swift in Sources */,
