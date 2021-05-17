@@ -39,8 +39,10 @@ extension UIViewController {
 extension UIViewController: NVActivityIndicatorViewable {
     
     func startLoding() {
-        let size = CGSize(width: 70.0, height: 70.0)
-        startAnimating(size, message: "", type: .ballScaleMultiple,color: .whiteAlpha(alpha: 0.7), backgroundColor: .blackAlpha(alpha: 0.3), textColor: .white, fadeInAnimation: nil)
+//        let size = CGSize(width: 70.0, height: 70.0)
+//        startAnimating(size, message: "", type: .ballScaleMultiple,color: .whiteAlpha(alpha: 0.7), backgroundColor: .blackAlpha(alpha: 0.1), textColor: .white, fadeInAnimation: nil)
+        let size = CGSize(width: 35.0, height: 35.0)
+        startAnimating(size, message: "", type: .circleStrokeSpin, color: UIColor.Primary, backgroundColor: .blackAlpha(alpha: 0.1), textColor: .white, fadeInAnimation: nil)
     }
     
     func stopLoding() {

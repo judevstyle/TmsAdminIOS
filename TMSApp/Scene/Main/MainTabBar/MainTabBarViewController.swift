@@ -25,13 +25,13 @@ class MainTabBarViewController: UITabBarController {
         
         let homeController = tabBarNavigation(unselectImage: UIImage(named: "home"), selectImage: UIImage(named: "home"), title: "หน้าหลัก", badgeValue: nil, navigationTitle: "Dashboard ประจำวันที่ \(Date().dateFormattedEn_US)", navigationOpeningSender: .main)
         
-        let shipmentController = tabBarNavigation(unselectImage: UIImage(named: "delivery"), selectImage: UIImage(named: "delivery"), title: "การทำงาน", badgeValue: nil, navigationTitle: "Shipment", navigationOpeningSender: .shipment)
+        let shipmentController = tabBarNavigation(unselectImage: UIImage(named: "delivery"), selectImage: UIImage(named: "delivery"), title: "ทำงาน", badgeValue: nil, navigationTitle: "Shipment", navigationOpeningSender: .shipment)
         
-        let orderController = tabBarNavigation(unselectImage: UIImage(named: "package"), selectImage: UIImage(named: "package"), title: "การสั่งซื้อ", badgeValue: nil, navigationTitle: "Order", navigationOpeningSender: .order)
+        let orderController = tabBarNavigation(unselectImage: UIImage(named: "package"), selectImage: UIImage(named: "package"), title: "สั่งซื้อ", badgeValue: nil, navigationTitle: "Order", navigationOpeningSender: .order)
         
         let appealController = tabBarNavigation(unselectImage: UIImage(named: "rating"), selectImage: UIImage(named: "rating"), title: "ร้องเรียน", badgeValue: nil, navigationTitle: "Order", navigationOpeningSender: .appeal)
         
-        let menuController = tabBarNavigation(unselectImage: UIImage(named: "menu"), selectImage: UIImage(named: "menu"), title: "เมนูเพิ่มเติม", badgeValue: nil, navigationTitle: "Menu", navigationOpeningSender: .menu)
+        let menuController = tabBarNavigation(unselectImage: UIImage(named: "menu"), selectImage: UIImage(named: "menu"), title: "เพิ่มเติม", badgeValue: nil, navigationTitle: "Menu", navigationOpeningSender: .menu)
         
         viewControllers = [homeController, shipmentController, orderController, appealController, menuController]
     }

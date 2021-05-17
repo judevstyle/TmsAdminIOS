@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,9 +17,24 @@
                     <view key="view" contentMode="scaleToFill" id="8e3-rS-Ufd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GYX-6x-iuH">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="D8c-oL-LFG"/>
                         <color key="backgroundColor" name="PrimaryBG"/>
+                        <constraints>
+                            <constraint firstItem="GYX-6x-iuH" firstAttribute="leading" secondItem="D8c-oL-LFG" secondAttribute="leading" id="FUF-RF-P7t"/>
+                            <constraint firstItem="GYX-6x-iuH" firstAttribute="top" secondItem="D8c-oL-LFG" secondAttribute="top" id="hWT-i5-Mtf"/>
+                            <constraint firstItem="D8c-oL-LFG" firstAttribute="bottom" secondItem="GYX-6x-iuH" secondAttribute="bottom" id="ifU-7y-7an"/>
+                            <constraint firstItem="D8c-oL-LFG" firstAttribute="trailing" secondItem="GYX-6x-iuH" secondAttribute="trailing" id="xde-BX-oCg"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="GYX-6x-iuH" id="Sbh-6m-BpW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gkl-4P-TgJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -29,5 +45,8 @@
         <namedColor name="PrimaryBG">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
