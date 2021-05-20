@@ -58,7 +58,7 @@ class MenuViewModel: MenuProtocol, MenuProtocolOutput {
         menuViewController.startLoding()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
             guard let weakSelf = self else { return }
-            for _ in 0..<30 {
+            for _ in 0..<7 {
                 weakSelf.listMenu?.append(GetMenuResponse(title: "", image: ""))
             }
 

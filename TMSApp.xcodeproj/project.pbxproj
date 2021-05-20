@@ -10,6 +10,18 @@
 		43C02A52D78B77370A2AEE77 /* Pods_TMSApp_TMSAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CD1BD90AFB294103F69E86C /* Pods_TMSApp_TMSAppUITests.framework */; };
 		4D346C5FA69DDB6D6396EADE /* Pods_TMSAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20480C8FB5A3102C2068456C /* Pods_TMSAppTests.framework */; };
 		8D115DF66119DEE986E16BA4 /* Pods_TMSApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40276A60BDA1976017E50C87 /* Pods_TMSApp.framework */; };
+		EF0EA6832653763300148157 /* AppealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA6822653763300148157 /* AppealViewModel.swift */; };
+		EF0EA68B265376B800148157 /* GetAppealResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA68A265376B800148157 /* GetAppealResponse.swift */; };
+		EF0EA691265376CC00148157 /* GetAppealRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA690265376CC00148157 /* GetAppealRequest.swift */; };
+		EF0EA6982653774000148157 /* AppealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA6962653774000148157 /* AppealTableViewCell.swift */; };
+		EF0EA6992653774000148157 /* AppealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF0EA6972653774000148157 /* AppealTableViewCell.xib */; };
+		EF0EA82E2653C2F800148157 /* ShipmentDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF0EA82D2653C2F800148157 /* ShipmentDetail.storyboard */; };
+		EF0EA8332653C30900148157 /* ShipmentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA8322653C30900148157 /* ShipmentDetailViewController.swift */; };
+		EF0EA83E26541E6A00148157 /* ShipmentDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA83D26541E6A00148157 /* ShipmentDetailViewModel.swift */; };
+		EF0EA8442654224800148157 /* HeaderShipmentDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA8432654224800148157 /* HeaderShipmentDetailTableViewCell.swift */; };
+		EF0EA853265422DA00148157 /* DeliveryShipmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA851265422DA00148157 /* DeliveryShipmentTableViewCell.swift */; };
+		EF0EA854265422DA00148157 /* DeliveryShipmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF0EA852265422DA00148157 /* DeliveryShipmentTableViewCell.xib */; };
+		EF0EA863265429BC00148157 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EF0EA862265429BC00148157 /* SnapKit */; };
 		EF2D2CD92650EEEC0096F757 /* GetOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D2CD82650EEEC0096F757 /* GetOrderResponse.swift */; };
 		EF2D2CDE2650EEF40096F757 /* GetOrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D2CDD2650EEF40096F757 /* GetOrderRequest.swift */; };
 		EF2D2CE32650EF070096F757 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D2CE22650EF070096F757 /* OrderViewModel.swift */; };
@@ -19,6 +31,14 @@
 		EF2D2CF626518FCF0096F757 /* MenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF2D2CF426518FCF0096F757 /* MenuCollectionViewCell.xib */; };
 		EF2D2CFB265190040096F757 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D2CFA265190040096F757 /* MenuViewModel.swift */; };
 		EF2D2D022651909E0096F757 /* GetMenuResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D2D012651909E0096F757 /* GetMenuResponse.swift */; };
+		EF44C5F22656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF44C5F02656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.swift */; };
+		EF44C5F32656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF44C5F12656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.xib */; };
+		EF44C5FD2656BEC50014F0D0 /* CustomerShipmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF44C5FB2656BEC50014F0D0 /* CustomerShipmentTableViewCell.swift */; };
+		EF44C5FE2656BEC50014F0D0 /* CustomerShipmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF44C5FC2656BEC50014F0D0 /* CustomerShipmentTableViewCell.xib */; };
+		EF44C6062656CADB0014F0D0 /* ShipmentMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF44C6052656CADB0014F0D0 /* ShipmentMap.storyboard */; };
+		EF44C60B2656CAF10014F0D0 /* ShipmentMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF44C60A2656CAF10014F0D0 /* ShipmentMapViewController.swift */; };
+		EF44C61B2656DF040014F0D0 /* MarkerMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF44C61A2656DF040014F0D0 /* MarkerMapView.swift */; };
+		EF44C6232656DF120014F0D0 /* MarkerMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF44C6222656DF120014F0D0 /* MarkerMapView.xib */; };
 		EF55E8EE2614F3B700915D1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E8ED2614F3B700915D1C /* AppDelegate.swift */; };
 		EF55E8F82614F3B700915D1C /* TMSApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF55E8F62614F3B700915D1C /* TMSApp.xcdatamodeld */; };
 		EF55E8FA2614F3B800915D1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF55E8F92614F3B800915D1C /* Assets.xcassets */; };
@@ -42,7 +62,7 @@
 		EF55E96E2614F6E300915D1C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E9672614F6E300915D1C /* UIViewController+Extension.swift */; };
 		EF55E96F2614F6E300915D1C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E9682614F6E300915D1C /* UIButton+Extension.swift */; };
 		EF55E9742614F6F000915D1C /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55E9732614F6F000915D1C /* Notification+Extension.swift */; };
-		EF590A0126502CAF007248B4 /* ShipmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF590A0026502CAF007248B4 /* ShipmentViewModel.swift */; };
+		EF590A0126502CAF007248B4 /* ShipmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF590A0026502CAF007248B4 /* ShipmentViewModel.swift */; };
 		EF590A0826502DE7007248B4 /* GetShipmentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF590A0726502DE7007248B4 /* GetShipmentRequest.swift */; };
 		EF590A0E26502E1A007248B4 /* GetShipmentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF590A0D26502E1A007248B4 /* GetShipmentResponse.swift */; };
 		EF590A1426502F13007248B4 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EF590A1326502F13007248B4 /* RxSwift */; };
@@ -95,6 +115,17 @@
 		829279A9B8DF7F5A348CF243 /* Pods-TMSApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMSApp.debug.xcconfig"; path = "Target Support Files/Pods-TMSApp/Pods-TMSApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B6BE57EB110F1D5FD1D51761 /* Pods-TMSAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMSAppTests.debug.xcconfig"; path = "Target Support Files/Pods-TMSAppTests/Pods-TMSAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DA81F2E0EF4C483B6A33D4F6 /* Pods-TMSApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMSApp.release.xcconfig"; path = "Target Support Files/Pods-TMSApp/Pods-TMSApp.release.xcconfig"; sourceTree = "<group>"; };
+		EF0EA6822653763300148157 /* AppealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppealViewModel.swift; sourceTree = "<group>"; };
+		EF0EA68A265376B800148157 /* GetAppealResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppealResponse.swift; sourceTree = "<group>"; };
+		EF0EA690265376CC00148157 /* GetAppealRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppealRequest.swift; sourceTree = "<group>"; };
+		EF0EA6962653774000148157 /* AppealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppealTableViewCell.swift; sourceTree = "<group>"; };
+		EF0EA6972653774000148157 /* AppealTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppealTableViewCell.xib; sourceTree = "<group>"; };
+		EF0EA82D2653C2F800148157 /* ShipmentDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShipmentDetail.storyboard; sourceTree = "<group>"; };
+		EF0EA8322653C30900148157 /* ShipmentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentDetailViewController.swift; sourceTree = "<group>"; };
+		EF0EA83D26541E6A00148157 /* ShipmentDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentDetailViewModel.swift; sourceTree = "<group>"; };
+		EF0EA8432654224800148157 /* HeaderShipmentDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderShipmentDetailTableViewCell.swift; sourceTree = "<group>"; };
+		EF0EA851265422DA00148157 /* DeliveryShipmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryShipmentTableViewCell.swift; sourceTree = "<group>"; };
+		EF0EA852265422DA00148157 /* DeliveryShipmentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryShipmentTableViewCell.xib; sourceTree = "<group>"; };
 		EF2D2CD82650EEEC0096F757 /* GetOrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOrderResponse.swift; sourceTree = "<group>"; };
 		EF2D2CDD2650EEF40096F757 /* GetOrderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOrderRequest.swift; sourceTree = "<group>"; };
 		EF2D2CE22650EF070096F757 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
@@ -104,6 +135,14 @@
 		EF2D2CF426518FCF0096F757 /* MenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCollectionViewCell.xib; sourceTree = "<group>"; };
 		EF2D2CFA265190040096F757 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		EF2D2D012651909E0096F757 /* GetMenuResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMenuResponse.swift; sourceTree = "<group>"; };
+		EF44C5F02656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeShipmentTableViewCell.swift; sourceTree = "<group>"; };
+		EF44C5F12656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeShipmentTableViewCell.xib; sourceTree = "<group>"; };
+		EF44C5FB2656BEC50014F0D0 /* CustomerShipmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerShipmentTableViewCell.swift; sourceTree = "<group>"; };
+		EF44C5FC2656BEC50014F0D0 /* CustomerShipmentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerShipmentTableViewCell.xib; sourceTree = "<group>"; };
+		EF44C6052656CADB0014F0D0 /* ShipmentMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShipmentMap.storyboard; sourceTree = "<group>"; };
+		EF44C60A2656CAF10014F0D0 /* ShipmentMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentMapViewController.swift; sourceTree = "<group>"; };
+		EF44C61A2656DF040014F0D0 /* MarkerMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerMapView.swift; sourceTree = "<group>"; };
+		EF44C6222656DF120014F0D0 /* MarkerMapView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarkerMapView.xib; sourceTree = "<group>"; };
 		EF55E8EA2614F3B700915D1C /* TMSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF55E8ED2614F3B700915D1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF55E8F72614F3B700915D1C /* TMSApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMSApp.xcdatamodel; sourceTree = "<group>"; };
@@ -133,7 +172,7 @@
 		EF55E9672614F6E300915D1C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		EF55E9682614F6E300915D1C /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		EF55E9732614F6F000915D1C /* Notification+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
-		EF590A0026502CAF007248B4 /* ShipmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShipmentView\U0010Model.swift"; sourceTree = "<group>"; };
+		EF590A0026502CAF007248B4 /* ShipmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentViewModel.swift; sourceTree = "<group>"; };
 		EF590A0726502DE7007248B4 /* GetShipmentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShipmentRequest.swift; sourceTree = "<group>"; };
 		EF590A0D26502E1A007248B4 /* GetShipmentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShipmentResponse.swift; sourceTree = "<group>"; };
 		EF590A19265033A5007248B4 /* ShipmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentTableViewCell.swift; sourceTree = "<group>"; };
@@ -165,6 +204,7 @@
 				EF5FFB1C261A1C5600C9C43B /* NVActivityIndicatorView in Frameworks */,
 				EF590A1426502F13007248B4 /* RxSwift in Frameworks */,
 				8D115DF66119DEE986E16BA4 /* Pods_TMSApp.framework in Frameworks */,
+				EF0EA863265429BC00148157 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +248,129 @@
 				20480C8FB5A3102C2068456C /* Pods_TMSAppTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF0EA6802653761600148157 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EF0EA6952653772B00148157 /* AppealTableViewCell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EF0EA6812653761D00148157 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EF0EA6822653763300148157 /* AppealViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EF0EA6872653769600148157 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EF0EA688265376A400148157 /* GetAppeal */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EF0EA688265376A400148157 /* GetAppeal */ = {
+			isa = PBXGroup;
+			children = (
+				EF0EA68F265376BE00148157 /* Request */,
+				EF0EA689265376AC00148157 /* Response */,
+			);
+			path = GetAppeal;
+			sourceTree = "<group>";
+		};
+		EF0EA689265376AC00148157 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				EF0EA68A265376B800148157 /* GetAppealResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		EF0EA68F265376BE00148157 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				EF0EA690265376CC00148157 /* GetAppealRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		EF0EA6952653772B00148157 /* AppealTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				EF0EA6962653774000148157 /* AppealTableViewCell.swift */,
+				EF0EA6972653774000148157 /* AppealTableViewCell.xib */,
+			);
+			path = AppealTableViewCell;
+			sourceTree = "<group>";
+		};
+		EF0EA82B2653C2C700148157 /* ShipmentDetail */ = {
+			isa = PBXGroup;
+			children = (
+				EF0EA8392653C31800148157 /* Model */,
+				EF0EA8382653C31200148157 /* ViewModel */,
+				EF0EA8372653C30D00148157 /* View */,
+				EF0EA82D2653C2F800148157 /* ShipmentDetail.storyboard */,
+				EF0EA8322653C30900148157 /* ShipmentDetailViewController.swift */,
+			);
+			path = ShipmentDetail;
+			sourceTree = "<group>";
+		};
+		EF0EA82C2653C2E400148157 /* ShipmentMap */ = {
+			isa = PBXGroup;
+			children = (
+				EF44C6182656DED90014F0D0 /* View */,
+				EF44C6052656CADB0014F0D0 /* ShipmentMap.storyboard */,
+				EF44C60A2656CAF10014F0D0 /* ShipmentMapViewController.swift */,
+			);
+			path = ShipmentMap;
+			sourceTree = "<group>";
+		};
+		EF0EA8372653C30D00148157 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EF44C5FA2656BEAE0014F0D0 /* CustomerShipmentTableViewCell */,
+				EF44C5EF2656BA780014F0D0 /* EmployeeShipmentTableViewCell */,
+				EF0EA850265422B200148157 /* DeliveryShipmentTableViewCell */,
+				EF0EA8422654221600148157 /* HeaderShipmentDetailTableViewCell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EF0EA8382653C31200148157 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EF0EA83D26541E6A00148157 /* ShipmentDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EF0EA8392653C31800148157 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EF0EA8422654221600148157 /* HeaderShipmentDetailTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				EF0EA8432654224800148157 /* HeaderShipmentDetailTableViewCell.swift */,
+			);
+			path = HeaderShipmentDetailTableViewCell;
+			sourceTree = "<group>";
+		};
+		EF0EA850265422B200148157 /* DeliveryShipmentTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				EF0EA851265422DA00148157 /* DeliveryShipmentTableViewCell.swift */,
+				EF0EA852265422DA00148157 /* DeliveryShipmentTableViewCell.xib */,
+			);
+			path = DeliveryShipmentTableViewCell;
 			sourceTree = "<group>";
 		};
 		EF2D2CD22650EEA80096F757 /* View */ = {
@@ -315,6 +478,41 @@
 				EF2D2D012651909E0096F757 /* GetMenuResponse.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		EF44C5EF2656BA780014F0D0 /* EmployeeShipmentTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				EF44C5F02656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.swift */,
+				EF44C5F12656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.xib */,
+			);
+			path = EmployeeShipmentTableViewCell;
+			sourceTree = "<group>";
+		};
+		EF44C5FA2656BEAE0014F0D0 /* CustomerShipmentTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				EF44C5FB2656BEC50014F0D0 /* CustomerShipmentTableViewCell.swift */,
+				EF44C5FC2656BEC50014F0D0 /* CustomerShipmentTableViewCell.xib */,
+			);
+			path = CustomerShipmentTableViewCell;
+			sourceTree = "<group>";
+		};
+		EF44C6182656DED90014F0D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EF44C6192656DEDD0014F0D0 /* MarkerMapCustom */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EF44C6192656DEDD0014F0D0 /* MarkerMapCustom */ = {
+			isa = PBXGroup;
+			children = (
+				EF44C61A2656DF040014F0D0 /* MarkerMapView.swift */,
+				EF44C6222656DF120014F0D0 /* MarkerMapView.xib */,
+			);
+			path = MarkerMapCustom;
 			sourceTree = "<group>";
 		};
 		EF55E8E12614F3B700915D1C = {
@@ -457,7 +655,7 @@
 		EF5909FA26502B61007248B4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				EF590A0026502CAF007248B4 /* ShipmentViewModel.swift */,
+				EF590A0026502CAF007248B4 /* ShipmentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -473,6 +671,8 @@
 		EF5909FC26502B85007248B4 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				EF0EA82C2653C2E400148157 /* ShipmentMap */,
+				EF0EA82B2653C2C700148157 /* ShipmentDetail */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -603,6 +803,9 @@
 		EF5E72CE264EFE7B00F5EE47 /* Appeal */ = {
 			isa = PBXGroup;
 			children = (
+				EF0EA6872653769600148157 /* Model */,
+				EF0EA6812653761D00148157 /* ViewModel */,
+				EF0EA6802653761600148157 /* View */,
 				EF5E72E7264EFEFA00F5EE47 /* Appeal.storyboard */,
 				EF5E72EC264EFF0200F5EE47 /* AppealViewController.swift */,
 			);
@@ -633,6 +836,7 @@
 				EF55E8E72614F3B700915D1C /* Frameworks */,
 				EF55E8E82614F3B700915D1C /* Resources */,
 				948E1D08B963013514ABE81D /* [CP] Embed Pods Frameworks */,
+				6BA55C5323E8BDF916905566 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -643,6 +847,7 @@
 				EF5FFB1B261A1C5600C9C43B /* NVActivityIndicatorView */,
 				EF5FFB1D261A1C5600C9C43B /* NVActivityIndicatorViewExtended */,
 				EF590A1326502F13007248B4 /* RxSwift */,
+				EF0EA862265429BC00148157 /* SnapKit */,
 			);
 			productName = TMSApp;
 			productReference = EF55E8EA2614F3B700915D1C /* TMSApp.app */;
@@ -676,6 +881,7 @@
 				EF55E90B2614F3B800915D1C /* Frameworks */,
 				EF55E90C2614F3B800915D1C /* Resources */,
 				24502AA6404551186F61585A /* [CP] Embed Pods Frameworks */,
+				4BC3BACF6D300D1AE7781C51 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -721,6 +927,7 @@
 			packageReferences = (
 				EF5FFB1A261A1C5600C9C43B /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
 				EF590A1226502F13007248B4 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				EF0EA861265429BC00148157 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = EF55E8EB2614F3B700915D1C /* Products */;
 			projectDirPath = "";
@@ -738,12 +945,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF44C5F32656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.xib in Resources */,
 				EF2D2CF626518FCF0096F757 /* MenuCollectionViewCell.xib in Resources */,
+				EF44C6062656CADB0014F0D0 /* ShipmentMap.storyboard in Resources */,
+				EF44C6232656DF120014F0D0 /* MarkerMapView.xib in Resources */,
 				EF55E8FD2614F3B800915D1C /* LaunchScreen.storyboard in Resources */,
 				EF55E9542614F5CE00915D1C /* SukhumvitSet-Medium.ttf in Resources */,
 				EF55E9572614F5CE00915D1C /* SukhumvitSet-Thin.ttf in Resources */,
+				EF44C5FE2656BEC50014F0D0 /* CustomerShipmentTableViewCell.xib in Resources */,
 				EF590A1C265033A5007248B4 /* ShipmentTableViewCell.xib in Resources */,
 				EF55E9562614F5CE00915D1C /* SukhumvitSet-Light.ttf in Resources */,
+				EF0EA854265422DA00148157 /* DeliveryShipmentTableViewCell.xib in Resources */,
 				EF55E8FA2614F3B800915D1C /* Assets.xcassets in Resources */,
 				EF5E72BA264EEED800F5EE47 /* Main.storyboard in Resources */,
 				EF55E9532614F5CE00915D1C /* SukhumvitSet-SemiBold.ttf in Resources */,
@@ -755,7 +967,9 @@
 				EF5E72F2264EFF1E00F5EE47 /* Menu.storyboard in Resources */,
 				EF5E7295264EDBBC00F5EE47 /* Login.storyboard in Resources */,
 				EF5E72DE264EFECC00F5EE47 /* Order.storyboard in Resources */,
+				EF0EA82E2653C2F800148157 /* ShipmentDetail.storyboard in Resources */,
 				EF55E9552614F5CE00915D1C /* SukhumvitSet-Text.ttf in Resources */,
+				EF0EA6992653774000148157 /* AppealTableViewCell.xib in Resources */,
 				EF5E72D4264EFEAA00F5EE47 /* Shipment.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -794,6 +1008,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TMSApp-TMSAppUITests/Pods-TMSApp-TMSAppUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4BC3BACF6D300D1AE7781C51 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TMSApp-TMSAppUITests/Pods-TMSApp-TMSAppUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TMSApp-TMSAppUITests/Pods-TMSApp-TMSAppUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TMSApp-TMSAppUITests/Pods-TMSApp-TMSAppUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		543406CC999B571743C0E71F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -814,6 +1045,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BA55C5323E8BDF916905566 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TMSApp/Pods-TMSApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TMSApp/Pods-TMSApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TMSApp/Pods-TMSApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		948E1D08B963013514ABE81D /* [CP] Embed Pods Frameworks */ = {
@@ -884,10 +1132,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF44C5F22656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.swift in Sources */,
 				EF5E72D9264EFEB000F5EE47 /* ShipmentViewController.swift in Sources */,
 				EF5E72A8264EED7B00F5EE47 /* MainTabBarViewController.swift in Sources */,
+				EF0EA6982653774000148157 /* AppealTableViewCell.swift in Sources */,
+				EF0EA68B265376B800148157 /* GetAppealResponse.swift in Sources */,
 				EF590A1B265033A5007248B4 /* ShipmentTableViewCell.swift in Sources */,
+				EF44C60B2656CAF10014F0D0 /* ShipmentMapViewController.swift in Sources */,
 				EF5E7290264EDBB500F5EE47 /* LoginViewController.swift in Sources */,
+				EF44C5FD2656BEC50014F0D0 /* CustomerShipmentTableViewCell.swift in Sources */,
+				EF0EA6832653763300148157 /* AppealViewModel.swift in Sources */,
 				EF2D2CFB265190040096F757 /* MenuViewModel.swift in Sources */,
 				EF55E96A2614F6E300915D1C /* UIFont+Extension.swift in Sources */,
 				EF55E96E2614F6E300915D1C /* UIViewController+Extension.swift in Sources */,
@@ -898,12 +1152,15 @@
 				EF5E72C5264EF93700F5EE47 /* DateFormatter.swift in Sources */,
 				EF5E72B2264EEED000F5EE47 /* MainViewController.swift in Sources */,
 				EF590A0826502DE7007248B4 /* GetShipmentRequest.swift in Sources */,
+				EF0EA83E26541E6A00148157 /* ShipmentDetailViewModel.swift in Sources */,
+				EF0EA8332653C30900148157 /* ShipmentDetailViewController.swift in Sources */,
 				EF590A0E26502E1A007248B4 /* GetShipmentResponse.swift in Sources */,
 				EF5E72F7264EFF2700F5EE47 /* MenuViewController.swift in Sources */,
-				EF590A0126502CAF007248B4 /* ShipmentViewModel.swift in Sources */,
+				EF590A0126502CAF007248B4 /* ShipmentViewModel.swift in Sources */,
 				EF5E72E3264EFED300F5EE47 /* OrderViewController.swift in Sources */,
 				EF5E72ED264EFF0200F5EE47 /* AppealViewController.swift in Sources */,
 				EF55E96F2614F6E300915D1C /* UIButton+Extension.swift in Sources */,
+				EF0EA691265376CC00148157 /* GetAppealRequest.swift in Sources */,
 				EF2D2D022651909E0096F757 /* GetMenuResponse.swift in Sources */,
 				EF2D2CE32650EF070096F757 /* OrderViewModel.swift in Sources */,
 				EF55E8EE2614F3B700915D1C /* AppDelegate.swift in Sources */,
@@ -912,8 +1169,11 @@
 				EF55E95E2614F6D100915D1C /* UserDefaults+Extension.swift in Sources */,
 				EF2D2CEA2650F0310096F757 /* OrderTableViewCell.swift in Sources */,
 				EF2D2CD92650EEEC0096F757 /* GetOrderResponse.swift in Sources */,
+				EF0EA8442654224800148157 /* HeaderShipmentDetailTableViewCell.swift in Sources */,
 				EF55E96D2614F6E300915D1C /* UIView+Extension.swift in Sources */,
 				EF55E93F2614F51B00915D1C /* SplashViewController.swift in Sources */,
+				EF0EA853265422DA00148157 /* DeliveryShipmentTableViewCell.swift in Sources */,
+				EF44C61B2656DF040014F0D0 /* MarkerMapView.swift in Sources */,
 				EF55E9742614F6F000915D1C /* Notification+Extension.swift in Sources */,
 				EF2D2CF526518FCF0096F757 /* MenuCollectionViewCell.swift in Sources */,
 			);
@@ -1250,6 +1510,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EF0EA861265429BC00148157 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 		EF590A1226502F13007248B4 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -1269,6 +1537,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EF0EA862265429BC00148157 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF0EA861265429BC00148157 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		EF590A1326502F13007248B4 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EF590A1226502F13007248B4 /* XCRemoteSwiftPackageReference "RxSwift" */;

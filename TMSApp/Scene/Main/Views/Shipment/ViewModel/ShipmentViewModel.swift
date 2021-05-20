@@ -86,5 +86,4 @@ class ShipmentViewModel: ShipmentProtocol, ShipmentProtocolOutput {
     func getItemViewCellHeight() -> CGFloat {
         return 174
     }
-    
 }

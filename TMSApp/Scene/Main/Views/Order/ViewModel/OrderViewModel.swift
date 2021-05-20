@@ -86,5 +86,4 @@ class OrderViewModel: OrderProtocol, OrderProtocolOutput {
     func getItemViewCellHeight() -> CGFloat {
         return 147
     }
-    
 }

@@ -12,16 +12,18 @@ class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.startLoding()
+        NavigationManager.instance.setupWithNavigationController(navigationController: self.navigationController)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.stopLoding()
             self.onDidLoadSplashSuccess()
         }
         
+        
     }
     
     
     func onDidLoadSplashSuccess() {
-        NavigationManager.instance.setRootViewController(rootView: .login)
+        NavigationManager.instance.pushVC(vc: .login, presentation: .Root, isHiddenNavigationBar: true)
     }
     
 }

@@ -23,6 +23,8 @@ class ShipmentViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         registerCell()
+
+        NavigationManager.instance.setupWithNavigationController(navigationController: self.navigationController)
     }
     
     func configure(_ interface: ShipmentProtocol) {
@@ -79,6 +81,7 @@ extension ShipmentViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let itemShipment = viewModel.output.getItemShipment(index: indexPath.item) else { return }
         print(itemShipment.title ?? "")
+        NavigationManager.instance.pushVC(vc: .shipmentDetail, presentation: .Push)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

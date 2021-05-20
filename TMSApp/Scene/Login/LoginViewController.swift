@@ -23,10 +23,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func handleLogin(_ sender: Any) {
-        NavigationManager.instance.setRootViewController(rootView: .mainTabBar)
+        NavigationManager.instance.pushVC(vc: .mainTabBar, presentation: .Root, isHiddenNavigationBar: true)
     }
 }
-
 
 extension LoginViewController {
     func setupUI(){

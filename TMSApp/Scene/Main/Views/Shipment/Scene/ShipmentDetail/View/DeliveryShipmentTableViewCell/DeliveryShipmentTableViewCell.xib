@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SukhumvitSet-Text.ttf">
+            <string>SukhumvitSet-Text</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DeliveryShipmentTableViewCell" customModule="TMSApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bYz-dh-s03">
+                        <rect key="frame" x="8" y="8" width="304" height="75"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="truck" translatesAutoresizingMaskIntoConstraints="NO" id="5lH-IP-sFe">
+                                <rect key="frame" x="8" y="8" width="59" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="5lH-IP-sFe" secondAttribute="height" multiplier="1:1" id="xOp-sC-PtA"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MSj-n8-7Gx">
+                                <rect key="frame" x="83" y="16" width="213" height="43.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T0001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgA-wM-8Ay">
+                                        <rect key="frame" x="0.0" y="0.0" width="213" height="15.5"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="รถ ISUZU 6 ล้อ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PI-Fe-Kd6">
+                                        <rect key="frame" x="0.0" y="15.5" width="213" height="14"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
+                                        <color key="textColor" name="PrimaryUnselect"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ทะเบียน : กพ 1290" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWT-Nd-p9A">
+                                        <rect key="frame" x="0.0" y="29.5" width="213" height="14"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
+                                        <color key="textColor" name="PrimaryUnselect"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MSj-n8-7Gx" firstAttribute="leading" secondItem="5lH-IP-sFe" secondAttribute="trailing" constant="16" id="D49-IW-HdU"/>
+                            <constraint firstItem="5lH-IP-sFe" firstAttribute="leading" secondItem="bYz-dh-s03" secondAttribute="leading" constant="8" id="FEU-7p-rPw"/>
+                            <constraint firstAttribute="bottom" secondItem="5lH-IP-sFe" secondAttribute="bottom" constant="8" id="Tvu-CP-jU4"/>
+                            <constraint firstItem="5lH-IP-sFe" firstAttribute="top" secondItem="bYz-dh-s03" secondAttribute="top" constant="8" id="dfq-PL-5a9"/>
+                            <constraint firstItem="MSj-n8-7Gx" firstAttribute="centerY" secondItem="bYz-dh-s03" secondAttribute="centerY" id="imb-2Y-uYR"/>
+                            <constraint firstAttribute="trailing" secondItem="MSj-n8-7Gx" secondAttribute="trailing" constant="8" id="pnf-LU-JSS"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="bYz-dh-s03" secondAttribute="trailing" constant="8" id="HNG-6b-qJD"/>
+                    <constraint firstItem="bYz-dh-s03" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="S4f-jt-yzU"/>
+                    <constraint firstAttribute="bottom" secondItem="bYz-dh-s03" secondAttribute="bottom" constant="8" id="akd-lR-SDE"/>
+                    <constraint firstItem="bYz-dh-s03" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="xLL-h7-ppJ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="deliveryCode" destination="BgA-wM-8Ay" id="x3d-Ka-Qij"/>
+                <outlet property="deliveryImage" destination="5lH-IP-sFe" id="x4U-e8-Njf"/>
+                <outlet property="deliveryName" destination="1PI-Fe-Kd6" id="HCC-6D-YXd"/>
+                <outlet property="deliveryNo" destination="fWT-Nd-p9A" id="ssb-ob-zKm"/>
+                <outlet property="deliveryView" destination="bYz-dh-s03" id="GB3-1j-vmJ"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="77.34375"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="truck" width="700" height="537"/>
+        <namedColor name="PrimaryUnselect">
+            <color red="0.44705882352941179" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

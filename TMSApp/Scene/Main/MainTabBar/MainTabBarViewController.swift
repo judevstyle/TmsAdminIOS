@@ -55,12 +55,14 @@ class MainTabBarViewController: UITabBarController {
         
         //navigationController
         rootViewcontroller?.navigationItem.title = navigationTitle ?? ""
-        rootViewcontroller?.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.PrimaryText(size: 15), NSAttributedString.Key.foregroundColor: UIColor.white]
+        rootViewcontroller?.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.PrimaryMedium(size: 18), NSAttributedString.Key.foregroundColor: UIColor.white]
         rootViewcontroller?.navigationController?.navigationBar.barTintColor = UIColor.Primary
         rootViewcontroller?.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarPosition.bottom, barMetrics: .default)
         rootViewcontroller?.navigationController?.navigationBar.shadowImage = UIImage()
         rootViewcontroller?.navigationController?.navigationBar.isTranslucent = false
         rootViewcontroller?.navigationController?.navigationBar.barStyle = .black
+        rootViewcontroller?.navigationController?.navigationBar.tintColor = .white
+        
         return navController
     }
     
