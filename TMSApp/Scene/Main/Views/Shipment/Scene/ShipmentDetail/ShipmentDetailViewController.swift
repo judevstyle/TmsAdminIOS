@@ -13,6 +13,7 @@ class ShipmentDetailViewController: UIViewController {
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var btnAddShipment: UIButton!
     
+    
     // ViewModel
     lazy var viewModel: ShipmentDetailProtocol = {
         let vm = ShipmentDetailViewModel(shipmentDetailViewController: self)
@@ -86,6 +87,7 @@ extension ShipmentDetailViewController {
 
 extension ShipmentDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        return viewModel.input.didSelectRowAt(tableView, indexPath: indexPath)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -128,8 +130,6 @@ extension ShipmentDetailViewController: UITableViewDataSource {
 
 extension ShipmentDetailViewController: HeaderShipmentDetailTableViewCellDelegate {
     func didTapMapButton() {
-        print("Nontawat didTapMapButton \(tableViewHeight.constant)")
-        print("OK MAP")
         NavigationManager.instance.pushVC(vc: .shipmentMap, presentation: .Push)
     }
 }

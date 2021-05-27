@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SukhumvitSet-Text.ttf">
+            <string>SukhumvitSet-Text</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CustomerSettingTableViewCell" customModule="TMSApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fw1-bQ-eaH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="syX-no-KFt">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KeO-VU-Yz1">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kGP-Ih-7Sn">
+                                                <rect key="frame" x="8" y="22.5" width="25" height="20.5"/>
+                                                <color key="tintColor" name="PrimaryUnselect"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="25" id="64F-wk-M5C"/>
+                                                    <constraint firstAttribute="height" constant="25" id="C7o-oD-OK7"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ลบ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikD-NM-gpW">
+                                                <rect key="frame" x="49" y="8" width="263" height="49"/>
+                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="15"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sPy-bs-Lnh">
+                                                <rect key="frame" x="0.0" y="64" width="320" height="1"/>
+                                                <color key="backgroundColor" name="PrimaryUnselect"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="KAm-NY-IWR"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="kGP-Ih-7Sn" firstAttribute="centerY" secondItem="KeO-VU-Yz1" secondAttribute="centerY" id="5hG-fb-wQB"/>
+                                            <constraint firstAttribute="trailing" secondItem="ikD-NM-gpW" secondAttribute="trailing" constant="8" id="9pM-XX-wJw"/>
+                                            <constraint firstAttribute="bottom" secondItem="ikD-NM-gpW" secondAttribute="bottom" constant="8" id="MkB-1d-B5c"/>
+                                            <constraint firstItem="ikD-NM-gpW" firstAttribute="top" secondItem="KeO-VU-Yz1" secondAttribute="top" constant="8" id="PGj-x2-17m"/>
+                                            <constraint firstAttribute="trailing" secondItem="sPy-bs-Lnh" secondAttribute="trailing" id="TFR-XZ-kQ5"/>
+                                            <constraint firstItem="kGP-Ih-7Sn" firstAttribute="leading" secondItem="KeO-VU-Yz1" secondAttribute="leading" constant="8" id="XVW-Fk-M81"/>
+                                            <constraint firstItem="sPy-bs-Lnh" firstAttribute="leading" secondItem="KeO-VU-Yz1" secondAttribute="leading" id="mbU-me-sG2"/>
+                                            <constraint firstAttribute="bottom" secondItem="sPy-bs-Lnh" secondAttribute="bottom" id="ogv-pq-7yD"/>
+                                            <constraint firstItem="ikD-NM-gpW" firstAttribute="leading" secondItem="kGP-Ih-7Sn" secondAttribute="trailing" constant="16" id="uap-dl-0up"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="syX-no-KFt" firstAttribute="top" secondItem="fw1-bQ-eaH" secondAttribute="top" id="IvA-UE-Zjy"/>
+                            <constraint firstAttribute="trailing" secondItem="syX-no-KFt" secondAttribute="trailing" id="Lxo-nw-f4E"/>
+                            <constraint firstItem="syX-no-KFt" firstAttribute="leading" secondItem="fw1-bQ-eaH" secondAttribute="leading" id="Qev-OA-gNq"/>
+                            <constraint firstAttribute="bottom" secondItem="syX-no-KFt" secondAttribute="bottom" id="sMU-fz-Gqq"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="fw1-bQ-eaH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="IG0-No-mF4"/>
+                    <constraint firstItem="fw1-bQ-eaH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="QHF-qs-rtL"/>
+                    <constraint firstAttribute="trailing" secondItem="fw1-bQ-eaH" secondAttribute="trailing" id="eTc-Tq-LEm"/>
+                    <constraint firstAttribute="bottom" secondItem="fw1-bQ-eaH" secondAttribute="bottom" id="kpz-vP-7I9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="iconImage" destination="kGP-Ih-7Sn" id="mv0-Kw-bWq"/>
+                <outlet property="lineUnderBottom" destination="sPy-bs-Lnh" id="qlk-pn-GXP"/>
+                <outlet property="titleText" destination="ikD-NM-gpW" id="kme-B2-iic"/>
+            </connections>
+            <point key="canvasLocation" x="133" y="73"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="pencil" catalog="system" width="128" height="113"/>
+        <namedColor name="PrimaryUnselect">
+            <color red="0.44705882352941179" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

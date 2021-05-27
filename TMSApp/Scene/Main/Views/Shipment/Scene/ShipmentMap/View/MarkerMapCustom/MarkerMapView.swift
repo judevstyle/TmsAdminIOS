@@ -16,7 +16,9 @@ class MarkerMapView: UIView {
     @IBOutlet weak var ImageBg: UIImageView!
     @IBOutlet weak var imageAvatar: UIImageView!
     
-    static func instantiate(message: String) -> MarkerMapView {
+    public var index: Int!
+    
+    static func instantiate(index: Int, message: String) -> MarkerMapView {
         let view: MarkerMapView = initFromNib()
         view.ImageBg.image?.withRenderingMode(.alwaysTemplate)
         let pin = UIImage(named: "map-customer")!.withRenderingMode(.alwaysTemplate)
@@ -29,11 +31,11 @@ class MarkerMapView: UIView {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         view.InnerView.addGestureRecognizer(tap)
         view.InnerView.isUserInteractionEnabled = true
+        view.index = index
         return view
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
-        // handling code
         print("TEST")
     }
     

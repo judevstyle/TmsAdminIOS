@@ -9,6 +9,7 @@ target 'TMSApp' do
   pod 'DropDown'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'HMSegmentedControl'
 
   target 'TMSAppTests' do
     inherit! :search_paths

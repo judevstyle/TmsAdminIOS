@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,33 +17,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SKb-Sw-7r0">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ApK-rY-aah">
+                                <rect key="frame" x="97" y="60" width="220" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="3So-87-MSb"/>
+                                    <constraint firstAttribute="height" constant="40" id="yci-PJ-25M"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iaA-iY-MOW">
+                                <rect key="frame" x="0.0" y="108" width="414" height="754"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eIa-c0-EC3">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fSq-AV-KA0"/>
-                        <color key="backgroundColor" name="PrimaryBG"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fSq-AV-KA0" firstAttribute="bottom" secondItem="SKb-Sw-7r0" secondAttribute="bottom" id="bzD-0x-Yq4"/>
-                            <constraint firstItem="SKb-Sw-7r0" firstAttribute="leading" secondItem="fSq-AV-KA0" secondAttribute="leading" id="kqK-IH-1aH"/>
-                            <constraint firstItem="fSq-AV-KA0" firstAttribute="trailing" secondItem="SKb-Sw-7r0" secondAttribute="trailing" id="x1X-XW-AmT"/>
-                            <constraint firstItem="SKb-Sw-7r0" firstAttribute="top" secondItem="fSq-AV-KA0" secondAttribute="top" id="xP9-YS-vXv"/>
+                            <constraint firstItem="ApK-rY-aah" firstAttribute="top" secondItem="fSq-AV-KA0" secondAttribute="top" constant="16" id="Fkn-IF-1lr"/>
+                            <constraint firstItem="ApK-rY-aah" firstAttribute="centerX" secondItem="fSq-AV-KA0" secondAttribute="centerX" id="hpM-gl-ut8"/>
+                            <constraint firstItem="fSq-AV-KA0" firstAttribute="bottom" secondItem="iaA-iY-MOW" secondAttribute="bottom" id="pLh-ax-ua6"/>
+                            <constraint firstItem="fSq-AV-KA0" firstAttribute="trailing" secondItem="iaA-iY-MOW" secondAttribute="trailing" id="qEx-97-a0w"/>
+                            <constraint firstItem="iaA-iY-MOW" firstAttribute="leading" secondItem="fSq-AV-KA0" secondAttribute="leading" id="vtN-Rw-o4T"/>
+                            <constraint firstItem="iaA-iY-MOW" firstAttribute="top" secondItem="ApK-rY-aah" secondAttribute="bottom" constant="8" id="wAc-lh-D4p"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="SKb-Sw-7r0" id="fPk-jp-pMI"/>
+                        <outlet property="SegmentedControlView" destination="ApK-rY-aah" id="d7V-bu-Jvn"/>
+                        <outlet property="collectionView" destination="iaA-iY-MOW" id="smt-4M-aWQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ML-Rk-TkL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-271" y="63"/>
+            <point key="canvasLocation" x="-271.01449275362319" y="62.946428571428569"/>
         </scene>
     </scenes>
     <resources>
-        <namedColor name="PrimaryBG">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

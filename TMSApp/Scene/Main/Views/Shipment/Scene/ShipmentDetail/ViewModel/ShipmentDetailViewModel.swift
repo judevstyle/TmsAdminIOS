@@ -17,6 +17,7 @@ enum SectionShipment {
 
 protocol ShipmentDetailProtocolInput {
     func getShipment()
+    func didSelectRowAt(_ tableView: UITableView, indexPath: IndexPath)
 }
 
 protocol ShipmentDetailProtocolOutput: class {
@@ -27,7 +28,7 @@ protocol ShipmentDetailProtocolOutput: class {
     func getTypeSectionOfShipmentDetail(section: Int) -> SectionShipment
     func getTitleSectionOfShipmentDetail(section: Int) -> String
     func getNumberOfShipment(section: Int) -> Int
-//    func getItemShipment(index: Int) -> GetShipmentResponse?
+    //    func getItemShipment(index: Int) -> GetShipmentResponse?
     func getItemViewCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
     func getHeightTableViewCell(section: Int) -> CGFloat
     func getHeightSectionView() -> CGFloat
@@ -39,11 +40,12 @@ protocol ShipmentDetailProtocol: ShipmentDetailProtocolInput, ShipmentDetailProt
 }
 
 class ShipmentDetailViewModel: ShipmentDetailProtocol, ShipmentDetailProtocolOutput {
+    
     var input: ShipmentDetailProtocolInput { return self }
     var output: ShipmentDetailProtocolOutput { return self }
     
     // MARK: - Properties
-//    private var getProductUseCase: GetProductUseCase
+    //    private var getProductUseCase: GetProductUseCase
     private var shipmentDetailViewController: ShipmentDetailViewController
     
     fileprivate let disposeBag = DisposeBag()
@@ -51,10 +53,10 @@ class ShipmentDetailViewModel: ShipmentDetailProtocol, ShipmentDetailProtocolOut
     private var sections = [(name:String, type: SectionShipment)]()
     
     init(
-//        getProductUseCase: GetProductUseCase = GetProductUseCaseImpl(),
+        //        getProductUseCase: GetProductUseCase = GetProductUseCaseImpl(),
         shipmentDetailViewController: ShipmentDetailViewController
     ) {
-//        self.getProductUseCase = getProductUseCase
+        //        self.getProductUseCase = getProductUseCase
         self.shipmentDetailViewController = shipmentDetailViewController
         self.sections.append((name: "รถส่งสินค้า", type: SectionShipment.DeliveryCar))
         self.sections.append((name: "พนักงาน", type: SectionShipment.Employee))
@@ -83,9 +85,37 @@ class ShipmentDetailViewModel: ShipmentDetailProtocol, ShipmentDetailProtocolOut
                 weakSelf.listCustomer?.append(GetShipmentResponse(title: "test"))
                 weakSelf.listCustomer?.append(GetShipmentResponse(title: "test"))
             }
-
+            
             weakSelf.didGetShipmentDetailSuccess?()
             weakSelf.shipmentDetailViewController.stopLoding()
+        }
+    }
+    
+    func didSelectRowAt(_ tableView: UITableView, indexPath: IndexPath) {
+        switch self.sections[indexPath.section].type {
+        case .DeliveryCar:
+            print("Nontawat didSelectRowAt \(SectionShipment.DeliveryCar)")
+        case .Employee:
+            print("Nontawat didSelectRowAt \(SectionShipment.Employee)")
+        case .Customer:
+            let alertController = UIAlertController(title: "", message: nil, preferredStyle: .actionSheet)
+            let customView = CustomerSettingView(frame: CGRect(x: 0, y: 0, width: alertController.view.bounds.width-16, height: 166))
+            customView.delegate = self
+            
+            alertController.view.addSubview(customView)
+            alertController.view.backgroundColor = .white
+            alertController.view.layer.cornerRadius = 8
+            alertController.view.layer.masksToBounds = true
+            
+            alertController.view.translatesAutoresizingMaskIntoConstraints = false
+            alertController.view.heightAnchor.constraint(equalToConstant: customView.frame.height).isActive = true
+            
+            customView.backgroundColor = .green
+            
+            shipmentDetailViewController.present(alertController, animated: true) {
+                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
+                alertController.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
+            }
         }
     }
     
@@ -155,5 +185,18 @@ class ShipmentDetailViewModel: ShipmentDetailProtocol, ShipmentDetailProtocolOut
     
     func getHeightSectionView() -> CGFloat {
         return 30
+    }
+}
+
+
+extension ShipmentDetailViewModel: CustomerSettingViewDelegate {
+    func didSelectSettingRowAt(_ tableView: UITableView, indexPath: IndexPath) {
+        shipmentDetailViewController.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ShipmentDetailViewModel {
+    @objc func dismissAlertController() {
+        shipmentDetailViewController.dismiss(animated: true, completion: nil)
     }
 }

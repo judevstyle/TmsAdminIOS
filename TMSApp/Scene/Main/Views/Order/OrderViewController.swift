@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import HMSegmentedControl
 
 class OrderViewController: UIViewController {
-
-    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var SegmentedControlView: UIView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     // ViewModel
     lazy var viewModel: OrderProtocol = {
@@ -19,10 +21,14 @@ class OrderViewController: UIViewController {
         return vm
     }()
     
+    let segmentedControl = HMSegmentedControl()
+    var currentPage: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         registerCell()
+        setUpNavigationPage()
     }
     
     func configure(_ interface: OrderProtocol) {
@@ -45,14 +51,15 @@ extension OrderViewController {
     func didGetOrderSuccess() -> (() -> Void) {
         return { [weak self] in
             guard let weakSelf = self else { return }
-            weakSelf.tableView.reloadData()
+            weakSelf.collectionView.reloadData()
+            weakSelf.segmentedControl.sectionTitles = weakSelf.viewModel.output.getSectionTitles()
         }
     }
     
     func didGetOrderError() -> (() -> Void) {
         return { [weak self] in
             guard let weakSelf = self else { return }
-            weakSelf.tableView.reloadData()
+            weakSelf.collectionView.reloadData()
         }
     }
 }
@@ -62,36 +69,86 @@ extension OrderViewController {
     }
     
     fileprivate func registerCell() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
-        tableView.separatorStyle = .none
-        tableViewRegister(identifier: OrderTableViewCell.identifier)
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.sectionInsetReference = .fromSafeArea
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.showsHorizontalScrollIndicator = false
+        
+        collectionView.collectionViewLayout = layout
+        
+        collectionView.isPagingEnabled = true
+        collectionView.backgroundColor = .clear
+        collectionRegister(identifier: OrderCollectionViewCell.identifier)
     }
     
-    fileprivate func tableViewRegister(identifier: String) {
-        self.tableView.register(UINib.init(nibName: identifier, bundle: Bundle.main), forCellReuseIdentifier: identifier)
+    fileprivate func collectionRegister(identifier: String) {
+        self.collectionView.register(UINib.init(nibName: identifier, bundle: Bundle.main), forCellWithReuseIdentifier: identifier)
+    }
+    
+    func setUpNavigationPage() {
+        
+        segmentedControl.frame = CGRect(x: 0, y: 0, width: SegmentedControlView.frame.width, height: SegmentedControlView.frame.height)
+        segmentedControl.contentVerticalAlignment = .center
+        segmentedControl.selectionIndicatorColor = UIColor.Primary
+        segmentedControl.titleTextAttributes = [NSAttributedString.Key.font: UIFont.PrimaryText(size: 16), NSAttributedString.Key.foregroundColor: UIColor.gray]
+        segmentedControl.selectedTitleTextAttributes = [NSAttributedString.Key.font: UIFont.PrimaryText(size: 16), NSAttributedString.Key.foregroundColor: UIColor.Primary]
+        segmentedControl.selectionIndicatorLocation = .bottom
+        segmentedControl.selectionIndicatorHeight = 2
+        
+        segmentedControl.addTarget(self, action: #selector(segmentedControlChangedValue(segmentedControl:)), for: .valueChanged)
+        SegmentedControlView.addSubview(segmentedControl)
+    }
+    
+    @objc func segmentedControlChangedValue(segmentedControl: HMSegmentedControl) {
+        if segmentedControl.selectedSegmentIndex > self.currentPage {
+            self.currentPage = Int(segmentedControl.selectedSegmentIndex)
+            pageSelected(index: self.currentPage, animated: true, position: .left)
+        }else {
+            self.currentPage = Int(segmentedControl.selectedSegmentIndex)
+            pageSelected(index: self.currentPage, animated: true, position: .right)
+        }
     }
 }
 
-extension OrderViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let itemOrder = viewModel.output.getItemOrder(index: indexPath.item) else { return }
-        print(itemOrder.title ?? "")
-    }
+
+//MARK:- Page
+extension OrderViewController {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return viewModel.output.getItemViewCellHeight()
+    func pageSelected(index: Int, animated: Bool, position: UICollectionView.ScrollPosition) {
+          let scrollIndex: NSIndexPath = NSIndexPath(item: index, section: 0)
+          collectionView.scrollToItem(at: scrollIndex as IndexPath, at: position, animated: animated)
+          currentPage = index
+      }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let pageWidth = view.frame.width
+        currentPage = Int(collectionView.contentOffset.x/pageWidth)
+        segmentedControl.selectedSegmentIndex = UInt(currentPage)
     }
 }
 
-extension OrderViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.output.getNumberOfOrder()
+
+extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return viewModel.output.getItemViewCell(tableView, indexPath: indexPath)
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.output.getNumberOfOrderPage()
+    }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return viewModel.output.getCollectionViewCell(collectionView, indexPath: indexPath)
     }
 }

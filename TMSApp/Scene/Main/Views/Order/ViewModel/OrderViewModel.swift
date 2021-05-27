@@ -9,6 +9,12 @@ import Foundation
 import RxSwift
 import UIKit
 
+
+enum OrderCollectionPageType {
+    case ListOrder
+    case Process
+}
+
 protocol OrderProtocolInput {
     func getOrder(request: GetOrderRequest)
 }
@@ -17,10 +23,12 @@ protocol OrderProtocolOutput: class {
     var didGetOrderSuccess: (() -> Void)? { get set }
     var didGetOrderError: (() -> Void)? { get set }
     
-    func getNumberOfOrder() -> Int
-    func getItemOrder(index: Int) -> GetOrderResponse?
-    func getItemViewCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
-    func getItemViewCellHeight() -> CGFloat
+    func getSectionTitles() -> [String]
+    
+    func getNumberOfOrderPage() -> Int
+    func getCollectionViewCell(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell
+    func getItemOrderPage(index: Int) -> [GetOrderResponse]
+    
 }
 
 protocol OrderProtocol: OrderProtocolInput, OrderProtocolOutput {
@@ -33,16 +41,13 @@ class OrderViewModel: OrderProtocol, OrderProtocolOutput {
     var output: OrderProtocolOutput { return self }
     
     // MARK: - Properties
-//    private var getProductUseCase: GetProductUseCase
     private var orderViewController: OrderViewController
     
     fileprivate let disposeBag = DisposeBag()
     
     init(
-//        getProductUseCase: GetProductUseCase = GetProductUseCaseImpl(),
         orderViewController: OrderViewController
     ) {
-//        self.getProductUseCase = getProductUseCase
         self.orderViewController = orderViewController
     }
     
@@ -50,40 +55,45 @@ class OrderViewModel: OrderProtocol, OrderProtocolOutput {
     var didGetOrderSuccess: (() -> Void)?
     var didGetOrderError: (() -> Void)?
     
-    fileprivate var listOrder: [GetOrderResponse]? = []
+    fileprivate var listCollectionPage = [(name:String, type: OrderCollectionPageType)]()
     
     func getOrder(request: GetOrderRequest) {
-        listOrder?.removeAll()
+        listCollectionPage.removeAll()
         orderViewController.startLoding()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
             guard let weakSelf = self else { return }
-            for _ in 0..<3 {
-                weakSelf.listOrder?.append(GetOrderResponse(title: "test"))
-            }
-
+            weakSelf.listCollectionPage.append((name: "รายการสั่งซื้อ", type: .ListOrder))
+            weakSelf.listCollectionPage.append((name: "ดำเนินการ", type: .Process))
             weakSelf.didGetOrderSuccess?()
             weakSelf.orderViewController.stopLoding()
         }
     }
     
-    func getNumberOfOrder() -> Int {
-        guard let count = listOrder?.count, count != 0 else { return 0 }
-        return count
+    func getSectionTitles() -> [String] {
+        var sections: [String] = []
+        for item in listCollectionPage {
+            sections.append(item.name)
+        }
+        return sections
     }
     
-    func getItemOrder(index: Int) -> GetOrderResponse? {
-        guard let itemOrder = listOrder?[index] else { return nil }
-        return itemOrder
+    func getNumberOfOrderPage() -> Int {
+        return listCollectionPage.count
     }
     
-    func getItemViewCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: OrderTableViewCell.identifier, for: indexPath) as! OrderTableViewCell
-        cell.selectionStyle = .none
-        cell.setData(item: getItemOrder(index: indexPath.item))
+    func getCollectionViewCell(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OrderCollectionViewCell.identifier, for: indexPath) as! OrderCollectionViewCell
+        cell.listOrder = getItemOrderPage(index: indexPath.item)
+        
+        print(getItemOrderPage(index: indexPath.item).count)
         return cell
     }
     
-    func getItemViewCellHeight() -> CGFloat {
-        return 147
+    func getItemOrderPage(index: Int) -> [GetOrderResponse] {
+        var listOrder: [GetOrderResponse] = []
+        for _ in 0..<3 {
+            listOrder.append(GetOrderResponse(title: "test"))
+        }
+        return listOrder
     }
 }

@@ -54,5 +54,4 @@ extension UIViewController: NVActivityIndicatorViewable {
         let size = CGSize(width: 35.0, height: 35.0)
         startAnimating(size, message: "", type: .circleStrokeSpin,color: .whiteAlpha(alpha: 0.7), backgroundColor: .blackAlpha(alpha: 0.3), textColor: .white, fadeInAnimation: nil)
     }
-    
 }
