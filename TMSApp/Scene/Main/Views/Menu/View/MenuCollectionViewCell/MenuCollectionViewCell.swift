@@ -26,5 +26,10 @@ class MenuCollectionViewCell: UICollectionViewCell {
         menuView.layer.borderWidth = 1
         menuView.layer.borderColor = UIColor.Primary.cgColor
     }
+    
+    func setData(item: GetMenuResponse?) {
+        menuTitle.text = "\(item?.title ?? "")"
+        iconImage.image = UIImage(named: "\(item?.image ?? "")")
+    }
 
 }

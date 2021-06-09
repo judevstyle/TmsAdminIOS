@@ -18,6 +18,8 @@ enum NavigationOpeningSender {
     case menu
     case shipmentDetail
     case shipmentMap
+    case orderCart
+    case appealDetail
     
     var storyboardName: String {
         switch self {
@@ -39,6 +41,10 @@ enum NavigationOpeningSender {
             return "ShipmentDetail"
         case .shipmentMap:
             return "ShipmentMap"
+        case .orderCart:
+            return "OrderCart"
+        case .appealDetail:
+            return "AppealDetail"
         }
     }
     
@@ -62,6 +68,10 @@ enum NavigationOpeningSender {
             return "ShipmentDetailViewController"
         case .shipmentMap:
             return "ShipmentMapViewController"
+        case .orderCart:
+            return "OrderCartViewController"
+        case .appealDetail:
+            return "AppealDetailViewController"
         }
     }
 }
@@ -77,6 +87,7 @@ class NavigationManager {
         case Replace
         case Push
         case Modal(completion: (() -> Void)?)
+        case ModelNav(completion: (() -> Void)?)
     }
     
     init() {
@@ -99,10 +110,20 @@ class NavigationManager {
         }
     }
     
-    func pushVC(vc: NavigationOpeningSender, presentation: Presentation = .Push, isHiddenNavigationBar: Bool = false) {
-        let loadingStoryBoard = vc.storyboardName
+    func pushVC(to: NavigationOpeningSender, presentation: Presentation = .Push, isHiddenNavigationBar: Bool = false) {
+        let loadingStoryBoard = to.storyboardName
         let storyboard = UIStoryboard(name: loadingStoryBoard, bundle: nil)
-        let viewController = storyboard.instantiateInitialViewController() ?? UIViewController()
+        var viewController:UIViewController = UIViewController()
+        
+        switch to {
+        case .orderCart:
+            if let className = storyboard.instantiateInitialViewController() as? OrderCartViewController {
+//                className.set(contentType: contentType)
+                viewController = className
+            }
+        default:
+            viewController = storyboard.instantiateInitialViewController() ?? UIViewController()
+        }
 
         if case .Modal(_) = self.currentPresentation {
             //Clear modal if we are presenting one
@@ -123,8 +144,8 @@ class NavigationManager {
             let back = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             self.navigationController.navigationItem.backBarButtonItem = back
             viewController.navigationController?.navigationItem.backBarButtonItem = back
-            
             self.navigationController.pushViewController(viewController, animated: true)
+            
         case .Root:
             self.navigationController.setViewControllers([viewController], animated: true)
         case .Modal(let completion):
@@ -133,6 +154,9 @@ class NavigationManager {
             var viewControllers = Array(self.navigationController.viewControllers.dropLast())
             viewControllers.append(viewController)
             self.navigationController.setViewControllers(viewControllers, animated: true)
+        case .ModelNav(let completion):
+            viewController.modalPresentationStyle = .fullScreen
+            self.navigationController.present(viewController, animated: true, completion: completion)
         }
         self.currentPresentation = presentation
     }

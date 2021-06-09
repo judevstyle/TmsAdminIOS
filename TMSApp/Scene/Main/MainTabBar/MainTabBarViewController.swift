@@ -29,7 +29,7 @@ class MainTabBarViewController: UITabBarController {
         
         let orderController = tabBarNavigation(unselectImage: UIImage(named: "package"), selectImage: UIImage(named: "package"), title: "สั่งซื้อ", badgeValue: nil, navigationTitle: "Order", navigationOpeningSender: .order)
         
-        let appealController = tabBarNavigation(unselectImage: UIImage(named: "rating"), selectImage: UIImage(named: "rating"), title: "ร้องเรียน", badgeValue: nil, navigationTitle: "Order", navigationOpeningSender: .appeal)
+        let appealController = tabBarNavigation(unselectImage: UIImage(named: "rating"), selectImage: UIImage(named: "rating"), title: "ร้องเรียน", badgeValue: nil, navigationTitle: "ร้องเรียน", navigationOpeningSender: .appeal)
         
         let menuController = tabBarNavigation(unselectImage: UIImage(named: "menu"), selectImage: UIImage(named: "menu"), title: "เพิ่มเติม", badgeValue: nil, navigationTitle: "Menu", navigationOpeningSender: .menu)
         
@@ -46,7 +46,7 @@ class MainTabBarViewController: UITabBarController {
         let navController = UINavigationController(rootViewController: rootViewcontroller ?? UIViewController())
         navController.tabBarItem.image = unselectImage
         navController.tabBarItem.selectedImage =  selectImage
-        navController.tabBarItem.imageInsets = UIEdgeInsets(top: 1, left: 0, bottom: -3, right: 0)
+        navController.tabBarItem.imageInsets = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
         navController.tabBarItem.title = title
         navController.tabBarItem.badgeColor = .red
         navController.tabBarItem.badgeValue = badgeValue

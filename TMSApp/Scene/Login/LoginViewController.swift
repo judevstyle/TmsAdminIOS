@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func handleLogin(_ sender: Any) {
-        NavigationManager.instance.pushVC(vc: .mainTabBar, presentation: .Root, isHiddenNavigationBar: true)
+        NavigationManager.instance.pushVC(to: .mainTabBar, presentation: .Root, isHiddenNavigationBar: true)
     }
 }
 

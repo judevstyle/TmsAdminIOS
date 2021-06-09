@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mzx-xv-jdY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mzx-xv-jdY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,40 +17,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ApK-rY-aah">
-                                <rect key="frame" x="97" y="60" width="220" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="220" id="3So-87-MSb"/>
-                                    <constraint firstAttribute="height" constant="40" id="yci-PJ-25M"/>
-                                </constraints>
-                            </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iaA-iY-MOW">
-                                <rect key="frame" x="0.0" y="108" width="414" height="754"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CSs-h9-JJK">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eIa-c0-EC3">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fSq-AV-KA0"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ApK-rY-aah" firstAttribute="top" secondItem="fSq-AV-KA0" secondAttribute="top" constant="16" id="Fkn-IF-1lr"/>
-                            <constraint firstItem="ApK-rY-aah" firstAttribute="centerX" secondItem="fSq-AV-KA0" secondAttribute="centerX" id="hpM-gl-ut8"/>
-                            <constraint firstItem="fSq-AV-KA0" firstAttribute="bottom" secondItem="iaA-iY-MOW" secondAttribute="bottom" id="pLh-ax-ua6"/>
-                            <constraint firstItem="fSq-AV-KA0" firstAttribute="trailing" secondItem="iaA-iY-MOW" secondAttribute="trailing" id="qEx-97-a0w"/>
-                            <constraint firstItem="iaA-iY-MOW" firstAttribute="leading" secondItem="fSq-AV-KA0" secondAttribute="leading" id="vtN-Rw-o4T"/>
-                            <constraint firstItem="iaA-iY-MOW" firstAttribute="top" secondItem="ApK-rY-aah" secondAttribute="bottom" constant="8" id="wAc-lh-D4p"/>
+                            <constraint firstItem="fSq-AV-KA0" firstAttribute="trailing" secondItem="CSs-h9-JJK" secondAttribute="trailing" id="AZ3-D0-npx"/>
+                            <constraint firstItem="CSs-h9-JJK" firstAttribute="leading" secondItem="fSq-AV-KA0" secondAttribute="leading" id="IJs-lz-S1E"/>
+                            <constraint firstItem="CSs-h9-JJK" firstAttribute="top" secondItem="fSq-AV-KA0" secondAttribute="top" id="Meh-qO-kw1"/>
+                            <constraint firstItem="fSq-AV-KA0" firstAttribute="bottom" secondItem="CSs-h9-JJK" secondAttribute="bottom" id="wsy-nN-lIJ"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="SegmentedControlView" destination="ApK-rY-aah" id="d7V-bu-Jvn"/>
-                        <outlet property="collectionView" destination="iaA-iY-MOW" id="smt-4M-aWQ"/>
+                        <outlet property="tableView" destination="CSs-h9-JJK" id="7ha-IY-hfk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ML-Rk-TkL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

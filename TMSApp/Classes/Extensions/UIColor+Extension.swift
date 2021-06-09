@@ -17,6 +17,10 @@ extension UIColor {
     static func blackAlpha(alpha: CGFloat) -> UIColor {
         return UIColor(white: 0, alpha: alpha)
     }
+    
+    static func Alpha(alpha: CGFloat) -> UIColor {
+        return UIColor(white: 0, alpha: alpha)
+    }
 
     static let Primary = UIColor(named: "Primary")!
     static let PrimaryBG = UIColor(named: "PrimaryBG")!

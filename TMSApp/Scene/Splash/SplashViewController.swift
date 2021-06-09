@@ -23,7 +23,7 @@ class SplashViewController: UIViewController {
     
     
     func onDidLoadSplashSuccess() {
-        NavigationManager.instance.pushVC(vc: .login, presentation: .Root, isHiddenNavigationBar: true)
+        NavigationManager.instance.pushVC(to: .login, presentation: .Root, isHiddenNavigationBar: true)
     }
     
 }

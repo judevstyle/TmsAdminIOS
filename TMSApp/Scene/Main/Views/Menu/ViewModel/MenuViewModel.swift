@@ -58,10 +58,21 @@ class MenuViewModel: MenuProtocol, MenuProtocolOutput {
         menuViewController.startLoding()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
             guard let weakSelf = self else { return }
-            for _ in 0..<7 {
-                weakSelf.listMenu?.append(GetMenuResponse(title: "", image: ""))
-            }
-
+            
+            weakSelf.listMenu?.append(GetMenuResponse(title: "ข้อมูลส่วนตัว", image: "01"))
+            weakSelf.listMenu?.append(GetMenuResponse(title: "พนักงาน", image: "02"))
+            weakSelf.listMenu?.append(GetMenuResponse(title: "ประเภทสินค้า", image: "03"))
+            weakSelf.listMenu?.append(GetMenuResponse(title: "สินค้า", image: "04"))
+            
+            weakSelf.listMenu?.append(GetMenuResponse(title: "ลูกค้า", image: "05"))
+            weakSelf.listMenu?.append(GetMenuResponse(title: "รายงาน", image: "06"))
+            weakSelf.listMenu?.append(GetMenuResponse(title: "รถส่งของ", image: "07"))
+            weakSelf.listMenu?.append(GetMenuResponse(title: "แผนงาน", image: "08"))
+            
+            weakSelf.listMenu?.append(GetMenuResponse(title: "Shipment", image: "08"))
+            weakSelf.listMenu?.append(GetMenuResponse(title: "Asset", image: "08"))
+            weakSelf.listMenu?.append(GetMenuResponse(title: "ของแลก", image: "08"))
+            
             weakSelf.didGetMenuSuccess?()
             weakSelf.menuViewController.stopLoding()
         }
@@ -79,6 +90,7 @@ class MenuViewModel: MenuProtocol, MenuProtocolOutput {
     
     func getItemViewCell(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuCollectionViewCell.identifier, for: indexPath) as! MenuCollectionViewCell
+        cell.setData(item: getItemMenu(index: indexPath.item))
         return cell
     }
     

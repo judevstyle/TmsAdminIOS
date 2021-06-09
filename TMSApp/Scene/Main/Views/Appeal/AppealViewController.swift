@@ -30,6 +30,7 @@ class AppealViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        NavigationManager.instance.setupWithNavigationController(navigationController: self.navigationController)
         viewModel.input.getAppeal(request: GetAppealRequest(title: ""))
     }
 }
@@ -78,7 +79,7 @@ extension AppealViewController {
 extension AppealViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let itemAppeal = viewModel.output.getItemAppeal(index: indexPath.item) else { return }
-        print(itemAppeal.title ?? "")
+        NavigationManager.instance.pushVC(to: .appealDetail)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

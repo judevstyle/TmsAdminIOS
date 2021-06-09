@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3CI-de-pkT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3CI-de-pkT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -27,44 +27,291 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BVp-mH-e0g">
-                                        <rect key="frame" x="16" y="16" width="382" height="580"/>
+                                        <rect key="frame" x="16" y="16" width="382" height="512"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kqj-48-fcC">
-                                                <rect key="frame" x="0.0" y="0.0" width="382" height="32"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="izc-ER-26f">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="79"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="แผนการทำงาน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgB-nb-RVb">
-                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="15.5"/>
-                                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="แผนการเดินรถ สายหลัก A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7d-yr-9dj">
-                                                        <rect key="frame" x="0.0" y="15.5" width="382" height="16.5"/>
-                                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="14"/>
-                                                        <color key="textColor" name="Primary"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HIR-QM-zVB">
+                                                        <rect key="frame" x="8" y="8" width="366" height="63"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ข้อมูล Shipment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuT-9y-PPS">
+                                                                <rect key="frame" x="0.0" y="0.0" width="366" height="21"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="21" id="m4H-r6-lJS"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="รหัส shipment #109299392" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qbq-Bn-Uqc">
+                                                                <rect key="frame" x="0.0" y="21" width="366" height="21"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="21" id="9gN-A7-tw2"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="จำนวนลูกค้า 72" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsR-0c-tjt">
+                                                                <rect key="frame" x="0.0" y="42" width="366" height="21"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="21" id="N7u-5L-ldk"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PQp-cI-Kpr">
-                                                <rect key="frame" x="0.0" y="40" width="382" height="32"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="HIR-QM-zVB" secondAttribute="trailing" constant="8" id="2Rz-fJ-Gwr"/>
+                                                    <constraint firstItem="HIR-QM-zVB" firstAttribute="leading" secondItem="izc-ER-26f" secondAttribute="leading" constant="8" id="FVa-Ds-HIH"/>
+                                                    <constraint firstAttribute="bottom" secondItem="HIR-QM-zVB" secondAttribute="bottom" constant="8" id="Muq-lX-ccx"/>
+                                                    <constraint firstItem="HIR-QM-zVB" firstAttribute="top" secondItem="izc-ER-26f" secondAttribute="top" constant="8" id="qkg-Il-clV"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hxz-vp-usS">
+                                                <rect key="frame" x="0.0" y="87" width="382" height="58"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="รายละเอียดแผนการทำงาน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0SW-vb-Buk">
-                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="15.5"/>
-                                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oe-eQ-JA1">
-                                                        <rect key="frame" x="0.0" y="15.5" width="382" height="16.5"/>
-                                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="14"/>
-                                                        <color key="textColor" name="Primary"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SZg-V6-6li">
+                                                        <rect key="frame" x="8" y="8" width="366" height="42"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ข้อมูลรถ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vd1-Jp-yJ8">
+                                                                <rect key="frame" x="0.0" y="0.0" width="366" height="21"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="21" id="L7z-jH-of5"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="กพ 2311" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vei-7B-Dax">
+                                                                <rect key="frame" x="0.0" y="21" width="366" height="21"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="21" id="Yne-vC-oTe"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
-                                            </stackView>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="LAi-Oh-4sv">
-                                                <rect key="frame" x="0.0" y="80" width="382" height="500"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="SZg-V6-6li" secondAttribute="bottom" constant="8" id="39b-ja-o60"/>
+                                                    <constraint firstAttribute="trailing" secondItem="SZg-V6-6li" secondAttribute="trailing" constant="8" id="Wfi-kA-5cR"/>
+                                                    <constraint firstItem="SZg-V6-6li" firstAttribute="top" secondItem="Hxz-vp-usS" secondAttribute="top" constant="8" id="eeJ-UO-lN3"/>
+                                                    <constraint firstItem="SZg-V6-6li" firstAttribute="leading" secondItem="Hxz-vp-usS" secondAttribute="leading" constant="8" id="qQ6-WT-ZxZ"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rwk-4K-ZHP">
+                                                <rect key="frame" x="0.0" y="153" width="382" height="132"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DJi-tr-VqU">
+                                                        <rect key="frame" x="8" y="8" width="366" height="116"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTY-hP-NKs">
+                                                                <rect key="frame" x="0.0" y="0.0" width="366" height="58"/>
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8lQ-02-cpm">
+                                                                        <rect key="frame" x="8" y="8" width="350" height="42"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ยอดชำระ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyY-T7-eid">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="350" height="21"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="21" id="WRL-c8-Em8"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="฿30,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPe-BQ-HSS">
+                                                                                <rect key="frame" x="0.0" y="21" width="350" height="21"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="21" id="nLr-VK-RKb"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="20"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="8lQ-02-cpm" firstAttribute="top" secondItem="TTY-hP-NKs" secondAttribute="top" constant="8" id="9KB-KP-yuX"/>
+                                                                    <constraint firstItem="8lQ-02-cpm" firstAttribute="leading" secondItem="TTY-hP-NKs" secondAttribute="leading" constant="8" id="ZMs-fW-7cE"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="8lQ-02-cpm" secondAttribute="trailing" constant="8" id="g5X-q1-Vi4"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="8lQ-02-cpm" secondAttribute="bottom" constant="8" id="zWP-t2-vgN"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jLy-q3-hqM">
+                                                                <rect key="frame" x="0.0" y="58" width="366" height="58"/>
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EQt-zv-c7i">
+                                                                        <rect key="frame" x="8" y="8" width="350" height="42"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ยอดค้างชำระ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qen-pj-woV">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="350" height="21"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="21" id="aKd-SD-jRf"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="฿1000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85U-Fs-1RD">
+                                                                                <rect key="frame" x="0.0" y="21" width="350" height="21"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="21" id="rGo-f7-Pf9"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="20"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="EQt-zv-c7i" secondAttribute="trailing" constant="8" id="LHm-Qt-NJ6"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="EQt-zv-c7i" secondAttribute="bottom" constant="8" id="RdF-xc-5Gr"/>
+                                                                    <constraint firstItem="EQt-zv-c7i" firstAttribute="leading" secondItem="jLy-q3-hqM" secondAttribute="leading" constant="8" id="qFY-bt-Tpa"/>
+                                                                    <constraint firstItem="EQt-zv-c7i" firstAttribute="top" secondItem="jLy-q3-hqM" secondAttribute="top" constant="8" id="uu2-Fh-rhS"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="DJi-tr-VqU" firstAttribute="leading" secondItem="rwk-4K-ZHP" secondAttribute="leading" constant="8" id="2Lx-2R-VUJ"/>
+                                                    <constraint firstItem="DJi-tr-VqU" firstAttribute="top" secondItem="rwk-4K-ZHP" secondAttribute="top" constant="8" id="8Vt-en-kWL"/>
+                                                    <constraint firstAttribute="bottom" secondItem="DJi-tr-VqU" secondAttribute="bottom" constant="8" id="FUC-fg-6lB"/>
+                                                    <constraint firstAttribute="trailing" secondItem="DJi-tr-VqU" secondAttribute="trailing" constant="8" id="pVz-Rc-Eak"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08H-At-dZT">
+                                                <rect key="frame" x="0.0" y="293" width="382" height="219"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="coJ-BW-wkO">
+                                                        <rect key="frame" x="8" y="8" width="366" height="203"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCc-DD-s2w">
+                                                                <rect key="frame" x="0.0" y="0.0" width="366" height="203"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8A-Zr-oky">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="231" height="203"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ยอดค้างชำระ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ard-8R-zLk">
+                                                                                <rect key="frame" x="8" y="8" width="71" height="21"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="21" id="TNj-xB-knf"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dcd-TW-hmq" customClass="PieChartView" customModule="Charts">
+                                                                                <rect key="frame" x="8" y="37" width="215" height="158"/>
+                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                            </view>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                        <constraints>
+                                                                            <constraint firstItem="dcd-TW-hmq" firstAttribute="leading" secondItem="L8A-Zr-oky" secondAttribute="leading" constant="8" id="35K-4O-ILl"/>
+                                                                            <constraint firstItem="Ard-8R-zLk" firstAttribute="top" secondItem="L8A-Zr-oky" secondAttribute="top" constant="8" id="4Ys-9N-a5Q"/>
+                                                                            <constraint firstItem="Ard-8R-zLk" firstAttribute="leading" secondItem="L8A-Zr-oky" secondAttribute="leading" constant="8" id="7oH-xL-WQT"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="dcd-TW-hmq" secondAttribute="bottom" constant="8" id="9Tx-8u-dR3"/>
+                                                                            <constraint firstItem="dcd-TW-hmq" firstAttribute="top" secondItem="Ard-8R-zLk" secondAttribute="bottom" constant="8" id="QKa-jI-2pO"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="dcd-TW-hmq" secondAttribute="trailing" constant="8" id="V2J-LJ-jRb"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aoY-qO-XEZ">
+                                                                        <rect key="frame" x="231" y="0.0" width="135" height="203"/>
+                                                                        <subviews>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6vV-ZA-MWR">
+                                                                                <rect key="frame" x="0.0" y="35" width="135" height="168"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ร้านที่ต้องจัดส่ง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMV-Qm-wK2">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="135" height="59.5"/>
+                                                                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ph-6R-Rek">
+                                                                                        <rect key="frame" x="0.0" y="59.5" width="135" height="15.5"/>
+                                                                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="จัดส่งเเล้ว" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDC-Jo-xhG">
+                                                                                        <rect key="frame" x="0.0" y="75" width="135" height="15.5"/>
+                                                                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xZ-jZ-lFV">
+                                                                                        <rect key="frame" x="0.0" y="90.5" width="135" height="15.5"/>
+                                                                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="รอการจัดส่ง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ho4-Z8-yQm">
+                                                                                        <rect key="frame" x="0.0" y="106" width="135" height="15.5"/>
+                                                                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSm-bq-DlQ">
+                                                                                        <rect key="frame" x="0.0" y="121.5" width="135" height="15.5"/>
+                                                                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="จัดส่งไม่สำเร็จ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t05-h1-RxH">
+                                                                                        <rect key="frame" x="0.0" y="137" width="135" height="15.5"/>
+                                                                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5mB-HJ-U4X">
+                                                                                        <rect key="frame" x="0.0" y="152.5" width="135" height="15.5"/>
+                                                                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                            </stackView>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="trailing" secondItem="6vV-ZA-MWR" secondAttribute="trailing" id="IaL-3c-E0v"/>
+                                                                            <constraint firstAttribute="width" constant="135" id="Xti-P0-dmu"/>
+                                                                            <constraint firstItem="6vV-ZA-MWR" firstAttribute="leading" secondItem="aoY-qO-XEZ" secondAttribute="leading" id="aVN-aV-wrx"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="6vV-ZA-MWR" secondAttribute="bottom" id="uQV-EG-4cC"/>
+                                                                            <constraint firstItem="6vV-ZA-MWR" firstAttribute="top" secondItem="aoY-qO-XEZ" secondAttribute="top" constant="35" id="yfY-QI-JO5"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="coJ-BW-wkO" firstAttribute="top" secondItem="08H-At-dZT" secondAttribute="top" constant="8" id="2Pt-rU-JCu"/>
+                                                    <constraint firstItem="coJ-BW-wkO" firstAttribute="leading" secondItem="08H-At-dZT" secondAttribute="leading" constant="8" id="DX1-XV-C9i"/>
+                                                    <constraint firstAttribute="trailing" secondItem="coJ-BW-wkO" secondAttribute="trailing" constant="8" id="Ta3-GK-TnI"/>
+                                                    <constraint firstAttribute="bottom" secondItem="coJ-BW-wkO" secondAttribute="bottom" constant="8" id="eKO-sn-Yh8"/>
+                                                </constraints>
+                                            </view>
+                                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="LAi-Oh-4sv">
+                                                <rect key="frame" x="0.0" y="512" width="382" height="500"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="500" id="bNW-UG-Nqd"/>
@@ -114,6 +361,11 @@
                     </view>
                     <connections>
                         <outlet property="btnAddShipment" destination="m0k-2L-ShP" id="6YW-OV-Zht"/>
+                        <outlet property="dataCarView" destination="Hxz-vp-usS" id="ZTh-dD-NOP"/>
+                        <outlet property="dataCashView" destination="rwk-4K-ZHP" id="GEG-XM-27s"/>
+                        <outlet property="dataChartView" destination="08H-At-dZT" id="NAb-eU-8d7"/>
+                        <outlet property="dataShipmentView" destination="izc-ER-26f" id="saj-BO-ATc"/>
+                        <outlet property="pieChartView" destination="dcd-TW-hmq" id="74C-yl-UaJ"/>
                         <outlet property="tableView" destination="LAi-Oh-4sv" id="VW5-UL-S4R"/>
                         <outlet property="tableViewHeight" destination="bNW-UG-Nqd" id="9oY-xK-o2u"/>
                     </connections>
