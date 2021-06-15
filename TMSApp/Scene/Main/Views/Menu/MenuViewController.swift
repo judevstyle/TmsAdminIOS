@@ -30,6 +30,7 @@ class MenuViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        NavigationManager.instance.setupWithNavigationController(navigationController: self.navigationController)
         viewModel.input.getMenu()
     }
 }
@@ -82,6 +83,11 @@ extension MenuViewController {
 }
 
 extension MenuViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let scene = viewModel.output.getItemMenu(index: indexPath.item)?.scene else { return }
+        NavigationManager.instance.pushVC(to: scene)
+    }
 
 }
 

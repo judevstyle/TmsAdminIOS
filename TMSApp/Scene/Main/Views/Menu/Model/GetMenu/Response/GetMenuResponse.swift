@@ -6,15 +6,16 @@
 //
 
 import Foundation
-import Foundation
+import UIKit
 
-public struct GetMenuResponse: Codable {
+struct GetMenuResponse {
+    var title: String?
+    var image: String?
+    var scene: NavigationOpeningSender?
     
-    public var title: String?
-    public var image: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case title = "title"
-        case image = "image"
+    init(title: String?, image: String?, scene: NavigationOpeningSender? = nil) {
+        self.title = title
+        self.image = image
+        self.scene = scene
     }
 }

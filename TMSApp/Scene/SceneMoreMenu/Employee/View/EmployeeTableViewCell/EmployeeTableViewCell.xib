@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SukhumvitSet-Text.ttf">
+            <string>SukhumvitSet-Text</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="EmployeeTableViewCell" customModule="TMSApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="91"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="91"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T6v-xJ-jlZ">
+                        <rect key="frame" x="8" y="8" width="398" height="75"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="customer" translatesAutoresizingMaskIntoConstraints="NO" id="U3q-qy-hy4">
+                                <rect key="frame" x="8" y="8" width="59" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="U3q-qy-hy4" secondAttribute="height" multiplier="1:1" id="1XF-P5-PQE"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wMS-0d-dlD">
+                                <rect key="frame" x="75" y="5.5" width="315" height="64"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="รหัสพนักงาน : 10018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahX-ac-yf9">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpE-4s-qWv">
+                                        <rect key="frame" x="0.0" y="22.5" width="315" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ตำแหน่ง : นพักงานส่งของ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5eq-0f-xLF">
+                                        <rect key="frame" x="0.0" y="45" width="315" height="19"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wMS-0d-dlD" firstAttribute="centerY" secondItem="U3q-qy-hy4" secondAttribute="centerY" id="0hz-fR-SAv"/>
+                            <constraint firstItem="wMS-0d-dlD" firstAttribute="leading" secondItem="U3q-qy-hy4" secondAttribute="trailing" constant="8" id="Vt9-rH-Esy"/>
+                            <constraint firstItem="U3q-qy-hy4" firstAttribute="top" secondItem="T6v-xJ-jlZ" secondAttribute="top" constant="8" id="bUZ-67-LAO"/>
+                            <constraint firstAttribute="bottom" secondItem="U3q-qy-hy4" secondAttribute="bottom" constant="8" id="nQg-6j-qd8"/>
+                            <constraint firstItem="U3q-qy-hy4" firstAttribute="leading" secondItem="T6v-xJ-jlZ" secondAttribute="leading" constant="8" id="ydh-ch-UIB"/>
+                            <constraint firstAttribute="trailing" secondItem="wMS-0d-dlD" secondAttribute="trailing" constant="8" id="zr2-bt-H19"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="T6v-xJ-jlZ" secondAttribute="trailing" constant="8" id="LyO-Rq-tOC"/>
+                    <constraint firstItem="T6v-xJ-jlZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="rjR-bN-FYF"/>
+                    <constraint firstItem="T6v-xJ-jlZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="yjN-jE-YiV"/>
+                    <constraint firstAttribute="bottom" secondItem="T6v-xJ-jlZ" secondAttribute="bottom" constant="8" id="zfl-rc-T2o"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="bgView" destination="T6v-xJ-jlZ" id="LNd-YD-Qft"/>
+            </connections>
+            <point key="canvasLocation" x="132" y="88"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="customer" width="59" height="59"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

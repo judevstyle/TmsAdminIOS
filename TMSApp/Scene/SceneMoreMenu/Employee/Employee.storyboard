@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SukhumvitSet-Text.ttf">
+            <string>SukhumvitSet-Text</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Employee View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="EmployeeViewController" customModule="TMSApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="G9J-d5-Q6U">
+                                <rect key="frame" x="0.0" y="44" width="414" height="757"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hdn-qq-FVA">
+                                <rect key="frame" x="0.0" y="801" width="414" height="61"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dvg-mo-LzZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="61"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DYj-D5-JnG">
+                                                <rect key="frame" x="8" y="8" width="398" height="45"/>
+                                                <color key="backgroundColor" name="Primary"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="Niq-2j-Uxd"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="17"/>
+                                                <state key="normal" title="เพิ่มพนักงาน">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="DYj-D5-JnG" secondAttribute="bottom" constant="8" id="IRj-P0-xxX"/>
+                                            <constraint firstItem="DYj-D5-JnG" firstAttribute="leading" secondItem="Dvg-mo-LzZ" secondAttribute="leading" constant="8" id="LR9-hr-bwc"/>
+                                            <constraint firstItem="DYj-D5-JnG" firstAttribute="top" secondItem="Dvg-mo-LzZ" secondAttribute="top" constant="8" id="TzH-KU-Tb4"/>
+                                            <constraint firstAttribute="trailing" secondItem="DYj-D5-JnG" secondAttribute="trailing" constant="8" id="jan-5Q-ysL"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hdn-qq-FVA" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="6bt-S4-Ahp"/>
+                            <constraint firstItem="G9J-d5-Q6U" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="EsS-1v-aMx"/>
+                            <constraint firstItem="G9J-d5-Q6U" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="UBw-Vz-Ijo"/>
+                            <constraint firstItem="G9J-d5-Q6U" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="a96-73-nFd"/>
+                            <constraint firstItem="hdn-qq-FVA" firstAttribute="top" secondItem="G9J-d5-Q6U" secondAttribute="bottom" id="m1r-rv-DKA"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hdn-qq-FVA" secondAttribute="trailing" id="mTz-ES-Oe8"/>
+                            <constraint firstItem="hdn-qq-FVA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="uTC-c6-p9Y"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnAddEmployee" destination="DYj-D5-JnG" id="yxS-Np-eo4"/>
+                        <outlet property="tableView" destination="G9J-d5-Q6U" id="hjn-Rl-ko5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="71.651785714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Primary">
+            <color red="1" green="0.3411764705882353" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

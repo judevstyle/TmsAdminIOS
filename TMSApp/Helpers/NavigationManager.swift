@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum NavigationOpeningSender {
+public enum NavigationOpeningSender {
     case login
     case mainTabBar
     case main
@@ -20,8 +20,12 @@ enum NavigationOpeningSender {
     case shipmentMap
     case orderCart
     case appealDetail
+    case employee
+    case editEmployee
+    case typeUser
+    case typeUserDetail
     
-    var storyboardName: String {
+    public var storyboardName: String {
         switch self {
         case .login:
             return "Login"
@@ -45,10 +49,18 @@ enum NavigationOpeningSender {
             return "OrderCart"
         case .appealDetail:
             return "AppealDetail"
+        case .employee:
+            return "Employee"
+        case .editEmployee:
+            return "EditEmployee"
+        case .typeUser:
+            return "TypeUser"
+        case .typeUserDetail:
+            return "TypeUserDetail"
         }
     }
     
-    var classNameString: String {
+    public var classNameString: String {
         switch self {
         case .login:
             return "LoginViewController"
@@ -72,6 +84,14 @@ enum NavigationOpeningSender {
             return "OrderCartViewController"
         case .appealDetail:
             return "AppealDetailViewController"
+        case .employee:
+            return "EmployeeViewController"
+        case .editEmployee:
+            return "EditEmployeeViewController"
+        case .typeUser:
+            return "TypeUserViewController"
+        case .typeUserDetail:
+            return "TypeUserDetailViewController"
         }
     }
 }
@@ -94,15 +114,15 @@ class NavigationManager {
         
     }
     
-//    func pushViewControllerFromBottomBar() {
-//    }
-//
-//    func popToRoot() {
-//    }
-//
-//    func pushViewController(to: NavigationOpeningSender) {
-//
-//    }
+    //    func pushViewControllerFromBottomBar() {
+    //    }
+    //
+    //    func popToRoot() {
+    //    }
+    //
+    //    func pushViewController(to: NavigationOpeningSender) {
+    //
+    //    }
     
     func setupWithNavigationController(navigationController: UINavigationController?) {
         if let nav = navigationController {
@@ -118,13 +138,15 @@ class NavigationManager {
         switch to {
         case .orderCart:
             if let className = storyboard.instantiateInitialViewController() as? OrderCartViewController {
-//                className.set(contentType: contentType)
+                //                className.set(contentType: contentType)
                 viewController = className
             }
         default:
             viewController = storyboard.instantiateInitialViewController() ?? UIViewController()
         }
-
+        
+        viewController.navigationItem.title = to.storyboardName
+        
         if case .Modal(_) = self.currentPresentation {
             //Clear modal if we are presenting one
             self.navigationController.dismiss(animated: true, completion: { self.presentVC(viewController: viewController, presentation: presentation, isHiddenNavigationBar: isHiddenNavigationBar) })
@@ -141,9 +163,7 @@ class NavigationManager {
                 viewController.hidesBottomBarWhenPushed = true
             }
             
-            let back = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-            self.navigationController.navigationItem.backBarButtonItem = back
-            viewController.navigationController?.navigationItem.backBarButtonItem = back
+            self.navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             self.navigationController.pushViewController(viewController, animated: true)
             
         case .Root:
@@ -167,16 +187,16 @@ class NavigationManager {
             return
         }
         
-//        let loadingStoryBoard = rootView.storyboardName
-//        let storyboard = UIStoryboard(name: loadingStoryBoard, bundle: nil)
-//        let vc = storyboard.instantiateInitialViewController()
-//        window.rootViewController = vc
-//        window.makeKeyAndVisible()
-//        UIView.transition(with: window,
-//                          duration: 0.3,
-//                          options: .transitionCrossDissolve,
-//                          animations: nil,
-//                          completion: nil)
+        //        let loadingStoryBoard = rootView.storyboardName
+        //        let storyboard = UIStoryboard(name: loadingStoryBoard, bundle: nil)
+        //        let vc = storyboard.instantiateInitialViewController()
+        //        window.rootViewController = vc
+        //        window.makeKeyAndVisible()
+        //        UIView.transition(with: window,
+        //                          duration: 0.3,
+        //                          options: .transitionCrossDissolve,
+        //                          animations: nil,
+        //                          completion: nil)
     }
     
 }

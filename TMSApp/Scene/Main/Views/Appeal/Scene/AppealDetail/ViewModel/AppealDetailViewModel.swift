@@ -38,14 +38,11 @@ class AppealDetailViewModel: AppealDetailProtocol, AppealDetailProtocolOutput {
     // MARK: - Properties
 //    private var getProductUseCase: GetProductUseCase
     private var appealDetailViewController: AppealDetailViewController
-    
     fileprivate let disposeBag = DisposeBag()
     
     init(
-//        getProductUseCase: GetProductUseCase = GetProductUseCaseImpl(),
         appealDetailViewController: AppealDetailViewController
     ) {
-//        self.getProductUseCase = getProductUseCase
         self.appealDetailViewController = appealDetailViewController
     }
     
@@ -92,9 +89,7 @@ class AppealDetailViewModel: AppealDetailProtocol, AppealDetailProtocolOutput {
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: AppealFeedbackTableViewCell.identifier, for: indexPath) as! AppealFeedbackTableViewCell
             cell.selectionStyle = .none
-            if indexPath.item < 2  {
-                cell.setHide()
-            }
+            cell.imageItemCount = 6
             return cell
         }
     }

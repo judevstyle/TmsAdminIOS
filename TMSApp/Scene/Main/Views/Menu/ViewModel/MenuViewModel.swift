@@ -60,8 +60,8 @@ class MenuViewModel: MenuProtocol, MenuProtocolOutput {
             guard let weakSelf = self else { return }
             
             weakSelf.listMenu?.append(GetMenuResponse(title: "ข้อมูลส่วนตัว", image: "01"))
-            weakSelf.listMenu?.append(GetMenuResponse(title: "พนักงาน", image: "02"))
-            weakSelf.listMenu?.append(GetMenuResponse(title: "ประเภทสินค้า", image: "03"))
+            weakSelf.listMenu?.append(GetMenuResponse(title: "พนักงาน", image: "02", scene: .employee))
+            weakSelf.listMenu?.append(GetMenuResponse(title: "ประเภทสินค้า", image: "03", scene: .typeUser))
             weakSelf.listMenu?.append(GetMenuResponse(title: "สินค้า", image: "04"))
             
             weakSelf.listMenu?.append(GetMenuResponse(title: "ลูกค้า", image: "05"))

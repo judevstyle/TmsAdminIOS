@@ -19,11 +19,15 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        registerNotificationCenter()
+        registerKeyboardObserver()
     }
     
     @IBAction func handleLogin(_ sender: Any) {
         NavigationManager.instance.pushVC(to: .mainTabBar, presentation: .Root, isHiddenNavigationBar: true)
+    }
+    
+    deinit {
+       removeObserver()
     }
 }
 
@@ -42,27 +46,8 @@ extension LoginViewController {
         inputUsername.text = "Nontawatkb"
         inputPassword.text = "123456"
     }
-    
-    func registerNotificationCenter() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil);
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil);
-    }
 }
 
-
-//MARK: - EventKeyboardShowHide
-extension LoginViewController {
-    @objc func keyboardWillShow(_ notification: Notification) {
-        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            let keyboardHeight = keyboardFrame.cgRectValue.size.height
-            viewKeyboardHeight.constant = keyboardHeight - 50
-        }
-    }
-    
-    @objc func keyboardWillHide(sender: NSNotification) {
-        viewKeyboardHeight.constant = 0
-    }
-}
 
 //MARK: - UITextFieldDelegate
 extension LoginViewController: UITextFieldDelegate {
@@ -77,5 +62,11 @@ extension LoginViewController: UITextFieldDelegate {
         default:
             break
         }
+    }
+}
+
+extension LoginViewController : KeyboardListener {
+    func keyboardDidUpdate(keyboardHeight: CGFloat) {
+        viewKeyboardHeight.constant = keyboardHeight
     }
 }
