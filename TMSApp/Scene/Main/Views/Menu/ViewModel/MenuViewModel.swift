@@ -62,12 +62,12 @@ class MenuViewModel: MenuProtocol, MenuProtocolOutput {
             weakSelf.listMenu?.append(GetMenuResponse(title: "ข้อมูลส่วนตัว", image: "01"))
             weakSelf.listMenu?.append(GetMenuResponse(title: "พนักงาน", image: "02", scene: .employee))
             weakSelf.listMenu?.append(GetMenuResponse(title: "ประเภทสินค้า", image: "03", scene: .typeUser))
-            weakSelf.listMenu?.append(GetMenuResponse(title: "สินค้า", image: "04"))
+            weakSelf.listMenu?.append(GetMenuResponse(title: "สินค้า", image: "04", scene: .product))
             
-            weakSelf.listMenu?.append(GetMenuResponse(title: "ลูกค้า", image: "05"))
+            weakSelf.listMenu?.append(GetMenuResponse(title: "ลูกค้า", image: "05", scene: .customer))
             weakSelf.listMenu?.append(GetMenuResponse(title: "รายงาน", image: "06"))
-            weakSelf.listMenu?.append(GetMenuResponse(title: "รถส่งของ", image: "07"))
-            weakSelf.listMenu?.append(GetMenuResponse(title: "แผนงาน", image: "08"))
+            weakSelf.listMenu?.append(GetMenuResponse(title: "รถส่งของ", image: "07", scene: .truck))
+            weakSelf.listMenu?.append(GetMenuResponse(title: "แผนงาน", image: "08", scene: .planMaster))
             
             weakSelf.listMenu?.append(GetMenuResponse(title: "Shipment", image: "08"))
             weakSelf.listMenu?.append(GetMenuResponse(title: "Asset", image: "08"))

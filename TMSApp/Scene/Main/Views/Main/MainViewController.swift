@@ -69,10 +69,7 @@ extension MainViewController {
 
 extension MainViewController {
     func setupUI(){
-        viewTop.layer.shadowPath = UIBezierPath(rect: viewTop.bounds).cgPath
-        viewTop.layer.shadowRadius = 3
-        viewTop.layer.shadowOffset = .zero
-        viewTop.layer.shadowOpacity = 0.3
+        viewTop.setShadowBoxView()
     }
     
     fileprivate func registerCell() {

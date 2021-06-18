@@ -25,23 +25,32 @@ class EditEmployeeViewController: UIViewController {
     @IBOutlet weak var dateView: InputTextFieldDatePicker!
     @IBOutlet weak var addressView: InputTextArea!
     @IBOutlet weak var positionView: InputTextFieldPickerView!
-
+    
     @IBOutlet weak var imageGrid: CollectionViewImageGrid!
     
     let pickerPositionView = ToolbarPickerView()
     let positionList = ["พนักงานส่งของ", "นักส่งของใหม่"]
     var selectedPosition : String?
     
+    var imagePickerProfile: ImagePicker!
+    var imagePickerList: ImagePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         registerKeyboardObserver()
         hideKeyboardWhenTappedAround()
+        
+        self.imagePickerProfile = ImagePicker(presentationController: self, sourceType: [.camera, .photoLibrary], delegate: self)
+        self.imagePickerList = ImagePicker(presentationController: self, sourceType: [.camera, .photoLibrary], delegate: self)
     }
     
     deinit {
-       removeObserver()
+        removeObserver()
+    }
+    
+    @IBAction func handleChooseImage(_ sender: UIButton) {
+        self.imagePickerProfile.present(from: sender)
     }
 }
 
@@ -56,6 +65,9 @@ extension EditEmployeeViewController {
         tel1View.inputText.delegate = self
         tel2View.inputText.delegate = self
         dateView.inputText.delegate = self
+        
+        imageGrid.viewModel.input.setDelegate(delegate: self)
+        imageGrid.viewModel.input.setList(images: [])
         
         displayNameView.titleLabel.text = "ชื่อที่แสดง"
         fristNameView.titleLabel.text = "ชื่อ"
@@ -98,11 +110,11 @@ extension EditEmployeeViewController {
 
 extension EditEmployeeViewController : UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-
+        
         if textField == positionView.inputText {
             self.pickerPositionView.reloadAllComponents()
         }
-//        self.scrollToElement(text: textField, scroll: scrollView)
+        //        self.scrollToElement(text: textField, scroll: scrollView)
     }
 }
 
@@ -119,15 +131,15 @@ extension EditEmployeeViewController : UIPickerViewDelegate, UIPickerViewDataSou
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return self.positionList.count
     }
-
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return self.positionList[row]
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.selectedPosition = self.positionList[row]
     }
@@ -145,14 +157,14 @@ extension EditEmployeeViewController : UIPickerViewDelegate, UIPickerViewDataSou
 }
 
 extension EditEmployeeViewController: ToolbarPickerViewDelegate {
-
+    
     func didTapDone() {
         self.positionView.inputText.text = self.selectedPosition ?? ""
         self.view.endEditing(true)
     }
-
+    
     func didTapCancel() {
-       self.view.endEditing(true)
+        self.view.endEditing(true)
     }
 }
 
@@ -163,3 +175,34 @@ extension EditEmployeeViewController: KeyboardListener {
     }
 }
 
+
+
+extension EditEmployeeViewController: ImagePickerDelegate {
+    func didSelect(image: UIImage?, imagePicker: ImagePicker) {
+        switch imagePicker {
+        case imagePickerProfile:
+            print("imagePickerProfile")
+            self.imageView.image = image
+            self.buttonImage.imageView?.tintColor = .clear
+            break
+        case imagePickerList:
+            print("imagePickerList")
+            imageGrid.viewModel.input.addListImage(image: image ?? UIImage())
+            break
+        default: break
+        }
+    }
+}
+
+
+extension EditEmployeeViewController : CollectionViewImageGridDelegate {
+    func imageListChangeAction() {
+        print("Update List Image")
+    }
+    
+    func didSelectItem(indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            self.imagePickerList.present(from: self.view)
+        }
+    }
+}

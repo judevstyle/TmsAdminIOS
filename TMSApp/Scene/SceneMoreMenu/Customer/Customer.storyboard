@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SukhumvitSet-Text.ttf">
+            <string>SukhumvitSet-Text</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Customer View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="CustomerViewController" customModule="TMSApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xJ4-AT-pCg">
+                                <rect key="frame" x="0.0" y="801" width="414" height="61"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HiF-Lu-7jE">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="61"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2s-om-eEo">
+                                                <rect key="frame" x="8" y="8" width="398" height="45"/>
+                                                <color key="backgroundColor" name="Primary"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="ABC-uB-WuO"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="17"/>
+                                                <state key="normal" title="เพิ่มร้านค้า">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="w2s-om-eEo" firstAttribute="leading" secondItem="HiF-Lu-7jE" secondAttribute="leading" constant="8" id="2Py-RO-a5A"/>
+                                            <constraint firstAttribute="trailing" secondItem="w2s-om-eEo" secondAttribute="trailing" constant="8" id="6e6-cG-ckN"/>
+                                            <constraint firstItem="w2s-om-eEo" firstAttribute="top" secondItem="HiF-Lu-7jE" secondAttribute="top" constant="8" id="Xxs-Lr-iD2"/>
+                                            <constraint firstAttribute="bottom" secondItem="w2s-om-eEo" secondAttribute="bottom" constant="8" id="wVf-kU-563"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xm8-gX-Eiw">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="801"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xm8-gX-Eiw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="2vj-8w-rDC"/>
+                            <constraint firstAttribute="trailing" secondItem="xJ4-AT-pCg" secondAttribute="trailing" id="5aD-NG-YMZ"/>
+                            <constraint firstItem="xJ4-AT-pCg" firstAttribute="top" secondItem="xm8-gX-Eiw" secondAttribute="bottom" id="H6I-Qy-mZU"/>
+                            <constraint firstItem="xm8-gX-Eiw" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Ib0-N6-IMH"/>
+                            <constraint firstAttribute="trailing" secondItem="xm8-gX-Eiw" secondAttribute="trailing" id="SJT-bi-8hP"/>
+                            <constraint firstItem="xJ4-AT-pCg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="a5n-Oz-EgE"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="xJ4-AT-pCg" secondAttribute="bottom" id="rMt-nF-hsf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnAddCustomer" destination="w2s-om-eEo" id="ocT-nx-9He"/>
+                        <outlet property="tableView" destination="xm8-gX-Eiw" id="cZd-po-SjR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="72"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Primary">
+            <color red="1" green="0.3411764705882353" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

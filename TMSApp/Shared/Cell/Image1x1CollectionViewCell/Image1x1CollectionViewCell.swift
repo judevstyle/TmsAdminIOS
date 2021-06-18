@@ -17,6 +17,7 @@ class Image1x1CollectionViewCell: UICollectionViewCell {
     
     public var delegate: Image1x1CollectionViewCellDelegate?
     
+    @IBOutlet var bgView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var deleteButton: UIButton!
     public var index: Int?
@@ -28,6 +29,8 @@ class Image1x1CollectionViewCell: UICollectionViewCell {
     }
     
     func setupUI() {
+        bgView.setRounded(rounded: 8)
+        imageView.setRounded(rounded: 8)
         deleteButton.setImage(UIImage.init(named: "cancel")?.withRenderingMode(.alwaysTemplate), for: .normal)
         deleteButton.imageView?.tintColor = UIColor.white
         deleteButton.imageEdgeInsets = UIEdgeInsets(top: 7, left: 7, bottom: 7, right: 7)

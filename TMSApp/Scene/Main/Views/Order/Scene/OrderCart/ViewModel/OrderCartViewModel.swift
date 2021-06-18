@@ -57,7 +57,7 @@ class OrderCartViewModel: OrderCartProtocol, OrderCartProtocolOutput {
         self.listOrderCart?.removeAll()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
             guard let weakSelf = self else { return }
-            for _ in 0..<5 {
+            for _ in 0..<3 {
                 weakSelf.listOrderCart?.append(GetOrderResponse(title: "sss"))
             }
             weakSelf.didGetOrderCartSuccess?()
@@ -87,16 +87,16 @@ class OrderCartViewModel: OrderCartProtocol, OrderCartProtocolOutput {
     }
     
     func getItemViewCellHeight() -> CGFloat {
-        return 147
+        return 123
     }
     
     func getHeightSectionView(section: Int) -> CGFloat {
-        return 30
+        return 25
     }
     
     func getHeaderViewCell(_ tableView: UITableView, section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: OrderCartHeaderTableViewCell.identifier)
-        if let header = header as? OrderCartHeaderTableViewCell {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: HeaderLabelTableViewCell.identifier)
+        if let header = header as? HeaderLabelTableViewCell {
             header.render(title: "รายการสินค้า")
         }
         return header

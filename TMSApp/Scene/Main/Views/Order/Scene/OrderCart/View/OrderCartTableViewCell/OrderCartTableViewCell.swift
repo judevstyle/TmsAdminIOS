@@ -40,13 +40,15 @@ class OrderCartTableViewCell: UITableViewCell {
     func setupUI() {
         
         orderCartView.setRounded(rounded: 8)
-        orderCartView.layer.shadowColor = UIColor.darkGray.cgColor
-        orderCartView.layer.shadowOpacity = 0.5
-        orderCartView.layer.shadowOffset = .zero
-        orderCartView.layer.shadowRadius = 3
+//        orderCartView.layer.shadowColor = UIColor.darkGray.cgColor
+//        orderCartView.layer.shadowOpacity = 0.5
+//        orderCartView.layer.shadowOffset = .zero
+//        orderCartView.layer.shadowRadius = 3
         
         titleText.font = UIFont.PrimaryText(size: 12)
         descText.font = UIFont.PrimaryText(size: 10)
+        
+        priceText.font = UIFont.PrimaryText(size: 14)
         
         //BadgeVIP
         badgeTypeView.setRounded(rounded: 3)

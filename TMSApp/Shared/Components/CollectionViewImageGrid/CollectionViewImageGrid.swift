@@ -8,15 +8,14 @@
 import UIKit
 
 protocol CollectionViewImageGridDelegate: class {
-    func didSelectItem()
+    func didSelectItem(indexPath: IndexPath)
+    func imageListChangeAction()
 }
 
 class CollectionViewImageGrid: UIView {
     
     let nibName = "CollectionViewImageGrid"
     var contentView:UIView?
-    
-    public weak var delegate: CollectionViewImageGridDelegate?
     
     @IBOutlet public weak var titleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -80,7 +79,6 @@ extension CollectionViewImageGrid {
         collectionView.delegate = self
         collectionView.dataSource = self
         registerCell()
-        self.viewModel.input.setList()
     }
     
     fileprivate func registerCell() {
@@ -106,8 +104,7 @@ extension CollectionViewImageGrid {
 extension CollectionViewImageGrid: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.delegate?.didSelectItem()
-        print("didSelectItem")
+        self.viewModel.input.didSelectItem(indexPath: indexPath)
     }
     
 }
@@ -121,3 +118,5 @@ extension CollectionViewImageGrid: UICollectionViewDataSource {
         return viewModel.output.getItemViewCell(collectionView, indexPath: indexPath)
     }
 }
+
+// MARK: - Public Area

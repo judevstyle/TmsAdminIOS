@@ -14,8 +14,8 @@ class TypeUserTableViewCell: UITableViewCell {
     @IBOutlet weak var bgIcon: UIView!
     @IBOutlet weak var iconText: UILabel!
     @IBOutlet weak var titleText: UILabel!
-    
     @IBOutlet weak var bgView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,18 +24,11 @@ class TypeUserTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-    
     
     func setupUI(){
         bgView.setRounded(rounded: 8)
-        bgView.layer.shadowColor = UIColor.darkGray.cgColor
-        bgView.layer.shadowOpacity = 0.5
-        bgView.layer.shadowOffset = .zero
-        bgView.layer.shadowRadius = 3
-        
+        bgView.setShadowBoxView()
         
         bgIcon.setRounded(rounded: bgIcon.frame.width/2)
     }

@@ -22,6 +22,11 @@ class MainTabBarViewController: UITabBarController {
         tabBar.isTranslucent = false
         tabBar.backgroundImage = UIImage()
         tabBar.shadowImage = UIImage()
+
+        tabBar.layer.shadowColor = UIColor.darkGray.cgColor
+        tabBar.layer.shadowOpacity = 0.3
+        tabBar.layer.shadowOffset = .zero
+        tabBar.layer.shadowRadius = 2
         
         let homeController = tabBarNavigation(unselectImage: UIImage(named: "home"), selectImage: UIImage(named: "home"), title: "หน้าหลัก", badgeValue: nil, navigationTitle: "Dashboard ประจำวันที่ \(Date().dateFormattedEn_US)", navigationOpeningSender: .main)
         

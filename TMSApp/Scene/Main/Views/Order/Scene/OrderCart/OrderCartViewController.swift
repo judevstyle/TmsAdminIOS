@@ -40,6 +40,14 @@ class OrderCartViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
 //        viewModel.input.fetchOrderCart()
     }
+    @IBAction func handleConfirmOrder(_ sender: Any) {
+        self.showAlertComfirm(titleText: "คุณต้องการยืนยันการสั่งออร์เดอร์ หรือไม่ ?", messageText: "", dismissAction: {
+            print("dismissAction")
+        }, confirmAction: {
+            print("confirmAction")
+            self.navigationController?.popViewController(animated: true)
+        })
+    }
 }
 
 // MARK: - Binding
@@ -75,12 +83,8 @@ extension OrderCartViewController {
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableView.separatorStyle = .none
-        tableView.register(OrderCartHeaderTableViewCell.self, forHeaderFooterViewReuseIdentifier: OrderHeaderTableViewCell.identifier)
-        tableViewRegister(identifier: OrderCartTableViewCell.identifier)
-    }
-    
-    fileprivate func tableViewRegister(identifier: String) {
-        self.tableView.register(UINib.init(nibName: identifier, bundle: Bundle.main), forCellReuseIdentifier: identifier)
+        tableView.register(HeaderLabelTableViewCell.self, forHeaderFooterViewReuseIdentifier: HeaderLabelTableViewCell.identifier)
+        tableView.registerCell(identifier: OrderCartTableViewCell.identifier)
     }
 }
 
@@ -95,10 +99,6 @@ extension OrderCartViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return viewModel.output.getHeightSectionView(section: section)
     }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0
-    }
 }
 
 extension OrderCartViewController: UITableViewDataSource {
@@ -110,11 +110,11 @@ extension OrderCartViewController: UITableViewDataSource {
         return viewModel.output.getNumberOfSections(in: tableView)
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return viewModel.output.getHeaderViewCell(tableView, section: section)
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return viewModel.output.getItemViewCell(tableView, indexPath: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return viewModel.output.getHeaderViewCell(tableView, section: section)
     }
 }

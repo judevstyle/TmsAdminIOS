@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import MaterialComponents
 
 public enum NavigationOpeningSender {
     case login
@@ -24,6 +25,14 @@ public enum NavigationOpeningSender {
     case editEmployee
     case typeUser
     case typeUserDetail
+    case product
+    case customer
+    case truck
+    case planMaster
+    case sequenceShipment
+    case typeUserProductDetail
+    case typeUserProductAll
+    case productDetail
     
     public var storyboardName: String {
         switch self {
@@ -57,6 +66,22 @@ public enum NavigationOpeningSender {
             return "TypeUser"
         case .typeUserDetail:
             return "TypeUserDetail"
+        case .product:
+            return "Product"
+        case .customer:
+            return "Customer"
+        case .truck:
+            return "Truck"
+        case .planMaster:
+            return "PlanMaster"
+        case .sequenceShipment:
+            return "SequenceShipment"
+        case .typeUserProductDetail:
+            return "TypeUserProductDetail"
+        case .typeUserProductAll:
+            return "TypeUserProductAll"
+        case .productDetail:
+            return "ProductDetail"
         }
     }
     
@@ -92,6 +117,22 @@ public enum NavigationOpeningSender {
             return "TypeUserViewController"
         case .typeUserDetail:
             return "TypeUserDetailViewController"
+        case .product:
+            return "ProductViewController"
+        case .customer:
+            return "CustomerViewController"
+        case .truck:
+            return "TruckViewController"
+        case .planMaster:
+            return "PlanMasterViewController"
+        case .sequenceShipment:
+            return "SequenceShipmentViewController"
+        case .typeUserProductDetail:
+            return "TypeUserProductDetailViewController"
+        case .typeUserProductAll:
+            return "TypeUserProductAllViewController"
+        case .productDetail:
+            return "ProductDetailViewController"
         }
     }
 }
@@ -108,6 +149,8 @@ class NavigationManager {
         case Push
         case Modal(completion: (() -> Void)?)
         case ModelNav(completion: (() -> Void)?)
+        case BottomSheet(completion: (() -> Void)?, height: CGFloat)
+                    
     }
     
     init() {
@@ -177,6 +220,13 @@ class NavigationManager {
         case .ModelNav(let completion):
             viewController.modalPresentationStyle = .fullScreen
             self.navigationController.present(viewController, animated: true, completion: completion)
+        case .BottomSheet(let completion, let height):
+//            viewController.modalPresentationStyle = .automatic
+            viewController.view.setRounded(rounded: 20)
+            let bottomSheet: MDCBottomSheetController = MDCBottomSheetController(contentViewController: viewController)
+            bottomSheet.preferredContentSize = CGSize(width: viewController.view.frame.size.width, height: height)
+            bottomSheet.view.setRounded(rounded: 20)
+            self.navigationController.present(bottomSheet, animated: true, completion: completion)
         }
         self.currentPresentation = presentation
     }

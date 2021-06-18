@@ -51,7 +51,7 @@ class AppealFeedbackViewModel: AppealFeedbackProtocol, AppealFeedbackProtocolOut
         listFeedback?.removeAll()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
             guard let weakSelf = self else { return }
-            for _ in 0..<6 {
+            for _ in 0..<15 {
                 weakSelf.listFeedback?.append(GetAppealResponse(title: "test"))
             }
             weakSelf.didGetAppealSuccess?()

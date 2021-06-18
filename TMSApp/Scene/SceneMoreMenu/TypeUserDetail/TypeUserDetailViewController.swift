@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MaterialComponents
 
 class TypeUserDetailViewController: UIViewController {
 
@@ -67,14 +68,14 @@ extension TypeUserDetailViewController {
     fileprivate func registerCell() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        collectionView.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         collectionView.showsVerticalScrollIndicator = false
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        let screenWidth = ((collectionView.frame.width - 40) / 2) - 16
+        let screenWidth = ((collectionView.frame.width - 16) / 2) - 8
         layout.itemSize = CGSize(width: screenWidth, height: 225)
-        layout.minimumInteritemSpacing = 16
-        layout.minimumLineSpacing = 16
+        layout.minimumInteritemSpacing = 8
+        layout.minimumLineSpacing = 8
         layout.scrollDirection = .vertical
         collectionView!.collectionViewLayout = layout
         collectionView.registerCell(identifier: ProductCollectionViewCell.identifier)
@@ -89,6 +90,7 @@ extension TypeUserDetailViewController {
     
     @objc func btnAddProduct() {
 //        NavigationManager.instance.pushVC(to: .editEmployee)
+        NavigationManager.instance.pushVC(to: .typeUserProductAll)
     }
 }
 
@@ -96,7 +98,9 @@ extension TypeUserDetailViewController {
 extension TypeUserDetailViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("didSelectItem")
+        NavigationManager.instance.pushVC(to: .typeUserProductDetail, presentation: .BottomSheet(completion: {
+            
+        }, height: 646))
     }
     
 }

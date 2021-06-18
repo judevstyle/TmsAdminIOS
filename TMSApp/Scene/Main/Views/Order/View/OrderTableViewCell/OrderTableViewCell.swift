@@ -14,15 +14,10 @@ class OrderTableViewCell: UITableViewCell {
     @IBOutlet weak var orderView: UIView!
     @IBOutlet weak var orderImage: UIImageView!
     @IBOutlet weak var orderId: UILabel!
-    @IBOutlet weak var orderName: UILabel!
-    
-    @IBOutlet weak var badgeVipView: UIView!
-    @IBOutlet weak var badgeVipName: UILabel!
     
     @IBOutlet weak var orderAddress: UILabel!
     
     @IBOutlet weak var orderList: UILabel!
-    @IBOutlet weak var orderSumBalance: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,26 +34,17 @@ class OrderTableViewCell: UITableViewCell {
     func setupUI(){
         orderView.setRounded(rounded: 8)
         orderView.layer.shadowColor = UIColor.darkGray.cgColor
-        orderView.layer.shadowOpacity = 0.5
+        orderView.layer.shadowOpacity = 0.3
         orderView.layer.shadowOffset = .zero
-        orderView.layer.shadowRadius = 3
+        orderView.layer.shadowRadius = 2
         
         orderImage.setRounded(rounded: 12)
         
-        orderId.font = UIFont.PrimaryText(size: 12)
-        orderName.font = UIFont.PrimaryText(size: 12)
-        
-        //BadgeVIP
-        badgeVipView.setRounded(rounded: 3)
-        badgeVipView.layer.borderWidth = 0.3
-        badgeVipView.layer.borderColor = UIColor.Primary.cgColor
-        badgeVipName.text = "VIP customer"
-        badgeVipName.font = UIFont.PrimaryText(size: 8)
+        orderId.font = UIFont.PrimaryText(size: 14)
+
         
         orderAddress.font = UIFont.PrimaryText(size: 10)
         orderAddress.numberOfLines = 2
-        orderList.font = UIFont.PrimaryText(size: 10)
-        orderSumBalance.font = UIFont.PrimaryText(size: 10)
     }
     
     func setData(item: GetOrderResponse?) {

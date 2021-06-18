@@ -71,7 +71,7 @@ class AppealDetailViewModel: AppealDetailProtocol, AppealDetailProtocolOutput {
         case 0:
             return 1
         default:
-            return 3
+            return 1
         }
     }
     
@@ -89,7 +89,7 @@ class AppealDetailViewModel: AppealDetailProtocol, AppealDetailProtocolOutput {
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: AppealFeedbackTableViewCell.identifier, for: indexPath) as! AppealFeedbackTableViewCell
             cell.selectionStyle = .none
-            cell.imageItemCount = 6
+            cell.imageItemCount = 15
             return cell
         }
     }

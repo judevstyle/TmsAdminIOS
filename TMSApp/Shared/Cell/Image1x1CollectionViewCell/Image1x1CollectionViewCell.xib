@@ -56,6 +56,7 @@
                 <constraint firstItem="Fgd-aA-8eP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uZT-ql-G91"/>
             </constraints>
             <connections>
+                <outlet property="bgView" destination="Fgd-aA-8eP" id="eEO-z9-hcg"/>
                 <outlet property="deleteButton" destination="bfE-EL-W0G" id="hN6-jx-N83"/>
                 <outlet property="imageView" destination="JRY-wz-nMX" id="ajH-Iq-yUK"/>
             </connections>

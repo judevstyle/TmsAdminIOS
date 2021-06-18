@@ -9,7 +9,7 @@ import UIKit
 import Charts
 
 class ShipmentDetailViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var btnAddShipment: UIButton!
@@ -33,7 +33,7 @@ class ShipmentDetailViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         registerCell()
-    
+        
         NavigationManager.instance.setupWithNavigationController(navigationController: self.navigationController)
         setupPieChart()
     }
@@ -44,6 +44,9 @@ class ShipmentDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel.input.getShipment()
+    }
+    @IBAction func btnShipmentAction(_ sender: Any) {
+        NavigationManager.instance.pushVC(to: .sequenceShipment)
     }
 }
 
@@ -75,9 +78,16 @@ extension ShipmentDetailViewController {
     func setupUI(){
         
         dataShipmentView.setShadowBoxView()
+        dataShipmentView.setRounded(rounded: 8)
+        
         dataCarView.setShadowBoxView()
+        dataCarView.setRounded(rounded: 8)
+        
         dataCashView.setShadowBoxView()
+        dataCashView.setRounded(rounded: 8)
+        
         dataChartView.setShadowBoxView()
+        dataChartView.setRounded(rounded: 8)
         
         btnAddShipment.setRounded(rounded: 8)
     }
@@ -89,8 +99,8 @@ extension ShipmentDetailViewController {
         pieChartView.rotationEnabled = true
         pieChartView.isUserInteractionEnabled = true
         
-//        pieChartView.legend.enabled = false
-//        pieChartView.transparentCircleRadiusPercent = 8
+        //        pieChartView.legend.enabled = false
+        //        pieChartView.transparentCircleRadiusPercent = 8
         
         pieChartView.holeRadiusPercent = 0.65
         pieChartView.transparentCircleRadiusPercent = 0
@@ -109,7 +119,7 @@ extension ShipmentDetailViewController {
         let c2 = NSUIColor(cgColor: UIColor.systemGreen.cgColor)
         let c3 = NSUIColor(cgColor: UIColor.systemIndigo.cgColor)
         let c4 = NSUIColor(cgColor: UIColor.systemPink.cgColor)
-    
+        
         dataSet.colors = [c1, c2, c3, c4]
         dataSet.sliceSpace = 3
         dataSet.drawValuesEnabled = false

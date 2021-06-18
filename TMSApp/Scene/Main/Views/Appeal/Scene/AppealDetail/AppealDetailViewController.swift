@@ -62,14 +62,14 @@ extension AppealDetailViewController {
 
 extension AppealDetailViewController {
     func setupUI(){
-        topDetailView.roundCorners(corners: .bottomLeft, radius: 20)
+        topDetailView.roundCorners(corners: .bottomLeft, radius: 25)
     }
     
     fileprivate func registerCell() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableView.separatorStyle = .none
         tableView.register(MainDashBoardHeaderTableViewCell.self, forHeaderFooterViewReuseIdentifier: MainDashBoardHeaderTableViewCell.identifier)
         tableViewRegister(identifier: AppealSentByTableViewCell.identifier)
@@ -84,7 +84,6 @@ extension AppealDetailViewController {
 extension AppealDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let itemAppeal = viewModel.output.getItemAppeal(index: indexPath.item) else { return }
-        NavigationManager.instance.pushVC(to: .appealDetail)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -93,6 +92,10 @@ extension AppealDetailViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return viewModel.output.getHeightSectionView(section: section)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return .leastNormalMagnitude
     }
     
     
@@ -115,6 +118,10 @@ extension AppealDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return viewModel.output.getHeaderViewCell(tableView, section: section)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
     }
 }
 

@@ -83,6 +83,6 @@ class AppealViewModel: AppealProtocol, AppealProtocolOutput {
     }
     
     func getItemViewCellHeight() -> CGFloat {
-        return 91
+        return 110
     }
 }

@@ -45,11 +45,11 @@ class AppealFeedbackTableViewCell: UITableViewCell {
 
 extension AppealFeedbackTableViewCell {
     func setupUI(){
-        appealView.setRounded(rounded: 8)
-        appealView.layer.shadowColor = UIColor.darkGray.cgColor
-        appealView.layer.shadowOpacity = 0.5
-        appealView.layer.shadowOffset = .zero
-        appealView.layer.shadowRadius = 3
+//        appealView.setRounded(rounded: 8)
+//        appealView.layer.shadowColor = UIColor.darkGray.cgColor
+//        appealView.layer.shadowOpacity = 0.5
+//        appealView.layer.shadowOffset = .zero
+//        appealView.layer.shadowRadius = 3
     }
     
     fileprivate func registerCell() {

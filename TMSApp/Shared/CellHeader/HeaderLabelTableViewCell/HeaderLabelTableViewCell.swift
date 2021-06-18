@@ -1,33 +1,33 @@
 //
-//  OrderCartHeaderTableViewCell.swift
+//  HeaderLabelTableViewCell.swift
 //  TMSApp
 //
-//  Created by Nontawat Kanboon on 5/30/21.
+//  Created by Nontawat Kanboon on 6/17/21.
 //
 
 import UIKit
 
-public protocol OrderCartHeaderTableViewCellDelegate {
-}
-
-class OrderCartHeaderTableViewCell : UITableViewHeaderFooterView {
+class HeaderLabelTableViewCell: UITableViewHeaderFooterView {
     
-    private var leftLabel = UILabel()
+    private var leftLabel : PaddingLabel = {
+        let label = PaddingLabel(withInsets: 0, 0, 0, 0)
+        label.textColor = UIColor.black
+        return label
+    }()
     
-    static let identifier = "OrderCartHeaderTableViewCell"
-    
-    public var delegate: OrderCartHeaderTableViewCellDelegate?
+    static let identifier = "HeaderLabelTableViewCell"
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         
         self.contentView.addSubview(self.leftLabel)
+        
         self.leftLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(16)
-            make.right.equalTo(16)
+            make.leading.equalTo(8)
             make.top.equalTo(0)
             make.bottom.equalTo(0)
         }
+
         leftLabel.textAlignment = .left
         leftLabel.font = UIFont.PrimaryMedium(size: 13)
     }
@@ -40,4 +40,5 @@ class OrderCartHeaderTableViewCell : UITableViewHeaderFooterView {
         self.leftLabel.text = title
         self.contentView.backgroundColor = .white
     }
+    
 }

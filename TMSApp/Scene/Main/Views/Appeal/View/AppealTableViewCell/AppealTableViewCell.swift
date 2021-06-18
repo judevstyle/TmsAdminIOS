@@ -32,7 +32,7 @@ class AppealTableViewCell: UITableViewCell {
         if selected {
             print("Nontawat \(favoriteIcons.count)")
             for item in favoriteIcons {
-                item.tintColor = .gold
+                item.tintColor = .Primary
             }
         }
     }
@@ -40,21 +40,21 @@ class AppealTableViewCell: UITableViewCell {
     func setupUI(){
         appealView.setRounded(rounded: 8)
         appealView.layer.shadowColor = UIColor.darkGray.cgColor
-        appealView.layer.shadowOpacity = 0.5
+        appealView.layer.shadowOpacity = 0.3
         appealView.layer.shadowOffset = .zero
-        appealView.layer.shadowRadius = 3
+        appealView.layer.shadowRadius = 2
         
-        appealImage.setRounded(rounded: 12)
+        appealImage.setRounded(rounded: 8)
         
-        appealId.font = UIFont.PrimaryText(size: 12)
-        appealName.font = UIFont.PrimaryText(size: 12)
+        appealId.font = UIFont.PrimaryText(size: 14)
+        appealName.font = UIFont.PrimaryText(size: 14)
         
         //BadgeVIP
         badgeVipView.setRounded(rounded: 3)
         badgeVipView.layer.borderWidth = 0.3
         badgeVipView.layer.borderColor = UIColor.Primary.cgColor
         badgeVipName.text = "VIP customer"
-        badgeVipName.font = UIFont.PrimaryText(size: 8)
+        badgeVipName.font = UIFont.PrimaryText(size: 10)
     }
     
     func setData(item: GetOrderResponse?) {

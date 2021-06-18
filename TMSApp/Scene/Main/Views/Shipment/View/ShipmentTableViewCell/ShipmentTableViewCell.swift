@@ -44,9 +44,9 @@ class ShipmentTableViewCell: UITableViewCell {
     func setupUI(){
         shippingView.setRounded(rounded: 8)
         shippingView.layer.shadowColor = UIColor.darkGray.cgColor
-        shippingView.layer.shadowOpacity = 0.5
+        shippingView.layer.shadowOpacity = 0.3
         shippingView.layer.shadowOffset = .zero
-        shippingView.layer.shadowRadius = 3
+        shippingView.layer.shadowRadius = 2
         
         shipmentImage.setRounded(rounded: shipmentImage.frame.size.width/2)
         

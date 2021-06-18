@@ -17,10 +17,12 @@ class ImageFeedbackCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        setupUI()
     }
 
     
     func setupUI() {
-
+        imageView.setRounded(rounded: 8)
+        iconImage.setRounded(rounded: 8)
     }
 }

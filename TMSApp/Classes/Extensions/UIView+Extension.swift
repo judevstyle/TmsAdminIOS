@@ -15,9 +15,9 @@ extension UIView {
     
     func setShadowBoxView()  {
         self.layer.shadowColor = UIColor.darkGray.cgColor
-        self.layer.shadowOpacity = 0.5
+        self.layer.shadowOpacity = 0.3
         self.layer.shadowOffset = .zero
-        self.layer.shadowRadius = 3
+        self.layer.shadowRadius = 2
     }
     
     func roundCorners(corners: UIRectCorner, radius: CGFloat) {
