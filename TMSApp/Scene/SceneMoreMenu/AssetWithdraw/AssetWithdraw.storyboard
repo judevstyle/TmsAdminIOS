@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Asset Withdraw View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="AssetWithdrawViewController" customModule="TMSApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lpU-ao-0Zp">
+                                <rect key="frame" x="0.0" y="44" width="414" height="757"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="v5w-xD-jxv">
+                                <rect key="frame" x="8" y="801" width="398" height="61"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dss-qG-gO1" customClass="ButtonPrimaryView" customModule="TMSApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="61"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="61" id="3Dh-qF-gjl"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lpU-ao-0Zp" secondAttribute="trailing" id="3Jk-hC-vuA"/>
+                            <constraint firstItem="v5w-xD-jxv" firstAttribute="top" secondItem="lpU-ao-0Zp" secondAttribute="bottom" id="79g-mg-NnC"/>
+                            <constraint firstItem="lpU-ao-0Zp" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="9cl-Zq-g7N"/>
+                            <constraint firstItem="v5w-xD-jxv" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="8" id="PSq-7N-YOb"/>
+                            <constraint firstItem="v5w-xD-jxv" firstAttribute="top" secondItem="lpU-ao-0Zp" secondAttribute="bottom" id="ULL-jW-kOC"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="v5w-xD-jxv" secondAttribute="trailing" constant="8" id="gXh-Ji-zlU"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="v5w-xD-jxv" secondAttribute="bottom" id="jnR-b0-PHf"/>
+                            <constraint firstItem="lpU-ao-0Zp" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="zDK-HW-y6R"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnSave" destination="dss-qG-gO1" id="Z7N-ZJ-uae"/>
+                        <outlet property="tableView" destination="lpU-ao-0Zp" id="ZDy-Ea-BMo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="37.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

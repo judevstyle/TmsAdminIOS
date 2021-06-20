@@ -11,6 +11,7 @@ import RxSwift
 
 protocol PlanMasterProtocolInput {
     func getPlanMaster()
+    func didSelectItemAt(_ tableView: UITableView, indexPath: IndexPath)
 }
 
 protocol PlanMasterProtocolOutput: class {
@@ -74,5 +75,8 @@ class PlanMasterViewModel: PlanMasterProtocol, PlanMasterProtocolOutput {
         let cell = tableView.dequeueReusableCell(withIdentifier: PlanMasterTableViewCell.identifier, for: indexPath) as! PlanMasterTableViewCell
         cell.selectionStyle = .none
         return cell
+    }
+    func didSelectItemAt(_ tableView: UITableView, indexPath: IndexPath) {
+        print("ss")
     }
 }

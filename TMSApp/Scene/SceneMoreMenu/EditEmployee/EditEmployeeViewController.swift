@@ -11,9 +11,6 @@ class EditEmployeeViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     //Image
-    @IBOutlet weak var bgImageView: UIView!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var buttonImage: UIButton!
     
     @IBOutlet weak var keyboardViewHeight: NSLayoutConstraint!
     
@@ -27,12 +24,14 @@ class EditEmployeeViewController: UIViewController {
     @IBOutlet weak var positionView: InputTextFieldPickerView!
     
     @IBOutlet weak var imageGrid: CollectionViewImageGrid!
+    @IBOutlet var buttonSave: ButtonPrimaryView!
     
     let pickerPositionView = ToolbarPickerView()
     let positionList = ["พนักงานส่งของ", "นักส่งของใหม่"]
     var selectedPosition : String?
     
-    var imagePickerProfile: ImagePicker!
+    @IBOutlet var imagePicker: ImageChoose1x1ButtonView!
+    
     var imagePickerList: ImagePicker!
     
     override func viewDidLoad() {
@@ -41,24 +40,20 @@ class EditEmployeeViewController: UIViewController {
         registerKeyboardObserver()
         hideKeyboardWhenTappedAround()
         
-        self.imagePickerProfile = ImagePicker(presentationController: self, sourceType: [.camera, .photoLibrary], delegate: self)
         self.imagePickerList = ImagePicker(presentationController: self, sourceType: [.camera, .photoLibrary], delegate: self)
     }
     
     deinit {
         removeObserver()
     }
-    
-    @IBAction func handleChooseImage(_ sender: UIButton) {
-        self.imagePickerProfile.present(from: sender)
-    }
+
 }
 
 extension EditEmployeeViewController {
     func setupUI() {
-        bgImageView.setRounded(rounded: 5)
-        imageView.setRounded(rounded: 5)
         
+        imagePicker.setupImagePicker(vc: self)
+    
         displayNameView.inputText.delegate = self
         fristNameView.inputText.delegate = self
         lastNameView.inputText.delegate = self
@@ -78,6 +73,9 @@ extension EditEmployeeViewController {
         addressView.titleLabel.text = "ที่อยู่"
         positionView.titleLabel.text = "ตำแหน่ง"
         imageGrid.titleLabel.text = "เอกสารประจำตัว"
+        
+        buttonSave.setTitle(title: "บันทึก")
+        buttonSave.delegate = self
         
         self.dateView.inputText.setInputViewDatePicker(target: self, selector: #selector(tapDoneDatePicker))
         
@@ -179,18 +177,8 @@ extension EditEmployeeViewController: KeyboardListener {
 
 extension EditEmployeeViewController: ImagePickerDelegate {
     func didSelect(image: UIImage?, imagePicker: ImagePicker) {
-        switch imagePicker {
-        case imagePickerProfile:
-            print("imagePickerProfile")
-            self.imageView.image = image
-            self.buttonImage.imageView?.tintColor = .clear
-            break
-        case imagePickerList:
-            print("imagePickerList")
-            imageGrid.viewModel.input.addListImage(image: image ?? UIImage())
-            break
-        default: break
-        }
+        print("imagePickerList")
+        imageGrid.viewModel.input.addListImage(image: image ?? UIImage())
     }
 }
 
@@ -204,5 +192,12 @@ extension EditEmployeeViewController : CollectionViewImageGridDelegate {
         if indexPath.row == 0 {
             self.imagePickerList.present(from: self.view)
         }
+    }
+}
+
+
+extension EditEmployeeViewController: ButtonPrimaryViewDelegate {
+    func onClickButton() {
+        print("onClickButton")
     }
 }

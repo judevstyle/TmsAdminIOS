@@ -11,6 +11,11 @@ class MenuViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let inset: CGFloat = 10
+    let minimumLineSpacing: CGFloat = 10
+    let minimumInteritemSpacing: CGFloat = 10
+    let cellsPerRow = 4
+    
     // ViewModel
     lazy var viewModel: MenuProtocol = {
         let vm = MenuViewModel(menuViewController: self)
@@ -65,15 +70,12 @@ extension MenuViewController {
     fileprivate func registerCell() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionView.showsVerticalScrollIndicator = false
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        let screenWidth = ((collectionView.frame.width - 40) / 4) - 16
-        layout.itemSize = CGSize(width: screenWidth, height: screenWidth)
-        layout.minimumInteritemSpacing = 16
-        layout.minimumLineSpacing = 16
         collectionView!.collectionViewLayout = layout
+        collectionView?.contentInsetAdjustmentBehavior = .always
         collectionViewRegister(identifier: MenuCollectionViewCell.identifier)
     }
     
@@ -98,5 +100,25 @@ extension MenuViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return viewModel.output.getItemViewCell(collectionView, indexPath: indexPath)
+    }
+}
+
+extension MenuViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return minimumLineSpacing
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return minimumInteritemSpacing
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let marginsAndInsets = inset * 2 + collectionView.safeAreaInsets.left + collectionView.safeAreaInsets.right + minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
+        let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
+        return CGSize(width: itemWidth, height: itemWidth)
     }
 }

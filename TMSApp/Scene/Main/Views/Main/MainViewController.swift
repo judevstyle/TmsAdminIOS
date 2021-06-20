@@ -6,15 +6,17 @@
 //
 
 import UIKit
+import Charts
 
 class MainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var viewTop: UIView!
-    @IBOutlet weak var amount: UILabel!
     @IBOutlet weak var cash: UILabel!
     @IBOutlet weak var debtBalance: UILabel!
+    
+    @IBOutlet var pieChartView: PieChartView!
     
     // ViewModel
     lazy var viewModel: MainProtocol = {
@@ -28,6 +30,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         registerCell()
+        setupPieChart()
     }
     
     func configure(_ interface: MainProtocol) {
@@ -40,7 +43,8 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func tappedMap(_ sender: Any) {
-        NavigationManager.instance.pushVC(to: .shipmentMap, presentation: .Push)
+//        NavigationManager.instance.pushVC(to: .shipmentMap, presentation: .Push)
+        NavigationManager.instance.pushVC(to: .chat)
     }
 }
 
@@ -69,7 +73,50 @@ extension MainViewController {
 
 extension MainViewController {
     func setupUI(){
+        viewTop.setRounded(rounded: 8)
         viewTop.setShadowBoxView()
+    }
+    
+    func setupPieChart() {
+        pieChartView.chartDescription?.enabled = false
+        pieChartView.drawHoleEnabled = true
+        pieChartView.rotationAngle = 0.5
+        pieChartView.rotationEnabled = true
+        pieChartView.isUserInteractionEnabled = true
+        
+        pieChartView.holeRadiusPercent = 0.65
+        pieChartView.transparentCircleRadiusPercent = 0
+        pieChartView.minOffset = 0
+        
+        var centerText = NSMutableAttributedString()
+        centerText = NSMutableAttributedString(string: "ยอดเงิน" as String, attributes: [NSAttributedString.Key.font:UIFont.PrimaryText(size: 15), NSAttributedString.Key.foregroundColor: UIColor.black])
+        pieChartView.centerAttributedText =  centerText
+        
+        var entries: [PieChartDataEntry] = Array()
+        entries.append(PieChartDataEntry(value: 10.0, label: ""))
+        entries.append(PieChartDataEntry(value: 90.0, label: ""))
+
+        let dataSet = PieChartDataSet(entries: entries, label: "Global Data")
+        let c1 = NSUIColor(cgColor: UIColor.systemGreen.cgColor)
+        let c2 = NSUIColor(cgColor: UIColor.systemRed.cgColor)
+        
+        dataSet.colors = [c1, c2]
+        dataSet.sliceSpace = 3
+        dataSet.drawValuesEnabled = false
+        dataSet.selectionShift = 3
+        
+        dataSet.valueTextColor = UIColor.red
+        dataSet.valueLineColor = UIColor.red
+        dataSet.highlightColor = UIColor.red
+        dataSet.entryLabelColor = UIColor.red
+        
+        pieChartView.drawEntryLabelsEnabled = false
+        pieChartView.noDataTextColor = .black
+        pieChartView.tintColor = .black
+        
+        pieChartView.data = PieChartData(dataSet: dataSet)
+        
+        
     }
     
     fileprivate func registerCell() {
@@ -78,7 +125,7 @@ extension MainViewController {
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableView.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 8, right: 0)
         tableView.separatorStyle = .none
-        tableView.register(MainDashBoardHeaderTableViewCell.self, forHeaderFooterViewReuseIdentifier: MainDashBoardHeaderTableViewCell.identifier)
+        tableView.register(HeaderPrimaryBottomLineTableViewCell.self, forHeaderFooterViewReuseIdentifier: HeaderPrimaryBottomLineTableViewCell.identifier)
         tableViewRegister(identifier: MainDashBoardTableViewCell.identifier)
     }
     

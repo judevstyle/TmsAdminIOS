@@ -18,7 +18,7 @@ class MainTabBarViewController: UITabBarController {
         
         tabBar.tintColor = UIColor.Primary
         tabBar.unselectedItemTintColor = UIColor.PrimaryUnselectTabbar
-        tabBar.backgroundColor = UIColor.PrimaryBGTabbar
+        tabBar.backgroundColor = UIColor.white
         tabBar.isTranslucent = false
         tabBar.backgroundImage = UIImage()
         tabBar.shadowImage = UIImage()

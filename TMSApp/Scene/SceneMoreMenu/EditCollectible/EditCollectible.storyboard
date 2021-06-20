@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Uq-HF-wyK">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SukhumvitSet-Text.ttf">
+            <string>SukhumvitSet-Text</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Edit Collectible View Controller-->
+        <scene sceneID="fTD-rW-WcF">
+            <objects>
+                <viewController id="9Uq-HF-wyK" customClass="EditCollectibleViewController" customModule="TMSApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AIa-oa-Tcd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sRV-7M-cue">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uJb-85-4xz">
+                                        <rect key="frame" x="8" y="16" width="398" height="549"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcv-yw-k7M">
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="125"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QQt-Zf-228" customClass="ImageChoose1x1ButtonView" customModule="TMSApp" customModuleProvider="target">
+                                                        <rect key="frame" x="136.5" y="0.0" width="125" height="125"/>
+                                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="125" id="OrS-FM-2Uh"/>
+                                                            <constraint firstAttribute="width" constant="125" id="hca-fs-wOz"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="QQt-Zf-228" firstAttribute="centerX" secondItem="xcv-yw-k7M" secondAttribute="centerX" id="7va-DU-EEu"/>
+                                                    <constraint firstAttribute="bottom" secondItem="QQt-Zf-228" secondAttribute="bottom" id="Htw-OD-5pZ"/>
+                                                    <constraint firstItem="QQt-Zf-228" firstAttribute="top" secondItem="xcv-yw-k7M" secondAttribute="top" id="mH9-vh-pAd"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SHb-Wh-zil">
+                                                <rect key="frame" x="0.0" y="133" width="398" height="408"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UrF-uU-jNw">
+                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="408"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lga-yI-cOv" customClass="InputTextFieldView" customModule="TMSApp" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="398" height="65"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="65" id="oLH-3u-Hpt"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UiY-aA-MXF" customClass="InputTextArea" customModule="TMSApp" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="73" width="398" height="120"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="120" id="ifS-8b-qUQ"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPt-18-nbo">
+                                                                <rect key="frame" x="0.0" y="201" width="398" height="65"/>
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LyZ-8R-KR0">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="65"/>
+                                                                        <subviews>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfU-S9-faS" customClass="InputTextFieldView" customModule="TMSApp" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="195" height="65"/>
+                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="65" id="84t-mk-qrA"/>
+                                                                                </constraints>
+                                                                            </view>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVn-O5-1S0" customClass="InputTextFieldView" customModule="TMSApp" customModuleProvider="target">
+                                                                                <rect key="frame" x="203" y="0.0" width="195" height="65"/>
+                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="65" id="ne0-Re-6Zb"/>
+                                                                                </constraints>
+                                                                            </view>
+                                                                        </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="65" id="YcX-gv-J2R"/>
+                                                                        </constraints>
+                                                                    </stackView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="LyZ-8R-KR0" secondAttribute="trailing" id="KxW-YT-pfA"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="LyZ-8R-KR0" secondAttribute="bottom" id="TCX-LJ-B78"/>
+                                                                    <constraint firstItem="LyZ-8R-KR0" firstAttribute="top" secondItem="IPt-18-nbo" secondAttribute="top" id="WLl-1F-LNS"/>
+                                                                    <constraint firstItem="LyZ-8R-KR0" firstAttribute="leading" secondItem="IPt-18-nbo" secondAttribute="leading" id="ied-k5-pMo"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y5I-D6-9yp">
+                                                                <rect key="frame" x="0.0" y="274" width="398" height="65"/>
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sUt-s4-br4">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="65"/>
+                                                                        <subviews>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ji-T4-Ros" customClass="InputTextFieldDatePicker" customModule="TMSApp" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="176" height="65"/>
+                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="65" id="K0l-3f-bBH"/>
+                                                                                </constraints>
+                                                                            </view>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pCA-Tk-pv2">
+                                                                                <rect key="frame" x="184" y="0.0" width="30" height="65"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ถึง" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58A-0j-wyQ">
+                                                                                        <rect key="frame" x="0.0" y="21.5" width="30" height="22.5"/>
+                                                                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="14"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="58A-0j-wyQ" firstAttribute="leading" secondItem="pCA-Tk-pv2" secondAttribute="leading" id="0J0-IQ-m7u"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="58A-0j-wyQ" secondAttribute="trailing" id="8lg-3r-dfO"/>
+                                                                                    <constraint firstItem="58A-0j-wyQ" firstAttribute="centerY" secondItem="pCA-Tk-pv2" secondAttribute="centerY" id="GvE-iQ-yTS"/>
+                                                                                    <constraint firstAttribute="width" constant="30" id="TUR-Mt-Dpc"/>
+                                                                                </constraints>
+                                                                            </view>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1k-IE-FbO" customClass="InputTextFieldDatePicker" customModule="TMSApp" customModuleProvider="target">
+                                                                                <rect key="frame" x="222" y="0.0" width="176" height="65"/>
+                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="65" id="122-0m-vWs"/>
+                                                                                </constraints>
+                                                                            </view>
+                                                                        </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstItem="5ji-T4-Ros" firstAttribute="width" secondItem="h1k-IE-FbO" secondAttribute="width" id="4dZ-RL-wmG"/>
+                                                                            <constraint firstAttribute="height" constant="65" id="qO3-XV-7S5"/>
+                                                                        </constraints>
+                                                                    </stackView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="bottom" secondItem="sUt-s4-br4" secondAttribute="bottom" id="ZS5-rX-xWB"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="sUt-s4-br4" secondAttribute="trailing" id="fDA-0H-Kck"/>
+                                                                    <constraint firstItem="sUt-s4-br4" firstAttribute="leading" secondItem="y5I-D6-9yp" secondAttribute="leading" id="pwt-X2-odB"/>
+                                                                    <constraint firstItem="sUt-s4-br4" firstAttribute="top" secondItem="y5I-D6-9yp" secondAttribute="top" id="qmA-X8-RVq"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPX-Hd-Mfp" customClass="ButtonPrimaryView" customModule="TMSApp" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="347" width="398" height="61"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="61" id="ZzP-hK-mWZ"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="UrF-uU-jNw" firstAttribute="top" secondItem="SHb-Wh-zil" secondAttribute="top" id="8Za-Eh-uFj"/>
+                                                    <constraint firstItem="UrF-uU-jNw" firstAttribute="leading" secondItem="SHb-Wh-zil" secondAttribute="leading" id="ITI-qs-Yl1"/>
+                                                    <constraint firstAttribute="trailing" secondItem="UrF-uU-jNw" secondAttribute="trailing" id="QZu-zb-IEg"/>
+                                                    <constraint firstAttribute="bottom" secondItem="UrF-uU-jNw" secondAttribute="bottom" id="gr0-5s-eHs"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HvC-5u-yqp">
+                                                <rect key="frame" x="0.0" y="549" width="398" height="0.0"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" id="lAs-b6-fHo"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="uJb-85-4xz" firstAttribute="top" secondItem="mcc-3T-0vY" secondAttribute="top" constant="16" id="0kG-IM-Xdi"/>
+                                    <constraint firstAttribute="trailing" secondItem="uJb-85-4xz" secondAttribute="trailing" constant="8" id="Dsi-MR-GIl"/>
+                                    <constraint firstItem="H9a-qv-5mL" firstAttribute="trailing" secondItem="uJb-85-4xz" secondAttribute="trailing" constant="8" id="QeK-g5-Cwd"/>
+                                    <constraint firstAttribute="bottom" secondItem="uJb-85-4xz" secondAttribute="bottom" constant="60" id="XVW-0n-Ow2"/>
+                                    <constraint firstItem="uJb-85-4xz" firstAttribute="leading" secondItem="H9a-qv-5mL" secondAttribute="leading" constant="8" id="tbG-VV-1fO"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="mcc-3T-0vY"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="H9a-qv-5mL"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZsZ-lo-0JK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZsZ-lo-0JK" firstAttribute="bottom" secondItem="sRV-7M-cue" secondAttribute="bottom" id="Y2f-uC-CCL"/>
+                            <constraint firstItem="sRV-7M-cue" firstAttribute="leading" secondItem="ZsZ-lo-0JK" secondAttribute="leading" id="k1q-0B-XSj"/>
+                            <constraint firstAttribute="trailing" secondItem="sRV-7M-cue" secondAttribute="trailing" id="uSF-xh-QXd"/>
+                            <constraint firstItem="sRV-7M-cue" firstAttribute="top" secondItem="ZsZ-lo-0JK" secondAttribute="top" id="xaq-e3-qen"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buttonSave" destination="ZPX-Hd-Mfp" id="0qQ-HN-c4X"/>
+                        <outlet property="imagePicker" destination="QQt-Zf-228" id="r4x-K6-KH6"/>
+                        <outlet property="inputAllSumView" destination="aVn-O5-1S0" id="oe8-6C-Qui"/>
+                        <outlet property="inputDateEnd" destination="h1k-IE-FbO" id="ySm-NR-Xeo"/>
+                        <outlet property="inputDateStart" destination="5ji-T4-Ros" id="7Gl-1D-HQP"/>
+                        <outlet property="inputDescView" destination="UiY-aA-MXF" id="8bO-6c-QXB"/>
+                        <outlet property="inputNameView" destination="Lga-yI-cOv" id="1Sn-dj-veC"/>
+                        <outlet property="inputPointUseView" destination="mfU-S9-faS" id="2L4-4E-ohB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oVf-vv-J5a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="71.651785714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

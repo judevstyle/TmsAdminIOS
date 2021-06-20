@@ -97,12 +97,12 @@ class MainViewModel: MainProtocol, MainProtocolOutput {
         case 0:
             return nil
         default:
-            let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: MainDashBoardHeaderTableViewCell.identifier)
-            if let header = header as? MainDashBoardHeaderTableViewCell {
+            let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: HeaderPrimaryBottomLineTableViewCell.identifier)
+            if let header = header as? HeaderPrimaryBottomLineTableViewCell {
                 if section == 1 {
-                    header.render(title: "รายการขายสินค้า")
+                    header.setState(title: "รายการขายสินค้า", isEdit: false, section: section)
                 } else {
-                    header.render(title: "กำลังทำงาน")
+                    header.setState(title: "กำลังทำงาน", isEdit: false, section: section)
                 }
             }
             return header

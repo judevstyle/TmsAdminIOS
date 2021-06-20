@@ -29,7 +29,9 @@ class MenuCollectionViewCell: UICollectionViewCell {
     
     func setData(item: GetMenuResponse?) {
         menuTitle.text = "\(item?.title ?? "")"
-        iconImage.image = UIImage(named: "\(item?.image ?? "")")
+        let image = UIImage(named: "\(item?.image ?? "")")?.withRenderingMode(.alwaysTemplate)
+        iconImage.image = image
+        iconImage.tintColor = UIColor.Primary
     }
 
 }

@@ -33,6 +33,21 @@ public enum NavigationOpeningSender {
     case typeUserProductDetail
     case typeUserProductAll
     case productDetail
+    case editTruck
+    case editProduct
+    case editPlanMaster(isEdit: Bool)
+    case selectEmployee(delegate: SelectEmployeeViewModelDelegate)
+    case sortShop(items: [GetShopResponse]?, delegate: SortShopViewModelDelegate)
+    case selectShop(items: [GetShopResponse]?, delegate: SelectShopViewModelDelegate)
+    case assetList
+    case editAsset
+    case assetDetail
+    case assetWithdraw
+    case chat
+    case modalAssetStock
+    case collectible
+    case coleectibleDetail
+    case editCollectible
     
     public var storyboardName: String {
         switch self {
@@ -82,6 +97,36 @@ public enum NavigationOpeningSender {
             return "TypeUserProductAll"
         case .productDetail:
             return "ProductDetail"
+        case .editTruck:
+            return "EditTruck"
+        case .editProduct:
+            return "EditProduct"
+        case .editPlanMaster:
+            return "EditPlanMaster"
+        case .selectEmployee(_):
+            return "SelectEmployee"
+        case .sortShop(_, _):
+            return "SortShop"
+        case .selectShop(_, _):
+            return "SelectShop"
+        case .assetList:
+            return "AssetList"
+        case .editAsset:
+            return "EditAsset"
+        case .assetDetail:
+            return "AssetDetail"
+        case .assetWithdraw:
+            return "AssetWithdraw"
+        case .chat:
+            return "Chat"
+        case .modalAssetStock:
+            return "ModalAssetStock"
+        case .collectible:
+            return "Collectible"
+        case .coleectibleDetail:
+            return "CollectibleDetail"
+        case .editCollectible:
+            return "EditCollectible"
         }
     }
     
@@ -133,6 +178,120 @@ public enum NavigationOpeningSender {
             return "TypeUserProductAllViewController"
         case .productDetail:
             return "ProductDetailViewController"
+        case .editTruck:
+            return "EditTruckViewController"
+        case .editProduct:
+            return "EditProductViewController"
+        case .editPlanMaster:
+            return "EditPlanMasterViewController"
+        case .selectEmployee(_):
+            return "SelectEmployeeViewController"
+        case .sortShop(_, _):
+            return "SortShopViewController"
+        case .selectShop(_, _):
+            return "SelectShopViewController"
+        case .assetList:
+            return "AssetListViewController"
+        case .editAsset:
+            return "EditAssetViewController"
+        case .assetDetail:
+            return "AssetDetailViewController"
+        case .assetWithdraw:
+            return "AssetWithdrawViewController"
+        case .chat:
+            return "ChatViewController"
+        case .modalAssetStock:
+            return "ModalAssetStockViewController"
+        case .collectible:
+            return "CollectibleViewController"
+        case .coleectibleDetail:
+            return "CollectibleDetailViewController"
+        case .editCollectible:
+            return "EditCollectibleViewController"
+        }
+    }
+    
+    public var viewController: UIViewController {
+        switch self {
+        case .chat:
+            return ChatViewController()
+        default:
+            return UIViewController()
+        }
+    }
+    
+    public var titleNavigation: String {
+        switch self {
+        case .login:
+            return "Login"
+        case .mainTabBar:
+            return "MainTabBar"
+        case .main:
+            return "Main"
+        case .shipment:
+            return "Shipment"
+        case .order:
+            return "Order"
+        case .appeal:
+            return "Appeal"
+        case .menu:
+            return "Menu"
+        case .shipmentDetail:
+            return "ShipmentDetail"
+        case .shipmentMap:
+            return "ShipmentMap"
+        case .orderCart:
+            return "OrderCart"
+        case .appealDetail:
+            return "AppealDetail"
+        case .employee:
+            return "Employee"
+        case .editEmployee:
+            return "EditEmployee"
+        case .typeUser:
+            return "TypeUser"
+        case .typeUserDetail:
+            return "TypeUserDetail"
+        case .product:
+            return "Product"
+        case .customer:
+            return "Customer"
+        case .truck:
+            return "Truck"
+        case .planMaster:
+            return "PlanMaster"
+        case .sequenceShipment:
+            return "SequenceShipment"
+        case .typeUserProductDetail:
+            return "TypeUserProductDetail"
+        case .typeUserProductAll:
+            return "TypeUserProductAll"
+        case .productDetail:
+            return "ProductDetail"
+        case .editTruck:
+            return "EditTruck"
+        case .editProduct:
+            return "EditProduct"
+        case .editPlanMaster:
+            return "EditPlanMaster"
+        case .selectEmployee(_):
+            return "SelectEmployee"
+        case .sortShop(_, _):
+            return "SortShop"
+        case .selectShop(_, _):
+            return "SelectShop"
+        case .assetList:
+            return "AssetList"
+        case .editAsset:
+            return "EditAsset"
+        case .assetDetail:
+            return "AssetDetail"
+        case .assetWithdraw:
+            return "AssetWithdraw"
+        case .chat:
+            return "Chat"
+        default:
+            return ""
         }
     }
 }
@@ -150,7 +309,8 @@ class NavigationManager {
         case Modal(completion: (() -> Void)?)
         case ModelNav(completion: (() -> Void)?)
         case BottomSheet(completion: (() -> Void)?, height: CGFloat)
-                    
+        case PopupSheet(completion: (() -> Void)?)
+        
     }
     
     init() {
@@ -175,8 +335,9 @@ class NavigationManager {
     
     func pushVC(to: NavigationOpeningSender, presentation: Presentation = .Push, isHiddenNavigationBar: Bool = false) {
         let loadingStoryBoard = to.storyboardName
+        
         let storyboard = UIStoryboard(name: loadingStoryBoard, bundle: nil)
-        var viewController:UIViewController = UIViewController()
+        var viewController: UIViewController = UIViewController()
         
         switch to {
         case .orderCart:
@@ -184,21 +345,40 @@ class NavigationManager {
                 //                className.set(contentType: contentType)
                 viewController = className
             }
+        case .selectEmployee(let delegate):
+            if let className = storyboard.instantiateInitialViewController() as? SelectEmployeeViewController {
+                //                className.set(contentType: contentType)
+                className.viewModel.input.setDelegate(delegate: delegate)
+                viewController = className
+            }
+        case .sortShop(let items, let delegate):
+            if let className = storyboard.instantiateInitialViewController() as? SortShopViewController {
+                className.viewModel.input.setListSort(items: items)
+                className.viewModel.input.setDelegate(delegate: delegate)
+                viewController = className
+            }
+        case .selectShop(let items, let delegate):
+            if let className = storyboard.instantiateInitialViewController() as? SelectShopViewController {
+                className.viewModel.input.setListSelectedShop(items: items)
+                className.viewModel.input.setDelegate(delegate: delegate)
+                viewController = className
+            }
+        case .editPlanMaster(let isEdit):
+            if let className = storyboard.instantiateInitialViewController() as? EditPlanMasterViewController {
+                className.viewModel.input.setEdit(isEdit: isEdit)
+                viewController = className
+            }
         default:
-            viewController = storyboard.instantiateInitialViewController() ?? UIViewController()
+            viewController = storyboard.instantiateInitialViewController() ?? to.viewController
         }
         
-        viewController.navigationItem.title = to.storyboardName
+        viewController.navigationItem.title = to.titleNavigation
+        viewController.hideKeyboardWhenTappedAround()
         
-        if case .Modal(_) = self.currentPresentation {
-            //Clear modal if we are presenting one
-            self.navigationController.dismiss(animated: true, completion: { self.presentVC(viewController: viewController, presentation: presentation, isHiddenNavigationBar: isHiddenNavigationBar) })
-        } else {
-            self.presentVC(viewController: viewController, presentation: presentation, isHiddenNavigationBar: isHiddenNavigationBar)
-        }
+        self.presentVC(viewController: viewController, presentation: presentation, isHiddenNavigationBar: isHiddenNavigationBar)
     }
     
-    private func presentVC(viewController: UIViewController, presentation: Presentation, isHiddenNavigationBar: Bool) {
+    private func presentVC(viewController: UIViewController, presentation: Presentation, isHiddenNavigationBar: Bool = false) {
         self.navigationController.isNavigationBarHidden = isHiddenNavigationBar
         switch presentation {
         case .Push:
@@ -221,12 +401,17 @@ class NavigationManager {
             viewController.modalPresentationStyle = .fullScreen
             self.navigationController.present(viewController, animated: true, completion: completion)
         case .BottomSheet(let completion, let height):
-//            viewController.modalPresentationStyle = .automatic
+            //            viewController.modalPresentationStyle = .automatic
             viewController.view.setRounded(rounded: 20)
             let bottomSheet: MDCBottomSheetController = MDCBottomSheetController(contentViewController: viewController)
             bottomSheet.preferredContentSize = CGSize(width: viewController.view.frame.size.width, height: height)
             bottomSheet.view.setRounded(rounded: 20)
             self.navigationController.present(bottomSheet, animated: true, completion: completion)
+        case .PopupSheet(completion: let completion):
+            viewController.view.backgroundColor = UIColor.blackAlpha(alpha: 0.2)
+            viewController.modalPresentationStyle = .overFullScreen
+            viewController.modalTransitionStyle = .crossDissolve
+            self.navigationController.present(viewController, animated: true, completion: completion)
         }
         self.currentPresentation = presentation
     }
@@ -236,17 +421,6 @@ class NavigationManager {
         guard let window = appDelegate.window else {
             return
         }
-        
-        //        let loadingStoryBoard = rootView.storyboardName
-        //        let storyboard = UIStoryboard(name: loadingStoryBoard, bundle: nil)
-        //        let vc = storyboard.instantiateInitialViewController()
-        //        window.rootViewController = vc
-        //        window.makeKeyAndVisible()
-        //        UIView.transition(with: window,
-        //                          duration: 0.3,
-        //                          options: .transitionCrossDissolve,
-        //                          animations: nil,
-        //                          completion: nil)
     }
     
 }

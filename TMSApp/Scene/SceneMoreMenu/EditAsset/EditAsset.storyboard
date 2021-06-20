@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GoP-ei-6E9">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Edit Asset View Controller-->
+        <scene sceneID="OFy-wd-Wga">
+            <objects>
+                <viewController id="GoP-ei-6E9" customClass="EditAssetViewController" customModule="TMSApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="weQ-Qo-YiB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhp-Sf-P6R">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eK9-yj-Vjy">
+                                        <rect key="frame" x="8" y="16" width="398" height="406"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q1d-rf-Ipg">
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="75"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LpP-9Y-qoj" customClass="ImageChoose1x1ButtonView" customModule="TMSApp" customModuleProvider="target">
+                                                        <rect key="frame" x="161.5" y="0.0" width="75" height="75"/>
+                                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="75" id="gY6-rM-V0a"/>
+                                                            <constraint firstAttribute="height" constant="75" id="uCO-6y-e4S"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="LpP-9Y-qoj" firstAttribute="top" secondItem="q1d-rf-Ipg" secondAttribute="top" id="26x-kz-sEq"/>
+                                                    <constraint firstItem="LpP-9Y-qoj" firstAttribute="centerX" secondItem="q1d-rf-Ipg" secondAttribute="centerX" id="McQ-af-sbR"/>
+                                                    <constraint firstAttribute="bottom" secondItem="LpP-9Y-qoj" secondAttribute="bottom" id="Ray-rS-WiB"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePl-Lu-97u">
+                                                <rect key="frame" x="0.0" y="83" width="398" height="315"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xN5-4Q-gXe">
+                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="315"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nsv-Ir-oXp" customClass="InputTextFieldView" customModule="TMSApp" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="398" height="65"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="65" id="0xX-mG-LOk"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sp6-VG-mm3" customClass="InputTextArea" customModule="TMSApp" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="73" width="398" height="100"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="100" id="4hM-e9-Ami"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n2o-l8-HXT" customClass="InputTextFieldView" customModule="TMSApp" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="181" width="398" height="65"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="65" id="J60-BJ-Qgn"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xfw-S3-b8w" customClass="ButtonPrimaryView" customModule="TMSApp" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="254" width="398" height="61"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="61" id="C6l-6V-E1q"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="xN5-4Q-gXe" secondAttribute="bottom" id="IDt-hr-rOT"/>
+                                                    <constraint firstItem="xN5-4Q-gXe" firstAttribute="leading" secondItem="ePl-Lu-97u" secondAttribute="leading" id="OVV-16-ruy"/>
+                                                    <constraint firstItem="xN5-4Q-gXe" firstAttribute="top" secondItem="ePl-Lu-97u" secondAttribute="top" id="v4s-Nu-UIj"/>
+                                                    <constraint firstAttribute="trailing" secondItem="xN5-4Q-gXe" secondAttribute="trailing" id="w8d-Ib-BOV"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YRe-wf-Z4k">
+                                                <rect key="frame" x="0.0" y="406" width="398" height="0.0"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" id="ze7-BM-reH"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="eK9-yj-Vjy" firstAttribute="top" secondItem="tkN-oe-bO7" secondAttribute="top" constant="16" id="GaH-hT-IVU"/>
+                                    <constraint firstItem="afA-kO-97a" firstAttribute="trailing" secondItem="eK9-yj-Vjy" secondAttribute="trailing" constant="8" id="NkO-XD-wIb"/>
+                                    <constraint firstAttribute="bottom" secondItem="eK9-yj-Vjy" secondAttribute="bottom" constant="60" id="sx6-VF-oTx"/>
+                                    <constraint firstAttribute="trailing" secondItem="eK9-yj-Vjy" secondAttribute="trailing" constant="8" id="u6g-tT-4gq"/>
+                                    <constraint firstItem="eK9-yj-Vjy" firstAttribute="leading" secondItem="afA-kO-97a" secondAttribute="leading" constant="8" id="yJ7-ow-q91"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="tkN-oe-bO7"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="afA-kO-97a"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="s9N-SP-lEm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="s9N-SP-lEm" firstAttribute="bottom" secondItem="bhp-Sf-P6R" secondAttribute="bottom" id="1Wr-5S-r6I"/>
+                            <constraint firstItem="bhp-Sf-P6R" firstAttribute="leading" secondItem="s9N-SP-lEm" secondAttribute="leading" id="DpR-NG-70F"/>
+                            <constraint firstItem="bhp-Sf-P6R" firstAttribute="top" secondItem="s9N-SP-lEm" secondAttribute="top" id="J4i-Ie-2Ar"/>
+                            <constraint firstAttribute="trailing" secondItem="bhp-Sf-P6R" secondAttribute="trailing" id="PqM-v6-WXh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buttonSave" destination="Xfw-S3-b8w" id="MHR-4Q-0oZ"/>
+                        <outlet property="imagePicker" destination="LpP-9Y-qoj" id="bLi-7I-8UV"/>
+                        <outlet property="inputDesc" destination="Sp6-VG-mm3" id="DGE-Dj-6KN"/>
+                        <outlet property="inputName" destination="nsv-Ir-oXp" id="WYZ-dP-nW0"/>
+                        <outlet property="inputUnit" destination="n2o-l8-HXT" id="Zuz-fJ-Ed8"/>
+                        <outlet property="scrollView" destination="bhp-Sf-P6R" id="P4f-IT-DYt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ggj-s6-1T5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="71.651785714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

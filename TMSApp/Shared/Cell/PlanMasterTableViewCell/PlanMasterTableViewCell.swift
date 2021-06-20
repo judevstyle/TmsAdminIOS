@@ -12,6 +12,14 @@ class PlanMasterTableViewCell: UITableViewCell {
     static let identifier = "PlanMasterTableViewCell"
 
     @IBOutlet weak var bgView: UIView!
+    @IBOutlet var badgeView: IconBadgeView!
+    
+    @IBOutlet var titleText: UILabel!
+    @IBOutlet var taskCount: UILabel!
+    
+    @IBOutlet var imageEmployee: UIImageView!
+    @IBOutlet var nameEmployee: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,10 +35,11 @@ class PlanMasterTableViewCell: UITableViewCell {
     
     func setupUI(){
         bgView.setRounded(rounded: 8)
-        bgView.layer.shadowColor = UIColor.darkGray.cgColor
-        bgView.layer.shadowOpacity = 0.5
-        bgView.layer.shadowOffset = .zero
-        bgView.layer.shadowRadius = 3
+        bgView.setShadowBoxView()
+        
+        imageEmployee.setRounded(rounded: imageEmployee.frame.height/2)
+        
+        badgeView.setTitle(title: "วันธรรมดา")
         
     }
     

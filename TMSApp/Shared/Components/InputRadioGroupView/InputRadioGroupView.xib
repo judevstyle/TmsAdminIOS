@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SukhumvitSet-Text.ttf">
+            <string>SukhumvitSet-Text</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InputRadioGroupView" customModule="TMSApp" customModuleProvider="target">
+            <connections>
+                <outlet property="radioGroup" destination="lDv-Nb-KYp" id="xS6-ey-INA"/>
+                <outlet property="titleLabel" destination="IJW-2L-Css" id="ReM-YX-T4x"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rOB-oe-5HI">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJW-2L-Css">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="fBb-3h-KVC"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="15"/>
+                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nvE-Sm-1Cn">
+                            <rect key="frame" x="0.0" y="25" width="414" height="40"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lDv-Nb-KYp" customClass="RadioGroup" customModule="RadioGroup">
+                                    <rect key="frame" x="0.0" y="0.0" width="330" height="40"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
+                                            <integer key="value" value="0"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                            <real key="value" value="0.0"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isVertical" value="NO"/>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="selectedColor">
+                                            <color key="value" red="0.37254901959999998" green="0.73333333329999995" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="lDv-Nb-KYp" firstAttribute="top" secondItem="nvE-Sm-1Cn" secondAttribute="top" id="Cjg-Ra-N0g"/>
+                                <constraint firstAttribute="height" constant="40" id="LC4-ub-YgZ"/>
+                                <constraint firstAttribute="bottom" secondItem="lDv-Nb-KYp" secondAttribute="bottom" id="ZeD-l9-RbK"/>
+                                <constraint firstItem="lDv-Nb-KYp" firstAttribute="leading" secondItem="nvE-Sm-1Cn" secondAttribute="leading" id="jpm-pl-UfG"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rOB-oe-5HI" secondAttribute="trailing" id="P1u-9N-gKw"/>
+                <constraint firstItem="rOB-oe-5HI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ZnS-lK-KIa"/>
+                <constraint firstAttribute="bottom" secondItem="rOB-oe-5HI" secondAttribute="bottom" id="dq7-AR-r0A"/>
+                <constraint firstItem="rOB-oe-5HI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="f8y-OZ-8fw"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="131.8840579710145" y="102.79017857142857"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="lDv-Nb-KYp">
+            <size key="intrinsicContentSize" width="330" height="55.5"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

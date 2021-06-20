@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SukhumvitSet-Text.ttf">
+            <string>SukhumvitSet-Text</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Modal Asset Stock View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="ModalAssetStockViewController" customModule="TMSApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rwf-AP-8Re">
+                                <rect key="frame" x="16" y="285" width="382" height="336"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NIj-cA-eGJ">
+                                        <rect key="frame" x="16" y="16" width="350" height="304"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfx-ld-TCz">
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="16.5"/>
+                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="จำนวนสินค้า" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnw-MW-ign">
+                                                <rect key="frame" x="0.0" y="21.5" width="350" height="16.5"/>
+                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LXR-Zt-FdN">
+                                                <rect key="frame" x="0.0" y="43" width="350" height="40"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MDZ-1k-QBJ">
+                                                        <rect key="frame" x="125" y="0.0" width="100" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="100" id="yuQ-s3-7Vf"/>
+                                                        </constraints>
+                                                        <color key="textColor" name="Primary"/>
+                                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="EsO-iL-h4e"/>
+                                                    <constraint firstItem="MDZ-1k-QBJ" firstAttribute="centerX" secondItem="LXR-Zt-FdN" secondAttribute="centerX" id="WPa-M0-RJY"/>
+                                                    <constraint firstAttribute="bottom" secondItem="MDZ-1k-QBJ" secondAttribute="bottom" id="nMv-5u-Ozn"/>
+                                                    <constraint firstItem="MDZ-1k-QBJ" firstAttribute="top" secondItem="LXR-Zt-FdN" secondAttribute="top" id="y8w-N4-JGM"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naS-pS-BZI" customClass="InputTextArea" customModule="TMSApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="88" width="350" height="150"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="gcm-nb-lbo"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQK-kX-fW3" customClass="ButtonPrimaryView" customModule="TMSApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="243" width="350" height="61"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="61" id="zai-21-qOX"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="NIj-cA-eGJ" firstAttribute="leading" secondItem="Rwf-AP-8Re" secondAttribute="leading" constant="16" id="gxR-Ay-5lh"/>
+                                    <constraint firstItem="NIj-cA-eGJ" firstAttribute="top" secondItem="Rwf-AP-8Re" secondAttribute="top" constant="16" id="pHM-p6-vz6"/>
+                                    <constraint firstAttribute="trailing" secondItem="NIj-cA-eGJ" secondAttribute="trailing" constant="16" id="rsD-zl-KcJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="NIj-cA-eGJ" secondAttribute="bottom" constant="16" id="yxu-zB-DnE"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <constraints>
+                            <constraint firstItem="Rwf-AP-8Re" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="6GQ-EZ-TNt"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Rwf-AP-8Re" secondAttribute="trailing" constant="16" id="Rd9-Bt-vDO"/>
+                            <constraint firstItem="Rwf-AP-8Re" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="g26-0r-1J9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnConfirm" destination="kQK-kX-fW3" id="ZP8-P8-p4R"/>
+                        <outlet property="inputDesc" destination="naS-pS-BZI" id="T2a-Rc-lvv"/>
+                        <outlet property="inputUnit" destination="MDZ-1k-QBJ" id="Neg-kB-2YO"/>
+                        <outlet property="modalView" destination="Rwf-AP-8Re" id="wx0-E0-cEc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="72"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Primary">
+            <color red="1" green="0.3411764705882353" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

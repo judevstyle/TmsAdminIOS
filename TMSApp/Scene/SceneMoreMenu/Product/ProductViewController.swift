@@ -78,7 +78,7 @@ extension ProductViewController {
 // MARK: - Handles
 extension ProductViewController {
     @objc func btnAddProductAction() {
-//        NavigationManager.instance.pushVC(to: .editEmployee)
+        NavigationManager.instance.pushVC(to: .editProduct)
     }
 }
 

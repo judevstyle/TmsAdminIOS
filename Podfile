@@ -6,12 +6,14 @@ target 'TMSApp' do
   use_frameworks!
 
   # Pods for TMSApp
+  pod 'RadioGroup'
   pod 'DropDown'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
   pod 'HMSegmentedControl'
   pod 'Charts'
   pod 'MaterialComponents/BottomSheet'
+  pod 'MessageKit'
 
   target 'TMSAppTests' do
     inherit! :search_paths

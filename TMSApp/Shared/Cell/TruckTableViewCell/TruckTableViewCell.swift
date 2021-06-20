@@ -28,10 +28,7 @@ class TruckTableViewCell: UITableViewCell {
     
     func setupUI(){
         bgView.setRounded(rounded: 8)
-        bgView.layer.shadowColor = UIColor.darkGray.cgColor
-        bgView.layer.shadowOpacity = 0.5
-        bgView.layer.shadowOffset = .zero
-        bgView.layer.shadowRadius = 3
+        bgView.setShadowBoxView()
         
     }
     

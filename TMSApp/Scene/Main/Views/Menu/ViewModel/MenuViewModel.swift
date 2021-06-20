@@ -69,9 +69,9 @@ class MenuViewModel: MenuProtocol, MenuProtocolOutput {
             weakSelf.listMenu?.append(GetMenuResponse(title: "รถส่งของ", image: "07", scene: .truck))
             weakSelf.listMenu?.append(GetMenuResponse(title: "แผนงาน", image: "08", scene: .planMaster))
             
-            weakSelf.listMenu?.append(GetMenuResponse(title: "Shipment", image: "08"))
-            weakSelf.listMenu?.append(GetMenuResponse(title: "Asset", image: "08"))
-            weakSelf.listMenu?.append(GetMenuResponse(title: "ของแลก", image: "08"))
+            weakSelf.listMenu?.append(GetMenuResponse(title: "Shipment", image: "09"))
+            weakSelf.listMenu?.append(GetMenuResponse(title: "Asset", image: "10", scene: .assetList))
+            weakSelf.listMenu?.append(GetMenuResponse(title: "ของแลก", image: "11", scene: .collectible))
             
             weakSelf.didGetMenuSuccess?()
             weakSelf.menuViewController.stopLoding()

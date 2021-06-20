@@ -8,7 +8,7 @@
 import UIKit
 
 class TruckViewController: UIViewController {
-
+    
     @IBOutlet var tableView: UITableView!
     @IBOutlet var btnAddTruck: UIButton!
     
@@ -76,14 +76,14 @@ extension TruckViewController {
 // MARK: - Handles
 extension TruckViewController {
     @objc func btnAddTruckAction() {
-//        NavigationManager.instance.pushVC(to: .editEmployee)
+        NavigationManager.instance.pushVC(to: .editTruck)
     }
 }
 
 
 extension TruckViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

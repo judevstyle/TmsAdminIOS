@@ -55,8 +55,12 @@ class OrderViewModel: OrderProtocol, OrderProtocolOutput {
     fileprivate var listOrder: [GetOrderResponse]? = []
     
     func getOrder(request: GetOrderRequest) {
-        self.listOrder = getItemOrderPage(index: 0)
-        didGetOrderSuccess?()
+        self.orderViewController.startLoding()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
+            self.listOrder = getItemOrderPage(index: 0)
+            self.didGetOrderSuccess?()
+            self.orderViewController.stopLoding()
+        }
     }
     
     func getNumberOfSections(in tableView: UITableView) -> Int {
