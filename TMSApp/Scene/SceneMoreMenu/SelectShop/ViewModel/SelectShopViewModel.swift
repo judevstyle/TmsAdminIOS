@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RxSwift
 import UIKit
 
 public protocol SelectShopViewModelDelegate {
@@ -41,7 +40,7 @@ class SelectShopViewModel: SelectShopProtocol, SelectShopProtocolOutput {
     // MARK: - Properties
     private var selectShopViewController: SelectShopViewController
     
-    fileprivate let disposeBag = DisposeBag()
+    
     
     init(
         selectShopViewController: SelectShopViewController

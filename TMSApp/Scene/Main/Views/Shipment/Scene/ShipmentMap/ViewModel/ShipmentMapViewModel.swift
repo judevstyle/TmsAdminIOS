@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RxSwift
 import UIKit
 import GoogleMaps
 
@@ -37,7 +36,7 @@ class ShipmentMapViewModel: ShipmentMapProtocol, ShipmentMapProtocolOutput {
     //    private var getProductUseCase: GetProductUseCase
     private var shipmentMapViewController: ShipmentMapViewController
     
-    fileprivate let disposeBag = DisposeBag()
+    
     
     init(
         //        getProductUseCase: GetProductUseCase = GetProductUseCaseImpl(),

@@ -21,6 +21,20 @@ class ShipmentDetailViewController: UIViewController {
     
     @IBOutlet weak var pieChartView: PieChartView!
     
+    
+    @IBOutlet weak var shipmentNoText: UILabel!
+    @IBOutlet weak var customerCountText: UILabel!
+    @IBOutlet weak var truckNo: UILabel!
+    
+    @IBOutlet weak var sumPay: UILabel!
+    @IBOutlet weak var sumOverduePay: UILabel!
+    
+    @IBOutlet weak var planNameText: UILabel!
+    @IBOutlet weak var toSendText: UILabel!
+    @IBOutlet weak var sendSuccessText: UILabel!
+    @IBOutlet weak var sendWaitText: UILabel!
+    @IBOutlet weak var sendFailText: UILabel!
+    
     // ViewModel
     lazy var viewModel: ShipmentDetailProtocol = {
         let vm = ShipmentDetailViewModel(shipmentDetailViewController: self)
@@ -62,19 +76,39 @@ extension ShipmentDetailViewController {
         return { [weak self] in
             guard let weakSelf = self else { return }
             
-            weakSelf.tableView.reloadData()
+//            weakSelf.tableView.reloadData()
+            weakSelf.setupValue()
         }
     }
     
     func didGetShipmentDetailError() -> (() -> Void) {
         return { [weak self] in
             guard let weakSelf = self else { return }
-            weakSelf.tableView.reloadData()
+//            weakSelf.tableView.reloadData()
         }
     }
 }
 
 extension ShipmentDetailViewController {
+    func setupValue() {
+        shipmentNoText.text = "รหัส Shipment #\(viewModel.output.getCodeShipment())"
+        customerCountText.text = "จำนวนลูกค้า\(viewModel.output.getCountCustomer())"
+        truckNo.text = viewModel.output.getCarInfo()
+        
+        sumPay.text = "0"
+        sumOverduePay.text = "0"
+        
+        planNameText.text = "แผนการทำงาน : \(viewModel.output.getPlanName())"
+        
+        toSendText.text = "\(viewModel.output.getSummaryCustomer()?.totalCustomer ?? 0)"
+        sendSuccessText.text = "\(viewModel.output.getSummaryCustomer()?.totalSended ?? 0)"
+        sendWaitText.text = "\(viewModel.output.getSummaryCustomer()?.totalToSend ?? 0)"
+        sendFailText.text = "\(viewModel.output.getSummaryCustomer()?.totalSendNotSuccess ?? 0)"
+        
+        setupPieChart(summary: viewModel.output.getSummaryCustomer())
+        
+    }
+    
     func setupUI(){
         
         dataShipmentView.setShadowBoxView()
@@ -92,15 +126,12 @@ extension ShipmentDetailViewController {
         btnAddShipment.setRounded(rounded: 8)
     }
     
-    func setupPieChart() {
+    func setupPieChart(summary: SummaryCustomer? = nil) {
         pieChartView.chartDescription?.enabled = false
         pieChartView.drawHoleEnabled = true
         pieChartView.rotationAngle = 0.5
         pieChartView.rotationEnabled = true
         pieChartView.isUserInteractionEnabled = true
-        
-        //        pieChartView.legend.enabled = false
-        //        pieChartView.transparentCircleRadiusPercent = 8
         
         pieChartView.holeRadiusPercent = 0.65
         pieChartView.transparentCircleRadiusPercent = 0
@@ -108,10 +139,13 @@ extension ShipmentDetailViewController {
         pieChartView.centerText = "Report"
         
         var entries: [PieChartDataEntry] = Array()
-        entries.append(PieChartDataEntry(value: 40.0, label: "T1"))
-        entries.append(PieChartDataEntry(value: 30.0, label: "T2"))
-        entries.append(PieChartDataEntry(value: 20.0, label: "T3"))
-        entries.append(PieChartDataEntry(value: 10.0, label: "T4"))
+        
+        if let summary = summary {
+            entries.append(PieChartDataEntry(value: Double(summary.totalCustomer), label: ""))
+            entries.append(PieChartDataEntry(value: Double(summary.totalSended), label: ""))
+            entries.append(PieChartDataEntry(value: Double(summary.totalToSend), label: ""))
+            entries.append(PieChartDataEntry(value: Double(summary.totalSendNotSuccess), label: "Global Data"))
+        }
         
         let dataSet = PieChartDataSet(entries: entries, label: "")
         

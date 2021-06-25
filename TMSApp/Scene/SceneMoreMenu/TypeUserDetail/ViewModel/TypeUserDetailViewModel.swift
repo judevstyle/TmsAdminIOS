@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RxSwift
 import UIKit
 
 protocol TypeUserDetailProtocolInput {
@@ -34,7 +33,7 @@ class TypeUserDetailViewModel: TypeUserDetailProtocol, TypeUserDetailProtocolOut
     
     private var typeUserDetailViewController: TypeUserDetailViewController
     
-    fileprivate let disposeBag = DisposeBag()
+    
     
     init(
         typeUserDetailViewController: TypeUserDetailViewController

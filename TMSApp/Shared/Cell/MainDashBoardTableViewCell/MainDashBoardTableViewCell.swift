@@ -35,58 +35,68 @@ class MainDashBoardTableViewCell: UITableViewCell {
             case 0:
                 let gradientView = GradientView(frame: view.bounds, fColor: .systemPink, sColor: .systemPink.withAlphaComponent(0.8))
                 view.insertSubview(gradientView, at: 0)
+                headLabel[index].text = "ร้านที่จัดส่ง"
                 break
             case 1:
                 let gradientView = GradientView(frame: view.bounds, fColor: .systemBlue, sColor: .systemBlue.withAlphaComponent(0.8))
                 view.insertSubview(gradientView, at: 0)
+                headLabel[index].text = "รอการจัดส่ง"
                 break
             case 2:
                 let gradientView = GradientView(frame: view.bounds, fColor: .systemGreen, sColor: .systemGreen.withAlphaComponent(0.8))
                 view.insertSubview(gradientView, at: 0)
+                headLabel[index].text = "จัดส่งสำเร็จ"
                 break
             case 3:
                 let gradientView = GradientView(frame: view.bounds, fColor: .systemGray, sColor: .systemGray.withAlphaComponent(0.8))
                 view.insertSubview(gradientView, at: 0)
+                headLabel[index].text = "จัดส่งไม่สำเร็จ"
                 break
             default:
                 break
             }
             view.layer.cornerRadius = 8
         }
-        
+    }
+    
+    func setValue(summaryCustomer: SummaryCustomer?) {
+        valueLabel[0].text = "\(summaryCustomer?.totalCustomer ?? 0)"
+        valueLabel[1].text = "\(summaryCustomer?.totalSended ?? 0)"
+        valueLabel[2].text = "\(summaryCustomer?.totalSendNotSuccess ?? 0)"
+        valueLabel[3].text = "\(summaryCustomer?.totalToSend ?? 0)"
     }
 }
+
+
+class GradientView: UIView {
     
-    
-    class GradientView: UIView {
-        
-        init(frame: CGRect, fColor: UIColor, sColor: UIColor) {
-            super.init(frame: frame)
-            setupView(fColor: fColor, sColor: sColor)
-        }
-        
-        required init?(coder aDecoder: NSCoder) {
-            super.init(coder: aDecoder)
-        }
-        
-        private func setupView(fColor: UIColor, sColor: UIColor) {
-            autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            
-            guard let theLayer = self.layer as? CAGradientLayer else {
-                return;
-            }
-            
-            theLayer.colors = [fColor.cgColor, sColor.cgColor]
-            theLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
-            theLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
-            theLayer.locations = [0.0, 1.0]
-            theLayer.cornerRadius = 8
-            theLayer.frame = self.bounds
-        }
-        
-        override class var layerClass: AnyClass {
-            return CAGradientLayer.self
-        }
+    init(frame: CGRect, fColor: UIColor, sColor: UIColor) {
+        super.init(frame: frame)
+        setupView(fColor: fColor, sColor: sColor)
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    private func setupView(fColor: UIColor, sColor: UIColor) {
+        autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        guard let theLayer = self.layer as? CAGradientLayer else {
+            return;
+        }
+        
+        theLayer.colors = [fColor.cgColor, sColor.cgColor]
+        theLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        theLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        theLayer.locations = [0.0, 1.0]
+        theLayer.cornerRadius = 8
+        theLayer.frame = self.bounds
+    }
+    
+    override class var layerClass: AnyClass {
+        return CAGradientLayer.self
+    }
+}
 
 

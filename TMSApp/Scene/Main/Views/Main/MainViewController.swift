@@ -127,6 +127,8 @@ extension MainViewController {
         tableView.separatorStyle = .none
         tableView.register(HeaderPrimaryBottomLineTableViewCell.self, forHeaderFooterViewReuseIdentifier: HeaderPrimaryBottomLineTableViewCell.identifier)
         tableViewRegister(identifier: MainDashBoardTableViewCell.identifier)
+        tableViewRegister(identifier: DashBoardProductTableViewCell.identifier)
+        tableViewRegister(identifier: DashBoardWorkingTableViewCell.identifier)
     }
     
     fileprivate func tableViewRegister(identifier: String) {
@@ -160,11 +162,7 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        } else {
-            return 0
-        }
+        return viewModel.output.getNumberOfRowsInSection(tableView, section: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RxSwift
 import UIKit
 
 
@@ -41,7 +40,7 @@ class SelectEmployeeViewModel: SelectEmployeeProtocol, SelectEmployeeProtocolOut
     // MARK: - Properties
     private var selectEmployeeViewController: SelectEmployeeViewController
     
-    fileprivate let disposeBag = DisposeBag()
+    
     
     init(
         selectEmployeeViewController: SelectEmployeeViewController

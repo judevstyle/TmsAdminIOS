@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import RxSwift
 
 protocol CollectibleDetailProtocolInput {
     func getCollectibleDetail()
@@ -34,7 +33,7 @@ class CollectibleDetailViewModel: CollectibleDetailProtocol, CollectibleDetailPr
     // MARK: - Properties
     private var CollectibleDetailViewController: CollectibleDetailViewController
     
-    fileprivate let disposeBag = DisposeBag()
+    
     
     init(
         CollectibleDetailViewController: CollectibleDetailViewController

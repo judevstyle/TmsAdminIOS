@@ -17,7 +17,7 @@ public enum NavigationOpeningSender {
     case order
     case appeal
     case menu
-    case shipmentDetail
+    case shipmentDetail(item: ShipmentItems)
     case shipmentMap
     case orderCart
     case appealDetail
@@ -340,6 +340,11 @@ class NavigationManager {
         var viewController: UIViewController = UIViewController()
         
         switch to {
+        case .shipmentDetail(let item):
+            if let className = storyboard.instantiateInitialViewController() as? ShipmentDetailViewController {
+                className.viewModel.input.setShipment(item: item)
+                viewController = className
+            }
         case .orderCart:
             if let className = storyboard.instantiateInitialViewController() as? OrderCartViewController {
                 //                className.set(contentType: contentType)
@@ -347,7 +352,6 @@ class NavigationManager {
             }
         case .selectEmployee(let delegate):
             if let className = storyboard.instantiateInitialViewController() as? SelectEmployeeViewController {
-                //                className.set(contentType: contentType)
                 className.viewModel.input.setDelegate(delegate: delegate)
                 viewController = className
             }

@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import RxSwift
 
 protocol PlanMasterProtocolInput {
     func getPlanMaster()
@@ -35,7 +34,7 @@ class PlanMasterViewModel: PlanMasterProtocol, PlanMasterProtocolOutput {
     // MARK: - Properties
     private var planMasterViewController: PlanMasterViewController
     
-    fileprivate let disposeBag = DisposeBag()
+    
     
     init(
         planMasterViewController: PlanMasterViewController

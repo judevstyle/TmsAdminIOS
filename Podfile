@@ -6,6 +6,7 @@ target 'TMSApp' do
   use_frameworks!
 
   # Pods for TMSApp
+  pod 'Moya'
   pod 'RadioGroup'
   pod 'DropDown'
   pod 'GoogleMaps'

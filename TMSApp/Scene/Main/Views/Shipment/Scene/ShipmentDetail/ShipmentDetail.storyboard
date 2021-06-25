@@ -27,7 +27,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BVp-mH-e0g">
-                                        <rect key="frame" x="16" y="16" width="382" height="548"/>
+                                        <rect key="frame" x="16" y="16" width="382" height="569"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="izc-ER-26f">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="79"/>
@@ -196,39 +196,37 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08H-At-dZT">
-                                                <rect key="frame" x="0.0" y="329" width="382" height="219"/>
+                                                <rect key="frame" x="0.0" y="329" width="382" height="240"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="coJ-BW-wkO">
-                                                        <rect key="frame" x="8" y="8" width="366" height="203"/>
+                                                        <rect key="frame" x="8" y="8" width="366" height="224"/>
                                                         <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ยอดค้างชำระ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ard-8R-zLk">
+                                                                <rect key="frame" x="0.0" y="0.0" width="366" height="21"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="21" id="TNj-xB-knf"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCc-DD-s2w">
-                                                                <rect key="frame" x="0.0" y="0.0" width="366" height="203"/>
+                                                                <rect key="frame" x="0.0" y="21" width="366" height="203"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8A-Zr-oky">
                                                                         <rect key="frame" x="0.0" y="0.0" width="231" height="203"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ยอดค้างชำระ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ard-8R-zLk">
-                                                                                <rect key="frame" x="8" y="8" width="71" height="21"/>
-                                                                                <constraints>
-                                                                                    <constraint firstAttribute="height" constant="21" id="TNj-xB-knf"/>
-                                                                                </constraints>
-                                                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
-                                                                                <nil key="textColor"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dcd-TW-hmq" customClass="PieChartView" customModule="Charts">
-                                                                                <rect key="frame" x="8" y="37" width="215" height="158"/>
+                                                                                <rect key="frame" x="8" y="8" width="215" height="187"/>
                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                             </view>
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <constraints>
                                                                             <constraint firstItem="dcd-TW-hmq" firstAttribute="leading" secondItem="L8A-Zr-oky" secondAttribute="leading" constant="8" id="35K-4O-ILl"/>
-                                                                            <constraint firstItem="Ard-8R-zLk" firstAttribute="top" secondItem="L8A-Zr-oky" secondAttribute="top" constant="8" id="4Ys-9N-a5Q"/>
-                                                                            <constraint firstItem="Ard-8R-zLk" firstAttribute="leading" secondItem="L8A-Zr-oky" secondAttribute="leading" constant="8" id="7oH-xL-WQT"/>
                                                                             <constraint firstAttribute="bottom" secondItem="dcd-TW-hmq" secondAttribute="bottom" constant="8" id="9Tx-8u-dR3"/>
-                                                                            <constraint firstItem="dcd-TW-hmq" firstAttribute="top" secondItem="Ard-8R-zLk" secondAttribute="bottom" constant="8" id="QKa-jI-2pO"/>
                                                                             <constraint firstAttribute="trailing" secondItem="dcd-TW-hmq" secondAttribute="trailing" constant="8" id="V2J-LJ-jRb"/>
+                                                                            <constraint firstItem="dcd-TW-hmq" firstAttribute="top" secondItem="L8A-Zr-oky" secondAttribute="top" constant="8" id="VPX-Nr-lCj"/>
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aoY-qO-XEZ">
@@ -311,7 +309,7 @@
                                                 </constraints>
                                             </view>
                                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="LAi-Oh-4sv">
-                                                <rect key="frame" x="0.0" y="548" width="382" height="500"/>
+                                                <rect key="frame" x="0.0" y="569" width="382" height="500"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="500" id="bNW-UG-Nqd"/>
@@ -364,13 +362,23 @@
                     </view>
                     <connections>
                         <outlet property="btnAddShipment" destination="m0k-2L-ShP" id="6YW-OV-Zht"/>
+                        <outlet property="customerCountText" destination="lsR-0c-tjt" id="ORj-qb-EVs"/>
                         <outlet property="dataCarView" destination="Hxz-vp-usS" id="ZTh-dD-NOP"/>
                         <outlet property="dataCashView" destination="rwk-4K-ZHP" id="GEG-XM-27s"/>
                         <outlet property="dataChartView" destination="08H-At-dZT" id="NAb-eU-8d7"/>
                         <outlet property="dataShipmentView" destination="izc-ER-26f" id="saj-BO-ATc"/>
                         <outlet property="pieChartView" destination="dcd-TW-hmq" id="74C-yl-UaJ"/>
+                        <outlet property="planNameText" destination="Ard-8R-zLk" id="R02-bT-QFs"/>
+                        <outlet property="sendFailText" destination="5mB-HJ-U4X" id="qf7-cX-fXA"/>
+                        <outlet property="sendSuccessText" destination="2xZ-jZ-lFV" id="UDh-iH-EC9"/>
+                        <outlet property="sendWaitText" destination="lSm-bq-DlQ" id="ixc-rZ-N5P"/>
+                        <outlet property="shipmentNoText" destination="Qbq-Bn-Uqc" id="keB-ik-KGS"/>
+                        <outlet property="sumOverduePay" destination="85U-Fs-1RD" id="OxH-Ws-qxp"/>
+                        <outlet property="sumPay" destination="XPe-BQ-HSS" id="qwm-WQ-8Dq"/>
                         <outlet property="tableView" destination="LAi-Oh-4sv" id="VW5-UL-S4R"/>
                         <outlet property="tableViewHeight" destination="bNW-UG-Nqd" id="9oY-xK-o2u"/>
+                        <outlet property="toSendText" destination="6Ph-6R-Rek" id="EZe-VJ-9fn"/>
+                        <outlet property="truckNo" destination="vei-7B-Dax" id="2s7-lB-MB0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P7I-R1-Ir3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

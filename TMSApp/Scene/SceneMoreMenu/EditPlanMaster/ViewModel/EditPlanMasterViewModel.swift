@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import RxSwift
 
 protocol EditPlanMasterProtocolInput {
     func getEmployee()
@@ -41,7 +40,7 @@ class EditPlanMasterViewModel: EditPlanMasterProtocol, EditPlanMasterProtocolOut
     // MARK: - Properties
     private var editPlanMasterViewController: EditPlanMasterViewController
     
-    fileprivate let disposeBag = DisposeBag()
+    
     
     init(
         editPlanMasterViewController: EditPlanMasterViewController

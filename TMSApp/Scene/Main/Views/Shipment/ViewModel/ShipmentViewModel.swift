@@ -6,11 +6,11 @@
 //
 
 import Foundation
-import RxSwift
 import UIKit
+import Combine
 
 protocol ShipmentProtocolInput {
-    func getShipment(request: GetShipmentRequest)
+    func getShipment()
 }
 
 protocol ShipmentProtocolOutput: class {
@@ -18,7 +18,7 @@ protocol ShipmentProtocolOutput: class {
     var didGetShipmentError: (() -> Void)? { get set }
     
     func getNumberOfShipment() -> Int
-    func getItemShipment(index: Int) -> GetShipmentResponse?
+    func getItemShipment(index: Int) -> ShipmentItems?
     func getItemViewCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
     func getItemViewCellHeight() -> CGFloat
 }
@@ -33,37 +33,41 @@ class ShipmentViewModel: ShipmentProtocol, ShipmentProtocolOutput {
     var output: ShipmentProtocolOutput { return self }
     
     // MARK: - Properties
-//    private var getProductUseCase: GetProductUseCase
+    private var getShipmentUseCase: GetShipmentUseCase
+    private var anyCancellable: Set<AnyCancellable> = Set<AnyCancellable>()
+    
+    
     private var shipmentViewController: ShipmentViewController
     
-    fileprivate let disposeBag = DisposeBag()
+    
     
     init(
-//        getProductUseCase: GetProductUseCase = GetProductUseCaseImpl(),
-        shipmentViewController: ShipmentViewController
+        shipmentViewController: ShipmentViewController,
+        getShipmentUseCase: GetShipmentUseCase = GetShipmentUseCaseImpl()
     ) {
-//        self.getProductUseCase = getProductUseCase
         self.shipmentViewController = shipmentViewController
+        self.getShipmentUseCase = getShipmentUseCase
     }
     
     // MARK - Data-binding OutPut
     var didGetShipmentSuccess: (() -> Void)?
     var didGetShipmentError: (() -> Void)?
     
-    fileprivate var listShipment: [GetShipmentResponse]? = []
+    fileprivate var listShipment: [ShipmentItems]?
     
-    func getShipment(request: GetShipmentRequest) {
+    func getShipment() {
         listShipment?.removeAll()
         shipmentViewController.startLoding()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-            guard let weakSelf = self else { return }
-            for _ in 0..<3 {
-                weakSelf.listShipment?.append(GetShipmentResponse(title: "test"))
+        
+        self.getShipmentUseCase.execute().sink { completion in
+            debugPrint("getShipment \(completion)")
+        } receiveValue: { resp in
+            if let items = resp?.data?.items {
+                self.listShipment = items
             }
-
-            weakSelf.didGetShipmentSuccess?()
-            weakSelf.shipmentViewController.stopLoding()
-        }
+            self.didGetShipmentSuccess?()
+            self.shipmentViewController.stopLoding()
+        }.store(in: &self.anyCancellable)
     }
     
     func getNumberOfShipment() -> Int {
@@ -71,7 +75,7 @@ class ShipmentViewModel: ShipmentProtocol, ShipmentProtocolOutput {
         return count
     }
     
-    func getItemShipment(index: Int) -> GetShipmentResponse? {
+    func getItemShipment(index: Int) -> ShipmentItems? {
         guard let itemShipment = listShipment?[index] else { return nil }
         return itemShipment
     }
@@ -79,11 +83,11 @@ class ShipmentViewModel: ShipmentProtocol, ShipmentProtocolOutput {
     func getItemViewCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ShipmentTableViewCell.identifier, for: indexPath) as! ShipmentTableViewCell
         cell.selectionStyle = .none
-        cell.setData(item: getItemShipment(index: indexPath.item))
+        cell.items = self.listShipment?[indexPath.item]
         return cell
     }
     
     func getItemViewCellHeight() -> CGFloat {
-        return 174
+        return UITableView.automaticDimension
     }
 }

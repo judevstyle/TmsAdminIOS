@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RxSwift
 import UIKit
 
 protocol EmployeeProtocolInput {
@@ -34,7 +33,7 @@ class EmployeeViewModel: EmployeeProtocol, EmployeeProtocolOutput {
     // MARK: - Properties
     private var employeeViewController: EmployeeViewController
     
-    fileprivate let disposeBag = DisposeBag()
+    
     
     init(
         employeeViewController: EmployeeViewController

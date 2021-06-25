@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RxSwift
 import UIKit
 
 protocol TypeUserProductAllProtocolInput {
@@ -40,7 +39,7 @@ class TypeUserProductAllViewModel: TypeUserProductAllProtocol, TypeUserProductAl
     
     private var typeUserProductAllViewController: TypeUserProductAllViewController
     
-    fileprivate let disposeBag = DisposeBag()
+    
     
     init(
         typeUserProductAllViewController: TypeUserProductAllViewController

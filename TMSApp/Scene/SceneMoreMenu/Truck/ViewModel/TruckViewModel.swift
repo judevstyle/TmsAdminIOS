@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import RxSwift
 
 protocol TruckProtocolInput {
     func getTruck()
@@ -34,7 +33,7 @@ class TruckViewModel: TruckProtocol, TruckProtocolOutput {
     // MARK: - Properties
     private var truckViewController: TruckViewController
     
-    fileprivate let disposeBag = DisposeBag()
+    
     
     init(
         truckViewController: TruckViewController

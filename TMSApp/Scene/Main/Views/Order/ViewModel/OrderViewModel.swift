@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RxSwift
 import UIKit
 
 protocol OrderProtocolInput {
@@ -40,7 +39,7 @@ class OrderViewModel: OrderProtocol, OrderProtocolOutput {
     // MARK: - Properties
     private var orderViewController: OrderViewController
     
-    fileprivate let disposeBag = DisposeBag()
+    
     
     init(
         orderViewController: OrderViewController

@@ -30,7 +30,7 @@ class ShipmentViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        viewModel.input.getShipment(request: GetShipmentRequest(title: ""))
+        viewModel.input.getShipment()
         NavigationManager.instance.setupWithNavigationController(navigationController: self.navigationController)
     }
 }
@@ -79,8 +79,7 @@ extension ShipmentViewController {
 extension ShipmentViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let itemShipment = viewModel.output.getItemShipment(index: indexPath.item) else { return }
-        print(itemShipment.title ?? "")
-        NavigationManager.instance.pushVC(to: .shipmentDetail, presentation: .Push)
+        NavigationManager.instance.pushVC(to: .shipmentDetail(item: itemShipment), presentation: .Push)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RxSwift
 import UIKit
 
 enum SectionShipment {
@@ -16,6 +15,7 @@ enum SectionShipment {
 }
 
 protocol ShipmentDetailProtocolInput {
+    func setShipment(item: ShipmentItems)
     func getShipment()
     func didSelectRowAt(_ tableView: UITableView, indexPath: IndexPath)
 }
@@ -32,6 +32,12 @@ protocol ShipmentDetailProtocolOutput: class {
     func getItemViewCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
     func getHeightTableViewCell(section: Int) -> CGFloat
     func getHeightSectionView() -> CGFloat
+    
+    func getCodeShipment() -> String
+    func getCountCustomer() -> String
+    func getCarInfo() -> String
+    func getPlanName() -> String
+    func getSummaryCustomer() -> SummaryCustomer?
 }
 
 protocol ShipmentDetailProtocol: ShipmentDetailProtocolInput, ShipmentDetailProtocolOutput {
@@ -48,7 +54,7 @@ class ShipmentDetailViewModel: ShipmentDetailProtocol, ShipmentDetailProtocolOut
     //    private var getProductUseCase: GetProductUseCase
     private var shipmentDetailViewController: ShipmentDetailViewController
     
-    fileprivate let disposeBag = DisposeBag()
+    
     
     private var sections = [(name:String, type: SectionShipment)]()
     
@@ -71,32 +77,22 @@ class ShipmentDetailViewModel: ShipmentDetailProtocol, ShipmentDetailProtocolOut
     fileprivate var listEmployee: [GetShipmentResponse]? = []
     fileprivate var listCustomer: [GetShipmentResponse]? = []
     
+    private var shipmentItem: ShipmentItems?
+    
+    func setShipment(item: ShipmentItems) {
+        self.shipmentItem = item
+    }
+    
     func getShipment() {
-        listCar?.removeAll()
-        listCustomer?.removeAll()
-        listEmployee?.removeAll()
-        shipmentDetailViewController.startLoding()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-            guard let weakSelf = self else { return }
-            weakSelf.listCar?.append(GetShipmentResponse(title: "test"))
-            weakSelf.listEmployee?.append(GetShipmentResponse(title: "test"))
-            for _ in 0..<3 {
-                weakSelf.listCustomer?.append(GetShipmentResponse(title: "test"))
-                weakSelf.listCustomer?.append(GetShipmentResponse(title: "test"))
-                weakSelf.listCustomer?.append(GetShipmentResponse(title: "test"))
-            }
-            
-            weakSelf.didGetShipmentDetailSuccess?()
-            weakSelf.shipmentDetailViewController.stopLoding()
-        }
+        self.didGetShipmentDetailSuccess?()
     }
     
     func didSelectRowAt(_ tableView: UITableView, indexPath: IndexPath) {
         switch self.sections[indexPath.section].type {
         case .DeliveryCar:
-            print("Nontawat didSelectRowAt \(SectionShipment.DeliveryCar)")
+            print("didSelectRowAt \(SectionShipment.DeliveryCar)")
         case .Employee:
-            print("Nontawat didSelectRowAt \(SectionShipment.Employee)")
+            print("didSelectRowAt \(SectionShipment.Employee)")
         case .Customer:
             let alertController = UIAlertController(title: "", message: nil, preferredStyle: .actionSheet)
             let customView = CustomerSettingView(frame: CGRect(x: 0, y: 0, width: alertController.view.bounds.width-16, height: 166))
@@ -117,6 +113,46 @@ class ShipmentDetailViewModel: ShipmentDetailProtocol, ShipmentDetailProtocolOut
                 alertController.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
             }
         }
+    }
+}
+
+
+extension ShipmentDetailViewModel: CustomerSettingViewDelegate {
+    func didSelectSettingRowAt(_ tableView: UITableView, indexPath: IndexPath) {
+        shipmentDetailViewController.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ShipmentDetailViewModel {
+    @objc func dismissAlertController() {
+        shipmentDetailViewController.dismiss(animated: true, completion: nil)
+    }
+}
+
+//MARK:- OUTPUT
+extension ShipmentDetailViewModel {
+    
+    func getPlanName() -> String {
+        guard let planName = self.shipmentItem?.planName else { return "" }
+        return planName
+    }
+    func getCodeShipment() -> String {
+        guard let shipmentNo = self.shipmentItem?.shipmentNo else { return "" }
+        return shipmentNo
+    }
+    
+    func getCountCustomer() -> String {
+        return "0"
+    }
+    
+    func getCarInfo() -> String {
+        guard let truck = self.shipmentItem?.truckRegistrationNumber else { return "" }
+        return truck
+    }
+    
+    func getSummaryCustomer() -> SummaryCustomer? {
+        guard let summary = self.shipmentItem?.customerShipmentNumber else { return nil }
+        return summary
     }
     
     func getSectionOfShipmentDetail() -> Int {
@@ -185,18 +221,5 @@ class ShipmentDetailViewModel: ShipmentDetailProtocol, ShipmentDetailProtocolOut
     
     func getHeightSectionView() -> CGFloat {
         return 30
-    }
-}
-
-
-extension ShipmentDetailViewModel: CustomerSettingViewDelegate {
-    func didSelectSettingRowAt(_ tableView: UITableView, indexPath: IndexPath) {
-        shipmentDetailViewController.dismiss(animated: true, completion: nil)
-    }
-}
-
-extension ShipmentDetailViewModel {
-    @objc func dismissAlertController() {
-        shipmentDetailViewController.dismiss(animated: true, completion: nil)
     }
 }

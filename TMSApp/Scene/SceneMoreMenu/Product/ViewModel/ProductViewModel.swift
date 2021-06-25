@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import RxSwift
 
 protocol ProductProtocolInput {
     func getProduct()
@@ -34,7 +33,7 @@ class ProductViewModel: ProductProtocol, ProductProtocolOutput {
     // MARK: - Properties
     private var productViewController: ProductViewController
     
-    fileprivate let disposeBag = DisposeBag()
+    
     
     init(
         productViewController: ProductViewController

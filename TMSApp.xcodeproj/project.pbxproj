@@ -65,6 +65,40 @@
 		EF2DA0D9265783AD00AB48F5 /* ShipmentMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2DA0D8265783AD00AB48F5 /* ShipmentMapViewModel.swift */; };
 		EF2DA0E1265783FE00AB48F5 /* GetShipmentMapResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2DA0E0265783FE00AB48F5 /* GetShipmentMapResponse.swift */; };
 		EF2DA0E7265785A700AB48F5 /* CustomTapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2DA0E6265785A700AB48F5 /* CustomTapGestureRecognizer.swift */; };
+		EF2F96FD26859BD0000363B0 /* DashboardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F96FC26859BD0000363B0 /* DashboardAPI.swift */; };
+		EF2F970C2685AB2B000363B0 /* GetDashboardRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F970B2685AB2B000363B0 /* GetDashboardRequest.swift */; };
+		EF2F970E2685AEF9000363B0 /* Decodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F970D2685AEF9000363B0 /* Decodable+Extension.swift */; };
+		EF2F97102685AF1B000363B0 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F970F2685AF1B000363B0 /* Encodable+Extension.swift */; };
+		EF2F97122685AF3B000363B0 /* Decoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F97112685AF3B000363B0 /* Decoder+Extension.swift */; };
+		EF2F97142685AF55000363B0 /* Encoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F97132685AF55000363B0 /* Encoder+Extension.swift */; };
+		EF2F97182685B583000363B0 /* GetDashboardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F97172685B583000363B0 /* GetDashboardResponse.swift */; };
+		EF2F971A2685B805000363B0 /* CodableInfixOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F97192685B805000363B0 /* CodableInfixOperator.swift */; };
+		EF2F971C2685BB05000363B0 /* AnyKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F971B2685BB05000363B0 /* AnyKey.swift */; };
+		EF2F971E2685BB74000363B0 /* KeyedDecodingContainer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F971D2685BB74000363B0 /* KeyedDecodingContainer+Extension.swift */; };
+		EF2F97202685BD67000363B0 /* DashboardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F971F2685BD67000363B0 /* DashboardRepository.swift */; };
+		EF2F97232685BEDC000363B0 /* MoyaProvider+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F97222685BEDC000363B0 /* MoyaProvider+Combine.swift */; };
+		EF2F97252685BEF5000363B0 /* Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F97242685BEF5000363B0 /* Combine.swift */; };
+		EF2F97292685C16C000363B0 /* DomainNameConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F97282685C16C000363B0 /* DomainNameConfig.swift */; };
+		EF2F972C2685C29A000363B0 /* GetDashboardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F972B2685C29A000363B0 /* GetDashboardUseCase.swift */; };
+		EF2F97302685D9D1000363B0 /* DashBoardProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F972E2685D9D1000363B0 /* DashBoardProductTableViewCell.swift */; };
+		EF2F97312685D9D1000363B0 /* DashBoardProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF2F972F2685D9D1000363B0 /* DashBoardProductTableViewCell.xib */; };
+		EF2F97352685DBD2000363B0 /* DashBoardProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F97332685DBD2000363B0 /* DashBoardProductCollectionViewCell.swift */; };
+		EF2F97362685DBD2000363B0 /* DashBoardProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF2F97342685DBD2000363B0 /* DashBoardProductCollectionViewCell.xib */; };
+		EF2F973A2685DE7C000363B0 /* DashBoardProductTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F97392685DE7C000363B0 /* DashBoardProductTableViewModel.swift */; };
+		EF2F973D26861519000363B0 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EF2F973C26861519000363B0 /* Kingfisher */; };
+		EF2F97412686217C000363B0 /* DashBoardWorkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F973F2686217C000363B0 /* DashBoardWorkingTableViewCell.swift */; };
+		EF2F97422686217C000363B0 /* DashBoardWorkingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF2F97402686217C000363B0 /* DashBoardWorkingTableViewCell.xib */; };
+		EF2F974426863530000363B0 /* ShipmentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F974326863530000363B0 /* ShipmentAPI.swift */; };
+		EF2F974926863586000363B0 /* GetShipmentWorkingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F974826863586000363B0 /* GetShipmentWorkingRequest.swift */; };
+		EF2F974B26863596000363B0 /* GetShipmentWorkingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F974A26863596000363B0 /* GetShipmentWorkingResponse.swift */; };
+		EF2F974E26863767000363B0 /* MetaObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F974D26863767000363B0 /* MetaObject.swift */; };
+		EF2F975026863A8F000363B0 /* ShipmentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F974F26863A8F000363B0 /* ShipmentRepository.swift */; };
+		EF2F975326863B27000363B0 /* GetShipmentWorkingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F975226863B27000363B0 /* GetShipmentWorkingUseCase.swift */; };
+		EF2F975526864821000363B0 /* GetShipmentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F975426864821000363B0 /* GetShipmentUseCase.swift */; };
+		EF2F97572686492F000363B0 /* UIImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F97562686492F000363B0 /* UIImageView+Kingfisher.swift */; };
+		EF2F975926865638000363B0 /* OrderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F975826865638000363B0 /* OrderAPI.swift */; };
+		EF2F9762268658E4000363B0 /* GetShipmentCustomerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F9761268658E4000363B0 /* GetShipmentCustomerResponse.swift */; };
+		EF2F976426865F08000363B0 /* GetShipmentCustomerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F976326865F08000363B0 /* GetShipmentCustomerUseCase.swift */; };
 		EF44C5F22656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF44C5F02656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.swift */; };
 		EF44C5F32656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF44C5F12656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.xib */; };
 		EF44C5FD2656BEC50014F0D0 /* CustomerShipmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF44C5FB2656BEC50014F0D0 /* CustomerShipmentTableViewCell.swift */; };
@@ -99,7 +133,6 @@
 		EF590A0126502CAF007248B4 /* ShipmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF590A0026502CAF007248B4 /* ShipmentViewModel.swift */; };
 		EF590A0826502DE7007248B4 /* GetShipmentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF590A0726502DE7007248B4 /* GetShipmentRequest.swift */; };
 		EF590A0E26502E1A007248B4 /* GetShipmentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF590A0D26502E1A007248B4 /* GetShipmentResponse.swift */; };
-		EF590A1426502F13007248B4 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EF590A1326502F13007248B4 /* RxSwift */; };
 		EF590A1B265033A5007248B4 /* ShipmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF590A19265033A5007248B4 /* ShipmentTableViewCell.swift */; };
 		EF590A1C265033A5007248B4 /* ShipmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF590A1A265033A5007248B4 /* ShipmentTableViewCell.xib */; };
 		EF5E7290264EDBB500F5EE47 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5E728F264EDBB500F5EE47 /* LoginViewController.swift */; };
@@ -353,6 +386,39 @@
 		EF2DA0D8265783AD00AB48F5 /* ShipmentMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentMapViewModel.swift; sourceTree = "<group>"; };
 		EF2DA0E0265783FE00AB48F5 /* GetShipmentMapResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShipmentMapResponse.swift; sourceTree = "<group>"; };
 		EF2DA0E6265785A700AB48F5 /* CustomTapGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTapGestureRecognizer.swift; sourceTree = "<group>"; };
+		EF2F96FC26859BD0000363B0 /* DashboardAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardAPI.swift; sourceTree = "<group>"; };
+		EF2F970B2685AB2B000363B0 /* GetDashboardRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDashboardRequest.swift; sourceTree = "<group>"; };
+		EF2F970D2685AEF9000363B0 /* Decodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Extension.swift"; sourceTree = "<group>"; };
+		EF2F970F2685AF1B000363B0 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
+		EF2F97112685AF3B000363B0 /* Decoder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decoder+Extension.swift"; sourceTree = "<group>"; };
+		EF2F97132685AF55000363B0 /* Encoder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encoder+Extension.swift"; sourceTree = "<group>"; };
+		EF2F97172685B583000363B0 /* GetDashboardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDashboardResponse.swift; sourceTree = "<group>"; };
+		EF2F97192685B805000363B0 /* CodableInfixOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableInfixOperator.swift; sourceTree = "<group>"; };
+		EF2F971B2685BB05000363B0 /* AnyKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyKey.swift; sourceTree = "<group>"; };
+		EF2F971D2685BB74000363B0 /* KeyedDecodingContainer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyedDecodingContainer+Extension.swift"; sourceTree = "<group>"; };
+		EF2F971F2685BD67000363B0 /* DashboardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRepository.swift; sourceTree = "<group>"; };
+		EF2F97222685BEDC000363B0 /* MoyaProvider+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Combine.swift"; sourceTree = "<group>"; };
+		EF2F97242685BEF5000363B0 /* Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combine.swift; sourceTree = "<group>"; };
+		EF2F97282685C16C000363B0 /* DomainNameConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainNameConfig.swift; sourceTree = "<group>"; };
+		EF2F972B2685C29A000363B0 /* GetDashboardUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDashboardUseCase.swift; sourceTree = "<group>"; };
+		EF2F972E2685D9D1000363B0 /* DashBoardProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardProductTableViewCell.swift; sourceTree = "<group>"; };
+		EF2F972F2685D9D1000363B0 /* DashBoardProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashBoardProductTableViewCell.xib; sourceTree = "<group>"; };
+		EF2F97332685DBD2000363B0 /* DashBoardProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		EF2F97342685DBD2000363B0 /* DashBoardProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashBoardProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		EF2F97392685DE7C000363B0 /* DashBoardProductTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardProductTableViewModel.swift; sourceTree = "<group>"; };
+		EF2F973F2686217C000363B0 /* DashBoardWorkingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardWorkingTableViewCell.swift; sourceTree = "<group>"; };
+		EF2F97402686217C000363B0 /* DashBoardWorkingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashBoardWorkingTableViewCell.xib; sourceTree = "<group>"; };
+		EF2F974326863530000363B0 /* ShipmentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentAPI.swift; sourceTree = "<group>"; };
+		EF2F974826863586000363B0 /* GetShipmentWorkingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShipmentWorkingRequest.swift; sourceTree = "<group>"; };
+		EF2F974A26863596000363B0 /* GetShipmentWorkingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShipmentWorkingResponse.swift; sourceTree = "<group>"; };
+		EF2F974D26863767000363B0 /* MetaObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaObject.swift; sourceTree = "<group>"; };
+		EF2F974F26863A8F000363B0 /* ShipmentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentRepository.swift; sourceTree = "<group>"; };
+		EF2F975226863B27000363B0 /* GetShipmentWorkingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShipmentWorkingUseCase.swift; sourceTree = "<group>"; };
+		EF2F975426864821000363B0 /* GetShipmentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShipmentUseCase.swift; sourceTree = "<group>"; };
+		EF2F97562686492F000363B0 /* UIImageView+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Kingfisher.swift"; sourceTree = "<group>"; };
+		EF2F975826865638000363B0 /* OrderAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAPI.swift; sourceTree = "<group>"; };
+		EF2F9761268658E4000363B0 /* GetShipmentCustomerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShipmentCustomerResponse.swift; sourceTree = "<group>"; };
+		EF2F976326865F08000363B0 /* GetShipmentCustomerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShipmentCustomerUseCase.swift; sourceTree = "<group>"; };
 		EF44C5F02656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeShipmentTableViewCell.swift; sourceTree = "<group>"; };
 		EF44C5F12656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeShipmentTableViewCell.xib; sourceTree = "<group>"; };
 		EF44C5FB2656BEC50014F0D0 /* CustomerShipmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerShipmentTableViewCell.swift; sourceTree = "<group>"; };
@@ -548,9 +614,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF2F973D26861519000363B0 /* Kingfisher in Frameworks */,
 				EF5FFB1E261A1C5600C9C43B /* NVActivityIndicatorViewExtended in Frameworks */,
 				EF5FFB1C261A1C5600C9C43B /* NVActivityIndicatorView in Frameworks */,
-				EF590A1426502F13007248B4 /* RxSwift in Frameworks */,
 				8D115DF66119DEE986E16BA4 /* Pods_TMSApp.framework in Frameworks */,
 				EF0EA863265429BC00148157 /* SnapKit in Frameworks */,
 				EF905C2F266A7F25009AC148 /* SocketIO in Frameworks */,
@@ -652,7 +718,6 @@
 		EF0EA82B2653C2C700148157 /* ShipmentDetail */ = {
 			isa = PBXGroup;
 			children = (
-				EF0EA8392653C31800148157 /* Model */,
 				EF0EA8382653C31200148157 /* ViewModel */,
 				EF0EA8372653C30D00148157 /* View */,
 				EF0EA82D2653C2F800148157 /* ShipmentDetail.storyboard */,
@@ -693,13 +758,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		EF0EA8392653C31800148157 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		EF0EA8422654221600148157 /* HeaderShipmentDetailTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -736,7 +794,11 @@
 		EF22DE0A267DD00400EA131D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EF2F974C26863754000363B0 /* Shared */,
+				EF2F974526863559000363B0 /* Shipment */,
+				EF2F97082685AAF4000363B0 /* Dashboard */,
 				EF22DE0B267DD01500EA131D /* Shop */,
+				EF2F975A26865657000363B0 /* Order */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1075,6 +1137,212 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
+		EF2F96F826859276000363B0 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				EF2F96FC26859BD0000363B0 /* DashboardAPI.swift */,
+				EF2F974326863530000363B0 /* ShipmentAPI.swift */,
+				EF2F975826865638000363B0 /* OrderAPI.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		EF2F96F926859B59000363B0 /* Repositorys */ = {
+			isa = PBXGroup;
+			children = (
+				EF2F971F2685BD67000363B0 /* DashboardRepository.swift */,
+				EF2F974F26863A8F000363B0 /* ShipmentRepository.swift */,
+			);
+			path = Repositorys;
+			sourceTree = "<group>";
+		};
+		EF2F96FA26859B68000363B0 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				EF2F97262685C11A000363B0 /* Config */,
+				EF5E72C3264EF90900F5EE47 /* Utility */,
+				EF5E729C264EE71700F5EE47 /* Helpers */,
+				EF55E95B2614F69000915D1C /* Classes */,
+				EF2F97212685BEAF000363B0 /* Combine */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		EF2F96FB26859B7B000363B0 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				EF2F975126863B19000363B0 /* Shipment */,
+				EF2F972A2685C280000363B0 /* Dashboard */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		EF2F97082685AAF4000363B0 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				EF2F970A2685AB07000363B0 /* Response */,
+				EF2F97092685AB00000363B0 /* Request */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		EF2F97092685AB00000363B0 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				EF2F970B2685AB2B000363B0 /* GetDashboardRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		EF2F970A2685AB07000363B0 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				EF2F97172685B583000363B0 /* GetDashboardResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		EF2F97212685BEAF000363B0 /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				EF2F97222685BEDC000363B0 /* MoyaProvider+Combine.swift */,
+				EF2F97242685BEF5000363B0 /* Combine.swift */,
+			);
+			path = Combine;
+			sourceTree = "<group>";
+		};
+		EF2F97262685C11A000363B0 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				EF2F97282685C16C000363B0 /* DomainNameConfig.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		EF2F97272685C12A000363B0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EF2F96F826859276000363B0 /* Providers */,
+				EF2F96F926859B59000363B0 /* Repositorys */,
+				EF2F96FB26859B7B000363B0 /* UseCase */,
+				EF22DE0A267DD00400EA131D /* Models */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		EF2F972A2685C280000363B0 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				EF2F972B2685C29A000363B0 /* GetDashboardUseCase.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		EF2F972D2685D9A9000363B0 /* DashBoardProductTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				EF2F97372685DE41000363B0 /* ViewModel */,
+				EF2F972E2685D9D1000363B0 /* DashBoardProductTableViewCell.swift */,
+				EF2F972F2685D9D1000363B0 /* DashBoardProductTableViewCell.xib */,
+			);
+			path = DashBoardProductTableViewCell;
+			sourceTree = "<group>";
+		};
+		EF2F97322685DBB6000363B0 /* DashBoardProductCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				EF2F97332685DBD2000363B0 /* DashBoardProductCollectionViewCell.swift */,
+				EF2F97342685DBD2000363B0 /* DashBoardProductCollectionViewCell.xib */,
+			);
+			path = DashBoardProductCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		EF2F97372685DE41000363B0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EF2F97392685DE7C000363B0 /* DashBoardProductTableViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EF2F973E2686214D000363B0 /* DashBoardWorkingTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				EF2F973F2686217C000363B0 /* DashBoardWorkingTableViewCell.swift */,
+				EF2F97402686217C000363B0 /* DashBoardWorkingTableViewCell.xib */,
+			);
+			path = DashBoardWorkingTableViewCell;
+			sourceTree = "<group>";
+		};
+		EF2F974526863559000363B0 /* Shipment */ = {
+			isa = PBXGroup;
+			children = (
+				EF2F97472686356E000363B0 /* Response */,
+				EF2F974626863565000363B0 /* Request */,
+			);
+			path = Shipment;
+			sourceTree = "<group>";
+		};
+		EF2F974626863565000363B0 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				EF590A0726502DE7007248B4 /* GetShipmentRequest.swift */,
+				EF2F974826863586000363B0 /* GetShipmentWorkingRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		EF2F97472686356E000363B0 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				EF590A0D26502E1A007248B4 /* GetShipmentResponse.swift */,
+				EF2F974A26863596000363B0 /* GetShipmentWorkingResponse.swift */,
+				EF2F9761268658E4000363B0 /* GetShipmentCustomerResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		EF2F974C26863754000363B0 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				EF2F974D26863767000363B0 /* MetaObject.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		EF2F975126863B19000363B0 /* Shipment */ = {
+			isa = PBXGroup;
+			children = (
+				EF2F975226863B27000363B0 /* GetShipmentWorkingUseCase.swift */,
+				EF2F975426864821000363B0 /* GetShipmentUseCase.swift */,
+				EF2F976326865F08000363B0 /* GetShipmentCustomerUseCase.swift */,
+			);
+			path = Shipment;
+			sourceTree = "<group>";
+		};
+		EF2F975A26865657000363B0 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				EF2F975C26865671000363B0 /* Response */,
+				EF2F975B2686566C000363B0 /* Request */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		EF2F975B2686566C000363B0 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		EF2F975C26865671000363B0 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
 		EF44C5EF2656BA780014F0D0 /* EmployeeShipmentTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1128,11 +1396,9 @@
 		EF55E8EC2614F3B700915D1C /* TMSApp */ = {
 			isa = PBXGroup;
 			children = (
-				EF22DE0A267DD00400EA131D /* Models */,
+				EF2F97272685C12A000363B0 /* Data */,
+				EF2F96FA26859B68000363B0 /* Core */,
 				EFBDF6C3267809D200F5978F /* Shared */,
-				EF5E72C3264EF90900F5EE47 /* Utility */,
-				EF5E729C264EE71700F5EE47 /* Helpers */,
-				EF55E95B2614F69000915D1C /* Classes */,
 				EF55E9282614F4AB00915D1C /* Resource */,
 				EF55E9272614F4A000915D1C /* Scene */,
 				EF55E8ED2614F3B700915D1C /* AppDelegate.swift */,
@@ -1236,6 +1502,11 @@
 				EFB617B5266FCC1300B65CF7 /* NSUIColor+Hex.swift */,
 				EF2618972675FD9300F826BC /* UITableView+Extension.swift */,
 				EFBDF6F326782E2E00F5978F /* UICollectionView+Extension.swift */,
+				EF2F970D2685AEF9000363B0 /* Decodable+Extension.swift */,
+				EF2F970F2685AF1B000363B0 /* Encodable+Extension.swift */,
+				EF2F97112685AF3B000363B0 /* Decoder+Extension.swift */,
+				EF2F97132685AF55000363B0 /* Encoder+Extension.swift */,
+				EF2F97562686492F000363B0 /* UIImageView+Kingfisher.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1256,14 +1527,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		EF5909FB26502B68007248B4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				EF590A0526502DC9007248B4 /* GetShipment */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		EF5909FC26502B85007248B4 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
@@ -1272,31 +1535,6 @@
 				EF0EA82B2653C2C700148157 /* ShipmentDetail */,
 			);
 			path = Scene;
-			sourceTree = "<group>";
-		};
-		EF590A0526502DC9007248B4 /* GetShipment */ = {
-			isa = PBXGroup;
-			children = (
-				EF590A0C26502E0D007248B4 /* Response */,
-				EF590A0626502DD5007248B4 /* Request */,
-			);
-			path = GetShipment;
-			sourceTree = "<group>";
-		};
-		EF590A0626502DD5007248B4 /* Request */ = {
-			isa = PBXGroup;
-			children = (
-				EF590A0726502DE7007248B4 /* GetShipmentRequest.swift */,
-			);
-			path = Request;
-			sourceTree = "<group>";
-		};
-		EF590A0C26502E0D007248B4 /* Response */ = {
-			isa = PBXGroup;
-			children = (
-				EF590A0D26502E1A007248B4 /* GetShipmentResponse.swift */,
-			);
-			path = Response;
 			sourceTree = "<group>";
 		};
 		EF590A1826503380007248B4 /* ShipmentTableViewCell */ = {
@@ -1325,6 +1563,7 @@
 				EFBDF6DD267824DF00F5978F /* KeyboardListener.swift */,
 				EFD10919267A757D00AF290D /* AlertCustomViewswift.swift */,
 				EFD1091B267A87DA00AF290D /* ImagePicker.swift */,
+				EF2F971D2685BB74000363B0 /* KeyedDecodingContainer+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1374,6 +1613,8 @@
 			children = (
 				EF5E72C4264EF93700F5EE47 /* DateFormatter.swift */,
 				EF2DA0E6265785A700AB48F5 /* CustomTapGestureRecognizer.swift */,
+				EF2F97192685B805000363B0 /* CodableInfixOperator.swift */,
+				EF2F971B2685BB05000363B0 /* AnyKey.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1382,7 +1623,6 @@
 			isa = PBXGroup;
 			children = (
 				EF5909FC26502B85007248B4 /* Scene */,
-				EF5909FB26502B68007248B4 /* Model */,
 				EF5909FA26502B61007248B4 /* ViewModel */,
 				EF5909F926502B59007248B4 /* View */,
 				EF5E72D3264EFEAA00F5EE47 /* Shipment.storyboard */,
@@ -1943,6 +2183,9 @@
 		EFBDF6E726782C9400F5978F /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				EF2F973E2686214D000363B0 /* DashBoardWorkingTableViewCell */,
+				EF2F97322685DBB6000363B0 /* DashBoardProductCollectionViewCell */,
+				EF2F972D2685D9A9000363B0 /* DashBoardProductTableViewCell */,
 				EF266CA9267F5DAE006F3923 /* CollectibleUserUseTableViewCell */,
 				EF266C9A267F5327006F3923 /* CollectibleTableViewCell */,
 				EF6E70D0267E482A00FABBFE /* AssetStockTableViewCell */,
@@ -2211,9 +2454,9 @@
 			packageProductDependencies = (
 				EF5FFB1B261A1C5600C9C43B /* NVActivityIndicatorView */,
 				EF5FFB1D261A1C5600C9C43B /* NVActivityIndicatorViewExtended */,
-				EF590A1326502F13007248B4 /* RxSwift */,
 				EF0EA862265429BC00148157 /* SnapKit */,
 				EF905C2E266A7F25009AC148 /* SocketIO */,
+				EF2F973C26861519000363B0 /* Kingfisher */,
 			);
 			productName = TMSApp;
 			productReference = EF198309267911C300D6C597 /* TMSApp.app */;
@@ -2292,9 +2535,9 @@
 			mainGroup = EF55E8E12614F3B700915D1C;
 			packageReferences = (
 				EF5FFB1A261A1C5600C9C43B /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
-				EF590A1226502F13007248B4 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				EF0EA861265429BC00148157 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				EF905C2D266A7F25009AC148 /* XCRemoteSwiftPackageReference "socket" */,
+				EF2F973B26861519000363B0 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = EF55E8E12614F3B700915D1C;
 			projectDirPath = "";
@@ -2323,6 +2566,7 @@
 				EFFDCBA626582D99003C4605 /* CustomerSettingTableViewCell.xib in Resources */,
 				EF26189F2675FE8000F826BC /* EmployeeTableViewCell.xib in Resources */,
 				EF44C6232656DF120014F0D0 /* MarkerMapView.xib in Resources */,
+				EF2F97312685D9D1000363B0 /* DashBoardProductTableViewCell.xib in Resources */,
 				EFE50EE1267BC52000C9498C /* TypeUserProductAll.storyboard in Resources */,
 				EF7F4CD62678F3D10096373E /* Product.storyboard in Resources */,
 				EF2618942675FBB000F826BC /* Employee.storyboard in Resources */,
@@ -2344,6 +2588,7 @@
 				EF590A1C265033A5007248B4 /* ShipmentTableViewCell.xib in Resources */,
 				EF7F4CED2678F9DF0096373E /* TruckTableViewCell.xib in Resources */,
 				EF55E9562614F5CE00915D1C /* SukhumvitSet-Light.ttf in Resources */,
+				EF2F97422686217C000363B0 /* DashBoardWorkingTableViewCell.xib in Resources */,
 				EF0EA854265422DA00148157 /* DeliveryShipmentTableViewCell.xib in Resources */,
 				EF680C86267CE847006BE9A7 /* DayListCollectionViewCell.xib in Resources */,
 				EF2618902675CFCF00F826BC /* ImageFeedbackCollectionViewCell.xib in Resources */,
@@ -2394,6 +2639,7 @@
 				EF6E70C0267E385000FABBFE /* AssetTableViewCell.xib in Resources */,
 				EF0EA6992653774000148157 /* AppealTableViewCell.xib in Resources */,
 				EF266C8F267EFC43006F3923 /* ModalAssetStock.storyboard in Resources */,
+				EF2F97362685DBD2000363B0 /* DashBoardProductCollectionViewCell.xib in Resources */,
 				EF266CA4267F5521006F3923 /* CollectibleDetail.storyboard in Resources */,
 				EFFDCB97265820CD003C4605 /* PopupMarkerMapView.xib in Resources */,
 				EF5E72D4264EFEAA00F5EE47 /* Shipment.storyboard in Resources */,
@@ -2563,11 +2809,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF2F975326863B27000363B0 /* GetShipmentWorkingUseCase.swift in Sources */,
 				EFBDF7122678423700F5978F /* TypeUserDetailViewModel.swift in Sources */,
+				EF2F97102685AF1B000363B0 /* Encodable+Extension.swift in Sources */,
 				EF2618A6267609E400F826BC /* EditEmployeeViewController.swift in Sources */,
 				EFBDF6DE267824DF00F5978F /* KeyboardListener.swift in Sources */,
 				EF44C5F22656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.swift in Sources */,
 				EFC93B8626638AA500A048A3 /* OrderCartViewController.swift in Sources */,
+				EF2F975026863A8F000363B0 /* ShipmentRepository.swift in Sources */,
 				EF9E340B267CAFA000CE9DDC /* EditProductViewController.swift in Sources */,
 				EF5E72D9264EFEB000F5EE47 /* ShipmentViewController.swift in Sources */,
 				EF9E3415267CB88400CE9DDC /* ImageChoose1x1ButtonView.swift in Sources */,
@@ -2576,6 +2825,7 @@
 				EF0EA6982653774000148157 /* AppealTableViewCell.swift in Sources */,
 				EF266CAC267F5DCE006F3923 /* CollectibleUserUseTableViewCell.swift in Sources */,
 				EFBDF6F126782CDB00F5978F /* Image1x1CollectionViewCell.swift in Sources */,
+				EF2F97182685B583000363B0 /* GetDashboardResponse.swift in Sources */,
 				EF7F4CDD2678F54E0096373E /* ProductTableViewCell.swift in Sources */,
 				EF0EA68B265376B800148157 /* GetAppealResponse.swift in Sources */,
 				EF2618882675CB6C00F826BC /* AppealFeedbackViewModel.swift in Sources */,
@@ -2583,7 +2833,9 @@
 				EFD1091C267A87DA00AF290D /* ImagePicker.swift in Sources */,
 				EF7F4CE32678F86A0096373E /* CustomerViewController.swift in Sources */,
 				EFE50EDF267BC51800C9498C /* TypeUserProductAllViewController.swift in Sources */,
+				EF2F974426863530000363B0 /* ShipmentAPI.swift in Sources */,
 				EF590A1B265033A5007248B4 /* ShipmentTableViewCell.swift in Sources */,
+				EF2F975526864821000363B0 /* GetShipmentUseCase.swift in Sources */,
 				EFE50EF1267BDCB000C9498C /* ProductDetailViewController.swift in Sources */,
 				EF44C60B2656CAF10014F0D0 /* ShipmentMapViewController.swift in Sources */,
 				EF680CA8267D24A9006BE9A7 /* SortShopViewController.swift in Sources */,
@@ -2593,23 +2845,29 @@
 				EF2D2CFB265190040096F757 /* MenuViewModel.swift in Sources */,
 				EFBDF70426783A2600F5978F /* TypeUserViewModel.swift in Sources */,
 				EFD10917267A720F00AF290D /* HeaderLabelTableViewCell.swift in Sources */,
+				EF2F975926865638000363B0 /* OrderAPI.swift in Sources */,
 				EF905C3A266A9A8E009AC148 /* MainDashBoardTableViewCell.swift in Sources */,
 				EF55E96A2614F6E300915D1C /* UIFont+Extension.swift in Sources */,
 				EF6E70D3267E484500FABBFE /* AssetStockTableViewCell.swift in Sources */,
+				EF2F97352685DBD2000363B0 /* DashBoardProductCollectionViewCell.swift in Sources */,
 				EF9E3410267CB13900CE9DDC /* ButtonPrimaryView.swift in Sources */,
 				EFBDF6C726780AA300F5978F /* InputTextFieldView.swift in Sources */,
 				EF2618982675FD9300F826BC /* UITableView+Extension.swift in Sources */,
 				EF680CA4267D2203006BE9A7 /* ShopTableViewCell.swift in Sources */,
+				EF2F97412686217C000363B0 /* DashBoardWorkingTableViewCell.swift in Sources */,
 				EFBDF70C26783D5E00F5978F /* TypeUserDetailViewController.swift in Sources */,
 				EF97EAFF267E688000BB48CA /* ChatViewController.swift in Sources */,
 				EF680C85267CE847006BE9A7 /* DayListCollectionViewCell.swift in Sources */,
 				EF6CCF9D266E7C3800F6AFE6 /* UILabel+Extension.swift in Sources */,
 				EF55E96E2614F6E300915D1C /* UIViewController+Extension.swift in Sources */,
 				EF2DA0D9265783AD00AB48F5 /* ShipmentMapViewModel.swift in Sources */,
+				EF2F97292685C16C000363B0 /* DomainNameConfig.swift in Sources */,
 				EF19830D267913A700D6C597 /* SequenceShipmentViewModel.swift in Sources */,
 				EF55E8F82614F3B700915D1C /* TMSApp.xcdatamodeld in Sources */,
 				EF22DE06267DC62900EA131D /* SortShopViewModel.swift in Sources */,
 				EF680C7A267CE32A006BE9A7 /* DayCollectionViewModel.swift in Sources */,
+				EF2F97122685AF3B000363B0 /* Decoder+Extension.swift in Sources */,
+				EF2F972C2685C29A000363B0 /* GetDashboardUseCase.swift in Sources */,
 				EF6E70D7267E4A5C00FABBFE /* AssetDetailViewModel.swift in Sources */,
 				EF680CA0267D219E006BE9A7 /* SelectShopViewController.swift in Sources */,
 				EF55E96B2614F6E300915D1C /* UIImageView+Extension.swift in Sources */,
@@ -2622,6 +2880,7 @@
 				EF266C91267EFC4A006F3923 /* ModalAssetStockViewController.swift in Sources */,
 				EF7F4CF12678FA7E0096373E /* TruckViewModel.swift in Sources */,
 				EF5E72B2264EEED000F5EE47 /* MainViewController.swift in Sources */,
+				EF2F973A2685DE7C000363B0 /* DashBoardProductTableViewModel.swift in Sources */,
 				EF590A0826502DE7007248B4 /* GetShipmentRequest.swift in Sources */,
 				EF0EA83E26541E6A00148157 /* ShipmentDetailViewModel.swift in Sources */,
 				EF0EA8332653C30900148157 /* ShipmentDetailViewController.swift in Sources */,
@@ -2634,11 +2893,16 @@
 				EFBDF70826783B4800F5978F /* TypeUserTableViewCell.swift in Sources */,
 				EFBDF6E126782A5200F5978F /* CollectionViewImageGrid.swift in Sources */,
 				EFE50EEC267BCD8000C9498C /* TypeUserProductAllViewModel.swift in Sources */,
+				EF2F970C2685AB2B000363B0 /* GetDashboardRequest.swift in Sources */,
+				EF2F97302685D9D1000363B0 /* DashBoardProductTableViewCell.swift in Sources */,
 				EF5E72ED264EFF0200F5EE47 /* AppealViewController.swift in Sources */,
 				EF7F4CFD2678FD290096373E /* PlanMasterTableViewCell.swift in Sources */,
 				EF2618962675FBC600F826BC /* EmployeeViewController.swift in Sources */,
+				EF2F97232685BEDC000363B0 /* MoyaProvider+Combine.swift in Sources */,
 				EFBDF6D5267819DE00F5978F /* ToolbarPickerView.swift in Sources */,
+				EF2F976426865F08000363B0 /* GetShipmentCustomerUseCase.swift in Sources */,
 				EF26188F2675CFCF00F826BC /* ImageFeedbackCollectionViewCell.swift in Sources */,
+				EF2F971C2685BB05000363B0 /* AnyKey.swift in Sources */,
 				EF22DE0E267DD02E00EA131D /* GetShopResponse.swift in Sources */,
 				EFC93B9D26638FD400A048A3 /* OrderCartTableViewCell.swift in Sources */,
 				EFC93B792663830000A048A3 /* OrderHeaderTableViewCell.swift in Sources */,
@@ -2655,6 +2919,8 @@
 				EFB617B6266FCC1300B65CF7 /* NSUIColor+Hex.swift in Sources */,
 				EF2D2D022651909E0096F757 /* GetMenuResponse.swift in Sources */,
 				EF266C94267F5145006F3923 /* CollectibleViewController.swift in Sources */,
+				EF2F97572686492F000363B0 /* UIImageView+Kingfisher.swift in Sources */,
+				EF2F974E26863767000363B0 /* MetaObject.swift in Sources */,
 				EF2D2CE32650EF070096F757 /* OrderViewModel.swift in Sources */,
 				EFBDF7162678426800F5978F /* ProductCollectionViewCell.swift in Sources */,
 				EF680C90267CF6D3006BE9A7 /* HeaderPrimaryBottomLineTableViewCell.swift in Sources */,
@@ -2665,6 +2931,7 @@
 				EFFDCB8F265820C8003C4605 /* PopupMarkerMapView.swift in Sources */,
 				EF7F4D0C267910530096373E /* SequenceShipmentTableViewCell.swift in Sources */,
 				EFFDCBA526582D99003C4605 /* CustomerSettingTableViewCell.swift in Sources */,
+				EF2F970E2685AEF9000363B0 /* Decodable+Extension.swift in Sources */,
 				EFBDF7002678380F00F5978F /* TypeUserViewController.swift in Sources */,
 				EFBDF6FA2678311B00F5978F /* Image1x1ChooseCollectionViewCell.swift in Sources */,
 				EF5E729E264EE73800F5EE47 /* NavigationManager.swift in Sources */,
@@ -2673,6 +2940,7 @@
 				EF9E342D267CCC0600CE9DDC /* InputRadioGroupView.swift in Sources */,
 				EF7F4CF42678FC500096373E /* PlanMasterViewController.swift in Sources */,
 				EF266C99267F51E3006F3923 /* CollectibleViewModel.swift in Sources */,
+				EF2F974B26863596000363B0 /* GetShipmentWorkingResponse.swift in Sources */,
 				EFBDF6D32678170400F5978F /* InputTextArea.swift in Sources */,
 				EF2DA0E7265785A700AB48F5 /* CustomTapGestureRecognizer.swift in Sources */,
 				EF55E95E2614F6D100915D1C /* UserDefaults+Extension.swift in Sources */,
@@ -2681,6 +2949,7 @@
 				EFBDF6E626782BBF00F5978F /* CollectionViewImageGridViewModel.swift in Sources */,
 				EFE50EDC267BA4D800C9498C /* TypeUserProductDetailViewController.swift in Sources */,
 				EF2DA0E1265783FE00AB48F5 /* GetShipmentMapResponse.swift in Sources */,
+				EF2F974926863586000363B0 /* GetShipmentWorkingRequest.swift in Sources */,
 				EF2D2CEA2650F0310096F757 /* OrderTableViewCell.swift in Sources */,
 				EFD1091A267A757D00AF290D /* AlertCustomViewswift.swift in Sources */,
 				EF9E3425267CC9EB00CE9DDC /* EditPlanMasterViewController.swift in Sources */,
@@ -2689,7 +2958,9 @@
 				EF2D2CD92650EEEC0096F757 /* GetOrderResponse.swift in Sources */,
 				EF7F4CE62678F9520096373E /* TruckViewController.swift in Sources */,
 				EF0EA8442654224800148157 /* HeaderShipmentDetailTableViewCell.swift in Sources */,
+				EF2F97252685BEF5000363B0 /* Combine.swift in Sources */,
 				EF55E96D2614F6E300915D1C /* UIView+Extension.swift in Sources */,
+				EF2F96FD26859BD0000363B0 /* DashboardAPI.swift in Sources */,
 				EFC93BA32663902100A048A3 /* OrderCartViewModel.swift in Sources */,
 				EF266CA6267F5529006F3923 /* EditCollectibleViewController.swift in Sources */,
 				EF7F4CD42678F3CA0096373E /* ProductViewController.swift in Sources */,
@@ -2697,6 +2968,7 @@
 				EF2618A12675FEA000F826BC /* EmployeeViewModel.swift in Sources */,
 				EF55E93F2614F51B00915D1C /* SplashViewController.swift in Sources */,
 				EF6E70CF267E3FEC00FABBFE /* AssetWithdrawViewController.swift in Sources */,
+				EF2F971A2685B805000363B0 /* CodableInfixOperator.swift in Sources */,
 				EFAD671926716B3900FE5596 /* AppealFeedbackTableViewCell.swift in Sources */,
 				EF905C32266A7FA4009AC148 /* SocketManager.swift in Sources */,
 				EFBDF6D826781A4600F5978F /* InputTextFieldPickerView.swift in Sources */,
@@ -2706,10 +2978,14 @@
 				EF9E3406267CABD800CE9DDC /* EditTruckViewController.swift in Sources */,
 				EF22DE09267DCC3C00EA131D /* SelectShopViewModel.swift in Sources */,
 				EF44C61B2656DF040014F0D0 /* MarkerMapView.swift in Sources */,
+				EF2F97142685AF55000363B0 /* Encoder+Extension.swift in Sources */,
 				EFBDF6CC267813DE00F5978F /* InputTextFieldDatePicker.swift in Sources */,
 				EFAD670F2671647300FE5596 /* AppealDetailViewModel.swift in Sources */,
+				EF2F971E2685BB74000363B0 /* KeyedDecodingContainer+Extension.swift in Sources */,
 				EF55E9742614F6F000915D1C /* Notification+Extension.swift in Sources */,
+				EF2F97202685BD67000363B0 /* DashboardRepository.swift in Sources */,
 				EF2D2CF526518FCF0096F757 /* MenuCollectionViewCell.swift in Sources */,
+				EF2F9762268658E4000363B0 /* GetShipmentCustomerResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2878,8 +3154,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = Y46GLN8894;
 				INFOPLIST_FILE = TMSApp/Info.plist;
@@ -2890,7 +3166,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ssoft.TMSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "TMS Demo";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2902,8 +3178,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = Y46GLN8894;
 				INFOPLIST_FILE = TMSApp/Info.plist;
@@ -2914,7 +3190,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ssoft.TMSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "TMS Demo";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3058,12 +3334,12 @@
 				minimumVersion = 5.0.1;
 			};
 		};
-		EF590A1226502F13007248B4 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+		EF2F973B26861519000363B0 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 6.2.0;
+				minimumVersion = 6.3.0;
 			};
 		};
 		EF5FFB1A261A1C5600C9C43B /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
@@ -3090,10 +3366,10 @@
 			package = EF0EA861265429BC00148157 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		EF590A1326502F13007248B4 /* RxSwift */ = {
+		EF2F973C26861519000363B0 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EF590A1226502F13007248B4 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
+			package = EF2F973B26861519000363B0 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		EF5FFB1B261A1C5600C9C43B /* NVActivityIndicatorView */ = {
 			isa = XCSwiftPackageProductDependency;

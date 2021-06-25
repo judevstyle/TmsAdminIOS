@@ -31,6 +31,12 @@ class ShipmentTableViewCell: UITableViewCell {
     @IBOutlet weak var shippingFailed: UILabel!
     @IBOutlet weak var shippingFailedValue: UILabel!
     
+    var items: ShipmentItems? {
+        didSet {
+            setupValue()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
@@ -65,9 +71,25 @@ class ShipmentTableViewCell: UITableViewCell {
         shippingWaitValue.font = UIFont.PrimaryText(size: 14)
         shippingSuccessValue.font = UIFont.PrimaryText(size: 14)
         shippingFailedValue.font = UIFont.PrimaryText(size: 14)
+        
+        shipmentImage.contentMode = .scaleAspectFill
+        shipmentType.numberOfLines = 0
     }
     
-    func setData(item: GetShipmentResponse?) {
+    func setupValue() {
+        
+        shipmentTitle.text = items?.employeeName ?? ""
+        shipmentType.text = "แผนการทำงาน : \(items?.planName ?? "")"
+        shipmentCarNumber.text = items?.truckRegistrationNumber ?? ""
+        shipmentOrderNo.text = "Shipment Order : \(items?.shipmentNo ?? "")"
+        
+        shippingStoreValue.text = "\(items?.customerShipmentNumber?.totalCustomer ?? 0)"
+        shippingWaitValue.text = "\(items?.customerShipmentNumber?.totalToSend ?? 0)"
+        shippingSuccessValue.text = "\(items?.customerShipmentNumber?.totalSended ?? 0)"
+        shippingFailedValue.text = "\(items?.customerShipmentNumber?.totalSendNotSuccess ?? 0)"
+        
+        guard let urlImage = URL(string: "\(DomainNameConfig.TMSImagePath.urlString)\(items?.employeeImg ?? "")") else { return }
+        shipmentImage.kf.setImageDefault(with: urlImage)
     }
     
     

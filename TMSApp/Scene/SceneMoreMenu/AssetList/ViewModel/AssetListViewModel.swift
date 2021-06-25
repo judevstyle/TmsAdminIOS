@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import RxSwift
 
 protocol AssetListProtocolInput {
     func getAssetList()
@@ -34,7 +33,7 @@ class AssetListViewModel: AssetListProtocol, AssetListProtocolOutput {
     // MARK: - Properties
     private var assetListViewController: AssetListViewController
     
-    fileprivate let disposeBag = DisposeBag()
+    
     
     init(
         assetListViewController: AssetListViewController

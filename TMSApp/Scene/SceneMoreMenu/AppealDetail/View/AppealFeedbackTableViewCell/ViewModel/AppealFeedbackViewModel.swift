@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RxSwift
 import UIKit
 
 protocol AppealFeedbackProtocolInput {
@@ -33,7 +32,7 @@ class AppealFeedbackViewModel: AppealFeedbackProtocol, AppealFeedbackProtocolOut
     // MARK: - Properties
 //    private var getProductUseCase: GetProductUseCase
     private var appealFeedbackTableViewCell: AppealFeedbackTableViewCell
-    fileprivate let disposeBag = DisposeBag()
+    
     
     init(
         appealFeedbackTableViewCell: AppealFeedbackTableViewCell

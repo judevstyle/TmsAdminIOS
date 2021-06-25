@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import RxSwift
 
 protocol AssetWithdrawProtocolInput {
     func getAssetWithdraw()
@@ -34,7 +33,7 @@ class AssetWithdrawViewModel: AssetWithdrawProtocol, AssetWithdrawProtocolOutput
     // MARK: - Properties
     private var assetWithdrawViewController: AssetWithdrawViewController
     
-    fileprivate let disposeBag = DisposeBag()
+    
     
     init(
         assetWithdrawViewController: AssetWithdrawViewController

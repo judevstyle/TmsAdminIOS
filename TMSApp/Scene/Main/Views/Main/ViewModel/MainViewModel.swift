@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import RxSwift
 import UIKit
+import Combine
 
 protocol MainProtocolInput {
     func getHome()
@@ -17,6 +17,7 @@ protocol MainProtocolOutput: class {
     var didGetHomeSuccess: (() -> Void)? { get set }
     var didGetHomeError: (() -> Void)? { get set }
     
+    func getNumberOfRowsInSection(_ tableView: UITableView, section: Int) -> Int
     func getItemViewCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
     func getItemViewCellHeight(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat
     func getHeightSectionView(section: Int) -> CGFloat
@@ -35,12 +36,23 @@ class MainViewModel: MainProtocol, MainProtocolOutput {
     // MARK: - Properties
     private var mainViewController: MainViewController
     
-    fileprivate let disposeBag = DisposeBag()
+    //UseCase
+    private let getDashboardUseCase: GetDashboardUseCase
+    private let getShipmentWorkingUseCase :GetShipmentWorkingUseCase
+    private var anyCancellable: Set<AnyCancellable> = Set<AnyCancellable>()
+    
+    private var summaryCustomer: SummaryCustomer?
+    private var listProduct: [TotalOrderProduct]?
+    private var listShipmentWorking: [ShipmentItems]?
     
     init(
-        mainViewController: MainViewController
+        mainViewController: MainViewController,
+        getDashboardUseCase: GetDashboardUseCase = GetDashboardUseCaseImpl(),
+        getShipmentWorkingUseCase: GetShipmentWorkingUseCase = GetShipmentWorkingUseCaseImpl()
     ) {
         self.mainViewController = mainViewController
+        self.getDashboardUseCase = getDashboardUseCase
+        self.getShipmentWorkingUseCase = getShipmentWorkingUseCase
     }
     
     // MARK - Data-binding OutPut
@@ -49,13 +61,46 @@ class MainViewModel: MainProtocol, MainProtocolOutput {
     
     func getHome() {
         mainViewController.startLoding()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-            guard let weakSelf = self else { return }
-            for _ in 0..<7 {
+        
+        self.getDashboardUseCase
+            .execute().sink { completion in
+                debugPrint("getDashboard \(completion)")
+            } receiveValue: { resp in
+                if let summaryCustomer = resp?.summaryCustomer {
+                    self.summaryCustomer = summaryCustomer
+                }
+                
+                if let products = resp?.totalOrderProduct {
+                    self.listProduct = products
+                }
+                
+                self.didGetHomeSuccess?()
+                self.mainViewController.stopLoding()
+            }.store(in: &self.anyCancellable)
+        
+        
+        self.getShipmentWorkingUseCase.execute().sink { completion in
+            debugPrint("getShipment \(completion)")
+        } receiveValue: { resp in
+            if let items = resp?.data?.items {
+                self.listShipmentWorking = items
             }
-
-            weakSelf.didGetHomeSuccess?()
-            weakSelf.mainViewController.stopLoding()
+            self.didGetHomeSuccess?()
+            self.mainViewController.stopLoding()
+        }.store(in: &self.anyCancellable)
+        
+    }
+    
+    func getNumberOfRowsInSection(_ tableView: UITableView, section: Int) -> Int {
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return self.listProduct?.count ?? 0
+        case 2:
+            return self.listShipmentWorking?.count ?? 0
+        default:
+            return 0
         }
     }
     
@@ -64,6 +109,17 @@ class MainViewModel: MainProtocol, MainProtocolOutput {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: MainDashBoardTableViewCell.identifier, for: indexPath) as! MainDashBoardTableViewCell
             cell.selectionStyle = .none
+            cell.setValue(summaryCustomer: self.summaryCustomer)
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: DashBoardProductTableViewCell.identifier, for: indexPath) as! DashBoardProductTableViewCell
+            cell.selectionStyle = .none
+            cell.viewModel.input.setDashBoardProduct(products: self.listProduct ?? [])
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: DashBoardWorkingTableViewCell.identifier, for: indexPath) as! DashBoardWorkingTableViewCell
+            cell.selectionStyle = .none
+            cell.items = self.listShipmentWorking?[indexPath.item]
             return cell
         default:
             return UITableViewCell()
@@ -75,8 +131,17 @@ class MainViewModel: MainProtocol, MainProtocolOutput {
         case 0:
             let height = (tableView.frame.width - 24)/4
             return height
+        case 1:
+            let marginsAndInsets = 10 * 2 + 0 + 0 + 10 * CGFloat(5 - 1)
+            guard let count = self.listProduct?.count, count != 0 else { return 0 }
+            let itemWidth = ((tableView.bounds.size.width - marginsAndInsets) / CGFloat(5)).rounded(.down)
+            var height:CGFloat = 0.0
+            height = CGFloat((count/5 + 1)) * (itemWidth + 34)
+            return height
+        case 2:
+            return UITableView.automaticDimension
         default:
-            return 40
+            return 0
         }
     }
     

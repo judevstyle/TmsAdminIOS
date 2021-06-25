@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RxSwift
 import UIKit
 
 protocol MenuProtocolInput {
@@ -37,7 +36,7 @@ class MenuViewModel: MenuProtocol, MenuProtocolOutput {
 //    private var getProductUseCase: GetProductUseCase
     private var menuViewController: MenuViewController
     
-    fileprivate let disposeBag = DisposeBag()
+    
     
     init(
 //        getProductUseCase: GetProductUseCase = GetProductUseCaseImpl(),

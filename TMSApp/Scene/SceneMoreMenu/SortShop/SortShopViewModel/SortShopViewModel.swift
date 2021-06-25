@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RxSwift
 import UIKit
 
 
@@ -44,7 +43,7 @@ class SortShopViewModel: SortShopProtocol, SortShopProtocolOutput {
     // MARK: - Properties
     private var sortShopViewController: SortShopViewController
     
-    fileprivate let disposeBag = DisposeBag()
+    
     
     init(
         sortShopViewController: SortShopViewController

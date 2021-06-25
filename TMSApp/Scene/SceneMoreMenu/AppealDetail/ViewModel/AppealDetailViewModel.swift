@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RxSwift
 import UIKit
 
 protocol AppealDetailProtocolInput {
@@ -38,7 +37,7 @@ class AppealDetailViewModel: AppealDetailProtocol, AppealDetailProtocolOutput {
     // MARK: - Properties
 //    private var getProductUseCase: GetProductUseCase
     private var appealDetailViewController: AppealDetailViewController
-    fileprivate let disposeBag = DisposeBag()
+    
     
     init(
         appealDetailViewController: AppealDetailViewController
