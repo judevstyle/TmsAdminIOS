@@ -19,22 +19,27 @@ public enum NavigationOpeningSender {
     case menu
     case shipmentDetail(item: ShipmentItems)
     case shipmentMap
-    case orderCart
+    case orderCart(orderId: String)
     case appealDetail
     case employee
     case editEmployee
     case typeUser
-    case typeUserDetail
+    case typeUserDetail(item: TypeUserData?)
     case product
     case customer
     case truck
     case planMaster
     case sequenceShipment
-    case typeUserProductDetail
-    case typeUserProductAll
-    case productDetail
+    case typeUserProductDetail(itemTypeUser: TypeUserData?,
+                               itemProduct: Product?,
+                               itemProductSpecial: ProductSpecialForTypeUserItems?,
+                               typeAction: TypeUserProductDetailAction,
+                               delegate: TypeUserProductDetailViewModelDelegate
+         )
+    case typeUserProductAll(item: TypeUserData?)
+    case productDetail(productId: Int)
     case editTruck
-    case editProduct
+    case editProduct(product: Product?)
     case editPlanMaster(isEdit: Bool)
     case selectEmployee(delegate: SelectEmployeeViewModelDelegate)
     case sortShop(items: [GetShopResponse]?, delegate: SortShopViewModelDelegate)
@@ -345,11 +350,6 @@ class NavigationManager {
                 className.viewModel.input.setShipment(item: item)
                 viewController = className
             }
-        case .orderCart:
-            if let className = storyboard.instantiateInitialViewController() as? OrderCartViewController {
-                //                className.set(contentType: contentType)
-                viewController = className
-            }
         case .selectEmployee(let delegate):
             if let className = storyboard.instantiateInitialViewController() as? SelectEmployeeViewController {
                 className.viewModel.input.setDelegate(delegate: delegate)
@@ -370,6 +370,31 @@ class NavigationManager {
         case .editPlanMaster(let isEdit):
             if let className = storyboard.instantiateInitialViewController() as? EditPlanMasterViewController {
                 className.viewModel.input.setEdit(isEdit: isEdit)
+                viewController = className
+            }
+        case .orderCart(let orderId):
+            if let className = storyboard.instantiateInitialViewController() as? OrderCartViewController {
+                className.viewModel.input.setOrderId(orderId: orderId)
+                viewController = className
+            }
+        case .typeUserDetail(let item):
+            if let className = storyboard.instantiateInitialViewController() as? TypeUserDetailViewController {
+                className.viewModel.input.setItemTypeUserData(item: item)
+                viewController = className
+            }
+        case .typeUserProductAll(let item):
+            if let className = storyboard.instantiateInitialViewController() as? TypeUserProductAllViewController {
+                className.viewModel.input.setItemTypeUserData(item: item)
+                viewController = className
+            }
+        case .typeUserProductDetail(let itemTypeUser, let itemProduct, let itemProductSpecial, let typeAction, let delegate):
+            if let className = storyboard.instantiateInitialViewController() as? TypeUserProductDetailViewController {
+                className.viewModel.input.setData(itemTypeUser: itemTypeUser, itemProduct: itemProduct, itemProductSpecial: itemProductSpecial, typeAction: typeAction, delegate: delegate)
+                viewController = className
+            }
+        case .productDetail(let productId):
+            if let className = storyboard.instantiateInitialViewController() as? ProductDetailViewController {
+                className.viewModel.input.setProductId(productId: productId)
                 viewController = className
             }
         default:

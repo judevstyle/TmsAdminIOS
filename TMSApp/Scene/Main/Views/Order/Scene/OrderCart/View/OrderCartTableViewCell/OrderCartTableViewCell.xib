@@ -27,7 +27,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bH7-cO-hcz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="115"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drink" translatesAutoresizingMaskIntoConstraints="NO" id="so3-yb-S6s">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drink" translatesAutoresizingMaskIntoConstraints="NO" id="so3-yb-S6s">
                                 <rect key="frame" x="16" y="23.5" width="68" height="68"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="ORO-tu-0pS"/>
@@ -147,8 +147,11 @@
                 <outlet property="badgeTypeView" destination="eVL-Uv-QFU" id="MyH-Kk-ED5"/>
                 <outlet property="descText" destination="r1X-lD-W76" id="GSI-Mf-nAq"/>
                 <outlet property="discountText" destination="LQS-vB-cp1" id="Rw6-XN-V3k"/>
+                <outlet property="imageThubnail" destination="so3-yb-S6s" id="pbW-mZ-nWc"/>
                 <outlet property="orderCartView" destination="bH7-cO-hcz" id="aqL-Bd-1v7"/>
                 <outlet property="priceText" destination="wIs-MI-r3q" id="JDZ-Ep-edZ"/>
+                <outlet property="qytText" destination="VXe-Q9-Sr9" id="ePX-DG-vw3"/>
+                <outlet property="sumPrice" destination="0lu-OQ-kdK" id="RKL-e0-S0a"/>
                 <outlet property="titleText" destination="8qN-IF-cej" id="W3J-rR-Nes"/>
             </connections>
             <point key="canvasLocation" x="-91.304347826086968" y="78.683035714285708"/>

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 protocol TypeUserProtocolInput {
     func getTypeUser()
@@ -18,6 +19,8 @@ protocol TypeUserProtocolOutput: class {
     func getHeightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat
     func getNumberOfRowsInSection(_ tableView: UITableView, section: Int) -> Int
     func getCellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
+    
+    func getItemRowAt(_ tableView: UITableView, indexPath: IndexPath) -> TypeUserData?
 }
 
 protocol TypeUserProtocol: TypeUserProtocolInput, TypeUserProtocolOutput {
@@ -31,33 +34,34 @@ class TypeUserViewModel: TypeUserProtocol, TypeUserProtocolOutput {
     
     // MARK: - Properties
     private var typeUserViewController: TypeUserViewController
-    
-    
+    // MARK: - UseCase
+    private var getTypeUserUseCase: GetTypeUserUseCase
+    private var anyCancellable: Set<AnyCancellable> = Set<AnyCancellable>()
     
     init(
-        typeUserViewController: TypeUserViewController
+        typeUserViewController: TypeUserViewController,
+        getTypeUserUseCase: GetTypeUserUseCase = GetTypeUserUseCaseImpl()
     ) {
         self.typeUserViewController = typeUserViewController
+        self.getTypeUserUseCase = getTypeUserUseCase
     }
     
     // MARK - Data-binding OutPut
     var didGetTypeUserSuccess: (() -> Void)?
     var didGetTypeUserError: (() -> Void)?
     
-    fileprivate var listTypeUser: [GetAppealResponse]? = []
+    fileprivate var listTypeUser: [TypeUserData]? = []
     
     func getTypeUser() {
         listTypeUser?.removeAll()
         typeUserViewController.startLoding()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-            guard let weakSelf = self else { return }
-            for _ in 0..<3 {
-                weakSelf.listTypeUser?.append(GetAppealResponse(title: "test"))
-            }
-
-            weakSelf.didGetTypeUserSuccess?()
-            weakSelf.typeUserViewController.stopLoding()
-        }
+        self.getTypeUserUseCase.execute().sink { completion in
+            debugPrint("getTypeUser \(completion)")
+        } receiveValue: { resp in
+            self.listTypeUser = resp
+            self.didGetTypeUserSuccess?()
+            self.typeUserViewController.stopLoding()
+        }.store(in: &self.anyCancellable)
     }
     
     func getHeightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat {
@@ -71,6 +75,11 @@ class TypeUserViewModel: TypeUserProtocol, TypeUserProtocolOutput {
     func getCellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TypeUserTableViewCell.identifier, for: indexPath) as! TypeUserTableViewCell
         cell.selectionStyle = .none
+        cell.items = self.listTypeUser?[indexPath.item]
         return cell
+    }
+    
+    func getItemRowAt(_ tableView: UITableView, indexPath: IndexPath) -> TypeUserData? {
+        return self.listTypeUser?[indexPath.item]
     }
 }

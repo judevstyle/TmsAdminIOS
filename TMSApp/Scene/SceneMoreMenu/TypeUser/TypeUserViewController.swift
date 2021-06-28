@@ -76,13 +76,14 @@ extension TypeUserViewController {
 // MARK: - Handles
 extension TypeUserViewController {
     @objc func btnEditEmployee() {
-        NavigationManager.instance.pushVC(to: .editEmployee)
+//        NavigationManager.instance.pushVC(to: .editEmployee)
     }
 }
 
 extension TypeUserViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NavigationManager.instance.pushVC(to: .typeUserDetail)
+        guard let item = viewModel.output.getItemRowAt(tableView, indexPath: indexPath) else { return }
+        NavigationManager.instance.pushVC(to: .typeUserDetail(item: item))
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

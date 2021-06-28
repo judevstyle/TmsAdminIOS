@@ -10,14 +10,16 @@ import Moya
 import UIKit
 
 public enum OrderAPI {
-    case getOrder(request: GetDashboardRequest)
+    case getOrder(request: GetOrderRequest)
+    case getOrderCart(orderId: String)
+    case confirmOrderCart(orderId: String)
 }
 
 extension OrderAPI: TargetType {
     public var baseURL: URL {
         switch self {
-        case .getOrder(_):
-            return DomainNameConfig.TMSDashboard.url
+        case .getOrder(_), .getOrderCart(_), .confirmOrderCart(_):
+            return DomainNameConfig.TMSOrder.url
         }
     }
     
@@ -25,13 +27,19 @@ extension OrderAPI: TargetType {
         switch self {
         case .getOrder(_):
             return ""
+        case .getOrderCart(let orderId):
+            return "/\(orderId)"
+        case .confirmOrderCart(let orderId):
+            return "confirmOrder/\(orderId)"
         }
     }
     
     public var method: Moya.Method {
         switch self {
-        case .getOrder(_):
+        case .getOrder(_), .getOrderCart(_):
             return .get
+        case .confirmOrderCart(_):
+            return .put
         }
     }
     
@@ -43,6 +51,8 @@ extension OrderAPI: TargetType {
         switch self {
         case let .getOrder(request):
             return .requestParameters(parameters: request.toJSON(), encoding: URLEncoding.queryString)
+        case .getOrderCart(_), .confirmOrderCart(_):
+            return .requestPlain
         }
     }
     
@@ -50,6 +60,8 @@ extension OrderAPI: TargetType {
         var authenToken = ""
         switch self {
         case .getOrder(_):
+            authenToken = ""
+        default:
             authenToken = ""
         }
         

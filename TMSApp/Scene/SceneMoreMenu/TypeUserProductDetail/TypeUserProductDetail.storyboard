@@ -23,17 +23,17 @@
             <objects>
                 <viewController modalPresentationStyle="pageSheet" id="Y6W-OH-hqX" customClass="TypeUserProductDetailViewController" customModule="TMSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="646"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="616"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5Nl-dw-OpX">
-                                <rect key="frame" x="8" y="8" width="398" height="630"/>
+                                <rect key="frame" x="20" y="8" width="374" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IgX-OU-GRR">
-                                        <rect key="frame" x="0.0" y="0.0" width="398" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yew-dy-Am4">
-                                                <rect key="frame" x="370.5" y="0.0" width="19.5" height="30"/>
+                                                <rect key="frame" x="346.5" y="0.0" width="19.5" height="30"/>
                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="trash" catalog="system"/>
                                                 <connections>
@@ -50,10 +50,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uc4-IX-tiH">
-                                        <rect key="frame" x="0.0" y="30" width="398" height="398"/>
+                                        <rect key="frame" x="0.0" y="30" width="374" height="382"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drink" translatesAutoresizingMaskIntoConstraints="NO" id="QGm-dE-SNR">
-                                                <rect key="frame" x="20" y="20" width="358" height="358"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="374"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="QGm-dE-SNR" secondAttribute="height" multiplier="1:1" id="ckE-xv-ZyD"/>
                                                 </constraints>
@@ -61,48 +61,48 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="QGm-dE-SNR" secondAttribute="trailing" constant="20" id="2b9-Sn-v9G"/>
-                                            <constraint firstItem="QGm-dE-SNR" firstAttribute="top" secondItem="uc4-IX-tiH" secondAttribute="top" constant="20" id="BXu-b1-dgf"/>
-                                            <constraint firstAttribute="bottom" secondItem="QGm-dE-SNR" secondAttribute="bottom" constant="20" id="EuB-dD-kdf"/>
-                                            <constraint firstItem="QGm-dE-SNR" firstAttribute="leading" secondItem="uc4-IX-tiH" secondAttribute="leading" constant="20" id="a0T-wk-N15"/>
+                                            <constraint firstAttribute="trailing" secondItem="QGm-dE-SNR" secondAttribute="trailing" id="2b9-Sn-v9G"/>
+                                            <constraint firstItem="QGm-dE-SNR" firstAttribute="top" secondItem="uc4-IX-tiH" secondAttribute="top" id="BXu-b1-dgf"/>
+                                            <constraint firstAttribute="bottom" secondItem="QGm-dE-SNR" secondAttribute="bottom" constant="8" id="EuB-dD-kdf"/>
+                                            <constraint firstItem="QGm-dE-SNR" firstAttribute="leading" secondItem="uc4-IX-tiH" secondAttribute="leading" id="a0T-wk-N15"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="น้ำดื่มถัง 10 ลิตร" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRF-ap-jj4">
-                                        <rect key="frame" x="0.0" y="428" width="398" height="24"/>
+                                        <rect key="frame" x="0.0" y="412" width="374" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="wgZ-uP-pFN"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEM-2O-TTq">
-                                        <rect key="frame" x="0.0" y="452" width="398" height="17.5"/>
-                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="15"/>
+                                        <rect key="frame" x="0.0" y="436" width="374" height="14"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9X-Aj-XNj">
-                                        <rect key="frame" x="0.0" y="469.5" width="398" height="41"/>
+                                        <rect key="frame" x="0.0" y="450" width="374" height="30.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dDi-Yh-bBK">
-                                                <rect key="frame" x="0.0" y="0.0" width="63.5" height="41"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="63.5" height="30.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPC-uI-dZw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="18.5" height="41"/>
-                                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="11"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="20.5" height="30.5"/>
+                                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVc-Eq-cCg">
-                                                        <rect key="frame" x="23.5" y="0.0" width="11.5" height="41"/>
+                                                        <rect key="frame" x="25.5" y="0.0" width="11.5" height="30.5"/>
                                                         <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="20"/>
                                                         <color key="textColor" name="Primary"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="บาท" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxL-3P-ZDD">
-                                                        <rect key="frame" x="40" y="0.0" width="23.5" height="41"/>
-                                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
+                                                        <rect key="frame" x="42" y="0.0" width="21.5" height="30.5"/>
+                                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -117,17 +117,17 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4QF-WW-D6I">
-                                        <rect key="frame" x="0.0" y="510.5" width="398" height="0.5"/>
+                                        <rect key="frame" x="0.0" y="480.5" width="374" height="0.5"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="0.5" id="ZUx-ak-9ga"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HaF-Hg-en9">
-                                        <rect key="frame" x="0.0" y="511" width="398" height="50"/>
+                                        <rect key="frame" x="0.0" y="481" width="374" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sjl-nZ-QqR">
-                                                <rect key="frame" x="117.5" y="0.0" width="163.5" height="50"/>
+                                                <rect key="frame" x="105.5" y="0.0" width="163.5" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ราคาใหม่" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sxx-AH-s9R">
                                                         <rect key="frame" x="0.0" y="0.0" width="47.5" height="50"/>
@@ -165,10 +165,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dcl-NK-cd5">
-                                        <rect key="frame" x="0.0" y="561" width="398" height="69"/>
+                                        <rect key="frame" x="0.0" y="531" width="374" height="69"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xO0-cd-VBc">
-                                                <rect key="frame" x="8" y="8" width="382" height="45"/>
+                                                <rect key="frame" x="0.0" y="8" width="374" height="45"/>
                                                 <color key="backgroundColor" name="Primary"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="xT5-8H-kUo"/>
@@ -185,8 +185,8 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="xO0-cd-VBc" secondAttribute="bottom" constant="16" id="Hqk-UX-0Ge"/>
-                                            <constraint firstAttribute="trailing" secondItem="xO0-cd-VBc" secondAttribute="trailing" constant="8" id="a6H-U6-6wK"/>
-                                            <constraint firstItem="xO0-cd-VBc" firstAttribute="leading" secondItem="dcl-NK-cd5" secondAttribute="leading" constant="8" id="hlV-2t-yTl"/>
+                                            <constraint firstAttribute="trailing" secondItem="xO0-cd-VBc" secondAttribute="trailing" id="a6H-U6-6wK"/>
+                                            <constraint firstItem="xO0-cd-VBc" firstAttribute="leading" secondItem="dcl-NK-cd5" secondAttribute="leading" id="hlV-2t-yTl"/>
                                             <constraint firstItem="xO0-cd-VBc" firstAttribute="top" secondItem="dcl-NK-cd5" secondAttribute="top" constant="8" id="tVW-2A-7e5"/>
                                         </constraints>
                                     </view>
@@ -196,14 +196,14 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="5Nl-dw-OpX" secondAttribute="trailing" constant="8" id="Pfr-sO-vZQ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="5Nl-dw-OpX" secondAttribute="trailing" constant="20" id="Pfr-sO-vZQ"/>
                             <constraint firstItem="5Nl-dw-OpX" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="8" id="V5M-Su-jWt"/>
-                            <constraint firstItem="5Nl-dw-OpX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="e5c-ev-ZDR"/>
+                            <constraint firstItem="5Nl-dw-OpX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="e5c-ev-ZDR"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="5Nl-dw-OpX" secondAttribute="bottom" constant="8" id="h6i-l7-vrr"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="414" height="646"/>
+                    <size key="freeformSize" width="414" height="616"/>
                     <connections>
                         <outlet property="btnDelete" destination="Yew-dy-Am4" id="PPv-NE-Eb4"/>
                         <outlet property="btnSave" destination="xO0-cd-VBc" id="zfJ-ba-KKx"/>

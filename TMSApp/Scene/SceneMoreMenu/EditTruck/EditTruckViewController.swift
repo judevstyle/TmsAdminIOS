@@ -34,7 +34,7 @@ extension EditTruckViewController {
         inputNumberTruck.inputText.delegate = self
         inputBrandTruck.inputText.delegate = self
         
-        imagePicker.setupImagePicker(vc: self)
+        imagePicker.setupImagePicker(vc: self, delegate: self)
         
         inputNumberTruck.titleLabel.text = "เลขทะเบียนรถ"
         inputBrandTruck.titleLabel.text = "ยี่ห้อรถ"
@@ -55,5 +55,11 @@ extension EditTruckViewController : UITextFieldDelegate {
 extension EditTruckViewController: ButtonPrimaryViewDelegate {
     func onClickButton() {
         print("onClickButton")
+    }
+}
+
+extension EditTruckViewController : ImageChoose1x1ButtonDelegate {
+    func didSelectImage(base64: String) {
+        print(base64)
     }
 }

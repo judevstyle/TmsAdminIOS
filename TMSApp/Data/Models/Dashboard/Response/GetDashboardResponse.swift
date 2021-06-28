@@ -73,40 +73,6 @@ public struct TotalOrderProduct: Codable, Hashable  {
     }
 }
 
-public struct Product: Codable, Hashable  {
-    
-    public var productId: Int?
-    public var compId: Int?
-    public var productTypeId: Int?
-    public var productSku: String = ""
-    public var productCode: String?
-    
-    public var productName: String?
-    public var productDesc: String?
-    public var productDimension: String?
-    public var productPrice: Int?
-    public var productPoint: Int?
-    public var productCountPerPoint: Int?
-    public var productImg: String?
-    
-    public init() {}
-    
-    public init(from decoder: Decoder) throws {
-        try productId              <- decoder["product_id"]
-        try compId                 <- decoder["comp_id"]
-        try productTypeId          <- decoder["product_type_id"]
-        try productSku             <- decoder["product_sku"]
-        try productCode            <- decoder["product_code"]
-        try productName            <- decoder["product_name"]
-        try productDesc            <- decoder["product_desc"]
-        try productDimension       <- decoder["product_dimension"]
-        try productPrice           <- decoder["product_price"]
-        try productPoint           <- decoder["product_point"]
-        try productCountPerPoint   <- decoder["product_count_per_point"]
-        try productImg             <- decoder["product_img"]
-    }
-}
-
 public struct EmployeeWork: Codable, Hashable  {
     
     public var planName: String?

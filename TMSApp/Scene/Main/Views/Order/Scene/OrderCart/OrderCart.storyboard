@@ -24,25 +24,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ER-4f-qtS">
-                                <rect key="frame" x="8" y="60" width="398" height="112"/>
+                                <rect key="frame" x="8" y="52" width="398" height="79"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="order" translatesAutoresizingMaskIntoConstraints="NO" id="UHr-eI-EZj">
-                                        <rect key="frame" x="0.0" y="15" width="86" height="78"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="UHr-eI-EZj">
+                                        <rect key="frame" x="0.0" y="8" width="86" height="78"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="86" id="5W0-lK-f9M"/>
                                             <constraint firstAttribute="height" constant="78" id="yAa-Pi-X9D"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ubG-11-W3H">
-                                        <rect key="frame" x="102" y="15" width="288" height="35"/>
+                                        <rect key="frame" x="102" y="8" width="288" height="35"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#10009283" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6F-ng-gLG">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6F-ng-gLG">
                                                 <rect key="frame" x="0.0" y="0.0" width="288" height="17.5"/>
                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="15"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ร้านเจกี ประปากซอย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6Z-JY-gNG">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6Z-JY-gNG">
                                                 <rect key="frame" x="0.0" y="17.5" width="288" height="17.5"/>
                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="15"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -51,7 +51,7 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZE-ph-KIX">
-                                        <rect key="frame" x="102" y="58" width="296" height="23.5"/>
+                                        <rect key="frame" x="102" y="51" width="296" height="12"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="BkK-fX-SYM">
                                                 <rect key="frame" x="0.0" y="0.0" width="12" height="12"/>
@@ -61,12 +61,12 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6Yn-Nl-YyH">
-                                                <rect key="frame" x="17" y="0.0" width="279" height="23.5"/>
+                                                <rect key="frame" x="17" y="0.0" width="279" height="12"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="633 อ่อนนุช39 ซ.อ่อนนุช39 ถ.ศรีนครินทร์ แขวงสวนหลวง เขตสวนหลวง กรุงเทพ 10250" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeS-Ta-jJG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="279" height="23.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeS-Ta-jJG">
+                                                        <rect key="frame" x="0.0" y="0.0" width="279" height="12"/>
                                                         <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="10"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -89,11 +89,11 @@
                                     <constraint firstItem="WZE-ph-KIX" firstAttribute="leading" secondItem="UHr-eI-EZj" secondAttribute="trailing" constant="16" id="9OR-gP-42E"/>
                                     <constraint firstItem="ubG-11-W3H" firstAttribute="top" secondItem="UHr-eI-EZj" secondAttribute="top" id="FXG-F5-e3s"/>
                                     <constraint firstItem="WZE-ph-KIX" firstAttribute="top" secondItem="ubG-11-W3H" secondAttribute="bottom" constant="8" id="HOi-mq-86h"/>
+                                    <constraint firstAttribute="bottom" secondItem="WZE-ph-KIX" secondAttribute="bottom" constant="16" id="PWw-Zq-ueJ"/>
                                     <constraint firstAttribute="trailing" secondItem="WZE-ph-KIX" secondAttribute="trailing" id="a8a-b1-ica"/>
                                     <constraint firstItem="ubG-11-W3H" firstAttribute="leading" secondItem="UHr-eI-EZj" secondAttribute="trailing" constant="16" id="dDK-eJ-7sA"/>
-                                    <constraint firstItem="UHr-eI-EZj" firstAttribute="top" secondItem="3ER-4f-qtS" secondAttribute="top" constant="15" id="eaE-At-AjQ"/>
+                                    <constraint firstItem="UHr-eI-EZj" firstAttribute="top" secondItem="3ER-4f-qtS" secondAttribute="top" constant="8" id="eaE-At-AjQ"/>
                                     <constraint firstItem="UHr-eI-EZj" firstAttribute="leading" secondItem="3ER-4f-qtS" secondAttribute="leading" id="kNl-yX-yTj"/>
-                                    <constraint firstAttribute="height" constant="112" id="yt5-b8-I7B"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CxL-f9-Kog">
@@ -227,13 +227,13 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CmV-hx-ip0">
-                                <rect key="frame" x="0.0" y="172" width="414" height="585"/>
+                                <rect key="frame" x="0.0" y="131" width="414" height="626"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lov-BH-UxI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="3ER-4f-qtS" firstAttribute="top" secondItem="lov-BH-UxI" secondAttribute="top" constant="16" id="0Yv-GB-P37"/>
+                            <constraint firstItem="3ER-4f-qtS" firstAttribute="top" secondItem="lov-BH-UxI" secondAttribute="top" constant="8" id="0Yv-GB-P37"/>
                             <constraint firstItem="3ER-4f-qtS" firstAttribute="leading" secondItem="lov-BH-UxI" secondAttribute="leading" constant="8" id="HkJ-cd-9cI"/>
                             <constraint firstItem="lov-BH-UxI" firstAttribute="trailing" secondItem="3ER-4f-qtS" secondAttribute="trailing" constant="8" id="Htk-Bk-cQ6"/>
                             <constraint firstItem="CmV-hx-ip0" firstAttribute="top" secondItem="3ER-4f-qtS" secondAttribute="bottom" id="KOe-q8-Dsc"/>
@@ -246,8 +246,15 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addressText" destination="CeS-Ta-jJG" id="8dA-Jo-d0g"/>
+                        <outlet property="descText" destination="o6Z-JY-gNG" id="fFr-xp-wsA"/>
+                        <outlet property="discountPrice" destination="uZD-el-NvE" id="B9i-V2-Xjg"/>
                         <outlet property="discountView" destination="6bh-wm-7MU" id="twO-LE-Iy9"/>
+                        <outlet property="imageThubnail" destination="UHr-eI-EZj" id="Htv-uW-PdF"/>
+                        <outlet property="orderNo" destination="g6F-ng-gLG" id="62g-0J-XGa"/>
                         <outlet property="overallView" destination="Ivb-3n-snl" id="f3a-MN-otf"/>
+                        <outlet property="sumOverAll" destination="0jc-z7-NXL" id="5z7-hX-fa5"/>
+                        <outlet property="sumPrice" destination="IEl-Nn-uLo" id="pPK-rc-tEw"/>
                         <outlet property="tableView" destination="CmV-hx-ip0" id="tDa-zY-KaZ"/>
                         <outlet property="totalView" destination="HMD-xI-eNS" id="FR3-vs-RbV"/>
                     </connections>
@@ -258,8 +265,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="order" width="98" height="87"/>
         <image name="pin" width="13" height="13"/>
+        <image name="placeholder" width="1280" height="960"/>
         <namedColor name="Primary">
             <color red="1" green="0.3411764705882353" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -52,7 +52,7 @@ class EditEmployeeViewController: UIViewController {
 extension EditEmployeeViewController {
     func setupUI() {
         
-        imagePicker.setupImagePicker(vc: self)
+        imagePicker.setupImagePicker(vc: self, delegate: self)
     
         displayNameView.inputText.delegate = self
         fristNameView.inputText.delegate = self
@@ -176,7 +176,7 @@ extension EditEmployeeViewController: KeyboardListener {
 
 
 extension EditEmployeeViewController: ImagePickerDelegate {
-    func didSelect(image: UIImage?, imagePicker: ImagePicker) {
+    func didSelectImage(image: UIImage?, imagePicker: ImagePicker, base64: String) {
         print("imagePickerList")
         imageGrid.viewModel.input.addListImage(image: image ?? UIImage())
     }
@@ -199,5 +199,10 @@ extension EditEmployeeViewController : CollectionViewImageGridDelegate {
 extension EditEmployeeViewController: ButtonPrimaryViewDelegate {
     func onClickButton() {
         print("onClickButton")
+    }
+}
+
+extension EditEmployeeViewController: ImageChoose1x1ButtonDelegate {
+    func didSelectImage(base64: String) {
     }
 }

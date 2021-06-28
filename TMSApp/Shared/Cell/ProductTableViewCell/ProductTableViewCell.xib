@@ -27,35 +27,35 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kVJ-Ya-Pp2">
                         <rect key="frame" x="8" y="8" width="398" height="84"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drink" translatesAutoresizingMaskIntoConstraints="NO" id="GMq-be-JeZ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drink" translatesAutoresizingMaskIntoConstraints="NO" id="GMq-be-JeZ">
                                 <rect key="frame" x="8" y="8" width="68" height="68"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="GMq-be-JeZ" secondAttribute="height" multiplier="1:1" id="rnS-sh-vqA"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PQK-uM-A0m">
-                                <rect key="frame" x="84" y="3.5" width="306" height="77.5"/>
+                                <rect key="frame" x="84" y="8" width="306" height="45.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Water" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D89-i3-tyS">
-                                        <rect key="frame" x="0.0" y="0.0" width="306" height="22.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="306" height="16.5"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGE-bQ-zEe">
-                                        <rect key="frame" x="0.0" y="22.5" width="306" height="19"/>
+                                        <rect key="frame" x="0.0" y="16.5" width="306" height="14"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="91H-J4-6Nv">
-                                        <rect key="frame" x="0.0" y="41.5" width="306" height="15"/>
+                                        <rect key="frame" x="0.0" y="30.5" width="306" height="15"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vns-af-9WO">
-                                                <rect key="frame" x="0.0" y="0.0" width="33" height="15"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="34" height="15"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="น้ำดื่ม" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbs-zU-14e">
-                                                        <rect key="frame" x="5" y="0.0" width="23" height="15"/>
+                                                        <rect key="frame" x="5" y="0.0" width="24" height="15"/>
                                                         <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="10"/>
                                                         <color key="textColor" name="Primary"/>
                                                         <nil key="highlightedColor"/>
@@ -78,42 +78,45 @@
                                             <constraint firstAttribute="height" constant="15" id="zI2-SL-Bfm"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yZE-n1-bbq">
-                                        <rect key="frame" x="0.0" y="56.5" width="306" height="21"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="บาท" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVg-Uo-p4U">
-                                                <rect key="frame" x="281" y="0.0" width="17" height="21"/>
-                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="10"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3B-49-Cgi">
-                                                <rect key="frame" x="252" y="-1" width="24" height="22.5"/>
-                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="14"/>
-                                                <color key="textColor" name="Primary"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstItem="tVg-Uo-p4U" firstAttribute="top" secondItem="yZE-n1-bbq" secondAttribute="top" id="1l5-yC-1Pj"/>
-                                            <constraint firstItem="w3B-49-Cgi" firstAttribute="centerY" secondItem="tVg-Uo-p4U" secondAttribute="centerY" id="2rP-Cj-7UE"/>
-                                            <constraint firstAttribute="bottom" secondItem="tVg-Uo-p4U" secondAttribute="bottom" id="3gW-s5-Wi5"/>
-                                            <constraint firstAttribute="trailing" secondItem="tVg-Uo-p4U" secondAttribute="trailing" constant="8" id="Eky-KS-Qvb"/>
-                                            <constraint firstAttribute="height" constant="21" id="gsA-bx-2LP"/>
-                                            <constraint firstItem="tVg-Uo-p4U" firstAttribute="leading" secondItem="w3B-49-Cgi" secondAttribute="trailing" constant="5" id="oxb-Zr-OnI"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yZE-n1-bbq">
+                                <rect key="frame" x="84" y="63" width="314" height="21"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="บาท" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVg-Uo-p4U">
+                                        <rect key="frame" x="288" y="0.0" width="18" height="21"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3B-49-Cgi">
+                                        <rect key="frame" x="259.5" y="2.5" width="23.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="14"/>
+                                        <color key="textColor" name="Primary"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="tVg-Uo-p4U" firstAttribute="top" secondItem="yZE-n1-bbq" secondAttribute="top" id="1l5-yC-1Pj"/>
+                                    <constraint firstItem="w3B-49-Cgi" firstAttribute="centerY" secondItem="tVg-Uo-p4U" secondAttribute="centerY" id="2rP-Cj-7UE"/>
+                                    <constraint firstAttribute="bottom" secondItem="tVg-Uo-p4U" secondAttribute="bottom" id="3gW-s5-Wi5"/>
+                                    <constraint firstAttribute="trailing" secondItem="tVg-Uo-p4U" secondAttribute="trailing" constant="8" id="Eky-KS-Qvb"/>
+                                    <constraint firstAttribute="height" constant="21" id="gsA-bx-2LP"/>
+                                    <constraint firstItem="tVg-Uo-p4U" firstAttribute="leading" secondItem="w3B-49-Cgi" secondAttribute="trailing" constant="5" id="oxb-Zr-OnI"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="GMq-be-JeZ" secondAttribute="bottom" constant="8" id="1lP-RY-p4I"/>
-                            <constraint firstItem="PQK-uM-A0m" firstAttribute="centerY" secondItem="GMq-be-JeZ" secondAttribute="centerY" id="3cP-D0-wTO"/>
+                            <constraint firstAttribute="trailing" secondItem="yZE-n1-bbq" secondAttribute="trailing" id="FB9-6w-h6A"/>
                             <constraint firstItem="PQK-uM-A0m" firstAttribute="leading" secondItem="GMq-be-JeZ" secondAttribute="trailing" constant="8" id="Rmv-pa-she"/>
+                            <constraint firstItem="PQK-uM-A0m" firstAttribute="top" secondItem="GMq-be-JeZ" secondAttribute="top" id="YKG-K6-HDz"/>
                             <constraint firstAttribute="trailing" secondItem="PQK-uM-A0m" secondAttribute="trailing" constant="8" id="YQg-hn-SoR"/>
+                            <constraint firstItem="yZE-n1-bbq" firstAttribute="leading" secondItem="GMq-be-JeZ" secondAttribute="trailing" constant="8" id="YeZ-ge-dKX"/>
                             <constraint firstItem="GMq-be-JeZ" firstAttribute="top" secondItem="kVJ-Ya-Pp2" secondAttribute="top" constant="8" id="jUp-ZI-Ubc"/>
+                            <constraint firstAttribute="bottom" secondItem="yZE-n1-bbq" secondAttribute="bottom" id="kHK-5J-BYD"/>
                             <constraint firstItem="GMq-be-JeZ" firstAttribute="leading" secondItem="kVJ-Ya-Pp2" secondAttribute="leading" constant="8" id="q64-PL-asj"/>
                         </constraints>
                     </view>
@@ -129,8 +132,11 @@
             <connections>
                 <outlet property="bgBadge" destination="vns-af-9WO" id="7YP-kW-zdM"/>
                 <outlet property="bgView" destination="kVJ-Ya-Pp2" id="RV0-uo-pDW"/>
+                <outlet property="descText" destination="HGE-bQ-zEe" id="Hia-ds-pNd"/>
                 <outlet property="iconImage" destination="GMq-be-JeZ" id="O9C-Sc-iBq"/>
+                <outlet property="priceText" destination="w3B-49-Cgi" id="OIm-SF-g6A"/>
                 <outlet property="titleBadge" destination="Hbs-zU-14e" id="N57-bV-IgU"/>
+                <outlet property="titletext" destination="D89-i3-tyS" id="Nxk-jw-f7U"/>
             </connections>
             <point key="canvasLocation" x="132" y="88"/>
         </tableViewCell>

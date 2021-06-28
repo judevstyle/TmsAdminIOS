@@ -208,6 +208,7 @@
                         <outlet property="inputTypeProduct" destination="Pkt-NL-mbT" id="dqi-c8-smF"/>
                         <outlet property="inputUnitProduct" destination="YZN-7o-UAr" id="tvl-FJ-mLS"/>
                         <outlet property="scrollView" destination="bEt-mr-TRi" id="EBz-B8-8SL"/>
+                        <outlet property="viewKeyboardHeight" destination="JJR-E5-G1u" id="KCI-Gk-2XA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eo4-Eq-Zjd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

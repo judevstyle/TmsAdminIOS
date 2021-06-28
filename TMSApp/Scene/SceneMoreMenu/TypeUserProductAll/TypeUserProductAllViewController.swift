@@ -8,9 +8,14 @@
 import UIKit
 
 class TypeUserProductAllViewController: UIViewController {
-
+    
     @IBOutlet var headerCollectionView: UICollectionView!
     @IBOutlet var productCollectionView: UICollectionView!
+    
+    let inset: CGFloat = 10
+    let minimumLineSpacing: CGFloat = 10
+    let minimumInteritemSpacing: CGFloat = 10
+    let cellsPerRow = 2
     
     // ViewModel
     lazy var viewModel: TypeUserProductAllProtocol = {
@@ -46,7 +51,6 @@ extension TypeUserProductAllViewController {
             weakSelf.headerCollectionView.reloadData()
             let selectedIndexPath = IndexPath(item: 0, section: 0)
             weakSelf.headerCollectionView.selectItem(at: selectedIndexPath, animated: true, scrollPosition: [])
-            weakSelf.viewModel.input.getProduct(cmsId: "")
         }
     }
     
@@ -61,8 +65,6 @@ extension TypeUserProductAllViewController {
 // MARK: - SETUP UI
 extension TypeUserProductAllViewController {
     func setupUI() {
-
-    
         
         registerHeaderCell()
         registerProductCell()
@@ -71,17 +73,13 @@ extension TypeUserProductAllViewController {
     fileprivate func registerHeaderCell() {
         headerCollectionView.delegate = self
         headerCollectionView.dataSource = self
-        headerCollectionView.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        headerCollectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         headerCollectionView.showsVerticalScrollIndicator = false
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        let screenWidth = ((headerCollectionView.frame.width - 16) / 6) - 4
-//        layout.itemSize = CGSize(width: screenWidth, height: 75)
-        layout.minimumInteritemSpacing = 4
-        layout.minimumLineSpacing = 4
-        layout.scrollDirection = .horizontal
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        headerCollectionView!.collectionViewLayout = layout
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        headerCollectionView.collectionViewLayout = layout
         headerCollectionView.registerCell(identifier: ProductCategoryCollectionViewCell.identifier)
     }
     
@@ -89,30 +87,26 @@ extension TypeUserProductAllViewController {
     fileprivate func registerProductCell() {
         productCollectionView.delegate = self
         productCollectionView.dataSource = self
-        productCollectionView.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        productCollectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         productCollectionView.showsVerticalScrollIndicator = false
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        let screenWidth = ((productCollectionView.frame.width - 16) / 2) - 8
-        layout.itemSize = CGSize(width: screenWidth, height: 225)
-        layout.minimumInteritemSpacing = 8
-        layout.minimumLineSpacing = 8
         layout.scrollDirection = .vertical
-        productCollectionView!.collectionViewLayout = layout
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        productCollectionView.collectionViewLayout = layout
         productCollectionView.registerCell(identifier: ProductCollectionViewCell.identifier)
     }
 }
 
 // MARK: - Handles
 extension TypeUserProductAllViewController {
-
+    
 }
 
 
 extension TypeUserProductAllViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        
         switch collectionView {
         case headerCollectionView:
             self.viewModel.input.didSelectItemAt(collectionView, indexPath: indexPath, type: .category)
@@ -145,6 +139,61 @@ extension TypeUserProductAllViewController: UICollectionViewDataSource {
             return self.viewModel.output.getNumberOfCollection(type: .product)
         default:
             return self.viewModel.output.getNumberOfCollection(type: .category)
+        }
+    }
+}
+
+extension TypeUserProductAllViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        switch collectionView {
+        case headerCollectionView:
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        case productCollectionView:
+            return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+        default:
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        switch collectionView {
+        case headerCollectionView:
+            return 0
+        case productCollectionView:
+            return minimumLineSpacing
+        default:
+            return 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        switch collectionView {
+        case headerCollectionView:
+            return 0
+        case productCollectionView:
+            return minimumInteritemSpacing
+        default:
+            return 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let marginsAndInsets = inset * 2 + collectionView.safeAreaInsets.left + collectionView.safeAreaInsets.right + minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
+        let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
+    
+        switch collectionView {
+        case headerCollectionView:
+            var sizeWidthHead: CGFloat = 0
+            let font = UIFont.PrimaryText(size: 17)
+            let fontAttributes = [NSAttributedString.Key.font: font]
+            let myText = viewModel.output.getTitleCategory(indexPath: indexPath)
+            let sizeWidth = (myText as NSString).size(withAttributes: fontAttributes)
+            sizeWidthHead = sizeWidth.width + 8 + 16 + 16 + 8
+            return CGSize(width: sizeWidthHead, height: 60)
+        case productCollectionView:
+            return CGSize(width: itemWidth, height: itemWidth + 85)
+        default:
+            return CGSize(width: itemWidth, height: itemWidth + 85)
         }
     }
 }

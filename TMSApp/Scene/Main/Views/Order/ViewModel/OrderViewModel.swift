@@ -7,9 +7,10 @@
 
 import Foundation
 import UIKit
+import Combine
 
 protocol OrderProtocolInput {
-    func getOrder(request: GetOrderRequest)
+    func getOrder()
 }
 
 protocol OrderProtocolOutput: class {
@@ -18,12 +19,9 @@ protocol OrderProtocolOutput: class {
     
     func getNumberOfSections(in tableView: UITableView) -> Int
     func getNumberOfOrder(_ tableView: UITableView, section: Int) -> Int
-    func getItemOrder(index: Int) -> GetOrderResponse?
+    func getItemOrder(index: Int) -> OrderItems?
     func getItemViewCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
     func getItemViewCellHeight() -> CGFloat
-    func getItemOrderPage(index: Int) -> [GetOrderResponse]
-    func getHeightSectionView(section: Int) -> CGFloat
-    func getHeaderViewCell(_ tableView: UITableView, section: Int) -> UIView?
 }
 
 protocol OrderProtocol: OrderProtocolInput, OrderProtocolOutput {
@@ -35,31 +33,42 @@ class OrderViewModel: OrderProtocol, OrderProtocolOutput {
     var input: OrderProtocolInput { return self }
     var output: OrderProtocolOutput { return self }
     
-    // MARK: - Properties
+    // MARK: - UseCase
+    private var getOrderUseCase: GetOrderUseCase
+    private var anyCancellable: Set<AnyCancellable> = Set<AnyCancellable>()
+    
     // MARK: - Properties
     private var orderViewController: OrderViewController
     
     
     
     init(
-        orderViewController: OrderViewController
+        orderViewController: OrderViewController,
+        getOrderUseCase: GetOrderUseCase = GetOrderUseCaseImpl()
     ) {
         self.orderViewController = orderViewController
+        self.getOrderUseCase = getOrderUseCase
     }
     
     // MARK - Data-binding OutPut
     var didGetOrderSuccess: (() -> Void)?
     var didGetOrderError: (() -> Void)?
     
-    fileprivate var listOrder: [GetOrderResponse]? = []
+    fileprivate var listOrder: [OrderItems]? = []
     
-    func getOrder(request: GetOrderRequest) {
+    func getOrder() {
+        self.listOrder?.removeAll()
         self.orderViewController.startLoding()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
-            self.listOrder = getItemOrderPage(index: 0)
+        
+        self.getOrderUseCase.execute().sink { completion in
+            debugPrint("getShipment \(completion)")
+        } receiveValue: { resp in
+            if let items = resp?.data?.items {
+                self.listOrder = items
+            }
             self.didGetOrderSuccess?()
             self.orderViewController.stopLoding()
-        }
+        }.store(in: &self.anyCancellable)
     }
     
     func getNumberOfSections(in tableView: UITableView) -> Int {
@@ -71,7 +80,7 @@ class OrderViewModel: OrderProtocol, OrderProtocolOutput {
         return count
     }
     
-    func getItemOrder(index: Int) -> GetOrderResponse? {
+    func getItemOrder(index: Int) -> OrderItems? {
         guard let itemOrder = listOrder?[index] else { return nil }
         return itemOrder
     }
@@ -79,44 +88,11 @@ class OrderViewModel: OrderProtocol, OrderProtocolOutput {
     func getItemViewCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: OrderTableViewCell.identifier, for: indexPath) as! OrderTableViewCell
         cell.selectionStyle = .none
-        cell.setData(item: getItemOrder(index: indexPath.item))
+        cell.items = self.listOrder?[indexPath.item]
         return cell
     }
     
     func getItemViewCellHeight() -> CGFloat {
-        return 134
-    }
-    
-    func getItemOrderPage(index: Int) -> [GetOrderResponse] {
-        var listOrder: [GetOrderResponse] = []
-        for _ in 0..<3 {
-            listOrder.append(GetOrderResponse(title: "test"))
-        }
-        return listOrder
-    }
-    
-    func getHeightSectionView(section: Int) -> CGFloat {
-        let headerHeight: CGFloat
-        switch section {
-        case 0:
-            // hide the header
-            headerHeight = CGFloat.leastNonzeroMagnitude
-        default:
-            headerHeight = 30
-        }
-        return headerHeight
-    }
-    
-    func getHeaderViewCell(_ tableView: UITableView, section: Int) -> UIView? {
-        switch section {
-        case 0:
-            return nil
-        default:
-            let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: OrderHeaderTableViewCell.identifier)
-            if let header = header as? OrderHeaderTableViewCell {
-                header.render(title: "รายการสินค้า")
-            }
-            return header
-        }
+        return UITableView.automaticDimension
     }
 }

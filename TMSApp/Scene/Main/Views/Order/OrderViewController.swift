@@ -34,7 +34,7 @@ class OrderViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        viewModel.input.getOrder(request: GetOrderRequest(title: ""))
+        viewModel.input.getOrder()
         NavigationManager.instance.setupWithNavigationController(navigationController: self.navigationController)
     }
 }
@@ -72,7 +72,6 @@ extension OrderViewController {
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         tableView.separatorStyle = .none
-        tableView.register(OrderHeaderTableViewCell.self, forHeaderFooterViewReuseIdentifier: OrderHeaderTableViewCell.identifier)
         tableViewRegister(identifier: OrderTableViewCell.identifier)
         
     }
@@ -85,20 +84,12 @@ extension OrderViewController {
 
 extension OrderViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let itemOrder = viewModel.output.getItemOrder(index: indexPath.item) else { return }
-        NavigationManager.instance.pushVC(to: .orderCart)
+        guard let orderId = viewModel.output.getItemOrder(index: indexPath.item)?.orderId else { return }
+        NavigationManager.instance.pushVC(to: .orderCart(orderId: "\(orderId)"))
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return viewModel.output.getItemViewCellHeight()
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return viewModel.output.getHeightSectionView(section: section)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return CGFloat.leastNonzeroMagnitude
     }
 }
 
@@ -115,7 +106,4 @@ extension OrderViewController: UITableViewDataSource {
         return viewModel.output.getItemViewCell(tableView, indexPath: indexPath)
     }
 
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return viewModel.output.getHeaderViewCell(tableView, section: section)
-    }
 }

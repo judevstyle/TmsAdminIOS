@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Combine
 
 protocol ProductProtocolInput {
     func getProduct()
@@ -19,6 +20,8 @@ protocol ProductProtocolOutput: class {
     func getHeightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat
     func getNumberOfRowsInSection(_ tableView: UITableView, section: Int) -> Int
     func getCellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
+    
+    func getItemForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> Product?
 }
 
 protocol ProductProtocol: ProductProtocolInput, ProductProtocolOutput {
@@ -32,33 +35,38 @@ class ProductViewModel: ProductProtocol, ProductProtocolOutput {
     
     // MARK: - Properties
     private var productViewController: ProductViewController
-    
-    
+    // MARK: - UserCase
+    private var getProductUseCase: GetProductUseCase
+    private var anyCancellable: Set<AnyCancellable> = Set<AnyCancellable>()
     
     init(
-        productViewController: ProductViewController
+        productViewController: ProductViewController,
+        getProductUseCase: GetProductUseCase = GetProductUseCaseImpl()
     ) {
         self.productViewController = productViewController
+        self.getProductUseCase = getProductUseCase
     }
     
     // MARK - Data-binding OutPut
     var didGetProductSuccess: (() -> Void)?
     var didGetProductError: (() -> Void)?
     
-    fileprivate var listProduct: [GetAppealResponse]? = []
+    fileprivate var listProduct: [Product]? = []
     
     func getProduct() {
         listProduct?.removeAll()
         productViewController.startLoding()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-            guard let weakSelf = self else { return }
-            for _ in 0..<3 {
-                weakSelf.listProduct?.append(GetAppealResponse(title: "test"))
+        
+        self.getProductUseCase.execute().sink { completion in
+            debugPrint("getProduct \(completion)")
+            self.productViewController.stopLoding()
+        } receiveValue: { resp in
+            if let items = resp?.items {
+                self.listProduct = items
             }
-
-            weakSelf.didGetProductSuccess?()
-            weakSelf.productViewController.stopLoding()
-        }
+            self.didGetProductSuccess?()
+        }.store(in: &self.anyCancellable)
+    
     }
     
     func getHeightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat {
@@ -72,6 +80,12 @@ class ProductViewModel: ProductProtocol, ProductProtocolOutput {
     func getCellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProductTableViewCell.identifier, for: indexPath) as! ProductTableViewCell
         cell.selectionStyle = .none
+        cell.items = self.listProduct?[indexPath.item]
         return cell
     }
+    
+    func getItemForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> Product? {
+        return self.listProduct?[indexPath.item]
+    }
+    
 }

@@ -10,10 +10,20 @@ import UIKit
 class OrderCartViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-
+    
+    @IBOutlet weak var imageThubnail: UIImageView!
+    @IBOutlet weak var orderNo: UILabel!
+    @IBOutlet weak var descText: UILabel!
+    @IBOutlet weak var addressText: UILabel!
+    
     @IBOutlet weak var totalView: UIView!
     @IBOutlet weak var discountView: UIView!
     @IBOutlet weak var overallView: UIView!
+    
+    
+    @IBOutlet weak var sumPrice: UILabel!
+    @IBOutlet weak var discountPrice: UILabel!
+    @IBOutlet weak var sumOverAll: UILabel!
     
     lazy var viewModel: OrderCartProtocol = {
         let vm = OrderCartViewModel(orderCartViewController: self)
@@ -38,15 +48,11 @@ class OrderCartViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        viewModel.input.fetchOrderCart()
+        //        viewModel.input.fetchOrderCart()
     }
+    
     @IBAction func handleConfirmOrder(_ sender: Any) {
-        self.showAlertComfirm(titleText: "คุณต้องการยืนยันการสั่งออร์เดอร์ หรือไม่ ?", messageText: "", dismissAction: {
-            print("dismissAction")
-        }, confirmAction: {
-            print("confirmAction")
-            self.navigationController?.popViewController(animated: true)
-        })
+        viewModel.input.confirmOrderCart()
     }
 }
 
@@ -62,6 +68,7 @@ extension OrderCartViewController {
         return { [weak self] in
             guard let weakSelf = self else { return }
             weakSelf.tableView.reloadData()
+            weakSelf.setupValue()
         }
     }
     
@@ -75,6 +82,7 @@ extension OrderCartViewController {
 
 extension OrderCartViewController {
     func setupUI(){
+        imageThubnail.setRounded(rounded: 8)
     }
     
     fileprivate func registerCell() {
@@ -85,6 +93,20 @@ extension OrderCartViewController {
         tableView.separatorStyle = .none
         tableView.register(HeaderLabelTableViewCell.self, forHeaderFooterViewReuseIdentifier: HeaderLabelTableViewCell.identifier)
         tableView.registerCell(identifier: OrderCartTableViewCell.identifier)
+    }
+    
+    func setupValue() {
+        guard let item = self.viewModel.output.getItem() else { return }
+        orderNo.text = "Order ID \(item.orderNo ?? "")"
+        descText.text = item.customer?.displayName ?? ""
+        addressText.text = item.customer?.address ?? ""
+        
+        guard let urlImage = URL(string: "\(DomainNameConfig.TMSImagePath.urlString)\(item.customer?.avatar ?? "")") else { return }
+        imageThubnail.kf.setImageDefault(with: urlImage)
+        
+        sumPrice.text = "\(item.balance)"
+        discountPrice.text = "0"
+        sumOverAll.text = "\(item.balance)"
     }
 }
 

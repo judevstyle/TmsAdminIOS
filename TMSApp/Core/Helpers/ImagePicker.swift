@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 public protocol ImagePickerDelegate: class {
-    func didSelect(image: UIImage?, imagePicker: ImagePicker)
+    func didSelectImage(image: UIImage?, imagePicker: ImagePicker, base64: String)
 }
 
 open class ImagePicker: NSObject {
@@ -90,7 +90,13 @@ open class ImagePicker: NSObject {
     private func pickerController(_ controller: UIImagePickerController, didSelect image: UIImage?) {
         controller.dismiss(animated: true, completion: nil)
         
-        self.delegate?.didSelect(image: image, imagePicker: self)
+        presentationController?.startLoding()
+        if let base64 = image?.convertImageToBase64String(quality: 0.7) {
+            self.delegate?.didSelectImage(image: image, imagePicker: self, base64: base64)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.presentationController?.stopLoding()
+            }
+        }
     }
 }
 

@@ -9,7 +9,7 @@ import UIKit
 import MaterialComponents
 
 class TypeUserDetailViewController: UIViewController {
-
+    
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var titleTopView: UILabel!
     @IBOutlet weak var editButton: UIButton!
@@ -25,15 +25,22 @@ class TypeUserDetailViewController: UIViewController {
         return vm
     }()
     
+    let inset: CGFloat = 10
+    let minimumLineSpacing: CGFloat = 10
+    let minimumInteritemSpacing: CGFloat = 10
+    let cellsPerRow = 2
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
-        viewModel.input.getProduct()
     }
     
     func configure(_ interface: TypeUserDetailProtocol) {
         self.viewModel = interface
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.input.getProduct()
     }
 }
 
@@ -61,6 +68,9 @@ extension TypeUserDetailViewController {
         
         editButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
+        if let item = viewModel.output.getItemDetial() {
+            titleTopView.text = item.typeName ?? ""
+        }
         registerCell()
     }
     
@@ -68,15 +78,10 @@ extension TypeUserDetailViewController {
     fileprivate func registerCell() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionView.showsVerticalScrollIndicator = false
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        let screenWidth = ((collectionView.frame.width - 16) / 2) - 8
-        layout.itemSize = CGSize(width: screenWidth, height: 225)
-        layout.minimumInteritemSpacing = 8
-        layout.minimumLineSpacing = 8
-        layout.scrollDirection = .vertical
         collectionView!.collectionViewLayout = layout
         collectionView.registerCell(identifier: ProductCollectionViewCell.identifier)
     }
@@ -85,12 +90,12 @@ extension TypeUserDetailViewController {
 // MARK: - Handles
 extension TypeUserDetailViewController {
     @objc func btnEditTitle() {
-//        NavigationManager.instance.pushVC(to: .editEmployee)
+        //        NavigationManager.instance.pushVC(to: .editEmployee)
     }
     
     @objc func btnAddProduct() {
-//        NavigationManager.instance.pushVC(to: .editEmployee)
-        NavigationManager.instance.pushVC(to: .typeUserProductAll)
+        let item = viewModel.output.getItemDetial()
+        NavigationManager.instance.pushVC(to: .typeUserProductAll(item: item))
     }
 }
 
@@ -98,9 +103,15 @@ extension TypeUserDetailViewController {
 extension TypeUserDetailViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        NavigationManager.instance.pushVC(to: .typeUserProductDetail, presentation: .BottomSheet(completion: {
+        guard let itemTypeUser = viewModel.getItemDetial(),
+              let itemProductSpecial = viewModel.getItem(index: indexPath.item)  else { return }
+        NavigationManager.instance.pushVC(to: .typeUserProductDetail(
+                                            itemTypeUser: itemTypeUser,
+                                            itemProduct: nil,
+                                            itemProductSpecial: itemProductSpecial,
+                                            typeAction: .update, delegate: self), presentation: .BottomSheet(completion: {
             
-        }, height: 646))
+        }, height: 620))
     }
     
 }
@@ -112,5 +123,32 @@ extension TypeUserDetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return viewModel.output.getItemViewCell(collectionView, indexPath: indexPath)
+    }
+}
+
+
+extension TypeUserDetailViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return minimumLineSpacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return minimumInteritemSpacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let marginsAndInsets = inset * 2 + collectionView.safeAreaInsets.left + collectionView.safeAreaInsets.right + minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
+        let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
+        return CGSize(width: itemWidth, height: itemWidth + 85)
+    }
+}
+
+extension TypeUserDetailViewController: TypeUserProductDetailViewModelDelegate {
+    func didConfirmmNewProductComplete() {
+        viewModel.input.getProduct()
     }
 }

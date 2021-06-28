@@ -25,11 +25,14 @@ class ProductViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         registerCell()
-        viewModel.input.getProduct()
     }
     
     func configure(_ interface: ProductProtocol) {
         self.viewModel = interface
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.input.getProduct()
     }
 }
 
@@ -78,13 +81,17 @@ extension ProductViewController {
 // MARK: - Handles
 extension ProductViewController {
     @objc func btnAddProductAction() {
-        NavigationManager.instance.pushVC(to: .editProduct)
+        NavigationManager.instance.pushVC(to: .editProduct(product: nil))
     }
 }
 
 extension ProductViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NavigationManager.instance.pushVC(to: .productDetail)
+
+            guard let item = viewModel.output.getItemForRowAt(tableView, indexPath: indexPath),
+                  let productId = item.productId
+                  else { return }
+        NavigationManager.instance.pushVC(to: .productDetail(productId: productId))
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

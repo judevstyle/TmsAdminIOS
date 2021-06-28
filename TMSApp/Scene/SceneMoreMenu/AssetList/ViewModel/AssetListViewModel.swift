@@ -7,9 +7,10 @@
 
 import Foundation
 import UIKit
+import Combine
 
 protocol AssetListProtocolInput {
-    func getAssetList()
+    func getAssets()
 }
 
 protocol AssetListProtocolOutput: class {
@@ -32,33 +33,37 @@ class AssetListViewModel: AssetListProtocol, AssetListProtocolOutput {
     
     // MARK: - Properties
     private var assetListViewController: AssetListViewController
-    
-    
+    // MARK: - UserCase
+    private var getAssetsUseCase: GetAssetsUseCase
+    private var anyCancellable: Set<AnyCancellable> = Set<AnyCancellable>()
     
     init(
-        assetListViewController: AssetListViewController
+        assetListViewController: AssetListViewController,
+        getAssetsUseCase: GetAssetsUseCase = GetAssetsUseCaseImpl()
     ) {
         self.assetListViewController = assetListViewController
+        self.getAssetsUseCase = getAssetsUseCase
     }
     
     // MARK - Data-binding OutPut
     var didGetAssetListSuccess: (() -> Void)?
     var didGetAssetListError: (() -> Void)?
     
-    fileprivate var listAssetList: [GetAppealResponse]? = []
+    fileprivate var listAssetList: [AssetsItems]? = []
     
-    func getAssetList() {
+    func getAssets() {
         listAssetList?.removeAll()
         assetListViewController.startLoding()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-            guard let weakSelf = self else { return }
-            for _ in 0..<7 {
-                weakSelf.listAssetList?.append(GetAppealResponse(title: "test"))
+        
+        self.getAssetsUseCase.execute().sink { completion in
+            debugPrint("getAssets \(completion)")
+            self.assetListViewController.stopLoding()
+        } receiveValue: { resp in
+            if let items = resp {
+                self.listAssetList = items
             }
-
-            weakSelf.didGetAssetListSuccess?()
-            weakSelf.assetListViewController.stopLoding()
-        }
+            self.didGetAssetListSuccess?()
+        }.store(in: &self.anyCancellable)
     }
     
     func getHeightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat {
@@ -72,6 +77,7 @@ class AssetListViewModel: AssetListProtocol, AssetListProtocolOutput {
     func getCellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AssetTableViewCell.identifier, for: indexPath) as! AssetTableViewCell
         cell.selectionStyle = .none
+        cell.items = self.listAssetList?[indexPath.item]
         return cell
     }
 }

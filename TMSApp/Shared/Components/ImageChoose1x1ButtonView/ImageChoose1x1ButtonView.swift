@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ImageChoose1x1ButtonDelegate {
+    func didSelectImage(base64: String)
+}
+
 class ImageChoose1x1ButtonView: UIView {
     
     let nibName = "ImageChoose1x1ButtonView"
@@ -15,6 +19,8 @@ class ImageChoose1x1ButtonView: UIView {
     @IBOutlet weak var bgImageView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var buttonImage: UIButton!
+    
+    public var delegate: ImageChoose1x1ButtonDelegate?
     
     var imagePicker: ImagePicker!
     
@@ -53,7 +59,8 @@ class ImageChoose1x1ButtonView: UIView {
         buttonImage.imageEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     }
     
-    func setupImagePicker(vc: UIViewController) {
+    func setupImagePicker(vc: UIViewController, delegate: ImageChoose1x1ButtonDelegate) {
+        self.delegate = delegate
         self.imagePicker = ImagePicker(presentationController: vc, sourceType: [.camera, .photoLibrary], delegate: self)
     }
     
@@ -62,10 +69,10 @@ class ImageChoose1x1ButtonView: UIView {
     }
 }
 
-
 extension ImageChoose1x1ButtonView: ImagePickerDelegate {
-    func didSelect(image: UIImage?, imagePicker: ImagePicker) {
+    func didSelectImage(image: UIImage?, imagePicker: ImagePicker, base64: String) {
         self.imageView.image = image
         self.buttonImage.imageView?.tintColor = .clear
+        self.delegate?.didSelectImage(base64: "data:image/png;base64," + base64)
     }
 }

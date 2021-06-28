@@ -34,37 +34,40 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0Pr-CA-h7D">
-                                <rect key="frame" x="75" y="8" width="332" height="61.5"/>
+                                <rect key="frame" x="75" y="8" width="332" height="55.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Asset Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLA-WQ-WLi">
-                                        <rect key="frame" x="0.0" y="0.0" width="332" height="22.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="332" height="16.5"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7V1-ck-7j3">
-                                        <rect key="frame" x="0.0" y="22.5" width="332" height="19"/>
+                                        <rect key="frame" x="0.0" y="16.5" width="332" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19" id="U3m-1a-c5y"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Em-xB-J1e">
-                                        <rect key="frame" x="0.0" y="41.5" width="332" height="20"/>
+                                        <rect key="frame" x="0.0" y="35.5" width="332" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="คลัง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qpc-8r-efX">
-                                                <rect key="frame" x="0.0" y="0.0" width="21" height="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="20.5" height="20"/>
                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gm0-o0-wP2">
-                                                <rect key="frame" x="26" y="0.0" width="8" height="20"/>
+                                                <rect key="frame" x="25.5" y="0.0" width="8" height="20"/>
                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="14"/>
                                                 <color key="textColor" name="Primary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ของ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHP-Kt-ptK">
-                                                <rect key="frame" x="39" y="0.0" width="20.5" height="20"/>
+                                                <rect key="frame" x="38.5" y="0.0" width="20" height="20"/>
                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -108,7 +111,11 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="bgView" destination="F4Y-3s-lca" id="zQa-CH-t3f"/>
+                <outlet property="countItemText" destination="Gm0-o0-wP2" id="P9H-ee-OZV"/>
+                <outlet property="descText" destination="7V1-ck-7j3" id="PFZ-1I-P4C"/>
                 <outlet property="iconImage" destination="rSw-0v-jiT" id="Hht-r0-SY8"/>
+                <outlet property="titleText" destination="nLA-WQ-WLi" id="aCD-nO-gHB"/>
+                <outlet property="unitNameText" destination="AHP-Kt-ptK" id="WUw-ss-1Ac"/>
             </connections>
             <point key="canvasLocation" x="212.31884057971016" y="52.566964285714285"/>
         </tableViewCell>

@@ -35,7 +35,7 @@ extension EditAssetViewController {
         inputName.inputText.delegate = self
         inputUnit.inputText.delegate = self
         
-        imagePicker.setupImagePicker(vc: self)
+        imagePicker.setupImagePicker(vc: self, delegate: self)
         
         inputName.titleLabel.text = "ชื่อ"
         inputDesc.titleLabel.text = "รายละเอียด"
@@ -56,5 +56,10 @@ extension EditAssetViewController : UITextFieldDelegate {
 extension EditAssetViewController: ButtonPrimaryViewDelegate {
     func onClickButton() {
         print("onClickButton")
+    }
+}
+
+extension EditAssetViewController : ImageChoose1x1ButtonDelegate {
+    func didSelectImage(base64: String) {
     }
 }

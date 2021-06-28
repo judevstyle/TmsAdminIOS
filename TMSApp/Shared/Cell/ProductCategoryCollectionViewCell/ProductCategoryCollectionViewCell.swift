@@ -13,6 +13,13 @@ class ProductCategoryCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet var bgView: UIView!
     @IBOutlet var titleText: UILabel!
+    
+    
+    var items: ProductType? {
+        didSet {
+            setupValue()
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -35,6 +42,10 @@ class ProductCategoryCollectionViewCell: UICollectionViewCell {
         bgView.setRounded(rounded: 8)
         bgView.setShadowBoxView()
 //        titleText.tintColor = .white
+    }
+    
+    func setupValue() {
+        titleText.text = items?.productTypeName ?? ""
     }
     
 }

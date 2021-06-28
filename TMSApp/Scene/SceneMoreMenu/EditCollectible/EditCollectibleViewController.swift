@@ -54,7 +54,7 @@ extension EditCollectibleViewController {
         buttonSave.delegate = self
         
         
-        imagePicker.setupImagePicker(vc: self)
+        imagePicker.setupImagePicker(vc: self, delegate: self)
         
         self.inputDateStart.inputText.setInputViewDatePicker(target: self, selector: #selector(tapDoneStartDatePicker))
         self.inputDateEnd.inputText.setInputViewDatePicker(target: self, selector: #selector(tapDoneEndDatePicker))
@@ -87,5 +87,11 @@ extension EditCollectibleViewController : UITextFieldDelegate {
 extension EditCollectibleViewController: ButtonPrimaryViewDelegate {
     func onClickButton() {
         print("onClickButton")
+    }
+}
+
+extension EditCollectibleViewController : ImageChoose1x1ButtonDelegate {
+    func didSelectImage(base64: String) {
+        print(base64)
     }
 }

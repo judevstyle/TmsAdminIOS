@@ -24,11 +24,14 @@ class AssetListViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         registerCell()
-        viewModel.input.getAssetList()
     }
     
     func configure(_ interface: AssetListProtocol) {
         self.viewModel = interface
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.input.getAssets()
     }
 }
 
