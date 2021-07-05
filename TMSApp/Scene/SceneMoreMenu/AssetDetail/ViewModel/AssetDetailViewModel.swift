@@ -7,18 +7,21 @@
 
 import Foundation
 import UIKit
+import Combine
 
 protocol AssetDetailProtocolInput {
-    func getAssetDetail()
+    func setAssetDetail(items: AssetsItems?)
+    func getAssetStock()
 }
 
 protocol AssetDetailProtocolOutput: class {
-    var didGetAssetDetailSuccess: (() -> Void)? { get set }
-    var didGetAssetDetailError: (() -> Void)? { get set }
+    var didGetAssetStockSuccess: (() -> Void)? { get set }
     
     func getHeightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat
     func getNumberOfRowsInSection(_ tableView: UITableView, section: Int) -> Int
     func getCellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
+    
+    func getAssetDetail() -> AssetsItems?
 }
 
 protocol AssetDetailProtocol: AssetDetailProtocolInput, AssetDetailProtocolOutput {
@@ -32,33 +35,45 @@ class AssetDetailViewModel: AssetDetailProtocol, AssetDetailProtocolOutput {
     
     // MARK: - Properties
     private var assetDetailViewController: AssetDetailViewController
-    
-    
+    // MARK: - UserCase
+    private var getAssetStockUseCase: GetAssetStockUseCase
+    private var anyCancellable: Set<AnyCancellable> = Set<AnyCancellable>()
     
     init(
-        assetDetailViewController: AssetDetailViewController
+        assetDetailViewController: AssetDetailViewController,
+        getAssetStockUseCase: GetAssetStockUseCase = GetAssetStockUseCaseImpl()
     ) {
         self.assetDetailViewController = assetDetailViewController
+        self.getAssetStockUseCase = getAssetStockUseCase
     }
     
     // MARK - Data-binding OutPut
-    var didGetAssetDetailSuccess: (() -> Void)?
-    var didGetAssetDetailError: (() -> Void)?
-    
-    fileprivate var listAssetDetail: [GetAppealResponse]? = []
-    
-    func getAssetDetail() {
-        listAssetDetail?.removeAll()
-        assetDetailViewController.startLoding()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-            guard let weakSelf = self else { return }
-            for _ in 0..<7 {
-                weakSelf.listAssetDetail?.append(GetAppealResponse(title: "test"))
-            }
+    var didGetAssetStockSuccess: (() -> Void)?
 
-            weakSelf.didGetAssetDetailSuccess?()
-            weakSelf.assetDetailViewController.stopLoding()
-        }
+    fileprivate var itemsAssetDetail: AssetsItems?
+    fileprivate var listAssetStock: [AssetStockItems]? = []
+    
+    func setAssetDetail(items: AssetsItems?) {
+        self.itemsAssetDetail = items
+    }
+    
+    func getAssetStock() {
+        self.listAssetStock?.removeAll()
+        assetDetailViewController.startLoding()
+        guard let astId = self.itemsAssetDetail?.astId else { return }
+        self.getAssetStockUseCase.execute(astId: astId).sink { completion in
+            debugPrint("getAssetStock \(completion)")
+            self.assetDetailViewController.stopLoding()
+        } receiveValue: { resp in
+            if let items = resp?.items {
+                self.listAssetStock = items
+            }
+            self.didGetAssetStockSuccess?()
+        }.store(in: &self.anyCancellable)
+    }
+    
+    func getAssetDetail() -> AssetsItems? {
+        return self.itemsAssetDetail
     }
     
     func getHeightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat {
@@ -66,12 +81,13 @@ class AssetDetailViewModel: AssetDetailProtocol, AssetDetailProtocolOutput {
     }
     
     func getNumberOfRowsInSection(_ tableView: UITableView, section: Int) -> Int {
-        return self.listAssetDetail?.count ?? 0
+        return self.listAssetStock?.count ?? 0
     }
     
     func getCellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AssetStockTableViewCell.identifier, for: indexPath) as! AssetStockTableViewCell
         cell.selectionStyle = .none
+        cell.setupValueAssetStock(items: self.listAssetStock?[indexPath.item], itemDetail: self.itemsAssetDetail)
         return cell
     }
 }

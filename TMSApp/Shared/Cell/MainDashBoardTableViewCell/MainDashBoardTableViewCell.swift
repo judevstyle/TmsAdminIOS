@@ -61,9 +61,9 @@ class MainDashBoardTableViewCell: UITableViewCell {
     
     func setValue(summaryCustomer: SummaryCustomer?) {
         valueLabel[0].text = "\(summaryCustomer?.totalCustomer ?? 0)"
-        valueLabel[1].text = "\(summaryCustomer?.totalSended ?? 0)"
+        valueLabel[1].text = "\(summaryCustomer?.totalToSend ?? 0)"
         valueLabel[2].text = "\(summaryCustomer?.totalSendNotSuccess ?? 0)"
-        valueLabel[3].text = "\(summaryCustomer?.totalToSend ?? 0)"
+        valueLabel[3].text = "\(summaryCustomer?.totalSended ?? 0)"
     }
 }
 

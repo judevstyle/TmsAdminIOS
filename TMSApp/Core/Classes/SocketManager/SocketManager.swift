@@ -5,39 +5,88 @@
 //  Created by Nontawat Kanboon on 6/4/21.
 //
 
-import Foundation
-import UIKit
 import SocketIO
+import UIKit
 
-class SocketIOManager: NSObject {
-    static let sharedInstance = SocketIOManager()
+let kHost = "http://43.229.149.79:3010"
+let kDashboard = "dashboard-balance"
+
+typealias CompletionHandler = () -> Void
+typealias DashboardCompletionHandler = (Result<SocketDashboardResponse?, Error>) -> Void
+
+extension Notification.Name {
+    static let userTyping = Notification.Name("userTypingNotification")
+}
+
+final class SocketHelper: NSObject {
+    static var shared = SocketHelper()
     
-    let socket = SocketManager(socketURL: URL(string: "http://43.229.149.79:3010")!, config: [.log(true), .compress]).defaultSocket
+    private var _manager: SocketManager?
+    private var _socket: SocketIOClient?
     
     override init() {
         super.init()
+        configureSocketClient()
     }
     
+    private func configureSocketClient() {
+        _manager = SocketManager(socketURL: URL(string: kHost)!, config: [.log(true), .compress])
+        _socket = _manager?.defaultSocket
+    }
     
     func establishConnection() {
-        socket.connect()
-        print("Socket Connet")
+        _socket?.connect()
     }
-    
     
     func closeConnection() {
-        socket.disconnect()
-        print("Socket Disconnet")
+        _socket?.disconnect()
     }
     
-    func connectToServer() {
-        socket.on("dashboard-balance") {[weak self] data, ack in
-            print("Nontawat \(data)")
-            print("Nontawat \(ack)")
+    func emitDashboard(request: SocketDashboardRequest, completion: CompletionHandler) {
+        let json = request.toJSON().convertToJSONString() ?? ""
+        _socket?.emit(kDashboard, json)
+        completion()
+    }
+    
+    func fetchDashboard(completion: @escaping DashboardCompletionHandler) {
+        _socket?.on(kDashboard) { [weak self] (result, ack) in
+            do {
+                guard result.count > 0, let data = Utils.jsonData(from: result) else {
+                    return
+                }
+                
+                let decode = try JSONDecoder().decode([SocketDashboardResponse].self, from: data)
+                if let item = decode[0] as? SocketDashboardResponse {
+                    completion(.success(item))
+                } else {
+                    completion(.success(nil))
+                }
+            } catch let error as NSError {
+                print("Failed to load: \(error.localizedDescription)")
+                completion(.failure(error))
+            }
         }
     }
-    
-    func actionDashboard() {
-    }
-    
 }
+
+
+extension Decodable {
+    init(from any: Any) throws {
+        let data = try JSONSerialization.data(withJSONObject: any)
+        self = try JSONDecoder().decode(Self.self, from: data)
+    }
+}
+
+
+//struct Root: Codable {
+//    let  data: InnerItem?
+//}
+//struct InnerItem:Codable {
+//    let  total_balance: Int?
+//    let  total_cash: Int?
+//    let  total_credit: Int?
+//
+//    private enum CodingKeys : String, CodingKey {
+//        case total_balance = "total_balance", total_cash = "total_cash", total_credit = "total_credit"
+//    }
+//}

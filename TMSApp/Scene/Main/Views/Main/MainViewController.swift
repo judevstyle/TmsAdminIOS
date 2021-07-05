@@ -7,6 +7,7 @@
 
 import UIKit
 import Charts
+import SocketIO
 
 class MainViewController: UIViewController {
     
@@ -17,6 +18,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var debtBalance: UILabel!
     
     @IBOutlet var pieChartView: PieChartView!
+    
+    @IBOutlet var cashText: UILabel!
+    @IBOutlet var creditText: UILabel!
+    
     
     // ViewModel
     lazy var viewModel: MainProtocol = {
@@ -30,7 +35,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         registerCell()
-        setupPieChart()
+        setupPieChart(cash: 100, credit: 0)
     }
     
     func configure(_ interface: MainProtocol) {
@@ -40,6 +45,11 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         viewModel.input.getHome()
         NavigationManager.instance.setupWithNavigationController(navigationController: self.navigationController)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.input.fetchDashboard()
     }
     
     @IBAction func tappedMap(_ sender: Any) {
@@ -54,6 +64,17 @@ extension MainViewController {
     func bindToViewModel() {
         viewModel.output.didGetHomeSuccess = didGetHomeSuccess()
         viewModel.output.didGetHomeError = didGetHomeError()
+        viewModel.output.didGetDashboardSuccess = didGetDashboardSuccess()
+    }
+    
+    func didGetDashboardSuccess() -> (() -> Void) {
+        return { [weak self] in
+            guard let weakSelf = self else { return }
+            guard let data = weakSelf.viewModel.output.getDashboardResponse()?.data else { return }
+            weakSelf.cashText.text = "\(data.total_cash ?? 0)"
+            weakSelf.creditText.text = "\(data.total_credit ?? 0)"
+            weakSelf.setupPieChart(cash: Double(data.total_cash ?? 0), credit: Double(data.total_credit ?? 0))
+        }
     }
     
     func didGetHomeSuccess() -> (() -> Void) {
@@ -77,7 +98,7 @@ extension MainViewController {
         viewTop.setShadowBoxView()
     }
     
-    func setupPieChart() {
+    func setupPieChart(cash: Double, credit: Double) {
         pieChartView.chartDescription?.enabled = false
         pieChartView.drawHoleEnabled = true
         pieChartView.rotationAngle = 0.5
@@ -93,8 +114,8 @@ extension MainViewController {
         pieChartView.centerAttributedText =  centerText
         
         var entries: [PieChartDataEntry] = Array()
-        entries.append(PieChartDataEntry(value: 10.0, label: ""))
-        entries.append(PieChartDataEntry(value: 90.0, label: ""))
+        entries.append(PieChartDataEntry(value: cash, label: ""))
+        entries.append(PieChartDataEntry(value: credit, label: ""))
 
         let dataSet = PieChartDataSet(entries: entries, label: "Global Data")
         let c1 = NSUIColor(cgColor: UIColor.systemGreen.cgColor)
@@ -143,7 +164,7 @@ extension MainViewController: UITableViewDelegate {
 //        guard let itemAppeal = viewModel.output.getItemAppeal(index: indexPath.item) else { return }
 //        print(itemAppeal.title ?? "")
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return viewModel.output.getItemViewCellHeight(tableView, indexPath: indexPath)
     }

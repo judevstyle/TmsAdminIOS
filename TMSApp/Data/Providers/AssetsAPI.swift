@@ -11,19 +11,20 @@ import UIKit
 
 public enum AssetsAPI {
     case getAssets(request: GetAssetsRequest)
+    case createAssets(request: PostAssetsRequest)
 }
 
 extension AssetsAPI: TargetType {
     public var baseURL: URL {
         switch self {
-        case .getAssets(_):
+        case .getAssets(_), .createAssets(_):
             return DomainNameConfig.TMSAssets.url
         }
     }
     
     public var path: String {
         switch self {
-        case .getAssets(_):
+        case .getAssets(_), .createAssets(_):
             return ""
         }
     }
@@ -32,6 +33,8 @@ extension AssetsAPI: TargetType {
         switch self {
         case .getAssets(_):
             return .get
+        case .createAssets(_):
+            return .post
         }
     }
     
@@ -43,6 +46,8 @@ extension AssetsAPI: TargetType {
         switch self {
         case let .getAssets(request):
             return .requestParameters(parameters: request.toJSON(), encoding: URLEncoding.queryString)
+        case let .createAssets(request):
+            return .requestCompositeParameters(bodyParameters: request.toJSON(), bodyEncoding: JSONEncoding.default, urlParameters: [:])
         }
     }
     

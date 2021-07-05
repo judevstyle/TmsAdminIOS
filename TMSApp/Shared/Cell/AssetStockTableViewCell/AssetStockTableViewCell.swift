@@ -12,6 +12,16 @@ class AssetStockTableViewCell: UITableViewCell {
     static let identifier = "AssetStockTableViewCell"
 
     @IBOutlet weak var bgView: UIView!
+    
+    @IBOutlet var countText: UILabel!
+    @IBOutlet var unitText: UILabel!
+    
+    @IBOutlet var noteLabel: UILabel!
+    
+    @IBOutlet var createByText: UILabel!
+    
+    @IBOutlet var dateText: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,5 +40,14 @@ class AssetStockTableViewCell: UITableViewCell {
 //        bgView.setShadowBoxView()
     }
     
+    func setupValueAssetStock(items: AssetStockItems?, itemDetail: AssetsItems?) {
+        countText.text = "\(items?.quantity ?? 0)"
+        unitText.text = itemDetail?.assetUnit ?? ""
+    }
+    
+    func setupValueAssetPickupStock(items: AssetPickupStockItems?, itemDetail: AssetsItems?) {
+        countText.text = "\(items?.quantity ?? 0)"
+        unitText.text = itemDetail?.assetUnit ?? ""
+    }
 }
 

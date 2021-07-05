@@ -20,6 +20,8 @@ protocol AssetListProtocolOutput: class {
     func getHeightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat
     func getNumberOfRowsInSection(_ tableView: UITableView, section: Int) -> Int
     func getCellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
+    
+    func getItemRowAt(_ tableView: UITableView, indexPath: IndexPath) -> AssetsItems?
 }
 
 protocol AssetListProtocol: AssetListProtocolInput, AssetListProtocolOutput {
@@ -79,5 +81,9 @@ class AssetListViewModel: AssetListProtocol, AssetListProtocolOutput {
         cell.selectionStyle = .none
         cell.items = self.listAssetList?[indexPath.item]
         return cell
+    }
+    
+    func getItemRowAt(_ tableView: UITableView, indexPath: IndexPath) -> AssetsItems? {
+        return self.listAssetList?[indexPath.item]
     }
 }

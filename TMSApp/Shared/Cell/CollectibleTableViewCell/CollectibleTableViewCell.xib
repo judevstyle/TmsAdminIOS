@@ -130,7 +130,10 @@
             <viewLayoutGuide key="safeArea" id="1kB-lf-c2L"/>
             <connections>
                 <outlet property="bgView" destination="H1Y-tD-T9j" id="7vw-RO-eEC"/>
+                <outlet property="countStore" destination="PHz-MX-Ow2" id="2rD-4F-enT"/>
                 <outlet property="iconImage" destination="9Gv-Nb-0ch" id="bZB-FI-yMY"/>
+                <outlet property="pointText" destination="Tqw-pN-UKU" id="NkO-ii-Wlf"/>
+                <outlet property="titleText" destination="IPL-rZ-CVR" id="W7N-fz-NQK"/>
             </connections>
             <point key="canvasLocation" x="212.31884057971016" y="52.566964285714285"/>
         </tableViewCell>

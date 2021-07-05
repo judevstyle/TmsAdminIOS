@@ -11,17 +11,24 @@ import Combine
 
 protocol MainProtocolInput {
     func getHome()
+    func fetchDashboard()
 }
 
 protocol MainProtocolOutput: class {
     var didGetHomeSuccess: (() -> Void)? { get set }
     var didGetHomeError: (() -> Void)? { get set }
     
+    //Realtime
+    var didGetDashboardSuccess: (() -> Void)? { get set }
+    
     func getNumberOfRowsInSection(_ tableView: UITableView, section: Int) -> Int
     func getItemViewCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
     func getItemViewCellHeight(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat
     func getHeightSectionView(section: Int) -> CGFloat
     func getHeaderViewCell(_ tableView: UITableView, section: Int) -> UIView?
+    
+    
+    func getDashboardResponse() -> SocketDashboardResponse?
 }
 
 protocol MainProtocol: MainProtocolInput, MainProtocolOutput {
@@ -41,9 +48,11 @@ class MainViewModel: MainProtocol, MainProtocolOutput {
     private let getShipmentWorkingUseCase :GetShipmentWorkingUseCase
     private var anyCancellable: Set<AnyCancellable> = Set<AnyCancellable>()
     
+    private var dataDashboard: SocketDashboardResponse?
     private var summaryCustomer: SummaryCustomer?
     private var listProduct: [TotalOrderProduct]?
     private var listShipmentWorking: [ShipmentItems]?
+    
     
     init(
         mainViewController: MainViewController,
@@ -59,9 +68,11 @@ class MainViewModel: MainProtocol, MainProtocolOutput {
     var didGetHomeSuccess: (() -> Void)?
     var didGetHomeError: (() -> Void)?
     
+    var didGetDashboardSuccess: (() -> Void)?
+    
     func getHome() {
+        self.listProduct?.removeAll()
         mainViewController.startLoding()
-        
         self.getDashboardUseCase
             .execute().sink { completion in
                 debugPrint("getDashboard \(completion)")
@@ -89,6 +100,32 @@ class MainViewModel: MainProtocol, MainProtocolOutput {
             self.mainViewController.stopLoding()
         }.store(in: &self.anyCancellable)
         
+    }
+    
+    func fetchDashboard() {
+        SocketHelper.shared.fetchDashboard { result in
+            switch result {
+            case .success(let resp):
+                self.dataDashboard = resp
+                self.didGetDashboardSuccess?()
+            case .failure(_ ):
+                break
+            }
+        }
+        emitDashboard()
+    }
+    
+    
+    private func emitDashboard(){
+        var request: SocketDashboardRequest = SocketDashboardRequest()
+        request.compId = 1
+        SocketHelper.shared.emitDashboard(request: request) {
+            debugPrint("requestDashboard \(request)")
+        }
+    }
+    
+    func getDashboardResponse() -> SocketDashboardResponse? {
+        return self.dataDashboard
     }
     
     func getNumberOfRowsInSection(_ tableView: UITableView, section: Int) -> Int {

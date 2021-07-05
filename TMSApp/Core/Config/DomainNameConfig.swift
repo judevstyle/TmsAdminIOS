@@ -18,6 +18,9 @@ public enum DomainNameConfig {
     case TMSProductSpecialForTypeUser
     case TMSProductForTypeUser
     case TMSAssets
+    case TMSAssetStock
+    case TMSAssetPickupStock
+    case TMSCollectible
 }
 
 extension DomainNameConfig {
@@ -41,6 +44,12 @@ extension DomainNameConfig {
             return "http://43.229.149.79:3010/product-for-type-user"
         case .TMSAssets:
             return "http://43.229.149.79:3010/assets"
+        case .TMSAssetStock:
+            return "http://43.229.149.79:3010/asset-stock"
+        case .TMSAssetPickupStock:
+            return "http://43.229.149.79:3010/asset-pickup-stock"
+        case .TMSCollectible:
+            return "http://43.229.149.79:3010/collectibles"
         case .TMSImagePath:
             return "http://43.229.149.79:3010/" //+ path image url
         }

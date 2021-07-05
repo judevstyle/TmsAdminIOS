@@ -42,16 +42,25 @@ extension UITextField {
 //DatePicker
 extension UITextField {
     
-    func setInputViewDatePicker(target: Any, selector: Selector) {
+    func setInputViewDatePicker(target: Any, selector: Selector, dateStart: Date = Date(), isEnableMinDate: Bool = false) {
         // Create a UIDatePicker object and assign to inputView
         let screenWidth = UIScreen.main.bounds.width
         let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 216))//1
         datePicker.datePickerMode = .date //2
+        
         // iOS 14 and above
         if #available(iOS 14, *) {// Added condition for iOS 14
           datePicker.preferredDatePickerStyle = .wheels
           datePicker.sizeToFit()
         }
+        
+        if isEnableMinDate == true  {
+            var components = DateComponents()
+            components.day = 1
+            let minDate = Calendar.current.date(byAdding: components, to: dateStart)
+            datePicker.minimumDate = minDate
+        }
+        
         self.inputView = datePicker //3
         
         // Create a toolbar and assign it to inputAccessoryView

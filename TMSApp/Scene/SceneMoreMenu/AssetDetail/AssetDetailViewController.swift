@@ -37,11 +37,12 @@ class AssetDetailViewController: UIViewController {
 
         setupUI()
         registerCell()
-        viewModel.input.getAssetDetail()
+        viewModel.input.getAssetStock()
     }
 
     @IBAction func btnWithdrawItemAction(_ sender: Any) {
-        NavigationManager.instance.pushVC(to: .assetWithdraw)
+        guard let items = viewModel.output.getAssetDetail() else { return }
+        NavigationManager.instance.pushVC(to: .assetWithdraw(items: items))
     }
     
     func configure(_ interface: AssetDetailProtocol) {
@@ -53,18 +54,10 @@ class AssetDetailViewController: UIViewController {
 extension AssetDetailViewController {
     
     func bindToViewModel() {
-        viewModel.output.didGetAssetDetailSuccess = didGetAssetDetailSuccess()
-        viewModel.output.didGetAssetDetailError = didGetAssetDetailError()
+        viewModel.output.didGetAssetStockSuccess = didGetAssetStockSuccess()
     }
     
-    func didGetAssetDetailSuccess() -> (() -> Void) {
-        return { [weak self] in
-            guard let weakSelf = self else { return }
-            weakSelf.tableView.reloadData()
-        }
-    }
-    
-    func didGetAssetDetailError() -> (() -> Void) {
+    func didGetAssetStockSuccess() -> (() -> Void) {
         return { [weak self] in
             guard let weakSelf = self else { return }
             weakSelf.tableView.reloadData()
@@ -82,6 +75,8 @@ extension AssetDetailViewController {
         self.btnWithdrawItem.setRounded(rounded: 8)
         self.btnWithdrawItem.layer.borderColor = UIColor.Primary.cgColor
         self.btnWithdrawItem.layer.borderWidth = 0.5
+        
+        setupValue()
     }
     
     fileprivate func registerCell() {
@@ -91,6 +86,18 @@ extension AssetDetailViewController {
         tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         tableView.separatorStyle = .none
         tableView.registerCell(identifier: AssetStockTableViewCell.identifier)
+    }
+    
+    func setupValue() {
+        guard let items = viewModel.output.getAssetDetail() else { return }
+        
+        
+        nameText.text = items.assetName ?? ""
+        descText.text = items.assetDesc ?? ""
+        
+        guard let urlImage = URL(string: "\(DomainNameConfig.TMSImagePath.urlString)\(items.assetImg ?? "")") else { return }
+        imageShow.kf.setImageDefault(with: urlImage)
+        
     }
     
 }
@@ -121,8 +128,15 @@ extension AssetDetailViewController: UITableViewDataSource {
 
 extension AssetDetailViewController: ButtonPrimaryViewDelegate {
     func onClickButton() {
-        NavigationManager.instance.pushVC(to: .modalAssetStock, presentation: .PopupSheet(completion: {
+        guard let items = self.viewModel.output.getAssetDetail(), let astId = items.astId  else { return }
+        NavigationManager.instance.pushVC(to: .modalAssetStock(astId: astId, delegate: self, modalAssetType: .AssetStock), presentation: .PopupSheet(completion: {
             
         }))
+    }
+}
+
+extension AssetDetailViewController: ModalAssetStockViewModelDelegate {
+    func didUpdateSuccess() {
+        viewModel.input.getAssetStock()
     }
 }

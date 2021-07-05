@@ -14,7 +14,7 @@ class CollectibleViewController: UIViewController {
     
     // ViewModel
     lazy var viewModel: CollectibleProtocol = {
-        let vm = CollectibleViewModel(CollectibleViewController: self)
+        let vm = CollectibleViewModel(collectibleViewController: self)
         self.configure(vm)
         self.bindToViewModel()
         return vm
@@ -24,11 +24,14 @@ class CollectibleViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         registerCell()
-        viewModel.input.getCollectible()
     }
     
     func configure(_ interface: CollectibleProtocol) {
         self.viewModel = interface
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.input.getCollectible()
     }
 }
 

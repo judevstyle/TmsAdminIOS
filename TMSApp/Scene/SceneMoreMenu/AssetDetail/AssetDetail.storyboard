@@ -144,10 +144,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2s4-BA-H4x">
-                                <rect key="frame" x="8" y="801" width="414" height="61"/>
+                                <rect key="frame" x="8" y="801" width="398" height="61"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ri6-Ch-Fsn" customClass="ButtonPrimaryView" customModule="TMSApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="61"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="61"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="61" id="zyY-0C-ER8"/>
@@ -164,15 +164,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="y91-7E-swf" firstAttribute="top" secondItem="CLZ-IW-vwV" secondAttribute="bottom" id="0RR-ht-zTf"/>
-                            <constraint firstItem="2s4-BA-H4x" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="8" id="1QR-pF-d8Z"/>
                             <constraint firstItem="2s4-BA-H4x" firstAttribute="top" secondItem="y91-7E-swf" secondAttribute="bottom" id="2DE-Bm-dU4"/>
+                            <constraint firstItem="2s4-BA-H4x" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-8" id="Bld-dO-IXM"/>
                             <constraint firstItem="CLZ-IW-vwV" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="OlT-zb-IjE"/>
+                            <constraint firstItem="2s4-BA-H4x" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="Pj6-Kh-QfA"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CLZ-IW-vwV" secondAttribute="trailing" constant="8" id="Rp7-q2-Ci7"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="y91-7E-swf" secondAttribute="trailing" id="fjZ-CO-shm"/>
                             <constraint firstItem="y91-7E-swf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="flj-IL-Fc3"/>
                             <constraint firstItem="CLZ-IW-vwV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="kUH-9j-fnU"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2s4-BA-H4x" secondAttribute="bottom" id="mvE-fS-kfO"/>
-                            <constraint firstItem="2s4-BA-H4x" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="on7-Dg-qQ1"/>
                         </constraints>
                     </view>
                     <connections>

@@ -86,7 +86,8 @@ extension AssetListViewController {
 
 extension AssetListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NavigationManager.instance.pushVC(to: .assetDetail)
+        guard let items = viewModel.output.getItemRowAt(tableView, indexPath: indexPath) else { return }
+        NavigationManager.instance.pushVC(to: .assetDetail(items: items))
         
     }
     

@@ -15,6 +15,9 @@ target 'TMSApp' do
   pod 'Charts'
   pod 'MaterialComponents/BottomSheet'
   pod 'MessageKit'
+  
+  # Pods for Socket-Chat
+  pod 'Socket.IO-Client-Swift', '~> 15.2.0'
 
   target 'TMSAppTests' do
     inherit! :search_paths

@@ -37,19 +37,19 @@
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="21"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pch-UO-gdj">
-                                                <rect key="frame" x="0.0" y="0.0" width="33.5" height="21"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="36.5" height="21"/>
                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdi-Pm-BZC">
-                                                <rect key="frame" x="38.5" y="0.0" width="37.5" height="21"/>
+                                                <rect key="frame" x="41.5" y="0.0" width="36" height="21"/>
                                                 <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="16"/>
                                                 <color key="textColor" name="Primary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ของ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nj-6M-k4B">
-                                                <rect key="frame" x="81" y="0.0" width="24" height="21"/>
+                                                <rect key="frame" x="82.5" y="0.0" width="23" height="21"/>
                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -91,7 +91,7 @@
                                         <rect key="frame" x="0.0" y="63" width="398" height="21"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021-05-27T16:18:02.121Z" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1j-S9-Ddt">
-                                                <rect key="frame" x="229" y="0.0" width="169" height="21"/>
+                                                <rect key="frame" x="226.5" y="0.0" width="171.5" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="nwa-Cm-oGg"/>
                                                 </constraints>
@@ -100,7 +100,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="kCY-is-BwM">
-                                                <rect key="frame" x="210" y="5" width="11" height="11"/>
+                                                <rect key="frame" x="207.5" y="5" width="11" height="11"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="kCY-is-BwM" secondAttribute="height" multiplier="1:1" id="ToC-bp-hna"/>
                                                 </constraints>
@@ -140,6 +140,11 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="bgView" destination="01x-Uc-wLa" id="xlK-Jy-0ax"/>
+                <outlet property="countText" destination="rdi-Pm-BZC" id="BUX-DC-ZEq"/>
+                <outlet property="createByText" destination="Yoa-CT-np0" id="69h-4y-9Yd"/>
+                <outlet property="dateText" destination="Q1j-S9-Ddt" id="2v8-XB-UfP"/>
+                <outlet property="noteLabel" destination="xVo-Ex-hxk" id="Y7B-EG-rzr"/>
+                <outlet property="unitText" destination="5nj-6M-k4B" id="TeM-dz-zaG"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="52.901785714285715"/>
         </tableViewCell>

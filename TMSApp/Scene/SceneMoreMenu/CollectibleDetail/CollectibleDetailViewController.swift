@@ -104,8 +104,13 @@ extension CollectibleDetailViewController: UITableViewDataSource {
 
 extension CollectibleDetailViewController: ButtonPrimaryViewDelegate {
     func onClickButton() {
-        NavigationManager.instance.pushVC(to: .modalAssetStock, presentation: .PopupSheet(completion: {
-            
-        }))
+//        NavigationManager.instance.pushVC(to: .modalAssetStock(astId: 0, delegate: self), presentation: .PopupSheet(completion: {
+//            
+//        }))
+    }
+}
+
+extension CollectibleDetailViewController: ModalAssetStockViewModelDelegate {
+    func didUpdateSuccess() {
     }
 }

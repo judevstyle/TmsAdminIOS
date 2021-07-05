@@ -22,10 +22,32 @@ class EditCollectibleViewController: UIViewController {
     @IBOutlet var inputDateEnd: InputTextFieldDatePicker!
     
     @IBOutlet var buttonSave: ButtonPrimaryView!
+    
+    // ViewModel
+    lazy var viewModel: EditCollectibleProtocol = {
+        let vm = EditCollectibleViewModel(editCollectibleViewController: self)
+        self.configure(vm)
+        self.bindToViewModel()
+        return vm
+    }()
+    
+    fileprivate var imageBase64: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupUI()
+    }
+    
+    func configure(_ interface: EditCollectibleProtocol) {
+        self.viewModel = interface
+    }
+
+}
+
+// MARK: - Binding
+extension EditCollectibleViewController {
+    
+    func bindToViewModel() {
     }
 
 }
@@ -65,6 +87,9 @@ extension EditCollectibleViewController {
             let dateformatter = DateFormatter()
             dateformatter.dateFormat = "dd/MM/yyyy"
             self.inputDateStart.inputText.text = dateformatter.string(from: datePicker.date)
+            
+            self.inputDateEnd.inputText.setInputViewDatePicker(target: self, selector: #selector(tapDoneEndDatePicker), dateStart: datePicker.date, isEnableMinDate: true)
+            self.inputDateEnd.inputText.text = ""
         }
         self.inputDateStart.inputText.resignFirstResponder()
     }
@@ -86,12 +111,33 @@ extension EditCollectibleViewController : UITextFieldDelegate {
 
 extension EditCollectibleViewController: ButtonPrimaryViewDelegate {
     func onClickButton() {
-        print("onClickButton")
+
+        guard let clbTitle = self.inputNameView.inputText.text, clbTitle != "",
+              let clbDescript = self.inputDescView.inputText.text, clbDescript != "",
+              let rewardPoint = self.inputPointUseView.inputText.text, rewardPoint != "",
+              let qty = self.inputAllSumView.inputText.text, qty != "",
+              let campaignStartDate = self.inputDateStart.inputText.text, campaignStartDate != "",
+              let campaignEndDate = self.inputDateEnd.inputText.text, campaignEndDate != "",
+              let base64 = self.imageBase64, base64.isEmpty == false
+        else { return }
+        
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "yyyy/MM/dd"
+        let startDate = dateformatter.string(from: dateformatter.date(from: campaignStartDate) ?? Date())
+        let endDate = dateformatter.string(from: dateformatter.date(from: campaignEndDate) ?? Date())
+        
+        viewModel.input.createCollectible(clbTitle: clbTitle,
+                                          clbDescript: clbDescript,
+                                          qty: qty,
+                                          clbImg: base64,
+                                          rewardPoint: rewardPoint,
+                                          campaignStartDate: startDate,
+                                          campaignEndDate: endDate)
     }
 }
 
 extension EditCollectibleViewController : ImageChoose1x1ButtonDelegate {
     func didSelectImage(base64: String) {
-        print(base64)
+        self.imageBase64 = base64
     }
 }

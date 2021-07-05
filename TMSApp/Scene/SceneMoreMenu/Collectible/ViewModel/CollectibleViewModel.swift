@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Combine
 
 protocol CollectibleProtocolInput {
     func getCollectible()
@@ -31,34 +32,38 @@ class CollectibleViewModel: CollectibleProtocol, CollectibleProtocolOutput {
     var output: CollectibleProtocolOutput { return self }
     
     // MARK: - Properties
-    private var CollectibleViewController: CollectibleViewController
-    
+    private var collectibleViewController: CollectibleViewController
+    // MARK: - UserCase
+    private var getCollectibleUseCase: GetCollectibleUseCase
+    private var anyCancellable: Set<AnyCancellable> = Set<AnyCancellable>()
     
     
     init(
-        CollectibleViewController: CollectibleViewController
+        collectibleViewController: CollectibleViewController,
+        getCollectibleUseCase: GetCollectibleUseCase = GetCollectibleUseCaseImpl()
     ) {
-        self.CollectibleViewController = CollectibleViewController
+        self.collectibleViewController = collectibleViewController
+        self.getCollectibleUseCase = getCollectibleUseCase
     }
     
     // MARK - Data-binding OutPut
     var didGetCollectibleSuccess: (() -> Void)?
     var didGetCollectibleError: (() -> Void)?
     
-    fileprivate var listCollectible: [GetAppealResponse]? = []
+    fileprivate var listCollectible: [CollectibleItems]? = []
     
     func getCollectible() {
         listCollectible?.removeAll()
-        CollectibleViewController.startLoding()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-            guard let weakSelf = self else { return }
-            for _ in 0..<7 {
-                weakSelf.listCollectible?.append(GetAppealResponse(title: "test"))
+        collectibleViewController.startLoding()
+        self.getCollectibleUseCase.execute().sink { completion in
+            debugPrint("getCollectible \(completion)")
+            self.collectibleViewController.stopLoding()
+        } receiveValue: { resp in
+            if let items = resp?.items {
+                self.listCollectible = items
             }
-
-            weakSelf.didGetCollectibleSuccess?()
-            weakSelf.CollectibleViewController.stopLoding()
-        }
+            self.didGetCollectibleSuccess?()
+        }.store(in: &self.anyCancellable)
     }
     
     func getHeightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat {
@@ -72,6 +77,7 @@ class CollectibleViewModel: CollectibleProtocol, CollectibleProtocolOutput {
     func getCellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CollectibleTableViewCell.identifier, for: indexPath) as! CollectibleTableViewCell
         cell.selectionStyle = .none
+        cell.items = listCollectible?[indexPath.item]
         return cell
     }
 }

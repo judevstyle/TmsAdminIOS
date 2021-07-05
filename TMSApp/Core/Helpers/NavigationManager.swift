@@ -46,10 +46,10 @@ public enum NavigationOpeningSender {
     case selectShop(items: [GetShopResponse]?, delegate: SelectShopViewModelDelegate)
     case assetList
     case editAsset
-    case assetDetail
-    case assetWithdraw
+    case assetDetail(items: AssetsItems?)
+    case assetWithdraw(items: AssetsItems?)
     case chat
-    case modalAssetStock
+    case modalAssetStock(astId: Int?, delegate: ModalAssetStockViewModelDelegate, modalAssetType: ModalAssetType)
     case collectible
     case coleectibleDetail
     case editCollectible
@@ -395,6 +395,22 @@ class NavigationManager {
         case .productDetail(let productId):
             if let className = storyboard.instantiateInitialViewController() as? ProductDetailViewController {
                 className.viewModel.input.setProductId(productId: productId)
+                viewController = className
+            }
+        case .assetDetail(let items):
+            if let className = storyboard.instantiateInitialViewController() as? AssetDetailViewController {
+                className.viewModel.input.setAssetDetail(items: items)
+                viewController = className
+            }
+        case .modalAssetStock(let astId, let delegate, let modalAssetType):
+            if let className = storyboard.instantiateInitialViewController() as? ModalAssetStockViewController {
+//                className.viewModel.input.setAssetStock(astId: astId, delegate: delegat)
+                className.viewModel.input.setAssetData(astId: astId, delegate: delegate, modalAssetType: modalAssetType)
+                viewController = className
+            }
+        case .assetWithdraw(let items):
+            if let className = storyboard.instantiateInitialViewController() as? AssetWithdrawViewController {
+                className.viewModel.input.setAssetDetail(items: items)
                 viewController = className
             }
         default:

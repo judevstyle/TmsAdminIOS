@@ -91,8 +91,15 @@ extension AssetWithdrawViewController: UITableViewDataSource {
 
 extension AssetWithdrawViewController: ButtonPrimaryViewDelegate {
     func onClickButton() {
-        NavigationManager.instance.pushVC(to: .modalAssetStock, presentation: .PopupSheet(completion: {
+        guard let items = self.viewModel.output.getAssetDetail(), let astId = items.astId  else { return }
+        NavigationManager.instance.pushVC(to: .modalAssetStock(astId: astId, delegate: self, modalAssetType: .AssetPickupStock), presentation: .PopupSheet(completion: {
             
         }))
+    }
+}
+
+extension AssetWithdrawViewController: ModalAssetStockViewModelDelegate {
+    func didUpdateSuccess() {
+        viewModel.input.getAssetWithdraw()
     }
 }

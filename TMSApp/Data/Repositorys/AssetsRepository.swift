@@ -11,6 +11,7 @@ import Moya
 
 protocol AssetsRepository {
     func getAssets(request: GetAssetsRequest) -> AnyPublisher<GetAssetsResponse, Error>
+    func createAssets(request: PostAssetsRequest) -> AnyPublisher<PostAssetsResponse, Error>
 }
 
 final class AssetsRepositoryImpl: TMSApp.AssetsRepository {
@@ -21,5 +22,12 @@ final class AssetsRepositoryImpl: TMSApp.AssetsRepository {
             .cb
             .request(.getAssets(request: request))
             .map(GetAssetsResponse.self)
+    }
+    
+    func createAssets(request: PostAssetsRequest) -> AnyPublisher<PostAssetsResponse, Error> {
+        return self.provider
+            .cb
+            .request(.createAssets(request: request))
+            .map(PostAssetsResponse.self)
     }
 }
