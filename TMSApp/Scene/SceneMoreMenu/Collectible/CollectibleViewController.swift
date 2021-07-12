@@ -86,7 +86,8 @@ extension CollectibleViewController: ButtonPrimaryViewDelegate {
 
 extension CollectibleViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NavigationManager.instance.pushVC(to: .coleectibleDetail)
+        guard let items = viewModel.output.getItemCollectible(tableView, indexPath: indexPath) else { return }
+        NavigationManager.instance.pushVC(to: .coleectibleDetail(items: items))
         
     }
     

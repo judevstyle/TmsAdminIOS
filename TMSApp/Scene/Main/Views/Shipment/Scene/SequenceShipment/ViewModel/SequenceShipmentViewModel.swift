@@ -61,18 +61,18 @@ class SequenceShipmentViewModel: SequenceShipmentProtocol, SequenceShipmentProto
     }
     
     func getSequenceShipment() {
-        listSequenceShipment?.removeAll()
-        sequenceShipmentViewController.startLoding()
-        guard let shipmentId = self.shipmentId else { return }
-        self.getShipmentCustomerUseCase.execute(shipmentId: shipmentId).sink { completion in
-            debugPrint("ShipmentCustomer \(completion)")
-        } receiveValue: { resp in
-            if let items = resp?.data?.shipmentCustomer {
-                self.listSequenceShipment = items
-            }
-            self.didGetSequenceShipmentSuccess?()
-            self.sequenceShipmentViewController.stopLoding()
-        }.store(in: &self.anyCancellable)
+//        listSequenceShipment?.removeAll()
+//        sequenceShipmentViewController.startLoding()
+//        guard let shipmentId = self.shipmentId else { return }
+//        self.getShipmentCustomerUseCase.execute(shipmentId: shipmentId).sink { completion in
+//            debugPrint("ShipmentCustomer \(completion)")
+//        } receiveValue: { resp in
+//            if let items = resp?.data?.shipmentCustomer {
+//                self.listSequenceShipment = items
+//            }
+//            self.didGetSequenceShipmentSuccess?()
+//            self.sequenceShipmentViewController.stopLoding()
+//        }.store(in: &self.anyCancellable)
     }
     
     func getHeightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat {

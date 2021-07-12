@@ -12,6 +12,7 @@ import Moya
 protocol CollectibleRepository {
     func getCollectible() -> AnyPublisher<GetCollectibleResponse, Error>
     func createCollectible(request: PostCollectibleRequest) -> AnyPublisher<PostCollectibleResponse, Error>
+    func getCollectibleDetail(clbId: Int) -> AnyPublisher<GetCollectibleDetailResponse, Error>
 }
 
 final class CollectibleRepositoryImpl: TMSApp.CollectibleRepository {
@@ -29,5 +30,12 @@ final class CollectibleRepositoryImpl: TMSApp.CollectibleRepository {
             .cb
             .request(.createCollectible(request: request))
             .map(PostCollectibleResponse.self)
+    }
+    
+    func getCollectibleDetail(clbId: Int) -> AnyPublisher<GetCollectibleDetailResponse, Error> {
+        return self.provider
+            .cb
+            .request(.getCollectibleDetail(clbId: clbId))
+            .map(GetCollectibleDetailResponse.self)
     }
 }

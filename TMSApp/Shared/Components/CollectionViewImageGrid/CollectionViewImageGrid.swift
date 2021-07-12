@@ -9,7 +9,7 @@ import UIKit
 
 protocol CollectionViewImageGridDelegate: class {
     func didSelectItem(indexPath: IndexPath)
-    func imageListChangeAction()
+    func imageListChangeAction(listBase64: [String]?)
 }
 
 class CollectionViewImageGrid: UIView {

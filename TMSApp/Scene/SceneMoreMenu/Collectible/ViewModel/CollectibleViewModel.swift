@@ -20,6 +20,7 @@ protocol CollectibleProtocolOutput: class {
     func getHeightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat
     func getNumberOfRowsInSection(_ tableView: UITableView, section: Int) -> Int
     func getCellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
+    func getItemCollectible(_ tableView: UITableView, indexPath: IndexPath) -> CollectibleItems?
 }
 
 protocol CollectibleProtocol: CollectibleProtocolInput, CollectibleProtocolOutput {
@@ -79,5 +80,9 @@ class CollectibleViewModel: CollectibleProtocol, CollectibleProtocolOutput {
         cell.selectionStyle = .none
         cell.items = listCollectible?[indexPath.item]
         return cell
+    }
+    
+    func getItemCollectible(_ tableView: UITableView, indexPath: IndexPath) -> CollectibleItems? {
+        return self.listCollectible?[indexPath.item]
     }
 }

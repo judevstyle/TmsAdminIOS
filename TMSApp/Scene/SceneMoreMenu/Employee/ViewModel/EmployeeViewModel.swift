@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Combine
 
 protocol EmployeeProtocolInput {
     func getEmployee()
@@ -32,33 +33,40 @@ class EmployeeViewModel: EmployeeProtocol, EmployeeProtocolOutput {
     
     // MARK: - Properties
     private var employeeViewController: EmployeeViewController
+    // MARK: - UseCase
+    private var getEmployeeUseCase: GetEmployeeUseCase
+    private var anyCancellable: Set<AnyCancellable> = Set<AnyCancellable>()
     
     
     
     init(
-        employeeViewController: EmployeeViewController
+        employeeViewController: EmployeeViewController,
+        getEmployeeUseCase: GetEmployeeUseCase = GetEmployeeUseCaseImpl()
     ) {
         self.employeeViewController = employeeViewController
+        self.getEmployeeUseCase = getEmployeeUseCase
     }
     
     // MARK - Data-binding OutPut
     var didGetEmployeeSuccess: (() -> Void)?
     var didGetEmployeeError: (() -> Void)?
     
-    fileprivate var listEmployee: [GetAppealResponse]? = []
+    fileprivate var listEmployee: [EmployeeItems]? = []
     
     func getEmployee() {
         listEmployee?.removeAll()
         employeeViewController.startLoding()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-            guard let weakSelf = self else { return }
-            for _ in 0..<10 {
-                weakSelf.listEmployee?.append(GetAppealResponse(title: "test"))
+        
+        self.getEmployeeUseCase.execute().sink { completion in
+            debugPrint("getEmployee \(completion)")
+            self.employeeViewController.stopLoding()
+        } receiveValue: { resp in
+            
+            if let items = resp {
+                self.listEmployee = items
+                self.didGetEmployeeSuccess?()
             }
-
-            weakSelf.didGetEmployeeSuccess?()
-            weakSelf.employeeViewController.stopLoding()
-        }
+        }.store(in: &self.anyCancellable)
     }
     
     func getHeightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat {
@@ -72,6 +80,7 @@ class EmployeeViewModel: EmployeeProtocol, EmployeeProtocolOutput {
     func getCellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: EmployeeTableViewCell.identifier, for: indexPath) as! EmployeeTableViewCell
         cell.selectionStyle = .none
+        cell.items = self.listEmployee?[indexPath.item]
         return cell
     }
 }

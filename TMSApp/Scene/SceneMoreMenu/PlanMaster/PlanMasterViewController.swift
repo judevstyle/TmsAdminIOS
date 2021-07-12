@@ -76,14 +76,15 @@ extension PlanMasterViewController {
 // MARK: - Handles
 extension PlanMasterViewController {
     @objc func btnPlanAction() {
-        NavigationManager.instance.pushVC(to: .editPlanMaster(isEdit: true))
+        NavigationManager.instance.pushVC(to: .editPlanMaster(planId: nil, isEdit: true))
     }
 }
 
 
 extension PlanMasterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NavigationManager.instance.pushVC(to: .editPlanMaster(isEdit: false))
+        guard let item = viewModel.output.getItemForRowAt(tableView, indexPath: indexPath) else { return }
+        NavigationManager.instance.pushVC(to: .editPlanMaster(planId: item.planId, isEdit: false))
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -91,7 +92,6 @@ extension PlanMasterViewController: UITableViewDelegate {
     }
     
 }
-
 
 extension PlanMasterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

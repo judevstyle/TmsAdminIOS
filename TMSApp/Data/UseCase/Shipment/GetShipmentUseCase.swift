@@ -23,6 +23,7 @@ struct GetShipmentUseCaseImpl: GetShipmentUseCase {
     func execute() -> AnyPublisher<GetShipmentResponse?, Error> {
         var request = GetShipmentRequest()
         request.compId = 1
+        request.status = 1
         return shipmentRepository
             .getShipment(request: request)
             .map { $0 }

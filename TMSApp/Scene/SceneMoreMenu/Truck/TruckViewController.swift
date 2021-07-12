@@ -24,11 +24,14 @@ class TruckViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         registerCell()
-        viewModel.input.getTruck()
     }
     
     func configure(_ interface: TruckProtocol) {
         self.viewModel = interface
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.input.getTruck()
     }
 }
 

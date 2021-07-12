@@ -16,6 +16,7 @@ protocol DayCollectionProtocolInput {
     func setList(days: [WeeklyType]?)
     func didSelectItemAt(_ collectionView: UICollectionView, indexPath: IndexPath)
     func setDelegate(delegate: DayCollectionViewModelDelegate)
+    func setEdit(isEdit: Bool)
 }
 
 protocol DayCollectionProtocolOutput: class {
@@ -44,6 +45,7 @@ class DayCollectionViewModel: DayCollectionProtocol, DayCollectionProtocolOutput
     var didSetMenuSuccess: (() -> Void)?
     fileprivate var listDay: [WeeklyType]? = []
     fileprivate var listSelectedDay: [WeeklyType]? = []
+    fileprivate var isEditing: Bool = false
     
     public var delegate: DayCollectionViewModelDelegate?
     
@@ -54,6 +56,10 @@ class DayCollectionViewModel: DayCollectionProtocol, DayCollectionProtocolOutput
     func setList(days: [WeeklyType]?) {
         listDay = days
         self.didSetMenuSuccess?()
+    }
+    
+    func setEdit(isEdit: Bool) {
+        self.isEditing = isEdit
     }
     
     func getNumberOfCollection() -> Int {
@@ -69,7 +75,7 @@ class DayCollectionViewModel: DayCollectionProtocol, DayCollectionProtocolOutput
     
     
     func didSelectItemAt(_ collectionView: UICollectionView, indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? DayListCollectionViewCell {
+        if let cell = collectionView.cellForItem(at: indexPath) as? DayListCollectionViewCell, isEditing == true {
             cell.setState()
             if cell.isSelectedItem {
                 addSelectedDay(day: (self.listDay?[indexPath.row]))

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Combine
 
 protocol PlanMasterProtocolInput {
     func getPlanMaster()
@@ -20,6 +21,8 @@ protocol PlanMasterProtocolOutput: class {
     func getHeightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat
     func getNumberOfRowsInSection(_ tableView: UITableView, section: Int) -> Int
     func getCellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
+    
+    func getItemForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> PlanMasterItems?
 }
 
 protocol PlanMasterProtocol: PlanMasterProtocolInput, PlanMasterProtocolOutput {
@@ -33,33 +36,36 @@ class PlanMasterViewModel: PlanMasterProtocol, PlanMasterProtocolOutput {
     
     // MARK: - Properties
     private var planMasterViewController: PlanMasterViewController
-    
-    
+    // MARK: - UseCase
+    private var getPlanMasterUseCase: GetPlanMasterUseCase
+    private var anyCancellable: Set<AnyCancellable> = Set<AnyCancellable>()
     
     init(
-        planMasterViewController: PlanMasterViewController
+        planMasterViewController: PlanMasterViewController,
+        getPlanMasterUseCase: GetPlanMasterUseCase = GetPlanMasterUseCaseImpl()
     ) {
         self.planMasterViewController = planMasterViewController
+        self.getPlanMasterUseCase = getPlanMasterUseCase
     }
     
     // MARK - Data-binding OutPut
     var didGetPlanMasterSuccess: (() -> Void)?
     var didGetPlanMasterError: (() -> Void)?
     
-    fileprivate var listPlanMaster: [GetAppealResponse]? = []
+    fileprivate var listPlanMaster: [PlanMasterItems]? = []
     
     func getPlanMaster() {
         listPlanMaster?.removeAll()
         planMasterViewController.startLoding()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-            guard let weakSelf = self else { return }
-            for _ in 0..<3 {
-                weakSelf.listPlanMaster?.append(GetAppealResponse(title: "test"))
+        self.getPlanMasterUseCase.execute().sink { completion in
+            debugPrint("getPlanMaster \(completion)")
+            self.planMasterViewController.stopLoding()
+        } receiveValue: { resp in
+            if let items = resp?.items {
+                self.listPlanMaster = items
             }
-
-            weakSelf.didGetPlanMasterSuccess?()
-            weakSelf.planMasterViewController.stopLoding()
-        }
+            self.didGetPlanMasterSuccess?()
+        }.store(in: &self.anyCancellable)
     }
     
     func getHeightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat {
@@ -73,9 +79,14 @@ class PlanMasterViewModel: PlanMasterProtocol, PlanMasterProtocolOutput {
     func getCellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PlanMasterTableViewCell.identifier, for: indexPath) as! PlanMasterTableViewCell
         cell.selectionStyle = .none
+        cell.items = self.listPlanMaster?[indexPath.item]
         return cell
     }
+    
     func didSelectItemAt(_ tableView: UITableView, indexPath: IndexPath) {
-        print("ss")
+    }
+    
+    func getItemForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> PlanMasterItems? {
+        return self.listPlanMaster?[indexPath.item]
     }
 }

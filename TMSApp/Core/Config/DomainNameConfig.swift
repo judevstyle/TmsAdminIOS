@@ -21,6 +21,11 @@ public enum DomainNameConfig {
     case TMSAssetStock
     case TMSAssetPickupStock
     case TMSCollectible
+    case TMSAuthEmployee
+    case TMSEmployee
+    case TMSJobPosition
+    case TMSPlanMaster
+    case TMSTruck
 }
 
 extension DomainNameConfig {
@@ -50,6 +55,16 @@ extension DomainNameConfig {
             return "http://43.229.149.79:3010/asset-pickup-stock"
         case .TMSCollectible:
             return "http://43.229.149.79:3010/collectibles"
+        case .TMSAuthEmployee:
+            return "http://43.229.149.79:3010/auth"
+        case .TMSEmployee:
+            return "http://43.229.149.79:3010/employee"
+        case .TMSJobPosition:
+            return "http://43.229.149.79:3010/jobposition"
+        case .TMSTruck:
+            return "http://43.229.149.79:3010/truck"
+        case .TMSPlanMaster:
+            return "http://43.229.149.79:3010/plan-master"
         case .TMSImagePath:
             return "http://43.229.149.79:3010/" //+ path image url
         }

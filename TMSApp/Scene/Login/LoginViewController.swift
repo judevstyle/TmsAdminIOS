@@ -16,18 +16,65 @@ class LoginViewController: UIViewController {
     @IBOutlet var btnLogin: UIButton!
     @IBOutlet var viewKeyboardHeight: NSLayoutConstraint!
     
+    
+    // ViewModel
+    lazy var viewModel: LoginProtocol = {
+        let vm = LoginViewModel(loginViewController: self)
+        self.configure(vm)
+        self.bindToViewModel()
+        return vm
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         registerKeyboardObserver()
+
+        if let AccessToken = UserDefaultsKey.AccessToken.string, AccessToken != "" {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                NavigationManager.instance.pushVC(to: .mainTabBar, presentation: .Root, isHiddenNavigationBar: true)
+            }
+            debugPrint(AccessToken)
+        }
     }
     
     @IBAction func handleLogin(_ sender: Any) {
-        NavigationManager.instance.pushVC(to: .mainTabBar, presentation: .Root, isHiddenNavigationBar: true)
+        guard let username = self.inputUsername.text, username != "",
+              let password = self.inputPassword.text, password != "" else { return }
+        var request: PostAuthEmployeeRequest = PostAuthEmployeeRequest()
+        request.username = username
+        request.password = password
+        viewModel.input.authLogin(request: request)
+    }
+    
+    func configure(_ interface: LoginProtocol) {
+        self.viewModel = interface
     }
     
     deinit {
        removeObserver()
+    }
+}
+
+// MARK: - Binding
+extension LoginViewController {
+    
+    func bindToViewModel() {
+        viewModel.output.didLoginSuccess = didLoginSuccess()
+        viewModel.output.didLoginError = didLoginError()
+    }
+    
+    func didLoginSuccess() -> (() -> Void) {
+        return { [weak self] in
+            guard let weakSelf = self else { return }
+            NavigationManager.instance.pushVC(to: .mainTabBar, presentation: .Root, isHiddenNavigationBar: true)
+        }
+    }
+    
+    func didLoginError() -> (() -> Void) {
+        return { [weak self] in
+            guard let weakSelf = self else { return }
+        }
     }
 }
 
@@ -43,8 +90,10 @@ extension LoginViewController {
         inputPassword.setPaddingLeft(padding: 29)
         
         btnLogin.setRounded(rounded: 6)
-        inputUsername.text = "Nontawatkb"
-        inputPassword.text = "123456"
+        
+        //Demo User
+        inputUsername.text = "10003"
+        inputPassword.text = "0003"
     }
 }
 

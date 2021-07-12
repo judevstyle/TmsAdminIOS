@@ -40,7 +40,7 @@ public enum NavigationOpeningSender {
     case productDetail(productId: Int)
     case editTruck
     case editProduct(product: Product?)
-    case editPlanMaster(isEdit: Bool)
+    case editPlanMaster(planId :Int?, isEdit: Bool)
     case selectEmployee(delegate: SelectEmployeeViewModelDelegate)
     case sortShop(items: [GetShopResponse]?, delegate: SortShopViewModelDelegate)
     case selectShop(items: [GetShopResponse]?, delegate: SelectShopViewModelDelegate)
@@ -51,7 +51,7 @@ public enum NavigationOpeningSender {
     case chat
     case modalAssetStock(astId: Int?, delegate: ModalAssetStockViewModelDelegate, modalAssetType: ModalAssetType)
     case collectible
-    case coleectibleDetail
+    case coleectibleDetail(items: CollectibleItems?)
     case editCollectible
     
     public var storyboardName: String {
@@ -367,9 +367,10 @@ class NavigationManager {
                 className.viewModel.input.setDelegate(delegate: delegate)
                 viewController = className
             }
-        case .editPlanMaster(let isEdit):
+        case .editPlanMaster(let planId, let isEdit):
             if let className = storyboard.instantiateInitialViewController() as? EditPlanMasterViewController {
                 className.viewModel.input.setEdit(isEdit: isEdit)
+                className.viewModel.input.setPlanId(planId: planId)
                 viewController = className
             }
         case .orderCart(let orderId):
@@ -413,6 +414,11 @@ class NavigationManager {
                 className.viewModel.input.setAssetDetail(items: items)
                 viewController = className
             }
+        case .coleectibleDetail(let items):
+        if let className = storyboard.instantiateInitialViewController() as? CollectibleDetailViewController {
+            className.viewModel.input.setCollectibleDetail(items: items)
+            viewController = className
+        }
         default:
             viewController = storyboard.instantiateInitialViewController() ?? to.viewController
         }

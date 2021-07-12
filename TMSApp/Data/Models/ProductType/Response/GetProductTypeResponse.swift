@@ -39,18 +39,3 @@ public struct ProductType: Codable, Hashable  {
     }
 }
 
-public struct CompanyItems: Codable, Hashable  {
-    
-    public var compId: Int?
-    public var compName: String?
-    public var compDesc: String?
-    
-    public init() {}
-    
-    public init(from decoder: Decoder) throws {
-        try compId         <- decoder["comp_id"]
-        try compName       <- decoder["comp_name"]
-        try compDesc       <- decoder["comp_desc"]
-    }
-}
-

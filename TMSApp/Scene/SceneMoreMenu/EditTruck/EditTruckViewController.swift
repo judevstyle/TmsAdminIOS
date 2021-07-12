@@ -19,12 +19,47 @@ class EditTruckViewController: UIViewController {
     
     @IBOutlet var imagePicker: ImageChoose1x1ButtonView!
     
+    fileprivate var imageBase64: String?
+    
+    
+    // ViewModel
+    lazy var viewModel: EditTruckProtocol = {
+        let vm = EditTruckViewModel(editTruckViewController: self)
+        self.configure(vm)
+        self.bindToViewModel()
+        return vm
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
     }
+    
+    func configure(_ interface: EditTruckProtocol) {
+        self.viewModel = interface
+    }
+}
 
+// MARK: - Binding
+extension EditTruckViewController {
+    
+    func bindToViewModel() {
+        viewModel.output.didGetTruckSuccess = didGetTruckSuccess()
+        viewModel.output.didGetTruckError = didGetTruckError()
+    }
+    
+    func didGetTruckSuccess() -> (() -> Void) {
+        return { [weak self] in
+            guard let weakSelf = self else { return }
+        }
+    }
+    
+    func didGetTruckError() -> (() -> Void) {
+        return { [weak self] in
+            guard let weakSelf = self else { return }
+        }
+    }
 }
 
 
@@ -54,12 +89,21 @@ extension EditTruckViewController : UITextFieldDelegate {
 
 extension EditTruckViewController: ButtonPrimaryViewDelegate {
     func onClickButton() {
-        print("onClickButton")
+        guard let registrationNumber = self.inputNumberTruck.inputText.text, registrationNumber != "",
+              let truckTitle = self.inputBrandTruck.inputText.text, truckTitle != "",
+              let truckDesc = self.descTruck.inputText.text, truckDesc != "",
+              let base64 = self.imageBase64, base64.isEmpty == false
+        else { return }
+        
+        viewModel.input.createTruck(truckTitle: truckTitle,
+                                    truckDesc: truckDesc,
+                                    registrationNumber: registrationNumber,
+                                    productImg: base64)
     }
 }
 
 extension EditTruckViewController : ImageChoose1x1ButtonDelegate {
     func didSelectImage(base64: String) {
-        print(base64)
+        self.imageBase64 = base64
     }
 }

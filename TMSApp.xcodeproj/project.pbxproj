@@ -23,6 +23,10 @@
 		EF0EA853265422DA00148157 /* DeliveryShipmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA851265422DA00148157 /* DeliveryShipmentTableViewCell.swift */; };
 		EF0EA854265422DA00148157 /* DeliveryShipmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF0EA852265422DA00148157 /* DeliveryShipmentTableViewCell.xib */; };
 		EF0EA863265429BC00148157 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EF0EA862265429BC00148157 /* SnapKit */; };
+		EF0ED6A92699D24A008AC8BF /* PostTruckRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ED6A82699D24A008AC8BF /* PostTruckRequest.swift */; };
+		EF0ED6AB2699D258008AC8BF /* PostTruckResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ED6AA2699D258008AC8BF /* PostTruckResponse.swift */; };
+		EF0ED6AD2699D421008AC8BF /* PostTruckUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ED6AC2699D421008AC8BF /* PostTruckUseCase.swift */; };
+		EF0ED6B02699D4FD008AC8BF /* EditTruckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ED6AF2699D4FD008AC8BF /* EditTruckViewModel.swift */; };
 		EF19830D267913A700D6C597 /* SequenceShipmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19830C267913A700D6C597 /* SequenceShipmentViewModel.swift */; };
 		EF22DE06267DC62900EA131D /* SortShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF22DE05267DC62900EA131D /* SortShopViewModel.swift */; };
 		EF22DE09267DCC3C00EA131D /* SelectShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF22DE08267DCC3C00EA131D /* SelectShopViewModel.swift */; };
@@ -276,6 +280,27 @@
 		EF9E3425267CC9EB00CE9DDC /* EditPlanMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9E3424267CC9EB00CE9DDC /* EditPlanMasterViewController.swift */; };
 		EF9E342D267CCC0600CE9DDC /* InputRadioGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9E342C267CCC0600CE9DDC /* InputRadioGroupView.swift */; };
 		EF9E342F267CCC0B00CE9DDC /* InputRadioGroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF9E342E267CCC0B00CE9DDC /* InputRadioGroupView.xib */; };
+		EFA60C372695FF3C00157A74 /* AuthEmployeeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA60C362695FF3C00157A74 /* AuthEmployeeAPI.swift */; };
+		EFA60C3D2695FFF200157A74 /* PostAuthEmployeeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA60C3C2695FFF200157A74 /* PostAuthEmployeeRequest.swift */; };
+		EFA60C3F2695FFFB00157A74 /* PostAuthEmployeeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA60C3E2695FFFB00157A74 /* PostAuthEmployeeResponse.swift */; };
+		EFA60C42269600C500157A74 /* AuthEmployeeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA60C41269600C500157A74 /* AuthEmployeeRepository.swift */; };
+		EFA60C462696012A00157A74 /* PostAuthEmployeeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA60C452696012A00157A74 /* PostAuthEmployeeUseCase.swift */; };
+		EFA60C492696018100157A74 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA60C482696018100157A74 /* LoginViewModel.swift */; };
+		EFA60C4B2696061F00157A74 /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA60C4A2696061F00157A74 /* DefaultsManager.swift */; };
+		EFA60C5026960E7000157A74 /* EmployeeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA60C4F26960E7000157A74 /* EmployeeAPI.swift */; };
+		EFA60C5526960EEB00157A74 /* GetEmployeeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA60C5426960EEB00157A74 /* GetEmployeeRequest.swift */; };
+		EFA60C5726960EF500157A74 /* GetEmployeeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA60C5626960EF500157A74 /* GetEmployeeResponse.swift */; };
+		EFA60C59269612D400157A74 /* EmployeeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA60C58269612D400157A74 /* EmployeeRepository.swift */; };
+		EFA60C5C2696133300157A74 /* GetEmployeeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA60C5B2696133300157A74 /* GetEmployeeUseCase.swift */; };
+		EFA60C5E2696165F00157A74 /* PostEmployeeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA60C5D2696165F00157A74 /* PostEmployeeRequest.swift */; };
+		EFA60C602696166800157A74 /* PostEmployeeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA60C5F2696166800157A74 /* PostEmployeeResponse.swift */; };
+		EFA60C622696197200157A74 /* PostEmployeeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA60C612696197200157A74 /* PostEmployeeUseCase.swift */; };
+		EFA60C6426961A3500157A74 /* JobPositionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA60C6326961A3500157A74 /* JobPositionAPI.swift */; };
+		EFA60C6926961AB700157A74 /* GetJobPositionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA60C6826961AB700157A74 /* GetJobPositionRequest.swift */; };
+		EFA60C6B26961AC100157A74 /* GetJobPositionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA60C6A26961AC100157A74 /* GetJobPositionResponse.swift */; };
+		EFA60C6D26961C4E00157A74 /* JobPositionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA60C6C26961C4E00157A74 /* JobPositionRepository.swift */; };
+		EFA60C7026961C9C00157A74 /* GetJobPositionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA60C6F26961C9C00157A74 /* GetJobPositionUseCase.swift */; };
+		EFA60C7326961D3100157A74 /* EditEmployeeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA60C7226961D3100157A74 /* EditEmployeeViewModel.swift */; };
 		EFAD670F2671647300FE5596 /* AppealDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAD670E2671647300FE5596 /* AppealDetailViewModel.swift */; };
 		EFAD67132671665700FE5596 /* AppealSentByTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAD67112671665700FE5596 /* AppealSentByTableViewCell.swift */; };
 		EFAD67142671665700FE5596 /* AppealSentByTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFAD67122671665700FE5596 /* AppealSentByTableViewCell.xib */; };
@@ -315,6 +340,18 @@
 		EFC93B9D26638FD400A048A3 /* OrderCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC93B9B26638FD400A048A3 /* OrderCartTableViewCell.swift */; };
 		EFC93B9E26638FD400A048A3 /* OrderCartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFC93B9C26638FD400A048A3 /* OrderCartTableViewCell.xib */; };
 		EFC93BA32663902100A048A3 /* OrderCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC93BA22663902100A048A3 /* OrderCartViewModel.swift */; };
+		EFCBAE6D269B565E00922BA7 /* PlanMasterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBAE6C269B565E00922BA7 /* PlanMasterAPI.swift */; };
+		EFCBAE72269B56CB00922BA7 /* GetPlanMasterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBAE71269B56CB00922BA7 /* GetPlanMasterRequest.swift */; };
+		EFCBAE74269B56D600922BA7 /* GetPlanMasterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBAE73269B56D600922BA7 /* GetPlanMasterResponse.swift */; };
+		EFCBAE76269B5AC200922BA7 /* PlanMasterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBAE75269B5AC200922BA7 /* PlanMasterRepository.swift */; };
+		EFCBAE79269B5C2900922BA7 /* GetPlanMasterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBAE78269B5C2900922BA7 /* GetPlanMasterUseCase.swift */; };
+		EFCBAE7B269B63BE00922BA7 /* GetPlanMasterDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBAE7A269B63BE00922BA7 /* GetPlanMasterDetailResponse.swift */; };
+		EFCBAE7D269B683E00922BA7 /* GetPlanMasterDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBAE7C269B683E00922BA7 /* GetPlanMasterDetailUseCase.swift */; };
+		EFCE9B0326988C7800490129 /* TruckAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCE9B0226988C7800490129 /* TruckAPI.swift */; };
+		EFCE9B0926988D4300490129 /* GetTruckRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCE9B0826988D4300490129 /* GetTruckRequest.swift */; };
+		EFCE9B0B26988D4D00490129 /* GetTruckResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCE9B0A26988D4D00490129 /* GetTruckResponse.swift */; };
+		EFCE9B0D26988E4700490129 /* TruckRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCE9B0C26988E4700490129 /* TruckRepository.swift */; };
+		EFCE9B1026988F4000490129 /* GetTruckUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCE9B0F26988F4000490129 /* GetTruckUseCase.swift */; };
 		EFD10917267A720F00AF290D /* HeaderLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD10916267A720F00AF290D /* HeaderLabelTableViewCell.swift */; };
 		EFD1091A267A757D00AF290D /* AlertCustomViewswift.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD10919267A757D00AF290D /* AlertCustomViewswift.swift */; };
 		EFD1091C267A87DA00AF290D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD1091B267A87DA00AF290D /* ImagePicker.swift */; };
@@ -358,6 +395,8 @@
 		EFD9AF8C268B6EBB00B7F907 /* AssetPickupStockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9AF8B268B6EBB00B7F907 /* AssetPickupStockRepository.swift */; };
 		EFD9AF8F268B6F3500B7F907 /* GetAssetPickupStockUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9AF8E268B6F3500B7F907 /* GetAssetPickupStockUseCase.swift */; };
 		EFD9AF91268B6F4400B7F907 /* PostAssetPickupStockUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9AF90268B6F4400B7F907 /* PostAssetPickupStockUseCase.swift */; };
+		EFE27B9126934B4B000AD21E /* GetCollectibleDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE27B9026934B4B000AD21E /* GetCollectibleDetailUseCase.swift */; };
+		EFE27B9326934BB3000AD21E /* GetCollectibleDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE27B9226934BB3000AD21E /* GetCollectibleDetailResponse.swift */; };
 		EFE50EDA267BA4C800C9498C /* TypeUserProductDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE50ED9267BA4C800C9498C /* TypeUserProductDetail.storyboard */; };
 		EFE50EDC267BA4D800C9498C /* TypeUserProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE50EDB267BA4D800C9498C /* TypeUserProductDetailViewController.swift */; };
 		EFE50EDF267BC51800C9498C /* TypeUserProductAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE50EDE267BC51800C9498C /* TypeUserProductAllViewController.swift */; };
@@ -425,6 +464,10 @@
 		EF0EA8432654224800148157 /* HeaderShipmentDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderShipmentDetailTableViewCell.swift; sourceTree = "<group>"; };
 		EF0EA851265422DA00148157 /* DeliveryShipmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryShipmentTableViewCell.swift; sourceTree = "<group>"; };
 		EF0EA852265422DA00148157 /* DeliveryShipmentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryShipmentTableViewCell.xib; sourceTree = "<group>"; };
+		EF0ED6A82699D24A008AC8BF /* PostTruckRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTruckRequest.swift; sourceTree = "<group>"; };
+		EF0ED6AA2699D258008AC8BF /* PostTruckResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTruckResponse.swift; sourceTree = "<group>"; };
+		EF0ED6AC2699D421008AC8BF /* PostTruckUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTruckUseCase.swift; sourceTree = "<group>"; };
+		EF0ED6AF2699D4FD008AC8BF /* EditTruckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTruckViewModel.swift; sourceTree = "<group>"; };
 		EF198309267911C300D6C597 /* TMSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF19830A267911C300D6C597 /* TMSAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMSAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF19830B267911C300D6C597 /* TMSAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMSAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -681,6 +724,27 @@
 		EF9E3424267CC9EB00CE9DDC /* EditPlanMasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlanMasterViewController.swift; sourceTree = "<group>"; };
 		EF9E342C267CCC0600CE9DDC /* InputRadioGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputRadioGroupView.swift; sourceTree = "<group>"; };
 		EF9E342E267CCC0B00CE9DDC /* InputRadioGroupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputRadioGroupView.xib; sourceTree = "<group>"; };
+		EFA60C362695FF3C00157A74 /* AuthEmployeeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEmployeeAPI.swift; sourceTree = "<group>"; };
+		EFA60C3C2695FFF200157A74 /* PostAuthEmployeeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAuthEmployeeRequest.swift; sourceTree = "<group>"; };
+		EFA60C3E2695FFFB00157A74 /* PostAuthEmployeeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAuthEmployeeResponse.swift; sourceTree = "<group>"; };
+		EFA60C41269600C500157A74 /* AuthEmployeeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEmployeeRepository.swift; sourceTree = "<group>"; };
+		EFA60C452696012A00157A74 /* PostAuthEmployeeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAuthEmployeeUseCase.swift; sourceTree = "<group>"; };
+		EFA60C482696018100157A74 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		EFA60C4A2696061F00157A74 /* DefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsManager.swift; sourceTree = "<group>"; };
+		EFA60C4F26960E7000157A74 /* EmployeeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeAPI.swift; sourceTree = "<group>"; };
+		EFA60C5426960EEB00157A74 /* GetEmployeeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEmployeeRequest.swift; sourceTree = "<group>"; };
+		EFA60C5626960EF500157A74 /* GetEmployeeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEmployeeResponse.swift; sourceTree = "<group>"; };
+		EFA60C58269612D400157A74 /* EmployeeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeRepository.swift; sourceTree = "<group>"; };
+		EFA60C5B2696133300157A74 /* GetEmployeeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEmployeeUseCase.swift; sourceTree = "<group>"; };
+		EFA60C5D2696165F00157A74 /* PostEmployeeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEmployeeRequest.swift; sourceTree = "<group>"; };
+		EFA60C5F2696166800157A74 /* PostEmployeeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEmployeeResponse.swift; sourceTree = "<group>"; };
+		EFA60C612696197200157A74 /* PostEmployeeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEmployeeUseCase.swift; sourceTree = "<group>"; };
+		EFA60C6326961A3500157A74 /* JobPositionAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobPositionAPI.swift; sourceTree = "<group>"; };
+		EFA60C6826961AB700157A74 /* GetJobPositionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetJobPositionRequest.swift; sourceTree = "<group>"; };
+		EFA60C6A26961AC100157A74 /* GetJobPositionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetJobPositionResponse.swift; sourceTree = "<group>"; };
+		EFA60C6C26961C4E00157A74 /* JobPositionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobPositionRepository.swift; sourceTree = "<group>"; };
+		EFA60C6F26961C9C00157A74 /* GetJobPositionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetJobPositionUseCase.swift; sourceTree = "<group>"; };
+		EFA60C7226961D3100157A74 /* EditEmployeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEmployeeViewModel.swift; sourceTree = "<group>"; };
 		EFAD670E2671647300FE5596 /* AppealDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppealDetailViewModel.swift; sourceTree = "<group>"; };
 		EFAD67112671665700FE5596 /* AppealSentByTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppealSentByTableViewCell.swift; sourceTree = "<group>"; };
 		EFAD67122671665700FE5596 /* AppealSentByTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppealSentByTableViewCell.xib; sourceTree = "<group>"; };
@@ -720,6 +784,18 @@
 		EFC93B9B26638FD400A048A3 /* OrderCartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCartTableViewCell.swift; sourceTree = "<group>"; };
 		EFC93B9C26638FD400A048A3 /* OrderCartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderCartTableViewCell.xib; sourceTree = "<group>"; };
 		EFC93BA22663902100A048A3 /* OrderCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCartViewModel.swift; sourceTree = "<group>"; };
+		EFCBAE6C269B565E00922BA7 /* PlanMasterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanMasterAPI.swift; sourceTree = "<group>"; };
+		EFCBAE71269B56CB00922BA7 /* GetPlanMasterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlanMasterRequest.swift; sourceTree = "<group>"; };
+		EFCBAE73269B56D600922BA7 /* GetPlanMasterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlanMasterResponse.swift; sourceTree = "<group>"; };
+		EFCBAE75269B5AC200922BA7 /* PlanMasterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanMasterRepository.swift; sourceTree = "<group>"; };
+		EFCBAE78269B5C2900922BA7 /* GetPlanMasterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlanMasterUseCase.swift; sourceTree = "<group>"; };
+		EFCBAE7A269B63BE00922BA7 /* GetPlanMasterDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlanMasterDetailResponse.swift; sourceTree = "<group>"; };
+		EFCBAE7C269B683E00922BA7 /* GetPlanMasterDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlanMasterDetailUseCase.swift; sourceTree = "<group>"; };
+		EFCE9B0226988C7800490129 /* TruckAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckAPI.swift; sourceTree = "<group>"; };
+		EFCE9B0826988D4300490129 /* GetTruckRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTruckRequest.swift; sourceTree = "<group>"; };
+		EFCE9B0A26988D4D00490129 /* GetTruckResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTruckResponse.swift; sourceTree = "<group>"; };
+		EFCE9B0C26988E4700490129 /* TruckRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckRepository.swift; sourceTree = "<group>"; };
+		EFCE9B0F26988F4000490129 /* GetTruckUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTruckUseCase.swift; sourceTree = "<group>"; };
 		EFD10916267A720F00AF290D /* HeaderLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderLabelTableViewCell.swift; sourceTree = "<group>"; };
 		EFD10919267A757D00AF290D /* AlertCustomViewswift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCustomViewswift.swift; sourceTree = "<group>"; };
 		EFD1091B267A87DA00AF290D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -763,6 +839,8 @@
 		EFD9AF8B268B6EBB00B7F907 /* AssetPickupStockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetPickupStockRepository.swift; sourceTree = "<group>"; };
 		EFD9AF8E268B6F3500B7F907 /* GetAssetPickupStockUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAssetPickupStockUseCase.swift; sourceTree = "<group>"; };
 		EFD9AF90268B6F4400B7F907 /* PostAssetPickupStockUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAssetPickupStockUseCase.swift; sourceTree = "<group>"; };
+		EFE27B9026934B4B000AD21E /* GetCollectibleDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCollectibleDetailUseCase.swift; sourceTree = "<group>"; };
+		EFE27B9226934BB3000AD21E /* GetCollectibleDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCollectibleDetailResponse.swift; sourceTree = "<group>"; };
 		EFE50ED9267BA4C800C9498C /* TypeUserProductDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TypeUserProductDetail.storyboard; sourceTree = "<group>"; };
 		EFE50EDB267BA4D800C9498C /* TypeUserProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeUserProductDetailViewController.swift; sourceTree = "<group>"; };
 		EFE50EDE267BC51800C9498C /* TypeUserProductAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeUserProductAllViewController.swift; sourceTree = "<group>"; };
@@ -943,6 +1021,14 @@
 			path = DeliveryShipmentTableViewCell;
 			sourceTree = "<group>";
 		};
+		EF0ED6AE2699D4ED008AC8BF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EF0ED6AF2699D4FD008AC8BF /* EditTruckViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		EF22DE04267DC61300EA131D /* SortShopViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -962,6 +1048,11 @@
 		EF22DE0A267DD00400EA131D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EFCBAE6E269B56AB00922BA7 /* PlanMaster */,
+				EFCE9B0426988CB800490129 /* Truck */,
+				EFA60C6526961A9B00157A74 /* JobPosition */,
+				EFA60C5126960EC500157A74 /* Employee */,
+				EFA60C382695FFC700157A74 /* Auth */,
 				EF85374C268CA74F007BEDB6 /* Collectible */,
 				EFD9AF6B268B50E900B7F907 /* AssetStock */,
 				EFD9AF6A268B50E100B7F907 /* AssetPickupStock */,
@@ -1110,6 +1201,7 @@
 		EF2618A4267609BE00F826BC /* EditEmployee */ = {
 			isa = PBXGroup;
 			children = (
+				EFA60C7126961D1D00157A74 /* ViewModel */,
 				EF2618A5267609E400F826BC /* EditEmployeeViewController.swift */,
 				EF2618A7267609ED00F826BC /* EditEmployee.storyboard */,
 			);
@@ -1302,10 +1394,12 @@
 		EF2F96F826859276000363B0 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
+				EFA60C352695FF1F00157A74 /* Auth */,
 				EF2F96FC26859BD0000363B0 /* DashboardAPI.swift */,
 				EF2F974326863530000363B0 /* ShipmentAPI.swift */,
 				EF2F975826865638000363B0 /* OrderAPI.swift */,
 				EF95A67A26879EAE00DBFF6B /* TypeUserAPI.swift */,
+				EFCE9B0226988C7800490129 /* TruckAPI.swift */,
 				EF80A1ED26885E1A008A8828 /* ProductSpecialForTypeUserAPI.swift */,
 				EF525A9E2688875800DACBC5 /* ProductTypeAPI.swift */,
 				EF525AA02688877E00DACBC5 /* ProductAPI.swift */,
@@ -1314,6 +1408,9 @@
 				EFD9AF66268B4F4400B7F907 /* AssetStockAPI.swift */,
 				EFD9AF68268B4F6200B7F907 /* AssetPickupStockAPI.swift */,
 				EF85374A268CA6E4007BEDB6 /* CollectibleAPI.swift */,
+				EFA60C4F26960E7000157A74 /* EmployeeAPI.swift */,
+				EFA60C6326961A3500157A74 /* JobPositionAPI.swift */,
+				EFCBAE6C269B565E00922BA7 /* PlanMasterAPI.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -1321,6 +1418,7 @@
 		EF2F96F926859B59000363B0 /* Repositorys */ = {
 			isa = PBXGroup;
 			children = (
+				EFA60C40269600B300157A74 /* Auth */,
 				EF2F971F2685BD67000363B0 /* DashboardRepository.swift */,
 				EF2F974F26863A8F000363B0 /* ShipmentRepository.swift */,
 				EF95A6712687876800DBFF6B /* OrderRepository.swift */,
@@ -1333,6 +1431,10 @@
 				EFD9AF7C268B607500B7F907 /* AssetsStockRepository.swift */,
 				EFD9AF8B268B6EBB00B7F907 /* AssetPickupStockRepository.swift */,
 				EF853757268CAB94007BEDB6 /* CollectibleRepository.swift */,
+				EFA60C58269612D400157A74 /* EmployeeRepository.swift */,
+				EFA60C6C26961C4E00157A74 /* JobPositionRepository.swift */,
+				EFCE9B0C26988E4700490129 /* TruckRepository.swift */,
+				EFCBAE75269B5AC200922BA7 /* PlanMasterRepository.swift */,
 			);
 			path = Repositorys;
 			sourceTree = "<group>";
@@ -1352,6 +1454,11 @@
 		EF2F96FB26859B7B000363B0 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				EFCBAE77269B5C1C00922BA7 /* PlanMaster */,
+				EFCE9B0E26988F0A00490129 /* Truck */,
+				EFA60C6E26961C9000157A74 /* JobPosition */,
+				EFA60C5A2696132400157A74 /* Employee */,
+				EFA60C432696010C00157A74 /* Auth */,
 				EF853759268CAC2F007BEDB6 /* Collectible */,
 				EFD9AF8D268B6F2600B7F907 /* AssetPickupStock */,
 				EFD9AF7F268B60EE00B7F907 /* AssetStock */,
@@ -1819,6 +1926,7 @@
 		EF5E728D264EDB9E00F5EE47 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				EFA60C472696017400157A74 /* ViewModel */,
 				EF5E728F264EDBB500F5EE47 /* LoginViewController.swift */,
 				EF5E7294264EDBBC00F5EE47 /* Login.storyboard */,
 			);
@@ -1834,6 +1942,7 @@
 				EFD10919267A757D00AF290D /* AlertCustomViewswift.swift */,
 				EFD1091B267A87DA00AF290D /* ImagePicker.swift */,
 				EF2F971D2685BB74000363B0 /* KeyedDecodingContainer+Extension.swift */,
+				EFA60C4A2696061F00157A74 /* DefaultsManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -2305,6 +2414,7 @@
 			children = (
 				EF85374F268CA775007BEDB6 /* GetCollectibleResponse.swift */,
 				EF853751268CA783007BEDB6 /* PostCollectibleResponse.swift */,
+				EFE27B9226934BB3000AD21E /* GetCollectibleDetailResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -2314,6 +2424,7 @@
 			children = (
 				EF85375A268CAC3F007BEDB6 /* GetCollectibleUseCase.swift */,
 				EF85375C268CAC4B007BEDB6 /* PostCollectibleUseCase.swift */,
+				EFE27B9026934B4B000AD21E /* GetCollectibleDetailUseCase.swift */,
 			);
 			path = Collectible;
 			sourceTree = "<group>";
@@ -2399,6 +2510,7 @@
 		EF9E3404267CABC200CE9DDC /* EditTruck */ = {
 			isa = PBXGroup;
 			children = (
+				EF0ED6AE2699D4ED008AC8BF /* ViewModel */,
 				EF9E3405267CABD800CE9DDC /* EditTruckViewController.swift */,
 				EF9E3407267CABDE00CE9DDC /* EditTruck.storyboard */,
 			);
@@ -2459,6 +2571,156 @@
 				EF9E342E267CCC0B00CE9DDC /* InputRadioGroupView.xib */,
 			);
 			path = InputRadioGroupView;
+			sourceTree = "<group>";
+		};
+		EFA60C352695FF1F00157A74 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				EFA60C362695FF3C00157A74 /* AuthEmployeeAPI.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		EFA60C382695FFC700157A74 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				EFA60C392695FFCE00157A74 /* AuthEmployee */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		EFA60C392695FFCE00157A74 /* AuthEmployee */ = {
+			isa = PBXGroup;
+			children = (
+				EFA60C3B2695FFDC00157A74 /* Request */,
+				EFA60C3A2695FFD500157A74 /* Response */,
+			);
+			path = AuthEmployee;
+			sourceTree = "<group>";
+		};
+		EFA60C3A2695FFD500157A74 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				EFA60C3E2695FFFB00157A74 /* PostAuthEmployeeResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		EFA60C3B2695FFDC00157A74 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				EFA60C3C2695FFF200157A74 /* PostAuthEmployeeRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		EFA60C40269600B300157A74 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				EFA60C41269600C500157A74 /* AuthEmployeeRepository.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		EFA60C432696010C00157A74 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				EFA60C442696011000157A74 /* AuthEmployee */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		EFA60C442696011000157A74 /* AuthEmployee */ = {
+			isa = PBXGroup;
+			children = (
+				EFA60C452696012A00157A74 /* PostAuthEmployeeUseCase.swift */,
+			);
+			path = AuthEmployee;
+			sourceTree = "<group>";
+		};
+		EFA60C472696017400157A74 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EFA60C482696018100157A74 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EFA60C5126960EC500157A74 /* Employee */ = {
+			isa = PBXGroup;
+			children = (
+				EFA60C5326960ED800157A74 /* Request */,
+				EFA60C5226960ECB00157A74 /* Response */,
+			);
+			path = Employee;
+			sourceTree = "<group>";
+		};
+		EFA60C5226960ECB00157A74 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				EFA60C5626960EF500157A74 /* GetEmployeeResponse.swift */,
+				EFA60C5F2696166800157A74 /* PostEmployeeResponse.swift */,
+			);
+			name = Response;
+			sourceTree = "<group>";
+		};
+		EFA60C5326960ED800157A74 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				EFA60C5426960EEB00157A74 /* GetEmployeeRequest.swift */,
+				EFA60C5D2696165F00157A74 /* PostEmployeeRequest.swift */,
+			);
+			name = Request;
+			sourceTree = "<group>";
+		};
+		EFA60C5A2696132400157A74 /* Employee */ = {
+			isa = PBXGroup;
+			children = (
+				EFA60C5B2696133300157A74 /* GetEmployeeUseCase.swift */,
+				EFA60C612696197200157A74 /* PostEmployeeUseCase.swift */,
+			);
+			path = Employee;
+			sourceTree = "<group>";
+		};
+		EFA60C6526961A9B00157A74 /* JobPosition */ = {
+			isa = PBXGroup;
+			children = (
+				EFA60C6726961AA500157A74 /* Response */,
+				EFA60C6626961A9F00157A74 /* Request */,
+			);
+			path = JobPosition;
+			sourceTree = "<group>";
+		};
+		EFA60C6626961A9F00157A74 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				EFA60C6826961AB700157A74 /* GetJobPositionRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		EFA60C6726961AA500157A74 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				EFA60C6A26961AC100157A74 /* GetJobPositionResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		EFA60C6E26961C9000157A74 /* JobPosition */ = {
+			isa = PBXGroup;
+			children = (
+				EFA60C6F26961C9C00157A74 /* GetJobPositionUseCase.swift */,
+			);
+			path = JobPosition;
+			sourceTree = "<group>";
+		};
+		EFA60C7126961D1D00157A74 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EFA60C7226961D3100157A74 /* EditEmployeeViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		EFAD670C2671642F00FE5596 /* View */ = {
@@ -2731,6 +2993,77 @@
 				EFC93B9C26638FD400A048A3 /* OrderCartTableViewCell.xib */,
 			);
 			path = OrderCartTableViewCell;
+			sourceTree = "<group>";
+		};
+		EFCBAE6E269B56AB00922BA7 /* PlanMaster */ = {
+			isa = PBXGroup;
+			children = (
+				EFCBAE70269B56B600922BA7 /* Request */,
+				EFCBAE6F269B56B100922BA7 /* Response */,
+			);
+			path = PlanMaster;
+			sourceTree = "<group>";
+		};
+		EFCBAE6F269B56B100922BA7 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				EFCBAE73269B56D600922BA7 /* GetPlanMasterResponse.swift */,
+				EFCBAE7A269B63BE00922BA7 /* GetPlanMasterDetailResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		EFCBAE70269B56B600922BA7 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				EFCBAE71269B56CB00922BA7 /* GetPlanMasterRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		EFCBAE77269B5C1C00922BA7 /* PlanMaster */ = {
+			isa = PBXGroup;
+			children = (
+				EFCBAE78269B5C2900922BA7 /* GetPlanMasterUseCase.swift */,
+				EFCBAE7C269B683E00922BA7 /* GetPlanMasterDetailUseCase.swift */,
+			);
+			path = PlanMaster;
+			sourceTree = "<group>";
+		};
+		EFCE9B0426988CB800490129 /* Truck */ = {
+			isa = PBXGroup;
+			children = (
+				EFCE9B0626988CC100490129 /* Request */,
+				EFCE9B0526988CBC00490129 /* Response */,
+			);
+			path = Truck;
+			sourceTree = "<group>";
+		};
+		EFCE9B0526988CBC00490129 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				EFCE9B0A26988D4D00490129 /* GetTruckResponse.swift */,
+				EF0ED6AA2699D258008AC8BF /* PostTruckResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		EFCE9B0626988CC100490129 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				EFCE9B0826988D4300490129 /* GetTruckRequest.swift */,
+				EF0ED6A82699D24A008AC8BF /* PostTruckRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		EFCE9B0E26988F0A00490129 /* Truck */ = {
+			isa = PBXGroup;
+			children = (
+				EFCE9B0F26988F4000490129 /* GetTruckUseCase.swift */,
+				EF0ED6AC2699D421008AC8BF /* PostTruckUseCase.swift */,
+			);
+			path = Truck;
 			sourceTree = "<group>";
 		};
 		EFD10914267A71BB00AF290D /* CellHeader */ = {
@@ -3372,20 +3705,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFCE9B0D26988E4700490129 /* TruckRepository.swift in Sources */,
 				EF2F975326863B27000363B0 /* GetShipmentWorkingUseCase.swift in Sources */,
 				EFBDF7122678423700F5978F /* TypeUserDetailViewModel.swift in Sources */,
 				EF2F97102685AF1B000363B0 /* Encodable+Extension.swift in Sources */,
 				EF2618A6267609E400F826BC /* EditEmployeeViewController.swift in Sources */,
 				EFBDF6DE267824DF00F5978F /* KeyboardListener.swift in Sources */,
+				EFCBAE7D269B683E00922BA7 /* GetPlanMasterDetailUseCase.swift in Sources */,
 				EFD9AF7D268B607500B7F907 /* AssetsStockRepository.swift in Sources */,
 				EF44C5F22656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.swift in Sources */,
 				EFD52E17268A658300DC1C50 /* GetAssetsUseCase.swift in Sources */,
+				EFA60C492696018100157A74 /* LoginViewModel.swift in Sources */,
 				EFD52DF02689F5E200DC1C50 /* GetProductRequest.swift in Sources */,
 				EFD9AF91268B6F4400B7F907 /* PostAssetPickupStockUseCase.swift in Sources */,
 				EFC93B8626638AA500A048A3 /* OrderCartViewController.swift in Sources */,
 				EF2F975026863A8F000363B0 /* ShipmentRepository.swift in Sources */,
 				EF525ACA2688B3DD00DACBC5 /* TypeUserProductDetailViewModel.swift in Sources */,
 				EF9E340B267CAFA000CE9DDC /* EditProductViewController.swift in Sources */,
+				EFA60C5726960EF500157A74 /* GetEmployeeResponse.swift in Sources */,
 				EF5E72D9264EFEB000F5EE47 /* ShipmentViewController.swift in Sources */,
 				EF9E3415267CB88400CE9DDC /* ImageChoose1x1ButtonView.swift in Sources */,
 				EF5E72A8264EED7B00F5EE47 /* MainTabBarViewController.swift in Sources */,
@@ -3393,7 +3730,9 @@
 				EF0EA6982653774000148157 /* AppealTableViewCell.swift in Sources */,
 				EFD52DF42689F83700DC1C50 /* ProductRepository.swift in Sources */,
 				EFD9AF6F268B512400B7F907 /* GetAssetStockRequest.swift in Sources */,
+				EFA60C5026960E7000157A74 /* EmployeeAPI.swift in Sources */,
 				EF266CAC267F5DCE006F3923 /* CollectibleUserUseTableViewCell.swift in Sources */,
+				EFA60C7326961D3100157A74 /* EditEmployeeViewModel.swift in Sources */,
 				EFBDF6F126782CDB00F5978F /* Image1x1CollectionViewCell.swift in Sources */,
 				EF2F97182685B583000363B0 /* GetDashboardResponse.swift in Sources */,
 				EF85375D268CAC4B007BEDB6 /* PostCollectibleUseCase.swift in Sources */,
@@ -3417,6 +3756,7 @@
 				EF80A1EA26885ACA008A8828 /* ConfirmOrderCartUseCase.swift in Sources */,
 				EF680CA8267D24A9006BE9A7 /* SortShopViewController.swift in Sources */,
 				EF5E7290264EDBB500F5EE47 /* LoginViewController.swift in Sources */,
+				EF0ED6A92699D24A008AC8BF /* PostTruckRequest.swift in Sources */,
 				EFD9AF67268B4F4400B7F907 /* AssetStockAPI.swift in Sources */,
 				EF44C5FD2656BEC50014F0D0 /* CustomerShipmentTableViewCell.swift in Sources */,
 				EF0EA6832653763300148157 /* AppealViewModel.swift in Sources */,
@@ -3427,6 +3767,7 @@
 				EF905C3A266A9A8E009AC148 /* MainDashBoardTableViewCell.swift in Sources */,
 				EF85375B268CAC3F007BEDB6 /* GetCollectibleUseCase.swift in Sources */,
 				EF55E96A2614F6E300915D1C /* UIFont+Extension.swift in Sources */,
+				EFCE9B1026988F4000490129 /* GetTruckUseCase.swift in Sources */,
 				EF85374B268CA6E4007BEDB6 /* CollectibleAPI.swift in Sources */,
 				EF6E70D3267E484500FABBFE /* AssetStockTableViewCell.swift in Sources */,
 				EF525AB82688967500DACBC5 /* ProductForTypeUserRepository.swift in Sources */,
@@ -3434,19 +3775,24 @@
 				EF525ABF2688AF3300DACBC5 /* PutProductSpecialForTypeUserRequest.swift in Sources */,
 				EF525AB4268895B100DACBC5 /* GetProductForTypeUserRequest.swift in Sources */,
 				EF9E3410267CB13900CE9DDC /* ButtonPrimaryView.swift in Sources */,
+				EFA60C6426961A3500157A74 /* JobPositionAPI.swift in Sources */,
 				EF525A9F2688875800DACBC5 /* ProductTypeAPI.swift in Sources */,
 				EF95A68226879F0D00DBFF6B /* GetTypeUserRequest.swift in Sources */,
+				EFCBAE74269B56D600922BA7 /* GetPlanMasterResponse.swift in Sources */,
 				EFBDF6C726780AA300F5978F /* InputTextFieldView.swift in Sources */,
 				EF2618982675FD9300F826BC /* UITableView+Extension.swift in Sources */,
 				EF525AC12688B05100DACBC5 /* PostProductSpecialForTypeUserResponse.swift in Sources */,
 				EF525ABD2688AF2800DACBC5 /* PostProductSpecialForTypeUserRequest.swift in Sources */,
 				EF680CA4267D2203006BE9A7 /* ShopTableViewCell.swift in Sources */,
+				EFE27B9326934BB3000AD21E /* GetCollectibleDetailResponse.swift in Sources */,
 				EF2F97412686217C000363B0 /* DashBoardWorkingTableViewCell.swift in Sources */,
 				EFBDF70C26783D5E00F5978F /* TypeUserDetailViewController.swift in Sources */,
 				EF97EAFF267E688000BB48CA /* ChatViewController.swift in Sources */,
 				EF680C85267CE847006BE9A7 /* DayListCollectionViewCell.swift in Sources */,
 				EF6CCF9D266E7C3800F6AFE6 /* UILabel+Extension.swift in Sources */,
 				EF55E96E2614F6E300915D1C /* UIViewController+Extension.swift in Sources */,
+				EFA60C5E2696165F00157A74 /* PostEmployeeRequest.swift in Sources */,
+				EFCBAE76269B5AC200922BA7 /* PlanMasterRepository.swift in Sources */,
 				EFD9AF5C268B371000B7F907 /* PostAssetsResponse.swift in Sources */,
 				EF2DA0D9265783AD00AB48F5 /* ShipmentMapViewModel.swift in Sources */,
 				EF2F97292685C16C000363B0 /* DomainNameConfig.swift in Sources */,
@@ -3459,18 +3805,22 @@
 				EF2F972C2685C29A000363B0 /* GetDashboardUseCase.swift in Sources */,
 				EF6E70D7267E4A5C00FABBFE /* AssetDetailViewModel.swift in Sources */,
 				EF680CA0267D219E006BE9A7 /* SelectShopViewController.swift in Sources */,
+				EFE27B9126934B4B000AD21E /* GetCollectibleDetailUseCase.swift in Sources */,
 				EF55E96B2614F6E300915D1C /* UIImageView+Extension.swift in Sources */,
+				EFA60C7026961C9C00157A74 /* GetJobPositionUseCase.swift in Sources */,
 				EF6E70B6267E377F00FABBFE /* AssetListViewController.swift in Sources */,
 				EF55E96C2614F6E300915D1C /* UIColor+Extension.swift in Sources */,
 				EF266CA2267F5515006F3923 /* CollectibleDetailViewController.swift in Sources */,
 				EF5E72C5264EF93700F5EE47 /* DateFormatter.swift in Sources */,
 				EF680C75267CE27E006BE9A7 /* DayCollectionView.swift in Sources */,
+				EFA60C3D2695FFF200157A74 /* PostAuthEmployeeRequest.swift in Sources */,
 				EF266C91267EFC4A006F3923 /* ModalAssetStockViewController.swift in Sources */,
 				EF7F4CF12678FA7E0096373E /* TruckViewModel.swift in Sources */,
 				EF5E72B2264EEED000F5EE47 /* MainViewController.swift in Sources */,
 				EF2F973A2685DE7C000363B0 /* DashBoardProductTableViewModel.swift in Sources */,
 				EF590A0826502DE7007248B4 /* GetShipmentRequest.swift in Sources */,
 				EF0EA83E26541E6A00148157 /* ShipmentDetailViewModel.swift in Sources */,
+				EF0ED6B02699D4FD008AC8BF /* EditTruckViewModel.swift in Sources */,
 				EF0EA8332653C30900148157 /* ShipmentDetailViewController.swift in Sources */,
 				EFD52E0B268A633C00DC1C50 /* AssetsAPI.swift in Sources */,
 				EF525AAF2688952C00DACBC5 /* ProductForTypeUserAPI.swift in Sources */,
@@ -3485,8 +3835,11 @@
 				EFBDF6F426782E2E00F5978F /* UICollectionView+Extension.swift in Sources */,
 				EFD52E14268A650100DC1C50 /* AssetsRepository.swift in Sources */,
 				EF2367B22691BD1F00A4C7B6 /* SocketDashboardRequest.swift in Sources */,
+				EFA60C5526960EEB00157A74 /* GetEmployeeRequest.swift in Sources */,
+				EFCE9B0926988D4300490129 /* GetTruckRequest.swift in Sources */,
 				EFBDF70826783B4800F5978F /* TypeUserTableViewCell.swift in Sources */,
 				EF95A68026879F0400DBFF6B /* GetTypeUserResponse.swift in Sources */,
+				EFA60C6B26961AC100157A74 /* GetJobPositionResponse.swift in Sources */,
 				EFBDF6E126782A5200F5978F /* CollectionViewImageGrid.swift in Sources */,
 				EFE50EEC267BCD8000C9498C /* TypeUserProductAllViewModel.swift in Sources */,
 				EF2367B02691BD0F00A4C7B6 /* SocketDashboardResponse.swift in Sources */,
@@ -3496,6 +3849,7 @@
 				EF95A6872687A05100DBFF6B /* GetTypeUserUseCase.swift in Sources */,
 				EF525AC72688B22B00DACBC5 /* PutProductSpecialForTypeUserUseCase.swift in Sources */,
 				EF7F4CFD2678FD290096373E /* PlanMasterTableViewCell.swift in Sources */,
+				EFCE9B0B26988D4D00490129 /* GetTruckResponse.swift in Sources */,
 				EF2618962675FBC600F826BC /* EmployeeViewController.swift in Sources */,
 				EFD52E12268A63CC00DC1C50 /* GetAssetsResponse.swift in Sources */,
 				EF2F97232685BEDC000363B0 /* MoyaProvider+Combine.swift in Sources */,
@@ -3505,11 +3859,13 @@
 				EF95A6722687876800DBFF6B /* OrderRepository.swift in Sources */,
 				EF26188F2675CFCF00F826BC /* ImageFeedbackCollectionViewCell.swift in Sources */,
 				EF2F971C2685BB05000363B0 /* AnyKey.swift in Sources */,
+				EFA60C59269612D400157A74 /* EmployeeRepository.swift in Sources */,
 				EF22DE0E267DD02E00EA131D /* GetShopResponse.swift in Sources */,
 				EFC93B9D26638FD400A048A3 /* OrderCartTableViewCell.swift in Sources */,
 				EF266C9D267F5352006F3923 /* CollectibleTableViewCell.swift in Sources */,
 				EF9E341A267CC16100CE9DDC /* IconBadgeView.swift in Sources */,
 				EF6E70BF267E385000FABBFE /* AssetTableViewCell.swift in Sources */,
+				EFA60C462696012A00157A74 /* PostAuthEmployeeUseCase.swift in Sources */,
 				EF7F4D0326790BB90096373E /* SequenceShipmentViewController.swift in Sources */,
 				EFD52DFE268A057E00DC1C50 /* ProductDetailViewModel.swift in Sources */,
 				EF55E96F2614F6E300915D1C /* UIButton+Extension.swift in Sources */,
@@ -3539,34 +3895,44 @@
 				EFD52E05268A539E00DC1C50 /* ImageBase64+Extension.swift in Sources */,
 				EF680C90267CF6D3006BE9A7 /* HeaderPrimaryBottomLineTableViewCell.swift in Sources */,
 				EFD9AF83268B610D00B7F907 /* PostAssetStockUseCase.swift in Sources */,
+				EFA60C4B2696061F00157A74 /* DefaultsManager.swift in Sources */,
 				EFD52DFB2689F97300DC1C50 /* GetProductDetailUseCase.swift in Sources */,
 				EF55E8EE2614F3B700915D1C /* AppDelegate.swift in Sources */,
 				EF80A1EE26885E1A008A8828 /* ProductSpecialForTypeUserAPI.swift in Sources */,
 				EF680C9B267D19E2006BE9A7 /* SelectEmployeeViewModel.swift in Sources */,
+				EFA60C6926961AB700157A74 /* GetJobPositionRequest.swift in Sources */,
+				EF0ED6AB2699D258008AC8BF /* PostTruckResponse.swift in Sources */,
+				EFA60C6D26961C4E00157A74 /* JobPositionRepository.swift in Sources */,
 				EF2DA0B72657611700AB48F5 /* CustomerSettingView.swift in Sources */,
 				EF55E9692614F6E300915D1C /* UITextField+Extension.swift in Sources */,
 				EF09F436268BB0A600CB819F /* Utils.swift in Sources */,
 				EFD9AF7B268B5F7400B7F907 /* PostAssetStockResponse.swift in Sources */,
 				EFFDCB8F265820C8003C4605 /* PopupMarkerMapView.swift in Sources */,
 				EF7F4D0C267910530096373E /* SequenceShipmentTableViewCell.swift in Sources */,
+				EFA60C622696197200157A74 /* PostEmployeeUseCase.swift in Sources */,
 				EF525AB6268895BB00DACBC5 /* GetProductForTypeUserResponse.swift in Sources */,
 				EFFDCBA526582D99003C4605 /* CustomerSettingTableViewCell.swift in Sources */,
 				EF2F970E2685AEF9000363B0 /* Decodable+Extension.swift in Sources */,
 				EFBDF7002678380F00F5978F /* TypeUserViewController.swift in Sources */,
+				EFCBAE6D269B565E00922BA7 /* PlanMasterAPI.swift in Sources */,
 				EF95A677268794B500DBFF6B /* GetOrderCartResponse.swift in Sources */,
+				EFA60C5C2696133300157A74 /* GetEmployeeUseCase.swift in Sources */,
 				EFD52DF92689F96A00DC1C50 /* GetProductUseCase.swift in Sources */,
 				EFBDF6FA2678311B00F5978F /* Image1x1ChooseCollectionViewCell.swift in Sources */,
 				EF80A20226886CB2008A8828 /* HeaderLabelCollectionReusableView.swift in Sources */,
 				EFD9AF5E268B37BA00B7F907 /* PostAssetsUseCase.swift in Sources */,
+				EFCBAE7B269B63BE00922BA7 /* GetPlanMasterDetailResponse.swift in Sources */,
 				EFD9AF79268B5F6A00B7F907 /* PostAssetStockRequest.swift in Sources */,
 				EF5E729E264EE73800F5EE47 /* NavigationManager.swift in Sources */,
 				EF525ACE2688CF7E00DACBC5 /* DeleteProductSpecialForTypeUserUseCase.swift in Sources */,
 				EF266CB0267F5FA7006F3923 /* CollectibleDetailViewModel.swift in Sources */,
 				EF6E70DA267E4EAF00FABBFE /* AssetWithdrawViewModel.swift in Sources */,
 				EF9E342D267CCC0600CE9DDC /* InputRadioGroupView.swift in Sources */,
+				EFA60C372695FF3C00157A74 /* AuthEmployeeAPI.swift in Sources */,
 				EF7F4CF42678FC500096373E /* PlanMasterViewController.swift in Sources */,
 				EF266C99267F51E3006F3923 /* CollectibleViewModel.swift in Sources */,
 				EF2F974B26863596000363B0 /* GetShipmentWorkingResponse.swift in Sources */,
+				EFA60C3F2695FFFB00157A74 /* PostAuthEmployeeResponse.swift in Sources */,
 				EFD9AF77268B520700B7F907 /* GetAssetPickupStockRequest.swift in Sources */,
 				EFBDF6D32678170400F5978F /* InputTextArea.swift in Sources */,
 				EF2DA0E7265785A700AB48F5 /* CustomTapGestureRecognizer.swift in Sources */,
@@ -3580,6 +3946,7 @@
 				EF2F974926863586000363B0 /* GetShipmentWorkingRequest.swift in Sources */,
 				EFD52E01268A427400DC1C50 /* EditProductViewModel.swift in Sources */,
 				EF2D2CEA2650F0310096F757 /* OrderTableViewCell.swift in Sources */,
+				EFCBAE72269B56CB00922BA7 /* GetPlanMasterRequest.swift in Sources */,
 				EFD1091A267A757D00AF290D /* AlertCustomViewswift.swift in Sources */,
 				EF9E3425267CC9EB00CE9DDC /* EditPlanMasterViewController.swift in Sources */,
 				EFD9AF8C268B6EBB00B7F907 /* AssetPickupStockRepository.swift in Sources */,
@@ -3596,11 +3963,16 @@
 				EFD9AF88268B6E2C00B7F907 /* PostAssetPickupStockRequest.swift in Sources */,
 				EF525AC52688B22000DACBC5 /* PostProductSpecialForTypeUserUseCase.swift in Sources */,
 				EF2F96FD26859BD0000363B0 /* DashboardAPI.swift in Sources */,
+				EF0ED6AD2699D421008AC8BF /* PostTruckUseCase.swift in Sources */,
 				EFC93BA32663902100A048A3 /* OrderCartViewModel.swift in Sources */,
+				EFCBAE79269B5C2900922BA7 /* GetPlanMasterUseCase.swift in Sources */,
+				EFCE9B0326988C7800490129 /* TruckAPI.swift in Sources */,
 				EF853752268CA783007BEDB6 /* PostCollectibleResponse.swift in Sources */,
 				EF266CA6267F5529006F3923 /* EditCollectibleViewController.swift in Sources */,
 				EF7F4CD42678F3CA0096373E /* ProductViewController.swift in Sources */,
+				EFA60C42269600C500157A74 /* AuthEmployeeRepository.swift in Sources */,
 				EFD9AF81268B610100B7F907 /* GetAssetStockUseCase.swift in Sources */,
+				EFA60C602696166800157A74 /* PostEmployeeResponse.swift in Sources */,
 				EF525AA62688881C00DACBC5 /* GetProductTypeRequest.swift in Sources */,
 				EFE50EE6267BC9A400C9498C /* ProductCategoryCollectionViewCell.swift in Sources */,
 				EF2618A12675FEA000F826BC /* EmployeeViewModel.swift in Sources */,

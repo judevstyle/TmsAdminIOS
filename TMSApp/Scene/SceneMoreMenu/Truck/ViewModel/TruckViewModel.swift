@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Combine
 
 protocol TruckProtocolInput {
     func getTruck()
@@ -32,37 +33,42 @@ class TruckViewModel: TruckProtocol, TruckProtocolOutput {
     
     // MARK: - Properties
     private var truckViewController: TruckViewController
-    
+    // MARK: - UseCase
+    private var getTruckUseCase: GetTruckUseCase
+    private var anyCancellable: Set<AnyCancellable> = Set<AnyCancellable>()
     
     
     init(
-        truckViewController: TruckViewController
+        truckViewController: TruckViewController,
+        getTruckUseCase: GetTruckUseCase = GetTruckUseCaseImpl()
     ) {
         self.truckViewController = truckViewController
+        self.getTruckUseCase = getTruckUseCase
     }
     
     // MARK - Data-binding OutPut
     var didGetTruckSuccess: (() -> Void)?
     var didGetTruckError: (() -> Void)?
     
-    fileprivate var listTruck: [GetAppealResponse]? = []
+    fileprivate var listTruck: [TruckItems]? = []
     
     func getTruck() {
         listTruck?.removeAll()
         truckViewController.startLoding()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-            guard let weakSelf = self else { return }
-            for _ in 0..<3 {
-                weakSelf.listTruck?.append(GetAppealResponse(title: "test"))
+        
+        self.getTruckUseCase.execute().sink { completion in
+            debugPrint("getTruck \(completion)")
+            self.truckViewController.stopLoding()
+        } receiveValue: { resp in
+            if let items = resp?.items {
+                self.listTruck = items
             }
-
-            weakSelf.didGetTruckSuccess?()
-            weakSelf.truckViewController.stopLoding()
-        }
+            self.didGetTruckSuccess?()
+        }.store(in: &self.anyCancellable)
     }
     
     func getHeightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat {
-        return 115
+        return 95
     }
     
     func getNumberOfRowsInSection(_ tableView: UITableView, section: Int) -> Int {
@@ -72,6 +78,7 @@ class TruckViewModel: TruckProtocol, TruckProtocolOutput {
     func getCellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TruckTableViewCell.identifier, for: indexPath) as! TruckTableViewCell
         cell.selectionStyle = .none
+        cell.items = self.listTruck?[indexPath.item]
         return cell
     }
 }

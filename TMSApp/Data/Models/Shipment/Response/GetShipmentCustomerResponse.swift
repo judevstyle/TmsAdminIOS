@@ -137,25 +137,3 @@ public struct ShipmentStockItems: Codable, Hashable  {
         try status           <- decoder["status"]
     }
 }
-
-
-public struct PlanMasterItems: Codable, Hashable  {
-    
-    public var planId: Int?
-    public var compId: Int?
-    public var truckId: String?
-    public var planType: String?
-    public var planName: String?
-    public var planDesc: String?
-
-    public init() {}
-    
-    public init(from decoder: Decoder) throws {
-        try planId    <- decoder["plan_id"]
-        try compId    <- decoder["comp_id"]
-        try truckId   <- decoder["truck_id"]
-        try planType  <- decoder["plan_type"]
-        try planName  <- decoder["plan_name"]
-        try planDesc  <- decoder["plan_desc"]
-    }
-}

@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ic9-kd-MZ6">
-                                        <rect key="frame" x="8" y="16" width="398" height="776"/>
+                                        <rect key="frame" x="8" y="16" width="398" height="849"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bp0-xv-rgx">
                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="75"/>
@@ -48,10 +48,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O1r-D7-kv7">
-                                                <rect key="frame" x="0.0" y="83" width="398" height="685"/>
+                                                <rect key="frame" x="0.0" y="83" width="398" height="758"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4js-dZ-4Sf">
-                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="685"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="758"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zl3-kC-pww" customClass="InputTextFieldView" customModule="TMSApp" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="65"/>
@@ -96,16 +96,16 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3HR-hO-dJh">
-                                                                <rect key="frame" x="0.0" y="508" width="398" height="108"/>
+                                                                <rect key="frame" x="0.0" y="508" width="398" height="181"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เงื่อนไขคะแนนสินค้า" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7o-Ar-Uq6">
-                                                                        <rect key="frame" x="0.0" y="8" width="129.5" height="27"/>
+                                                                        <rect key="frame" x="0.0" y="8" width="129.5" height="100"/>
                                                                         <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* ระบุเฉพาะสินค้าที่ได้คะแนน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Bm-GW-0qm">
-                                                                        <rect key="frame" x="134.5" y="11.5" width="118.5" height="20"/>
+                                                                        <rect key="frame" x="134.5" y="48" width="118.5" height="20"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="20" id="n0C-LL-MZd"/>
                                                                         </constraints>
@@ -114,7 +114,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="p7h-oj-y57">
-                                                                        <rect key="frame" x="0.0" y="43" width="398" height="65"/>
+                                                                        <rect key="frame" x="0.0" y="116" width="398" height="65"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YZN-7o-UAr" customClass="InputTextFieldView" customModule="TMSApp" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="195" height="65"/>
@@ -149,7 +149,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAB-qY-B6j" customClass="ButtonPrimaryView" customModule="TMSApp" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="624" width="398" height="61"/>
+                                                                <rect key="frame" x="0.0" y="697" width="398" height="61"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="61" id="TEy-ax-GRD"/>
@@ -167,7 +167,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z3Y-iq-LBZ">
-                                                <rect key="frame" x="0.0" y="776" width="398" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="849" width="398" height="0.0"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" id="JJR-E5-G1u"/>

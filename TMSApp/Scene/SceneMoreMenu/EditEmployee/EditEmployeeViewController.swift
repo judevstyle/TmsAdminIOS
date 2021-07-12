@@ -19,6 +19,8 @@ class EditEmployeeViewController: UIViewController {
     @IBOutlet weak var lastNameView: InputTextFieldView!
     @IBOutlet weak var tel1View: InputTextFieldView!
     @IBOutlet weak var tel2View: InputTextFieldView!
+    @IBOutlet var emailView: InputTextFieldView!
+    
     @IBOutlet weak var dateView: InputTextFieldDatePicker!
     @IBOutlet weak var addressView: InputTextArea!
     @IBOutlet weak var positionView: InputTextFieldPickerView!
@@ -27,12 +29,23 @@ class EditEmployeeViewController: UIViewController {
     @IBOutlet var buttonSave: ButtonPrimaryView!
     
     let pickerPositionView = ToolbarPickerView()
-    let positionList = ["พนักงานส่งของ", "นักส่งของใหม่"]
+    var positionList: [String] = []
     var selectedPosition : String?
     
     @IBOutlet var imagePicker: ImageChoose1x1ButtonView!
     
     var imagePickerList: ImagePicker!
+    
+    fileprivate var imageAvatarBase64: String?
+    fileprivate var listImageAttachFilesBase64: [String]?
+    
+    // ViewModel
+    lazy var viewModel: EditEmployeeProtocol = {
+        let vm = EditEmployeeViewModel(editEmployeeViewController: self)
+        self.configure(vm)
+        self.bindToViewModel()
+        return vm
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,14 +53,35 @@ class EditEmployeeViewController: UIViewController {
         registerKeyboardObserver()
         hideKeyboardWhenTappedAround()
         
+        viewModel.input.getJobPosition()
+        
         self.imagePickerList = ImagePicker(presentationController: self, sourceType: [.camera, .photoLibrary], delegate: self)
     }
     
     deinit {
         removeObserver()
     }
-
+    
+    func configure(_ interface: EditEmployeeProtocol) {
+        self.viewModel = interface
+    }
 }
+
+// MARK: - Binding
+extension EditEmployeeViewController {
+    
+    func bindToViewModel() {
+        viewModel.output.didGetJobPositionSuccess = didGetJobPositionSuccess()
+    }
+    
+    func didGetJobPositionSuccess() -> (() -> Void) {
+        return { [weak self] in
+            guard let weakSelf = self else { return }
+            weakSelf.setValueListPosition()
+        }
+    }
+}
+
 
 extension EditEmployeeViewController {
     func setupUI() {
@@ -59,6 +93,7 @@ extension EditEmployeeViewController {
         lastNameView.inputText.delegate = self
         tel1View.inputText.delegate = self
         tel2View.inputText.delegate = self
+        emailView.inputText.delegate = self
         dateView.inputText.delegate = self
         
         imageGrid.viewModel.input.setDelegate(delegate: self)
@@ -69,6 +104,7 @@ extension EditEmployeeViewController {
         lastNameView.titleLabel.text = "สกุล"
         tel1View.titleLabel.text = "เบอร์โทร 1"
         tel2View.titleLabel.text = "เบอร์โทร 2"
+        emailView.titleLabel.text = "อีเมล์"
         dateView.titleLabel.text = "วันเกิด"
         addressView.titleLabel.text = "ที่อยู่"
         positionView.titleLabel.text = "ตำแหน่ง"
@@ -78,8 +114,7 @@ extension EditEmployeeViewController {
         buttonSave.delegate = self
         
         self.dateView.inputText.setInputViewDatePicker(target: self, selector: #selector(tapDoneDatePicker))
-        
-        setupDelegatesPostionPickerView()
+    
     }
     
     @objc func tapDoneDatePicker() {
@@ -101,6 +136,20 @@ extension EditEmployeeViewController {
         pickerPositionView.dataSource = self
         pickerPositionView.delegate = self
         pickerPositionView.toolbarDelegate = self
+    }
+    
+    func setValueListPosition() {
+        guard let list = viewModel.output.getListPosition() else { return }
+        positionList.removeAll()
+        for item in list {
+            positionList.append(item.jobPositionName ?? "")
+        }
+        
+        if positionList.count != 0 {
+            positionView.inputText.text = positionList[0]
+            self.selectedPosition =  positionList[0]
+        }
+        setupDelegatesPostionPickerView()
     }
     
 }
@@ -177,15 +226,14 @@ extension EditEmployeeViewController: KeyboardListener {
 
 extension EditEmployeeViewController: ImagePickerDelegate {
     func didSelectImage(image: UIImage?, imagePicker: ImagePicker, base64: String) {
-        print("imagePickerList")
-        imageGrid.viewModel.input.addListImage(image: image ?? UIImage())
+        imageGrid.viewModel.input.addListImage(image: image ?? UIImage(), base64: base64)
     }
 }
 
 
 extension EditEmployeeViewController : CollectionViewImageGridDelegate {
-    func imageListChangeAction() {
-        print("Update List Image")
+    func imageListChangeAction(listBase64: [String]?) {
+        self.listImageAttachFilesBase64 = listBase64
     }
     
     func didSelectItem(indexPath: IndexPath) {
@@ -198,11 +246,29 @@ extension EditEmployeeViewController : CollectionViewImageGridDelegate {
 
 extension EditEmployeeViewController: ButtonPrimaryViewDelegate {
     func onClickButton() {
-        print("onClickButton")
+        guard let empFname = self.displayNameView.inputText.text, empFname != "",
+              let empLname = self.lastNameView.inputText.text, empLname != "",
+              let empTel1 = self.tel1View.inputText.text, empTel1 != "",
+              let empBirthday = self.dateView.inputText.text, empBirthday != "",
+              let jobPositionName = self.positionView.inputText.text, jobPositionName != "",
+              let empEmail = self.emailView.inputText.text, empEmail != "",
+              let empAvatar = self.imageAvatarBase64, empAvatar.isEmpty == false,
+              let attachFiles = self.listImageAttachFilesBase64, attachFiles.isEmpty == false
+        else { return }
+        
+        viewModel.input.createEmployee(empFname: empFname,
+                                       empLname: empLname,
+                                       empBirthday: empBirthday,
+                                       empTel1: empTel1,
+                                       empAvatar: empAvatar,
+                                       attachFiles: attachFiles,
+                                       empEmail: empEmail,
+                                       jobPositionName: jobPositionName)
     }
 }
 
 extension EditEmployeeViewController: ImageChoose1x1ButtonDelegate {
     func didSelectImage(base64: String) {
+        self.imageAvatarBase64 = base64
     }
 }

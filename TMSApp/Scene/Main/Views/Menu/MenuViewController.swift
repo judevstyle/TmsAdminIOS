@@ -46,6 +46,7 @@ extension MenuViewController {
     func bindToViewModel() {
         viewModel.output.didGetMenuSuccess = didGetMenuSuccess()
         viewModel.output.didGetMenuError = didGetMenuError()
+        viewModel.output.didLogoutSuccess = didLogoutSuccess()
     }
     
     func didGetMenuSuccess() -> (() -> Void) {
@@ -59,6 +60,12 @@ extension MenuViewController {
         return { [weak self] in
             guard let weakSelf = self else { return }
             weakSelf.collectionView.reloadData()
+        }
+    }
+    
+    func didLogoutSuccess() -> (() -> Void) {
+        return { [weak self] in
+            NavigationManager.instance.pushVC(to: .login, presentation: .Replace, isHiddenNavigationBar: true)
         }
     }
 }
@@ -87,8 +94,12 @@ extension MenuViewController {
 extension MenuViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let scene = viewModel.output.getItemMenu(index: indexPath.item)?.scene else { return }
-        NavigationManager.instance.pushVC(to: scene)
+        if indexPath.item == 11 {
+            viewModel.input.didLogout()
+        } else {
+            guard let scene = viewModel.output.getItemMenu(index: indexPath.item)?.scene else { return }
+            NavigationManager.instance.pushVC(to: scene)
+        }
     }
 
 }

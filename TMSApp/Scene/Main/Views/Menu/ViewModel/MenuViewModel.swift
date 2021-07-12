@@ -7,14 +7,18 @@
 
 import Foundation
 import UIKit
+import Combine
 
 protocol MenuProtocolInput {
     func getMenu()
+    func didLogout()
 }
 
 protocol MenuProtocolOutput: class {
     var didGetMenuSuccess: (() -> Void)? { get set }
     var didGetMenuError: (() -> Void)? { get set }
+    
+    var didLogoutSuccess: (() -> Void)? { get set }
     
     func getNumberOfMenu() -> Int
     func getItemMenu(index: Int) -> GetMenuResponse?
@@ -33,22 +37,24 @@ class MenuViewModel: MenuProtocol, MenuProtocolOutput {
     var output: MenuProtocolOutput { return self }
     
     // MARK: - Properties
-//    private var getProductUseCase: GetProductUseCase
     private var menuViewController: MenuViewController
+    // MARK: - UseCase
+    private var postAuthEmployeeUseCase: PostAuthEmployeeUseCase
+    private var anyCancellable: Set<AnyCancellable> = Set<AnyCancellable>()
     
     
-    
-    init(
-//        getProductUseCase: GetProductUseCase = GetProductUseCaseImpl(),
-        menuViewController: MenuViewController
+    init(menuViewController: MenuViewController,
+         postAuthEmployeeUseCase: PostAuthEmployeeUseCase = PostAuthEmployeeUseCaseImpl()
     ) {
-//        self.getProductUseCase = getProductUseCase
         self.menuViewController = menuViewController
+        self.postAuthEmployeeUseCase = postAuthEmployeeUseCase
     }
     
     // MARK - Data-binding OutPut
     var didGetMenuSuccess: (() -> Void)?
     var didGetMenuError: (() -> Void)?
+    
+    var didLogoutSuccess: (() -> Void)?
     
     fileprivate var listMenu: [GetMenuResponse]? = []
     
@@ -71,6 +77,7 @@ class MenuViewModel: MenuProtocol, MenuProtocolOutput {
             weakSelf.listMenu?.append(GetMenuResponse(title: "Shipment", image: "09"))
             weakSelf.listMenu?.append(GetMenuResponse(title: "Asset", image: "10", scene: .assetList))
             weakSelf.listMenu?.append(GetMenuResponse(title: "ของแลก", image: "11", scene: .collectible))
+            weakSelf.listMenu?.append(GetMenuResponse(title: "ออกจากระบบ", image: "shutdown"))
             
             weakSelf.didGetMenuSuccess?()
             weakSelf.menuViewController.stopLoding()
@@ -100,6 +107,22 @@ class MenuViewModel: MenuProtocol, MenuProtocolOutput {
     func getSizeItemViewCell() -> CGSize {
         let width = UIScreen.main.bounds.width / 4
         return CGSize(width: width, height: width)
+    }
+    
+    func didLogout() {
+        self.menuViewController.startLoding()
+        self.postAuthEmployeeUseCase.executeLogout().sink { completion in
+            debugPrint("postAuth Logout \(completion)")
+            self.menuViewController.stopLoding()
+        } receiveValue: { resp in
+
+            if let items = resp{
+                if items.success == true {
+                    UserDefaultsKey.AccessToken.remove()
+                    self.didLogoutSuccess?()
+                }
+            }
+        }.store(in: &self.anyCancellable)
     }
     
 }

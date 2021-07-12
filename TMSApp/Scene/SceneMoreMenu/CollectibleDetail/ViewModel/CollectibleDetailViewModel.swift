@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 protocol CollectibleDetailProtocolInput {
+    func setCollectibleDetail(items: CollectibleItems?)
     func getCollectibleDetail()
 }
 
@@ -19,6 +20,8 @@ protocol CollectibleDetailProtocolOutput: class {
     func getHeightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat
     func getNumberOfRowsInSection(_ tableView: UITableView, section: Int) -> Int
     func getCellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
+    
+    func getCollectibleDetail() -> CollectibleItems?
 }
 
 protocol CollectibleDetailProtocol: CollectibleDetailProtocolInput, CollectibleDetailProtocolOutput {
@@ -45,20 +48,16 @@ class CollectibleDetailViewModel: CollectibleDetailProtocol, CollectibleDetailPr
     var didGetCollectibleDetailSuccess: (() -> Void)?
     var didGetCollectibleDetailError: (() -> Void)?
     
-    fileprivate var listCollectibleDetail: [GetAppealResponse]? = []
+    fileprivate var itemsCollectibleDetail: CollectibleItems?
+    fileprivate var listCollectible: [CollectibleItems]? = []
+    
+    func setCollectibleDetail(items: CollectibleItems?) {
+        self.itemsCollectibleDetail = items
+    }
     
     func getCollectibleDetail() {
-        listCollectibleDetail?.removeAll()
-        CollectibleDetailViewController.startLoding()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-            guard let weakSelf = self else { return }
-            for _ in 0..<7 {
-                weakSelf.listCollectibleDetail?.append(GetAppealResponse(title: "test"))
-            }
-
-            weakSelf.didGetCollectibleDetailSuccess?()
-            weakSelf.CollectibleDetailViewController.stopLoding()
-        }
+        listCollectible?.removeAll()
+//        CollectibleDetailViewController.startLoding()
     }
     
     func getHeightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat {
@@ -66,12 +65,16 @@ class CollectibleDetailViewModel: CollectibleDetailProtocol, CollectibleDetailPr
     }
     
     func getNumberOfRowsInSection(_ tableView: UITableView, section: Int) -> Int {
-        return self.listCollectibleDetail?.count ?? 0
+        return self.listCollectible?.count ?? 0
     }
     
     func getCellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CollectibleUserUseTableViewCell.identifier, for: indexPath) as! CollectibleUserUseTableViewCell
         cell.selectionStyle = .none
         return cell
+    }
+    
+    func getCollectibleDetail() -> CollectibleItems? {
+        return self.itemsCollectibleDetail
     }
 }

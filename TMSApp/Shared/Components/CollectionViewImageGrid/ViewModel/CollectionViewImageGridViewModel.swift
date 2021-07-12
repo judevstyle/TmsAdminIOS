@@ -10,7 +10,7 @@ import UIKit
 
 protocol CollectionViewImageGridProtocolInput {
     func setList(images: [UIImage]?)
-    func addListImage(image: UIImage)
+    func addListImage(image: UIImage, base64: String)
     func didSelectItem(indexPath: IndexPath)
     func setDelegate(delegate: CollectionViewImageGridDelegate)
 }
@@ -41,6 +41,7 @@ class CollectionViewImageGridViewModel: CollectionViewImageGridProtocol, Collect
     var didSetMenuSuccess: (() -> Void)?
     public weak var delegate: CollectionViewImageGridDelegate?
     fileprivate var listImage: [UIImage]? = []
+    fileprivate var listImageBase64: [String]? = []
     
     func setDelegate(delegate: CollectionViewImageGridDelegate) {
         self.delegate = delegate
@@ -49,13 +50,14 @@ class CollectionViewImageGridViewModel: CollectionViewImageGridProtocol, Collect
     func setList(images: [UIImage]?) {
         listImage = images
         self.didSetMenuSuccess?()
-        self.delegate?.imageListChangeAction()
+        self.delegate?.imageListChangeAction(listBase64: self.listImageBase64)
     }
     
-    func addListImage(image: UIImage) {
+    func addListImage(image: UIImage, base64: String) {
         self.listImage?.append(image)
+        self.listImageBase64?.append(base64)
         self.didSetMenuSuccess?()
-        self.delegate?.imageListChangeAction()
+        self.delegate?.imageListChangeAction(listBase64: self.listImageBase64)
     }
     
     func getNumberOfCollection() -> Int {
@@ -81,8 +83,9 @@ class CollectionViewImageGridViewModel: CollectionViewImageGridProtocol, Collect
     
     private func deleteItem(index: Int){
         listImage?.remove(at: index - 1)
+        listImageBase64?.remove(at: index - 1)
         self.didSetMenuSuccess?()
-        self.delegate?.imageListChangeAction()
+        self.delegate?.imageListChangeAction(listBase64: self.listImageBase64)
     }
     
     func didSelectItem(indexPath: IndexPath) {

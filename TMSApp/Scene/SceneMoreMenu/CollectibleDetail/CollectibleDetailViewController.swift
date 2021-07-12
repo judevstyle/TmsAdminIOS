@@ -18,6 +18,7 @@ class CollectibleDetailViewController: UIViewController {
     @IBOutlet var derutionText: UILabel!
     @IBOutlet var tableView: UITableView!
 
+    @IBOutlet var pointText: UILabel!
     // ViewModel
     lazy var viewModel: CollectibleDetailProtocol = {
         let vm = CollectibleDetailViewModel(CollectibleDetailViewController: self)
@@ -65,6 +66,7 @@ extension CollectibleDetailViewController {
 // MARK: - SETUP UI
 extension CollectibleDetailViewController {
     func setupUI() {
+        setupValue()
     }
     
     fileprivate func registerCell() {
@@ -74,6 +76,17 @@ extension CollectibleDetailViewController {
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 8, right: 0)
         tableView.separatorStyle = .none
         tableView.registerCell(identifier: CollectibleUserUseTableViewCell.identifier)
+    }
+    
+    func setupValue() {
+        guard let items = viewModel.output.getCollectibleDetail() else { return }
+        nameText.text = items.clbTitle ?? ""
+        descText.text = items.clbDescript ?? ""
+        derutionText.text = "\(items.campaignStartDate ?? "") - \(items.campaignEndDate ?? "")"
+        pointText.text = "\(items.rewardPoint ?? 0)"
+        
+        guard let urlImage = URL(string: "\(DomainNameConfig.TMSImagePath.urlString)\(items.clbImg ?? "")") else { return }
+        imageShow.kf.setImageDefault(with: urlImage)
     }
     
 }

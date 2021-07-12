@@ -7,15 +7,19 @@
 
 import Foundation
 import UIKit
+import Combine
 
 protocol EditPlanMasterProtocolInput {
+    func getPlanMasterDetail()
     func getEmployee()
     func getShop()
     func getTruck()
     func setEdit(isEdit: Bool)
+    func setPlanId(planId: Int?)
 }
 
 protocol EditPlanMasterProtocolOutput: class {
+    var didGetPlanMasterDetailSuccess: (() -> Void)? { get set }
     var didGetEmployeeSuccess: (() -> Void)? { get set }
     var didGetShopSuccess: (() -> Void)? { get set }
     var didGetTruckSuccess: (() -> Void)? { get set }
@@ -39,16 +43,20 @@ class EditPlanMasterViewModel: EditPlanMasterProtocol, EditPlanMasterProtocolOut
     
     // MARK: - Properties
     private var editPlanMasterViewController: EditPlanMasterViewController
-    
-    
+    // MARK: - UseCase
+    private var getPlanMasterDetailUseCase: GetPlanMasterDetailUseCase
+    private var anyCancellable: Set<AnyCancellable> = Set<AnyCancellable>()
     
     init(
-        editPlanMasterViewController: EditPlanMasterViewController
+        editPlanMasterViewController: EditPlanMasterViewController,
+        getPlanMasterDetailUseCase: GetPlanMasterDetailUseCase = GetPlanMasterDetailUseCaseImpl()
     ) {
         self.editPlanMasterViewController = editPlanMasterViewController
+        self.getPlanMasterDetailUseCase = getPlanMasterDetailUseCase
     }
     
     // MARK - Data-binding OutPut
+    var didGetPlanMasterDetailSuccess: (() -> Void)?
     var didGetEmployeeSuccess: (() -> Void)?
     var didGetShopSuccess: (() -> Void)?
     var didGetTruckSuccess: (() -> Void)?
@@ -61,11 +69,26 @@ class EditPlanMasterViewModel: EditPlanMasterProtocol, EditPlanMasterProtocolOut
     //Detail
     fileprivate var listTruck: [GetAppealResponse]? = []
     
+    fileprivate var planId: Int?
+    
+    func setPlanId(planId: Int?) {
+        self.planId = planId
+    }
+    
+    func getPlanMasterDetail() {
+        guard let planId = self.planId else { return }
+        editPlanMasterViewController.startLoding()
+        self.getPlanMasterDetailUseCase.execute(planId: planId).sink { completion in
+            debugPrint("getPlanMasterDetail \(completion)")
+            self.editPlanMasterViewController.stopLoding()
+        } receiveValue: { resp in
+            self.didGetPlanMasterDetailSuccess?()
+        }.store(in: &self.anyCancellable)
+    }
     
     func setEdit(isEdit: Bool) {
         self.isEditing = isEdit
     }
-    
     
     func getViewEditing() -> Bool {
         return self.isEditing

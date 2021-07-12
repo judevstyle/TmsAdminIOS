@@ -12,7 +12,6 @@ class EmployeeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnAddEmployee: UIButton!
     
-    
     // ViewModel
     lazy var viewModel: EmployeeProtocol = {
         let vm = EmployeeViewModel(employeeViewController: self)
@@ -25,12 +24,14 @@ class EmployeeViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         registerCell()
-        
-        viewModel.input.getEmployee()
     }
     
     func configure(_ interface: EmployeeProtocol) {
         self.viewModel = interface
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.input.getEmployee()
     }
     
 }

@@ -33,7 +33,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wMS-0d-dlD">
-                                <rect key="frame" x="75" y="5.5" width="315" height="64"/>
+                                <rect key="frame" x="75" y="8" width="315" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="รหัสพนักงาน : 10018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahX-ac-yf9">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="22.5"/>
@@ -58,7 +58,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="wMS-0d-dlD" firstAttribute="centerY" secondItem="U3q-qy-hy4" secondAttribute="centerY" id="0hz-fR-SAv"/>
+                            <constraint firstItem="wMS-0d-dlD" firstAttribute="top" secondItem="U3q-qy-hy4" secondAttribute="top" id="SOW-NE-fVc"/>
                             <constraint firstItem="wMS-0d-dlD" firstAttribute="leading" secondItem="U3q-qy-hy4" secondAttribute="trailing" constant="8" id="Vt9-rH-Esy"/>
                             <constraint firstItem="U3q-qy-hy4" firstAttribute="top" secondItem="T6v-xJ-jlZ" secondAttribute="top" constant="8" id="bUZ-67-LAO"/>
                             <constraint firstAttribute="bottom" secondItem="U3q-qy-hy4" secondAttribute="bottom" constant="8" id="nQg-6j-qd8"/>
@@ -77,6 +77,10 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="bgView" destination="T6v-xJ-jlZ" id="LNd-YD-Qft"/>
+                <outlet property="descText" destination="dpE-4s-qWv" id="wiB-oH-wSU"/>
+                <outlet property="imageThumbnail" destination="U3q-qy-hy4" id="awW-2m-Pl6"/>
+                <outlet property="positionText" destination="5eq-0f-xLF" id="sOo-Iu-DMH"/>
+                <outlet property="titleText" destination="ahX-ac-yf9" id="uov-pe-Jxz"/>
             </connections>
             <point key="canvasLocation" x="132" y="88"/>
         </tableViewCell>

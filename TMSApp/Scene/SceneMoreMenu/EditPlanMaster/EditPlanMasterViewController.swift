@@ -56,6 +56,12 @@ class EditPlanMasterViewController: UIViewController {
         registerCell()
         tableViewHeight.constant = 0
         registerTruckCell()
+        
+        if viewModel.output.getViewEditing() {
+            
+        } else {
+            viewModel.input.getPlanMasterDetail()
+        }
     }
     
     func configure(_ interface: EditPlanMasterProtocol) {
@@ -118,9 +124,9 @@ extension EditPlanMasterViewController {
         let days: [WeeklyType] = [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday, .Sunday]
         dayCollectionView.viewModel.input.setList(days: days)
         dayCollectionView.viewModel.input.setDelegate(delegate: self)
+        dayCollectionView.viewModel.input.setEdit(isEdit: viewModel.output.getViewEditing())
         
         setupDelegatesTypePickerView()
-        
         
         if viewModel.output.getViewEditing() == true {
             self.planNameView.isHidden = true
@@ -157,7 +163,6 @@ extension EditPlanMasterViewController {
         tableView.registerCell(identifier: TruckTableViewCell.identifier)
     }
     
-    
     fileprivate func registerTruckCell() {
         planTruckTableView.delegate = self
         planTruckTableView.dataSource = self
@@ -178,14 +183,12 @@ extension EditPlanMasterViewController {
         pickerTypeView.delegate = self
         pickerTypeView.toolbarDelegate = self
     }
-    
-    
 }
 
 // MARK: - Handles
 extension EditPlanMasterViewController {
     @objc func btnPlanAction() {
-        NavigationManager.instance.pushVC(to: .editPlanMaster(isEdit: true))
+        NavigationManager.instance.pushVC(to: .editPlanMaster(planId: nil, isEdit: true))
     }
 }
 
@@ -230,7 +233,6 @@ extension EditPlanMasterViewController: ToolbarPickerViewDelegate {
     }
 }
 
-
 extension EditPlanMasterViewController: UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -273,7 +275,6 @@ extension EditPlanMasterViewController: UITableViewDelegate {
     }
 }
 
-
 extension EditPlanMasterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -309,7 +310,6 @@ extension EditPlanMasterViewController: UITableViewDataSource {
     }
     
 }
-
 
 extension EditPlanMasterViewController : UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {

@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="E5k-l1-JX0">
-                                        <rect key="frame" x="8" y="16" width="398" height="929"/>
+                                        <rect key="frame" x="8" y="16" width="398" height="1002"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UxO-NA-eOO">
                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="75"/>
@@ -43,10 +43,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lwl-Uh-dHx">
-                                                <rect key="frame" x="0.0" y="83" width="398" height="838"/>
+                                                <rect key="frame" x="0.0" y="83" width="398" height="911"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dxc-lo-XR2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="838"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="911"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mAV-dC-2VZ" customClass="InputTextFieldView" customModule="TMSApp" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="65"/>
@@ -83,36 +83,43 @@
                                                                     <constraint firstAttribute="height" constant="65" id="ZSE-6X-A4Y"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uPZ-UZ-rlX" customClass="InputTextFieldDatePicker" customModule="TMSApp" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w6j-E4-OZD" customClass="InputTextFieldView" customModule="TMSApp" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="365" width="398" height="65"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="65" id="T3v-7I-AmR"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uPZ-UZ-rlX" customClass="InputTextFieldDatePicker" customModule="TMSApp" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="438" width="398" height="65"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="65" id="Uwx-br-ozo"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EXR-3l-jr1" customClass="InputTextArea" customModule="TMSApp" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="438" width="398" height="100"/>
+                                                                <rect key="frame" x="0.0" y="511" width="398" height="100"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="100" id="1P1-BL-3lR"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tre-vD-gAR" customClass="InputTextFieldPickerView" customModule="TMSApp" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="546" width="398" height="65"/>
+                                                                <rect key="frame" x="0.0" y="619" width="398" height="65"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="65" id="Zl2-eR-Xx9"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="64z-zb-z91" customClass="CollectionViewImageGrid" customModule="TMSApp" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="619" width="398" height="150"/>
+                                                                <rect key="frame" x="0.0" y="692" width="398" height="150"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="150" id="iUA-CY-snm"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jTB-WG-PUG" customClass="ButtonPrimaryView" customModule="TMSApp" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="777" width="398" height="61"/>
+                                                                <rect key="frame" x="0.0" y="850" width="398" height="61"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="61" id="wdV-aC-aSP"/>
@@ -130,7 +137,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2P-2v-OXr">
-                                                <rect key="frame" x="0.0" y="929" width="398" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="1002" width="398" height="0.0"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" id="pOT-cF-xXy"/>
@@ -164,6 +171,7 @@
                         <outlet property="buttonSave" destination="jTB-WG-PUG" id="PDw-bA-kJs"/>
                         <outlet property="dateView" destination="uPZ-UZ-rlX" id="AZh-RQ-9ak"/>
                         <outlet property="displayNameView" destination="mAV-dC-2VZ" id="ont-g8-rbv"/>
+                        <outlet property="emailView" destination="w6j-E4-OZD" id="Mx1-nz-3GS"/>
                         <outlet property="fristNameView" destination="GYF-Xo-Xog" id="hgl-X0-bxm"/>
                         <outlet property="imageGrid" destination="64z-zb-z91" id="ni2-cZ-Y58"/>
                         <outlet property="imagePicker" destination="SSg-XL-Shd" id="ZnG-o2-oD3"/>
