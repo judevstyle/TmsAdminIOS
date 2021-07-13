@@ -12,19 +12,20 @@ import UIKit
 public enum PlanMasterAPI {
     case getPlanMaster(request: GetPlanMasterRequest)
     case getPlanMasterDetail(planId: Int)
+    case createPlanMaster(request: PostPlanMasterRequest)
 }
 
 extension PlanMasterAPI: TargetType {
     public var baseURL: URL {
         switch self {
-        case .getPlanMaster(_), .getPlanMasterDetail(_):
+        case .getPlanMaster(_), .getPlanMasterDetail(_), .createPlanMaster(_):
             return DomainNameConfig.TMSPlanMaster.url
         }
     }
     
     public var path: String {
         switch self {
-        case .getPlanMaster(_):
+        case .getPlanMaster(_), .createPlanMaster(_):
             return ""
         case .getPlanMasterDetail(let planId):
             return "/\(planId)"
@@ -35,6 +36,8 @@ extension PlanMasterAPI: TargetType {
         switch self {
         case .getPlanMaster(_), .getPlanMasterDetail(_):
             return .get
+        case .createPlanMaster(_):
+            return .post
         }
     }
     
@@ -48,6 +51,8 @@ extension PlanMasterAPI: TargetType {
             return .requestParameters(parameters: request.toJSON(), encoding: URLEncoding.queryString)
         case .getPlanMasterDetail(_):
             return .requestPlain
+        case let .createPlanMaster(request):
+            return .requestCompositeParameters(bodyParameters: request.toJSON(), bodyEncoding: JSONEncoding.default, urlParameters: [:])
         }
     }
     

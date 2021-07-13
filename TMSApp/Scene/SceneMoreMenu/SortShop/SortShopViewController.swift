@@ -10,7 +10,6 @@ import UIKit
 class SortShopViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var buttonAddShop: ButtonPrimaryView!
     
     // ViewModel
     lazy var viewModel: SortShopProtocol = {
@@ -54,7 +53,14 @@ extension SortShopViewController {
 // MARK: - SETUP UI
 extension SortShopViewController {
     func setupUI() {
-        self.buttonAddShop.delegate = self
+        
+        let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didAddShopButton))
+        button.tintColor = .white
+        navigationItem.rightBarButtonItem = button
+    }
+    
+    @objc func didAddShopButton() {
+        viewModel.input.didOpenShop()
     }
     
     fileprivate func registerCell() {
@@ -110,12 +116,5 @@ extension SortShopViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .none
-    }
-}
-
-
-extension SortShopViewController: ButtonPrimaryViewDelegate {
-    func onClickButton() {
-        viewModel.input.didOpenShop()
     }
 }

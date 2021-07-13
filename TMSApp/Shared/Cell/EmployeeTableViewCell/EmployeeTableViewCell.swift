@@ -45,7 +45,7 @@ class EmployeeTableViewCell: UITableViewCell {
     
     func setupValue(){
         titleText.text = "รหัสพนักงาน : \(items?.empCode ?? "")"
-        descText.text = items?.empDisplayName ?? ""
+        descText.text = "\(items?.empFname ?? "") \(items?.empLname ?? "")"
         positionText.text = "ตำแหน่ง : \(items?.jobPosition?.jobPositionName ?? "")"
         guard let urlImage = URL(string: "\(DomainNameConfig.TMSImagePath.urlString)\(items?.empAvatar ?? "")") else { return }
         imageThumbnail.kf.setImageDefault(with: urlImage)

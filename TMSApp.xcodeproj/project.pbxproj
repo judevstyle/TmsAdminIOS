@@ -16,12 +16,6 @@
 		EF0EA691265376CC00148157 /* GetAppealRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA690265376CC00148157 /* GetAppealRequest.swift */; };
 		EF0EA6982653774000148157 /* AppealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA6962653774000148157 /* AppealTableViewCell.swift */; };
 		EF0EA6992653774000148157 /* AppealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF0EA6972653774000148157 /* AppealTableViewCell.xib */; };
-		EF0EA82E2653C2F800148157 /* ShipmentDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF0EA82D2653C2F800148157 /* ShipmentDetail.storyboard */; };
-		EF0EA8332653C30900148157 /* ShipmentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA8322653C30900148157 /* ShipmentDetailViewController.swift */; };
-		EF0EA83E26541E6A00148157 /* ShipmentDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA83D26541E6A00148157 /* ShipmentDetailViewModel.swift */; };
-		EF0EA8442654224800148157 /* HeaderShipmentDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA8432654224800148157 /* HeaderShipmentDetailTableViewCell.swift */; };
-		EF0EA853265422DA00148157 /* DeliveryShipmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA851265422DA00148157 /* DeliveryShipmentTableViewCell.swift */; };
-		EF0EA854265422DA00148157 /* DeliveryShipmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF0EA852265422DA00148157 /* DeliveryShipmentTableViewCell.xib */; };
 		EF0EA863265429BC00148157 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EF0EA862265429BC00148157 /* SnapKit */; };
 		EF0ED6A92699D24A008AC8BF /* PostTruckRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ED6A82699D24A008AC8BF /* PostTruckRequest.swift */; };
 		EF0ED6AB2699D258008AC8BF /* PostTruckResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ED6AA2699D258008AC8BF /* PostTruckResponse.swift */; };
@@ -60,6 +54,23 @@
 		EF266CAC267F5DCE006F3923 /* CollectibleUserUseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF266CAA267F5DCE006F3923 /* CollectibleUserUseTableViewCell.swift */; };
 		EF266CAD267F5DCE006F3923 /* CollectibleUserUseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF266CAB267F5DCE006F3923 /* CollectibleUserUseTableViewCell.xib */; };
 		EF266CB0267F5FA7006F3923 /* CollectibleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF266CAF267F5FA7006F3923 /* CollectibleDetailViewModel.swift */; };
+		EF28529A269DB98800A83712 /* PostPlanMasterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF285299269DB98800A83712 /* PostPlanMasterRequest.swift */; };
+		EF28529C269DB99100A83712 /* PostPlanMasterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF28529B269DB99100A83712 /* PostPlanMasterResponse.swift */; };
+		EF28529E269DC3FE00A83712 /* PostPlanMasterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF28529D269DC3FE00A83712 /* PostPlanMasterUseCase.swift */; };
+		EF2852A1269DD7D600A83712 /* ShipmentFlowLayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2852A0269DD7D600A83712 /* ShipmentFlowLayout.storyboard */; };
+		EF2852A3269DD7F000A83712 /* ShipmentFlowLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2852A2269DD7F000A83712 /* ShipmentFlowLayoutViewController.swift */; };
+		EF2852A7269DE26200A83712 /* ShipmentFlowLayoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2852A6269DE26200A83712 /* ShipmentFlowLayoutViewModel.swift */; };
+		EF2852AB269DE54400A83712 /* ShipmentDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2852A9269DE54400A83712 /* ShipmentDetailViewCell.swift */; };
+		EF2852AC269DE54400A83712 /* ShipmentDetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF2852AA269DE54400A83712 /* ShipmentDetailViewCell.xib */; };
+		EF2852AF269DE55A00A83712 /* ShipmentProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2852AD269DE55A00A83712 /* ShipmentProductCell.swift */; };
+		EF2852B0269DE55A00A83712 /* ShipmentProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF2852AE269DE55A00A83712 /* ShipmentProductCell.xib */; };
+		EF2852B5269DEAE800A83712 /* ShipmentDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2852B4269DEAE800A83712 /* ShipmentDetailCellViewModel.swift */; };
+		EF2852B8269E01ED00A83712 /* ShipmentProductCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2852B7269E01ED00A83712 /* ShipmentProductCellViewModel.swift */; };
+		EF2852BA269E054200A83712 /* ShipmentStockAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2852B9269E054200A83712 /* ShipmentStockAPI.swift */; };
+		EF2852BF269E05A000A83712 /* GetShipmentStockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2852BE269E05A000A83712 /* GetShipmentStockResponse.swift */; };
+		EF2852C1269E05A800A83712 /* GetShipmentStockRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2852C0269E05A800A83712 /* GetShipmentStockRequest.swift */; };
+		EF2852C3269E069300A83712 /* ShipmentStockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2852C2269E069300A83712 /* ShipmentStockRepository.swift */; };
+		EF2852C6269E06F000A83712 /* GetShipmentStockUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2852C5269E06F000A83712 /* GetShipmentStockUseCase.swift */; };
 		EF2D2CE32650EF070096F757 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D2CE22650EF070096F757 /* OrderViewModel.swift */; };
 		EF2D2CEA2650F0310096F757 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D2CE82650F0310096F757 /* OrderTableViewCell.swift */; };
 		EF2D2CEB2650F0310096F757 /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF2D2CE92650F0310096F757 /* OrderTableViewCell.xib */; };
@@ -67,8 +78,6 @@
 		EF2D2CF626518FCF0096F757 /* MenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF2D2CF426518FCF0096F757 /* MenuCollectionViewCell.xib */; };
 		EF2D2CFB265190040096F757 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D2CFA265190040096F757 /* MenuViewModel.swift */; };
 		EF2D2D022651909E0096F757 /* GetMenuResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D2D012651909E0096F757 /* GetMenuResponse.swift */; };
-		EF2DA0B72657611700AB48F5 /* CustomerSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2DA0B62657611700AB48F5 /* CustomerSettingView.swift */; };
-		EF2DA0BC2657612A00AB48F5 /* CustomerSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF2DA0BB2657612A00AB48F5 /* CustomerSettingView.xib */; };
 		EF2DA0D9265783AD00AB48F5 /* ShipmentMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2DA0D8265783AD00AB48F5 /* ShipmentMapViewModel.swift */; };
 		EF2DA0E1265783FE00AB48F5 /* GetShipmentMapResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2DA0E0265783FE00AB48F5 /* GetShipmentMapResponse.swift */; };
 		EF2DA0E7265785A700AB48F5 /* CustomTapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2DA0E6265785A700AB48F5 /* CustomTapGestureRecognizer.swift */; };
@@ -106,10 +115,6 @@
 		EF2F975926865638000363B0 /* OrderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F975826865638000363B0 /* OrderAPI.swift */; };
 		EF2F9762268658E4000363B0 /* GetShipmentCustomerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F9761268658E4000363B0 /* GetShipmentCustomerResponse.swift */; };
 		EF2F976426865F08000363B0 /* GetShipmentCustomerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F976326865F08000363B0 /* GetShipmentCustomerUseCase.swift */; };
-		EF44C5F22656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF44C5F02656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.swift */; };
-		EF44C5F32656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF44C5F12656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.xib */; };
-		EF44C5FD2656BEC50014F0D0 /* CustomerShipmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF44C5FB2656BEC50014F0D0 /* CustomerShipmentTableViewCell.swift */; };
-		EF44C5FE2656BEC50014F0D0 /* CustomerShipmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF44C5FC2656BEC50014F0D0 /* CustomerShipmentTableViewCell.xib */; };
 		EF44C6062656CADB0014F0D0 /* ShipmentMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF44C6052656CADB0014F0D0 /* ShipmentMap.storyboard */; };
 		EF44C60B2656CAF10014F0D0 /* ShipmentMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF44C60A2656CAF10014F0D0 /* ShipmentMapViewController.swift */; };
 		EF44C61B2656DF040014F0D0 /* MarkerMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF44C61A2656DF040014F0D0 /* MarkerMapView.swift */; };
@@ -249,6 +254,11 @@
 		EF853758268CAB94007BEDB6 /* CollectibleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF853757268CAB94007BEDB6 /* CollectibleRepository.swift */; };
 		EF85375B268CAC3F007BEDB6 /* GetCollectibleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF85375A268CAC3F007BEDB6 /* GetCollectibleUseCase.swift */; };
 		EF85375D268CAC4B007BEDB6 /* PostCollectibleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF85375C268CAC4B007BEDB6 /* PostCollectibleUseCase.swift */; };
+		EF864A52269CC7450014F9F9 /* CustomerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF864A51269CC7450014F9F9 /* CustomerAPI.swift */; };
+		EF864A57269CC7AD0014F9F9 /* GetCustomerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF864A56269CC7AD0014F9F9 /* GetCustomerRequest.swift */; };
+		EF864A59269CC7B60014F9F9 /* GetCustomerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF864A58269CC7B60014F9F9 /* GetCustomerResponse.swift */; };
+		EF864A5C269CC9780014F9F9 /* CustomerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF864A5B269CC9780014F9F9 /* CustomerRepository.swift */; };
+		EF864A5F269CC9FF0014F9F9 /* GetCustomerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF864A5E269CC9FF0014F9F9 /* GetCustomerUseCase.swift */; };
 		EF905C32266A7FA4009AC148 /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF905C31266A7FA4009AC148 /* SocketManager.swift */; };
 		EF905C35266A96B4009AC148 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF905C34266A96B4009AC148 /* MainViewModel.swift */; };
 		EF905C3A266A9A8E009AC148 /* MainDashBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF905C38266A9A8E009AC148 /* MainDashBoardTableViewCell.swift */; };
@@ -408,8 +418,6 @@
 		EFE50EF1267BDCB000C9498C /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE50EF0267BDCB000C9498C /* ProductDetailViewController.swift */; };
 		EFFDCB8F265820C8003C4605 /* PopupMarkerMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFDCB8E265820C8003C4605 /* PopupMarkerMapView.swift */; };
 		EFFDCB97265820CD003C4605 /* PopupMarkerMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFFDCB96265820CD003C4605 /* PopupMarkerMapView.xib */; };
-		EFFDCBA526582D99003C4605 /* CustomerSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFDCBA326582D99003C4605 /* CustomerSettingTableViewCell.swift */; };
-		EFFDCBA626582D99003C4605 /* CustomerSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFFDCBA426582D99003C4605 /* CustomerSettingTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -458,12 +466,6 @@
 		EF0EA690265376CC00148157 /* GetAppealRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppealRequest.swift; sourceTree = "<group>"; };
 		EF0EA6962653774000148157 /* AppealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppealTableViewCell.swift; sourceTree = "<group>"; };
 		EF0EA6972653774000148157 /* AppealTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppealTableViewCell.xib; sourceTree = "<group>"; };
-		EF0EA82D2653C2F800148157 /* ShipmentDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShipmentDetail.storyboard; sourceTree = "<group>"; };
-		EF0EA8322653C30900148157 /* ShipmentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentDetailViewController.swift; sourceTree = "<group>"; };
-		EF0EA83D26541E6A00148157 /* ShipmentDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentDetailViewModel.swift; sourceTree = "<group>"; };
-		EF0EA8432654224800148157 /* HeaderShipmentDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderShipmentDetailTableViewCell.swift; sourceTree = "<group>"; };
-		EF0EA851265422DA00148157 /* DeliveryShipmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryShipmentTableViewCell.swift; sourceTree = "<group>"; };
-		EF0EA852265422DA00148157 /* DeliveryShipmentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryShipmentTableViewCell.xib; sourceTree = "<group>"; };
 		EF0ED6A82699D24A008AC8BF /* PostTruckRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTruckRequest.swift; sourceTree = "<group>"; };
 		EF0ED6AA2699D258008AC8BF /* PostTruckResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTruckResponse.swift; sourceTree = "<group>"; };
 		EF0ED6AC2699D421008AC8BF /* PostTruckUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTruckUseCase.swift; sourceTree = "<group>"; };
@@ -504,6 +506,23 @@
 		EF266CAA267F5DCE006F3923 /* CollectibleUserUseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectibleUserUseTableViewCell.swift; sourceTree = "<group>"; };
 		EF266CAB267F5DCE006F3923 /* CollectibleUserUseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectibleUserUseTableViewCell.xib; sourceTree = "<group>"; };
 		EF266CAF267F5FA7006F3923 /* CollectibleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectibleDetailViewModel.swift; sourceTree = "<group>"; };
+		EF285299269DB98800A83712 /* PostPlanMasterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPlanMasterRequest.swift; sourceTree = "<group>"; };
+		EF28529B269DB99100A83712 /* PostPlanMasterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPlanMasterResponse.swift; sourceTree = "<group>"; };
+		EF28529D269DC3FE00A83712 /* PostPlanMasterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPlanMasterUseCase.swift; sourceTree = "<group>"; };
+		EF2852A0269DD7D600A83712 /* ShipmentFlowLayout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShipmentFlowLayout.storyboard; sourceTree = "<group>"; };
+		EF2852A2269DD7F000A83712 /* ShipmentFlowLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentFlowLayoutViewController.swift; sourceTree = "<group>"; };
+		EF2852A6269DE26200A83712 /* ShipmentFlowLayoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentFlowLayoutViewModel.swift; sourceTree = "<group>"; };
+		EF2852A9269DE54400A83712 /* ShipmentDetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentDetailViewCell.swift; sourceTree = "<group>"; };
+		EF2852AA269DE54400A83712 /* ShipmentDetailViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShipmentDetailViewCell.xib; sourceTree = "<group>"; };
+		EF2852AD269DE55A00A83712 /* ShipmentProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentProductCell.swift; sourceTree = "<group>"; };
+		EF2852AE269DE55A00A83712 /* ShipmentProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShipmentProductCell.xib; sourceTree = "<group>"; };
+		EF2852B4269DEAE800A83712 /* ShipmentDetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentDetailCellViewModel.swift; sourceTree = "<group>"; };
+		EF2852B7269E01ED00A83712 /* ShipmentProductCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentProductCellViewModel.swift; sourceTree = "<group>"; };
+		EF2852B9269E054200A83712 /* ShipmentStockAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentStockAPI.swift; sourceTree = "<group>"; };
+		EF2852BE269E05A000A83712 /* GetShipmentStockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShipmentStockResponse.swift; sourceTree = "<group>"; };
+		EF2852C0269E05A800A83712 /* GetShipmentStockRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShipmentStockRequest.swift; sourceTree = "<group>"; };
+		EF2852C2269E069300A83712 /* ShipmentStockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentStockRepository.swift; sourceTree = "<group>"; };
+		EF2852C5269E06F000A83712 /* GetShipmentStockUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShipmentStockUseCase.swift; sourceTree = "<group>"; };
 		EF2D2CE22650EF070096F757 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
 		EF2D2CE82650F0310096F757 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		EF2D2CE92650F0310096F757 /* OrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
@@ -511,8 +530,6 @@
 		EF2D2CF426518FCF0096F757 /* MenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCollectionViewCell.xib; sourceTree = "<group>"; };
 		EF2D2CFA265190040096F757 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		EF2D2D012651909E0096F757 /* GetMenuResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMenuResponse.swift; sourceTree = "<group>"; };
-		EF2DA0B62657611700AB48F5 /* CustomerSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSettingView.swift; sourceTree = "<group>"; };
-		EF2DA0BB2657612A00AB48F5 /* CustomerSettingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerSettingView.xib; sourceTree = "<group>"; };
 		EF2DA0D8265783AD00AB48F5 /* ShipmentMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentMapViewModel.swift; sourceTree = "<group>"; };
 		EF2DA0E0265783FE00AB48F5 /* GetShipmentMapResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShipmentMapResponse.swift; sourceTree = "<group>"; };
 		EF2DA0E6265785A700AB48F5 /* CustomTapGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTapGestureRecognizer.swift; sourceTree = "<group>"; };
@@ -549,10 +566,6 @@
 		EF2F975826865638000363B0 /* OrderAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAPI.swift; sourceTree = "<group>"; };
 		EF2F9761268658E4000363B0 /* GetShipmentCustomerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShipmentCustomerResponse.swift; sourceTree = "<group>"; };
 		EF2F976326865F08000363B0 /* GetShipmentCustomerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShipmentCustomerUseCase.swift; sourceTree = "<group>"; };
-		EF44C5F02656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeShipmentTableViewCell.swift; sourceTree = "<group>"; };
-		EF44C5F12656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeShipmentTableViewCell.xib; sourceTree = "<group>"; };
-		EF44C5FB2656BEC50014F0D0 /* CustomerShipmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerShipmentTableViewCell.swift; sourceTree = "<group>"; };
-		EF44C5FC2656BEC50014F0D0 /* CustomerShipmentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerShipmentTableViewCell.xib; sourceTree = "<group>"; };
 		EF44C6052656CADB0014F0D0 /* ShipmentMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShipmentMap.storyboard; sourceTree = "<group>"; };
 		EF44C60A2656CAF10014F0D0 /* ShipmentMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentMapViewController.swift; sourceTree = "<group>"; };
 		EF44C61A2656DF040014F0D0 /* MarkerMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerMapView.swift; sourceTree = "<group>"; };
@@ -693,6 +706,11 @@
 		EF853757268CAB94007BEDB6 /* CollectibleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectibleRepository.swift; sourceTree = "<group>"; };
 		EF85375A268CAC3F007BEDB6 /* GetCollectibleUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCollectibleUseCase.swift; sourceTree = "<group>"; };
 		EF85375C268CAC4B007BEDB6 /* PostCollectibleUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectibleUseCase.swift; sourceTree = "<group>"; };
+		EF864A51269CC7450014F9F9 /* CustomerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAPI.swift; sourceTree = "<group>"; };
+		EF864A56269CC7AD0014F9F9 /* GetCustomerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCustomerRequest.swift; sourceTree = "<group>"; };
+		EF864A58269CC7B60014F9F9 /* GetCustomerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCustomerResponse.swift; sourceTree = "<group>"; };
+		EF864A5B269CC9780014F9F9 /* CustomerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerRepository.swift; sourceTree = "<group>"; };
+		EF864A5E269CC9FF0014F9F9 /* GetCustomerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCustomerUseCase.swift; sourceTree = "<group>"; };
 		EF905C31266A7FA4009AC148 /* SocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
 		EF905C34266A96B4009AC148 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		EF905C38266A9A8E009AC148 /* MainDashBoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDashBoardTableViewCell.swift; sourceTree = "<group>"; };
@@ -852,8 +870,6 @@
 		EFE50EF0267BDCB000C9498C /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		EFFDCB8E265820C8003C4605 /* PopupMarkerMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupMarkerMapView.swift; sourceTree = "<group>"; };
 		EFFDCB96265820CD003C4605 /* PopupMarkerMapView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupMarkerMapView.xib; sourceTree = "<group>"; };
-		EFFDCBA326582D99003C4605 /* CustomerSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSettingTableViewCell.swift; sourceTree = "<group>"; };
-		EFFDCBA426582D99003C4605 /* CustomerSettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerSettingTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -961,17 +977,6 @@
 			path = AppealTableViewCell;
 			sourceTree = "<group>";
 		};
-		EF0EA82B2653C2C700148157 /* ShipmentDetail */ = {
-			isa = PBXGroup;
-			children = (
-				EF0EA8382653C31200148157 /* ViewModel */,
-				EF0EA8372653C30D00148157 /* View */,
-				EF0EA82D2653C2F800148157 /* ShipmentDetail.storyboard */,
-				EF0EA8322653C30900148157 /* ShipmentDetailViewController.swift */,
-			);
-			path = ShipmentDetail;
-			sourceTree = "<group>";
-		};
 		EF0EA82C2653C2E400148157 /* ShipmentMap */ = {
 			isa = PBXGroup;
 			children = (
@@ -982,43 +987,6 @@
 				EF44C60A2656CAF10014F0D0 /* ShipmentMapViewController.swift */,
 			);
 			path = ShipmentMap;
-			sourceTree = "<group>";
-		};
-		EF0EA8372653C30D00148157 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				EF2DA0B52657604000AB48F5 /* CustomerSettingView */,
-				EF44C5FA2656BEAE0014F0D0 /* CustomerShipmentTableViewCell */,
-				EF44C5EF2656BA780014F0D0 /* EmployeeShipmentTableViewCell */,
-				EF0EA850265422B200148157 /* DeliveryShipmentTableViewCell */,
-				EF0EA8422654221600148157 /* HeaderShipmentDetailTableViewCell */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		EF0EA8382653C31200148157 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				EF0EA83D26541E6A00148157 /* ShipmentDetailViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		EF0EA8422654221600148157 /* HeaderShipmentDetailTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				EF0EA8432654224800148157 /* HeaderShipmentDetailTableViewCell.swift */,
-			);
-			path = HeaderShipmentDetailTableViewCell;
-			sourceTree = "<group>";
-		};
-		EF0EA850265422B200148157 /* DeliveryShipmentTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				EF0EA851265422DA00148157 /* DeliveryShipmentTableViewCell.swift */,
-				EF0EA852265422DA00148157 /* DeliveryShipmentTableViewCell.xib */,
-			);
-			path = DeliveryShipmentTableViewCell;
 			sourceTree = "<group>";
 		};
 		EF0ED6AE2699D4ED008AC8BF /* ViewModel */ = {
@@ -1048,6 +1016,8 @@
 		EF22DE0A267DD00400EA131D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EF2852BB269E058000A83712 /* ShipmentStock */,
+				EF864A53269CC7950014F9F9 /* Customer */,
 				EFCBAE6E269B56AB00922BA7 /* PlanMaster */,
 				EFCE9B0426988CB800490129 /* Truck */,
 				EFA60C6526961A9B00157A74 /* JobPosition */,
@@ -1282,6 +1252,93 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		EF28529F269DD71600A83712 /* ShipmentFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				EF2852A5269DE24600A83712 /* ViewModel */,
+				EF2852A0269DD7D600A83712 /* ShipmentFlowLayout.storyboard */,
+				EF2852A2269DD7F000A83712 /* ShipmentFlowLayoutViewController.swift */,
+			);
+			path = ShipmentFlowLayout;
+			sourceTree = "<group>";
+		};
+		EF2852A4269DDFCD00A83712 /* ShipmentProductCell */ = {
+			isa = PBXGroup;
+			children = (
+				EF2852B6269E01E100A83712 /* ViewModel */,
+				EF2852AD269DE55A00A83712 /* ShipmentProductCell.swift */,
+				EF2852AE269DE55A00A83712 /* ShipmentProductCell.xib */,
+			);
+			path = ShipmentProductCell;
+			sourceTree = "<group>";
+		};
+		EF2852A5269DE24600A83712 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EF2852A6269DE26200A83712 /* ShipmentFlowLayoutViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EF2852A8269DE52200A83712 /* ShipmentDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				EF2852B1269DEACD00A83712 /* ViewModel */,
+				EF2852A9269DE54400A83712 /* ShipmentDetailViewCell.swift */,
+				EF2852AA269DE54400A83712 /* ShipmentDetailViewCell.xib */,
+			);
+			path = ShipmentDetailCell;
+			sourceTree = "<group>";
+		};
+		EF2852B1269DEACD00A83712 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EF2852B4269DEAE800A83712 /* ShipmentDetailCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EF2852B6269E01E100A83712 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EF2852B7269E01ED00A83712 /* ShipmentProductCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EF2852BB269E058000A83712 /* ShipmentStock */ = {
+			isa = PBXGroup;
+			children = (
+				EF2852BD269E058E00A83712 /* Request */,
+				EF2852BC269E058900A83712 /* Response */,
+			);
+			path = ShipmentStock;
+			sourceTree = "<group>";
+		};
+		EF2852BC269E058900A83712 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				EF2852BE269E05A000A83712 /* GetShipmentStockResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		EF2852BD269E058E00A83712 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				EF2852C0269E05A800A83712 /* GetShipmentStockRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		EF2852C4269E06E300A83712 /* ShipmentStock */ = {
+			isa = PBXGroup;
+			children = (
+				EF2852C5269E06F000A83712 /* GetShipmentStockUseCase.swift */,
+			);
+			path = ShipmentStock;
+			sourceTree = "<group>";
+		};
 		EF2D2CD32650EEAD0096F757 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1348,17 +1405,6 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
-		EF2DA0B52657604000AB48F5 /* CustomerSettingView */ = {
-			isa = PBXGroup;
-			children = (
-				EF2DA0B62657611700AB48F5 /* CustomerSettingView.swift */,
-				EF2DA0BB2657612A00AB48F5 /* CustomerSettingView.xib */,
-				EFFDCBA326582D99003C4605 /* CustomerSettingTableViewCell.swift */,
-				EFFDCBA426582D99003C4605 /* CustomerSettingTableViewCell.xib */,
-			);
-			path = CustomerSettingView;
-			sourceTree = "<group>";
-		};
 		EF2DA0C9265782A600AB48F5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1411,6 +1457,8 @@
 				EFA60C4F26960E7000157A74 /* EmployeeAPI.swift */,
 				EFA60C6326961A3500157A74 /* JobPositionAPI.swift */,
 				EFCBAE6C269B565E00922BA7 /* PlanMasterAPI.swift */,
+				EF864A51269CC7450014F9F9 /* CustomerAPI.swift */,
+				EF2852B9269E054200A83712 /* ShipmentStockAPI.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -1435,6 +1483,8 @@
 				EFA60C6C26961C4E00157A74 /* JobPositionRepository.swift */,
 				EFCE9B0C26988E4700490129 /* TruckRepository.swift */,
 				EFCBAE75269B5AC200922BA7 /* PlanMasterRepository.swift */,
+				EF864A5B269CC9780014F9F9 /* CustomerRepository.swift */,
+				EF2852C2269E069300A83712 /* ShipmentStockRepository.swift */,
 			);
 			path = Repositorys;
 			sourceTree = "<group>";
@@ -1454,6 +1504,8 @@
 		EF2F96FB26859B7B000363B0 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				EF2852C4269E06E300A83712 /* ShipmentStock */,
+				EF864A5D269CC9F20014F9F9 /* Customer */,
 				EFCBAE77269B5C1C00922BA7 /* PlanMaster */,
 				EFCE9B0E26988F0A00490129 /* Truck */,
 				EFA60C6E26961C9000157A74 /* JobPosition */,
@@ -1642,24 +1694,6 @@
 				EF95A676268794B500DBFF6B /* GetOrderCartResponse.swift */,
 			);
 			path = Response;
-			sourceTree = "<group>";
-		};
-		EF44C5EF2656BA780014F0D0 /* EmployeeShipmentTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				EF44C5F02656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.swift */,
-				EF44C5F12656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.xib */,
-			);
-			path = EmployeeShipmentTableViewCell;
-			sourceTree = "<group>";
-		};
-		EF44C5FA2656BEAE0014F0D0 /* CustomerShipmentTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				EF44C5FB2656BEC50014F0D0 /* CustomerShipmentTableViewCell.swift */,
-				EF44C5FC2656BEC50014F0D0 /* CustomerShipmentTableViewCell.xib */,
-			);
-			path = CustomerShipmentTableViewCell;
 			sourceTree = "<group>";
 		};
 		EF44C6182656DED90014F0D0 /* View */ = {
@@ -1907,9 +1941,11 @@
 		EF5909FC26502B85007248B4 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				EF2852A8269DE52200A83712 /* ShipmentDetailCell */,
+				EF2852A4269DDFCD00A83712 /* ShipmentProductCell */,
+				EF28529F269DD71600A83712 /* ShipmentFlowLayout */,
 				EF7F4CFF26790B770096373E /* SequenceShipment */,
 				EF0EA82C2653C2E400148157 /* ShipmentMap */,
-				EF0EA82B2653C2C700148157 /* ShipmentDetail */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -2427,6 +2463,39 @@
 				EFE27B9026934B4B000AD21E /* GetCollectibleDetailUseCase.swift */,
 			);
 			path = Collectible;
+			sourceTree = "<group>";
+		};
+		EF864A53269CC7950014F9F9 /* Customer */ = {
+			isa = PBXGroup;
+			children = (
+				EF864A55269CC7A00014F9F9 /* Request */,
+				EF864A54269CC79B0014F9F9 /* Response */,
+			);
+			path = Customer;
+			sourceTree = "<group>";
+		};
+		EF864A54269CC79B0014F9F9 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				EF864A58269CC7B60014F9F9 /* GetCustomerResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		EF864A55269CC7A00014F9F9 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				EF864A56269CC7AD0014F9F9 /* GetCustomerRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		EF864A5D269CC9F20014F9F9 /* Customer */ = {
+			isa = PBXGroup;
+			children = (
+				EF864A5E269CC9FF0014F9F9 /* GetCustomerUseCase.swift */,
+			);
+			path = Customer;
 			sourceTree = "<group>";
 		};
 		EF905C30266A7F95009AC148 /* SocketManager */ = {
@@ -3009,6 +3078,7 @@
 			children = (
 				EFCBAE73269B56D600922BA7 /* GetPlanMasterResponse.swift */,
 				EFCBAE7A269B63BE00922BA7 /* GetPlanMasterDetailResponse.swift */,
+				EF28529B269DB99100A83712 /* PostPlanMasterResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -3017,6 +3087,7 @@
 			isa = PBXGroup;
 			children = (
 				EFCBAE71269B56CB00922BA7 /* GetPlanMasterRequest.swift */,
+				EF285299269DB98800A83712 /* PostPlanMasterRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -3026,6 +3097,7 @@
 			children = (
 				EFCBAE78269B5C2900922BA7 /* GetPlanMasterUseCase.swift */,
 				EFCBAE7C269B683E00922BA7 /* GetPlanMasterDetailUseCase.swift */,
+				EF28529D269DC3FE00A83712 /* PostPlanMasterUseCase.swift */,
 			);
 			path = PlanMaster;
 			sourceTree = "<group>";
@@ -3451,7 +3523,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF44C5F32656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.xib in Resources */,
 				EF6E70C6267E3AC600FABBFE /* EditAsset.storyboard in Resources */,
 				EF9E340D267CAFA500CE9DDC /* EditProduct.storyboard in Resources */,
 				EF2D2CF626518FCF0096F757 /* MenuCollectionViewCell.xib in Resources */,
@@ -3459,7 +3530,6 @@
 				EF9E3417267CB88D00CE9DDC /* ImageChoose1x1ButtonView.xib in Resources */,
 				EF44C6062656CADB0014F0D0 /* ShipmentMap.storyboard in Resources */,
 				EFAD67142671665700FE5596 /* AppealSentByTableViewCell.xib in Resources */,
-				EFFDCBA626582D99003C4605 /* CustomerSettingTableViewCell.xib in Resources */,
 				EF26189F2675FE8000F826BC /* EmployeeTableViewCell.xib in Resources */,
 				EF44C6232656DF120014F0D0 /* MarkerMapView.xib in Resources */,
 				EF2F97312685D9D1000363B0 /* DashBoardProductTableViewCell.xib in Resources */,
@@ -3475,17 +3545,14 @@
 				EFBDF7172678426800F5978F /* ProductCollectionViewCell.xib in Resources */,
 				EF7F4CE82678F95A0096373E /* Truck.storyboard in Resources */,
 				EFBDF6E326782A5800F5978F /* CollectionViewImageGrid.xib in Resources */,
-				EF2DA0BC2657612A00AB48F5 /* CustomerSettingView.xib in Resources */,
 				EFBDF70926783B4800F5978F /* TypeUserTableViewCell.xib in Resources */,
 				EF9E3412267CB13F00CE9DDC /* ButtonPrimaryView.xib in Resources */,
-				EF44C5FE2656BEC50014F0D0 /* CustomerShipmentTableViewCell.xib in Resources */,
 				EF680C8B267CF084006BE9A7 /* EmptyTableViewCell.xib in Resources */,
 				EF9E3423267CC9E000CE9DDC /* EditPlanMaster.storyboard in Resources */,
 				EF590A1C265033A5007248B4 /* ShipmentTableViewCell.xib in Resources */,
 				EF7F4CED2678F9DF0096373E /* TruckTableViewCell.xib in Resources */,
 				EF55E9562614F5CE00915D1C /* SukhumvitSet-Light.ttf in Resources */,
 				EF2F97422686217C000363B0 /* DashBoardWorkingTableViewCell.xib in Resources */,
-				EF0EA854265422DA00148157 /* DeliveryShipmentTableViewCell.xib in Resources */,
 				EF680C86267CE847006BE9A7 /* DayListCollectionViewCell.xib in Resources */,
 				EF2618902675CFCF00F826BC /* ImageFeedbackCollectionViewCell.xib in Resources */,
 				EF9E3408267CABDE00CE9DDC /* EditTruck.storyboard in Resources */,
@@ -3497,8 +3564,10 @@
 				EF7F4CF62678FC570096373E /* PlanMaster.storyboard in Resources */,
 				EF5E72BA264EEED800F5EE47 /* Main.storyboard in Resources */,
 				EF97EB01267E72B200BB48CA /* Chat.storyboard in Resources */,
+				EF2852AC269DE54400A83712 /* ShipmentDetailViewCell.xib in Resources */,
 				EFE50EE7267BC9A400C9498C /* ProductCategoryCollectionViewCell.xib in Resources */,
 				EF680C96267D1964006BE9A7 /* SelectEmployee.storyboard in Resources */,
+				EF2852B0269DE55A00A83712 /* ShipmentProductCell.xib in Resources */,
 				EF9E341C267CC16700CE9DDC /* IconBadgeView.xib in Resources */,
 				EF266CA8267F552F006F3923 /* EditCollectible.storyboard in Resources */,
 				EF6E70D4267E484500FABBFE /* AssetStockTableViewCell.xib in Resources */,
@@ -3527,8 +3596,8 @@
 				EF5E72DE264EFECC00F5EE47 /* Order.storyboard in Resources */,
 				EF6E70B8267E378700FABBFE /* AssetList.storyboard in Resources */,
 				EF7F4CDE2678F54E0096373E /* ProductTableViewCell.xib in Resources */,
-				EF0EA82E2653C2F800148157 /* ShipmentDetail.storyboard in Resources */,
 				EF680C77267CE286006BE9A7 /* DayCollectionView.xib in Resources */,
+				EF2852A1269DD7D600A83712 /* ShipmentFlowLayout.storyboard in Resources */,
 				EFBDF70E26783D6400F5978F /* TypeUserDetail.storyboard in Resources */,
 				EF55E9552614F5CE00915D1C /* SukhumvitSet-Text.ttf in Resources */,
 				EF680CA5267D2203006BE9A7 /* ShopTableViewCell.xib in Resources */,
@@ -3705,6 +3774,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF28529E269DC3FE00A83712 /* PostPlanMasterUseCase.swift in Sources */,
 				EFCE9B0D26988E4700490129 /* TruckRepository.swift in Sources */,
 				EF2F975326863B27000363B0 /* GetShipmentWorkingUseCase.swift in Sources */,
 				EFBDF7122678423700F5978F /* TypeUserDetailViewModel.swift in Sources */,
@@ -3713,7 +3783,6 @@
 				EFBDF6DE267824DF00F5978F /* KeyboardListener.swift in Sources */,
 				EFCBAE7D269B683E00922BA7 /* GetPlanMasterDetailUseCase.swift in Sources */,
 				EFD9AF7D268B607500B7F907 /* AssetsStockRepository.swift in Sources */,
-				EF44C5F22656BA8E0014F0D0 /* EmployeeShipmentTableViewCell.swift in Sources */,
 				EFD52E17268A658300DC1C50 /* GetAssetsUseCase.swift in Sources */,
 				EFA60C492696018100157A74 /* LoginViewModel.swift in Sources */,
 				EFD52DF02689F5E200DC1C50 /* GetProductRequest.swift in Sources */,
@@ -3730,10 +3799,12 @@
 				EF0EA6982653774000148157 /* AppealTableViewCell.swift in Sources */,
 				EFD52DF42689F83700DC1C50 /* ProductRepository.swift in Sources */,
 				EFD9AF6F268B512400B7F907 /* GetAssetStockRequest.swift in Sources */,
+				EF2852A3269DD7F000A83712 /* ShipmentFlowLayoutViewController.swift in Sources */,
 				EFA60C5026960E7000157A74 /* EmployeeAPI.swift in Sources */,
 				EF266CAC267F5DCE006F3923 /* CollectibleUserUseTableViewCell.swift in Sources */,
 				EFA60C7326961D3100157A74 /* EditEmployeeViewModel.swift in Sources */,
 				EFBDF6F126782CDB00F5978F /* Image1x1CollectionViewCell.swift in Sources */,
+				EF2852AF269DE55A00A83712 /* ShipmentProductCell.swift in Sources */,
 				EF2F97182685B583000363B0 /* GetDashboardResponse.swift in Sources */,
 				EF85375D268CAC4B007BEDB6 /* PostCollectibleUseCase.swift in Sources */,
 				EF853758268CAB94007BEDB6 /* CollectibleRepository.swift in Sources */,
@@ -3743,6 +3814,7 @@
 				EF0EA68B265376B800148157 /* GetAppealResponse.swift in Sources */,
 				EF2618882675CB6C00F826BC /* AppealFeedbackViewModel.swift in Sources */,
 				EF7F4CEC2678F9DF0096373E /* TruckTableViewCell.swift in Sources */,
+				EF2852B5269DEAE800A83712 /* ShipmentDetailCellViewModel.swift in Sources */,
 				EFD1091C267A87DA00AF290D /* ImagePicker.swift in Sources */,
 				EF525AA12688877E00DACBC5 /* ProductAPI.swift in Sources */,
 				EF7F4CE32678F86A0096373E /* CustomerViewController.swift in Sources */,
@@ -3758,7 +3830,6 @@
 				EF5E7290264EDBB500F5EE47 /* LoginViewController.swift in Sources */,
 				EF0ED6A92699D24A008AC8BF /* PostTruckRequest.swift in Sources */,
 				EFD9AF67268B4F4400B7F907 /* AssetStockAPI.swift in Sources */,
-				EF44C5FD2656BEC50014F0D0 /* CustomerShipmentTableViewCell.swift in Sources */,
 				EF0EA6832653763300148157 /* AppealViewModel.swift in Sources */,
 				EF2D2CFB265190040096F757 /* MenuViewModel.swift in Sources */,
 				EFBDF70426783A2600F5978F /* TypeUserViewModel.swift in Sources */,
@@ -3777,8 +3848,10 @@
 				EF9E3410267CB13900CE9DDC /* ButtonPrimaryView.swift in Sources */,
 				EFA60C6426961A3500157A74 /* JobPositionAPI.swift in Sources */,
 				EF525A9F2688875800DACBC5 /* ProductTypeAPI.swift in Sources */,
+				EF864A5F269CC9FF0014F9F9 /* GetCustomerUseCase.swift in Sources */,
 				EF95A68226879F0D00DBFF6B /* GetTypeUserRequest.swift in Sources */,
 				EFCBAE74269B56D600922BA7 /* GetPlanMasterResponse.swift in Sources */,
+				EF2852C6269E06F000A83712 /* GetShipmentStockUseCase.swift in Sources */,
 				EFBDF6C726780AA300F5978F /* InputTextFieldView.swift in Sources */,
 				EF2618982675FD9300F826BC /* UITableView+Extension.swift in Sources */,
 				EF525AC12688B05100DACBC5 /* PostProductSpecialForTypeUserResponse.swift in Sources */,
@@ -3786,6 +3859,7 @@
 				EF680CA4267D2203006BE9A7 /* ShopTableViewCell.swift in Sources */,
 				EFE27B9326934BB3000AD21E /* GetCollectibleDetailResponse.swift in Sources */,
 				EF2F97412686217C000363B0 /* DashBoardWorkingTableViewCell.swift in Sources */,
+				EF864A5C269CC9780014F9F9 /* CustomerRepository.swift in Sources */,
 				EFBDF70C26783D5E00F5978F /* TypeUserDetailViewController.swift in Sources */,
 				EF97EAFF267E688000BB48CA /* ChatViewController.swift in Sources */,
 				EF680C85267CE847006BE9A7 /* DayListCollectionViewCell.swift in Sources */,
@@ -3795,6 +3869,7 @@
 				EFCBAE76269B5AC200922BA7 /* PlanMasterRepository.swift in Sources */,
 				EFD9AF5C268B371000B7F907 /* PostAssetsResponse.swift in Sources */,
 				EF2DA0D9265783AD00AB48F5 /* ShipmentMapViewModel.swift in Sources */,
+				EF2852A7269DE26200A83712 /* ShipmentFlowLayoutViewModel.swift in Sources */,
 				EF2F97292685C16C000363B0 /* DomainNameConfig.swift in Sources */,
 				EF525ACC2688CF1500DACBC5 /* DeleteProductSpecialForTypeUserResponse.swift in Sources */,
 				EF19830D267913A700D6C597 /* SequenceShipmentViewModel.swift in Sources */,
@@ -3818,11 +3893,11 @@
 				EF7F4CF12678FA7E0096373E /* TruckViewModel.swift in Sources */,
 				EF5E72B2264EEED000F5EE47 /* MainViewController.swift in Sources */,
 				EF2F973A2685DE7C000363B0 /* DashBoardProductTableViewModel.swift in Sources */,
+				EF28529A269DB98800A83712 /* PostPlanMasterRequest.swift in Sources */,
 				EF590A0826502DE7007248B4 /* GetShipmentRequest.swift in Sources */,
-				EF0EA83E26541E6A00148157 /* ShipmentDetailViewModel.swift in Sources */,
 				EF0ED6B02699D4FD008AC8BF /* EditTruckViewModel.swift in Sources */,
-				EF0EA8332653C30900148157 /* ShipmentDetailViewController.swift in Sources */,
 				EFD52E0B268A633C00DC1C50 /* AssetsAPI.swift in Sources */,
+				EF2852B8269E01ED00A83712 /* ShipmentProductCellViewModel.swift in Sources */,
 				EF525AAF2688952C00DACBC5 /* ProductForTypeUserAPI.swift in Sources */,
 				EF590A0E26502E1A007248B4 /* GetShipmentResponse.swift in Sources */,
 				EF5E72F7264EFF2700F5EE47 /* MenuViewController.swift in Sources */,
@@ -3843,7 +3918,9 @@
 				EFBDF6E126782A5200F5978F /* CollectionViewImageGrid.swift in Sources */,
 				EFE50EEC267BCD8000C9498C /* TypeUserProductAllViewModel.swift in Sources */,
 				EF2367B02691BD0F00A4C7B6 /* SocketDashboardResponse.swift in Sources */,
+				EF864A57269CC7AD0014F9F9 /* GetCustomerRequest.swift in Sources */,
 				EF2F970C2685AB2B000363B0 /* GetDashboardRequest.swift in Sources */,
+				EF2852C3269E069300A83712 /* ShipmentStockRepository.swift in Sources */,
 				EF2F97302685D9D1000363B0 /* DashBoardProductTableViewCell.swift in Sources */,
 				EF5E72ED264EFF0200F5EE47 /* AppealViewController.swift in Sources */,
 				EF95A6872687A05100DBFF6B /* GetTypeUserUseCase.swift in Sources */,
@@ -3903,15 +3980,14 @@
 				EFA60C6926961AB700157A74 /* GetJobPositionRequest.swift in Sources */,
 				EF0ED6AB2699D258008AC8BF /* PostTruckResponse.swift in Sources */,
 				EFA60C6D26961C4E00157A74 /* JobPositionRepository.swift in Sources */,
-				EF2DA0B72657611700AB48F5 /* CustomerSettingView.swift in Sources */,
 				EF55E9692614F6E300915D1C /* UITextField+Extension.swift in Sources */,
+				EF2852BF269E05A000A83712 /* GetShipmentStockResponse.swift in Sources */,
 				EF09F436268BB0A600CB819F /* Utils.swift in Sources */,
 				EFD9AF7B268B5F7400B7F907 /* PostAssetStockResponse.swift in Sources */,
 				EFFDCB8F265820C8003C4605 /* PopupMarkerMapView.swift in Sources */,
 				EF7F4D0C267910530096373E /* SequenceShipmentTableViewCell.swift in Sources */,
 				EFA60C622696197200157A74 /* PostEmployeeUseCase.swift in Sources */,
 				EF525AB6268895BB00DACBC5 /* GetProductForTypeUserResponse.swift in Sources */,
-				EFFDCBA526582D99003C4605 /* CustomerSettingTableViewCell.swift in Sources */,
 				EF2F970E2685AEF9000363B0 /* Decodable+Extension.swift in Sources */,
 				EFBDF7002678380F00F5978F /* TypeUserViewController.swift in Sources */,
 				EFCBAE6D269B565E00922BA7 /* PlanMasterAPI.swift in Sources */,
@@ -3923,6 +3999,7 @@
 				EFD9AF5E268B37BA00B7F907 /* PostAssetsUseCase.swift in Sources */,
 				EFCBAE7B269B63BE00922BA7 /* GetPlanMasterDetailResponse.swift in Sources */,
 				EFD9AF79268B5F6A00B7F907 /* PostAssetStockRequest.swift in Sources */,
+				EF864A52269CC7450014F9F9 /* CustomerAPI.swift in Sources */,
 				EF5E729E264EE73800F5EE47 /* NavigationManager.swift in Sources */,
 				EF525ACE2688CF7E00DACBC5 /* DeleteProductSpecialForTypeUserUseCase.swift in Sources */,
 				EF266CB0267F5FA7006F3923 /* CollectibleDetailViewModel.swift in Sources */,
@@ -3948,6 +4025,7 @@
 				EF2D2CEA2650F0310096F757 /* OrderTableViewCell.swift in Sources */,
 				EFCBAE72269B56CB00922BA7 /* GetPlanMasterRequest.swift in Sources */,
 				EFD1091A267A757D00AF290D /* AlertCustomViewswift.swift in Sources */,
+				EF864A59269CC7B60014F9F9 /* GetCustomerResponse.swift in Sources */,
 				EF9E3425267CC9EB00CE9DDC /* EditPlanMasterViewController.swift in Sources */,
 				EFD9AF8C268B6EBB00B7F907 /* AssetPickupStockRepository.swift in Sources */,
 				EF7F4CF92678FCD20096373E /* PlanMasterViewModel.swift in Sources */,
@@ -3955,7 +4033,7 @@
 				EFD4EE642667E38B00A0FC75 /* AppealDetailViewController.swift in Sources */,
 				EF7F4CE62678F9520096373E /* TruckViewController.swift in Sources */,
 				EF80A1F326885EB5008A8828 /* GetProductSpecialForTypeUserRequest.swift in Sources */,
-				EF0EA8442654224800148157 /* HeaderShipmentDetailTableViewCell.swift in Sources */,
+				EF2852C1269E05A800A83712 /* GetShipmentStockRequest.swift in Sources */,
 				EF2F97252685BEF5000363B0 /* Combine.swift in Sources */,
 				EF55E96D2614F6E300915D1C /* UIView+Extension.swift in Sources */,
 				EF525AC32688B05D00DACBC5 /* PutProductSpecialForTypeUserResponse.swift in Sources */,
@@ -3974,10 +4052,12 @@
 				EFD9AF81268B610100B7F907 /* GetAssetStockUseCase.swift in Sources */,
 				EFA60C602696166800157A74 /* PostEmployeeResponse.swift in Sources */,
 				EF525AA62688881C00DACBC5 /* GetProductTypeRequest.swift in Sources */,
+				EF28529C269DB99100A83712 /* PostPlanMasterResponse.swift in Sources */,
 				EFE50EE6267BC9A400C9498C /* ProductCategoryCollectionViewCell.swift in Sources */,
 				EF2618A12675FEA000F826BC /* EmployeeViewModel.swift in Sources */,
 				EF55E93F2614F51B00915D1C /* SplashViewController.swift in Sources */,
 				EF6E70CF267E3FEC00FABBFE /* AssetWithdrawViewController.swift in Sources */,
+				EF2852BA269E054200A83712 /* ShipmentStockAPI.swift in Sources */,
 				EF2F971A2685B805000363B0 /* CodableInfixOperator.swift in Sources */,
 				EFAD671926716B3900FE5596 /* AppealFeedbackTableViewCell.swift in Sources */,
 				EFD52E10268A63C000DC1C50 /* GetAssetsRequest.swift in Sources */,
@@ -3987,7 +4067,6 @@
 				EF95A679268796F700DBFF6B /* GetOrderCartUseCase.swift in Sources */,
 				EFD9AF69268B4F6200B7F907 /* AssetPickupStockAPI.swift in Sources */,
 				EFBDF6D826781A4600F5978F /* InputTextFieldPickerView.swift in Sources */,
-				EF0EA853265422DA00148157 /* DeliveryShipmentTableViewCell.swift in Sources */,
 				EF853750268CA775007BEDB6 /* GetCollectibleResponse.swift in Sources */,
 				EF680C93267CF72E006BE9A7 /* EditPlanMasterViewModel.swift in Sources */,
 				EF95A675268787FC00DBFF6B /* GetOrderUseCase.swift in Sources */,
@@ -4004,6 +4083,7 @@
 				EF55E9742614F6F000915D1C /* Notification+Extension.swift in Sources */,
 				EF2F97202685BD67000363B0 /* DashboardRepository.swift in Sources */,
 				EF80A1FA2688608A008A8828 /* GetProductSpecialForTypeUserUseCase.swift in Sources */,
+				EF2852AB269DE54400A83712 /* ShipmentDetailViewCell.swift in Sources */,
 				EF2D2CF526518FCF0096F757 /* MenuCollectionViewCell.swift in Sources */,
 				EF2F9762268658E4000363B0 /* GetShipmentCustomerResponse.swift in Sources */,
 			);

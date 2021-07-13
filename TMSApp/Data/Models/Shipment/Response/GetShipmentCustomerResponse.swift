@@ -71,39 +71,6 @@ public struct ShipmentCustomerItems: Codable, Hashable  {
     }
 }
 
-public struct CustomerItems: Codable, Hashable  {
-    
-    public var cusId: Int?
-    public var tel: String?
-    public var typeUserId: Int?
-    public var compId: Int?
-    public var displayName: String?
-    public var fname: String?
-    public var lname: String?
-    public var address: String?
-    public var lat: Double?
-    public var lng: Double?
-    public var avatar: String?
-    public var typeUser: TypeUser?
-    
-    public init() {}
-    
-    public init(from decoder: Decoder) throws {
-        try cusId         <- decoder["cus_id"]
-        try tel           <- decoder["tel"]
-        try typeUserId    <- decoder["type_user_id"]
-        try compId        <- decoder["comp_id"]
-        try displayName   <- decoder["display_name"]
-        try fname         <- decoder["fname"]
-        try lname         <- decoder["lname"]
-        try address       <- decoder["address"]
-        try lat           <- decoder["lat"]
-        try lng           <- decoder["lng"]
-        try avatar        <- decoder["avatar"]
-        try typeUser      <- decoder["typeUser"]
-    }
-}
-
 public struct TypeUser: Codable, Hashable  {
     
     public var typeUserId: Int?
@@ -116,24 +83,5 @@ public struct TypeUser: Codable, Hashable  {
         try typeUserId    <- decoder["type_user_id"]
         try compId         <- decoder["comp_id"]
         try typeName       <- decoder["type_name"]
-    }
-}
-
-public struct ShipmentStockItems: Codable, Hashable  {
-    
-    public var shipmentStockId: Int?
-    public var shipmentId: Int?
-    public var productId: Int?
-    public var qty: Int?
-    public var status: String?
-    
-    public init() {}
-    
-    public init(from decoder: Decoder) throws {
-        try shipmentStockId  <- decoder["shipment_stock_id"]
-        try shipmentId       <- decoder["shipment_id"]
-        try productId        <- decoder["product_id"]
-        try qty              <- decoder["qty"]
-        try status           <- decoder["status"]
     }
 }

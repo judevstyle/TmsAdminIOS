@@ -18,26 +18,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZKR-ps-0Ue">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="95" width="414" height="767"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="C1B-md-jgJ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ZKR-ps-0Ue" secondAttribute="trailing" id="4a0-7V-bfS"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ZKR-ps-0Ue" secondAttribute="bottom" id="Eqe-fR-eZ1"/>
+                            <constraint firstItem="C1B-md-jgJ" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="KnG-Xf-nSZ"/>
                             <constraint firstItem="ZKR-ps-0Ue" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="RFz-jp-042"/>
-                            <constraint firstItem="ZKR-ps-0Ue" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="gba-af-JSR"/>
+                            <constraint firstItem="ZKR-ps-0Ue" firstAttribute="top" secondItem="C1B-md-jgJ" secondAttribute="bottom" id="bhA-dg-NrD"/>
+                            <constraint firstItem="C1B-md-jgJ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="moa-pY-g1d"/>
+                            <constraint firstItem="C1B-md-jgJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="qow-S7-bkm"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="C1B-md-jgJ" id="SPR-hw-PON"/>
                         <outlet property="tableView" destination="ZKR-ps-0Ue" id="2jc-cQ-57h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="43"/>
+            <point key="canvasLocation" x="131.8840579710145" y="42.857142857142854"/>
         </scene>
     </scenes>
     <resources>

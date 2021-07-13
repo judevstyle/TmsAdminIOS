@@ -21,6 +21,12 @@ class ShopTableViewCell: UITableViewCell {
     
     @IBOutlet var addresText: UILabel!
     
+    var items: CustomerItems? {
+        didSet {
+            setupValue()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -39,6 +45,16 @@ class ShopTableViewCell: UITableViewCell {
         bgBadge.setRounded(rounded: 3)
         bgBadge.layer.borderWidth = 0.5
         bgBadge.layer.borderColor = UIColor.Primary.cgColor
+        
+        imageShop.contentMode = .scaleAspectFill
+        imageShop.setRounded(rounded: imageShop.frame.width/2)
     }
     
+    func setupValue() {
+        titleText.text = items?.displayName ?? "-"
+        titleBadge.text = items?.typeUser?.typeName ?? "-"
+        addresText.text = items?.address ?? "-"
+        guard let urlImage = URL(string: "\(DomainNameConfig.TMSImagePath.urlString)\(items?.avatar ?? "")") else { return }
+        imageShop.kf.setImageDefault(with: urlImage)
+    }
 }

@@ -79,7 +79,7 @@ extension ShipmentViewController {
 extension ShipmentViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let itemShipment = viewModel.output.getItemShipment(index: indexPath.item) else { return }
-        NavigationManager.instance.pushVC(to: .shipmentDetail(item: itemShipment), presentation: .Push)
+        NavigationManager.instance.pushVC(to: .shipmentFlowLayout(item: itemShipment), presentation: .Push)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

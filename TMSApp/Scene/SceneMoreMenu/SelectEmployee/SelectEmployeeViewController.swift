@@ -10,7 +10,8 @@ import UIKit
 class SelectEmployeeViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet var searchBar: UISearchBar!
+    
     // ViewModel
     lazy var viewModel: SelectEmployeeProtocol = {
         let vm = SelectEmployeeViewModel(selectEmployeeViewController: self)
@@ -37,18 +38,10 @@ class SelectEmployeeViewController: UIViewController {
 extension SelectEmployeeViewController {
     
     func bindToViewModel() {
-        viewModel.output.didGetSelectEmployeeSuccess = didGetSelectEmployeeSuccess()
-        viewModel.output.didGetSelectEmployeeError = didGetSelectEmployeeError()
+        viewModel.output.didGetEmployeeSuccess = didGetEmployeeSuccess()
     }
     
-    func didGetSelectEmployeeSuccess() -> (() -> Void) {
-        return { [weak self] in
-            guard let weakSelf = self else { return }
-            weakSelf.tableView.reloadData()
-        }
-    }
-    
-    func didGetSelectEmployeeError() -> (() -> Void) {
+    func didGetEmployeeSuccess() -> (() -> Void) {
         return { [weak self] in
             guard let weakSelf = self else { return }
             weakSelf.tableView.reloadData()
@@ -60,7 +53,7 @@ extension SelectEmployeeViewController {
 // MARK: - SETUP UI
 extension SelectEmployeeViewController {
     func setupUI() {
-
+        searchBar.delegate = self
     }
     
     fileprivate func registerCell() {
@@ -93,5 +86,16 @@ extension SelectEmployeeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return viewModel.output.getCellForRowAt(tableView, indexPath: indexPath)
+    }
+}
+
+
+extension SelectEmployeeViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text, text != "" else { return }
+        searchBar.text = ""
+        self.view.endEditing(true)
+        viewModel.input.getSelectEmployee()
     }
 }

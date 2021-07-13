@@ -46,6 +46,7 @@ public struct PlanMasterItems: Codable, Hashable  {
     public var totalCustomerToSent: Int?
     public var empoyeeName: String?
     public var empoyeeImg: String?
+    public var truck: TruckItems?
     public var employees: [EmployeeItems]?
     public var planCustomer: [PlanCustomerItems]?
     public var daily: [DailyItems]?
@@ -62,6 +63,7 @@ public struct PlanMasterItems: Codable, Hashable  {
         try totalCustomerToSent    <- decoder["total_customer_to_sent"]
         try empoyeeName            <- decoder["empoyee_name"]
         try empoyeeImg             <- decoder["empoyee_img"]
+        try truck                  <- decoder["truck"]
         try employees              <- decoder["employees"]
         try planCustomer           <- decoder["planCustomer"]
         try daily                  <- decoder["daily"]

@@ -7,10 +7,11 @@
 
 import Foundation
 import UIKit
+import Combine
 
 
 public protocol SelectEmployeeViewModelDelegate {
-    func didSelectItem(item: GetShopResponse?)
+    func didSelectItem(item: EmployeeItems?)
 }
 
 protocol SelectEmployeeProtocolInput {
@@ -20,8 +21,8 @@ protocol SelectEmployeeProtocolInput {
 }
 
 protocol SelectEmployeeProtocolOutput: class {
-    var didGetSelectEmployeeSuccess: (() -> Void)? { get set }
-    var didGetSelectEmployeeError: (() -> Void)? { get set }
+    var didGetEmployeeSuccess: (() -> Void)? { get set }
+    var didGetEmployeeError: (() -> Void)? { get set }
     
     func getHeightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat
     func getNumberOfRowsInSection(_ tableView: UITableView, section: Int) -> Int
@@ -39,20 +40,25 @@ class SelectEmployeeViewModel: SelectEmployeeProtocol, SelectEmployeeProtocolOut
     
     // MARK: - Properties
     private var selectEmployeeViewController: SelectEmployeeViewController
-    
+    // MARK: - UseCase
+    private var getEmployeeUseCase: GetEmployeeUseCase
+    private var anyCancellable: Set<AnyCancellable> = Set<AnyCancellable>()
     
     
     init(
-        selectEmployeeViewController: SelectEmployeeViewController
+        selectEmployeeViewController: SelectEmployeeViewController,
+        getEmployeeUseCase: GetEmployeeUseCase = GetEmployeeUseCaseImpl()
     ) {
         self.selectEmployeeViewController = selectEmployeeViewController
+        self.getEmployeeUseCase = getEmployeeUseCase
     }
     
     // MARK - Data-binding OutPut
-    var didGetSelectEmployeeSuccess: (() -> Void)?
-    var didGetSelectEmployeeError: (() -> Void)?
+    var didGetEmployeeSuccess: (() -> Void)?
+    var didGetEmployeeError: (() -> Void)?
     
-    fileprivate var listSelectEmployee: [GetShopResponse]? = []
+    
+    fileprivate var listSelectEmployee: [EmployeeItems]? = []
     
     public var delegate: SelectEmployeeViewModelDelegate?
     
@@ -63,15 +69,16 @@ class SelectEmployeeViewModel: SelectEmployeeProtocol, SelectEmployeeProtocolOut
     func getSelectEmployee() {
         listSelectEmployee?.removeAll()
         selectEmployeeViewController.startLoding()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-            guard let weakSelf = self else { return }
-            for _ in 0..<10 {
-                weakSelf.listSelectEmployee?.append(GetShopResponse(title: "test"))
+        
+        self.getEmployeeUseCase.execute().sink { completion in
+            debugPrint("getEmployeeUseCase \(completion)")
+            self.selectEmployeeViewController.stopLoding()
+        } receiveValue: { resp in
+            if let item = resp {
+                self.listSelectEmployee = item
+                self.didGetEmployeeSuccess?()
             }
-
-            weakSelf.didGetSelectEmployeeSuccess?()
-            weakSelf.selectEmployeeViewController.stopLoding()
-        }
+        }.store(in: &self.anyCancellable)
     }
     
     func getHeightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat {
@@ -85,6 +92,7 @@ class SelectEmployeeViewModel: SelectEmployeeProtocol, SelectEmployeeProtocolOut
     func getCellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: EmployeeTableViewCell.identifier, for: indexPath) as! EmployeeTableViewCell
         cell.selectionStyle = .none
+        cell.items = self.listSelectEmployee?[indexPath.item]
         return cell
     }
     

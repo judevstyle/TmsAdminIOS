@@ -38,8 +38,13 @@ class EditPlanMasterViewController: UIViewController {
     @IBOutlet var tableViewHeight: NSLayoutConstraint!
     
     let pickerTypeView = ToolbarPickerView()
-    let typeList = ["ทะเบียน 00000", "ทะเบียน 11111"]
+    var typeList: [String] = []
     var selectedType : String?
+    
+    
+    //Radio
+    var selectedIndexPlanType: Int = 0
+    let listPlanType: [String] = ["วันธรรมดา", "วันพิเศษ"]
     
     lazy var viewModel: EditPlanMasterProtocol = {
         let vm = EditPlanMasterViewModel(editPlanMasterViewController: self)
@@ -58,7 +63,7 @@ class EditPlanMasterViewController: UIViewController {
         registerTruckCell()
         
         if viewModel.output.getViewEditing() {
-            
+            viewModel.input.getListTruckCar()
         } else {
             viewModel.input.getPlanMasterDetail()
         }
@@ -74,9 +79,37 @@ class EditPlanMasterViewController: UIViewController {
 extension EditPlanMasterViewController {
     
     func bindToViewModel() {
+        //Detail
+        viewModel.output.didGetPlanMasterDetailSuccess = didGetPlanMasterDetailSuccess()
+        viewModel.output.didGetTruckSuccess = didGetTruckSuccess()
+        viewModel.output.didGetDailySuccess = didGetDailySuccess()
         viewModel.output.didGetEmployeeSuccess = didGetEmployeeSuccess()
         viewModel.output.didGetShopSuccess = didGetShopSuccess()
-        viewModel.output.didGetTruckSuccess = didGetTruckSuccess()
+        
+        //Edit
+        viewModel.output.didGetTruckCarSuccess = didGetTruckCarSuccess()
+    }
+    
+    func didGetPlanMasterDetailSuccess() -> (() -> Void) {
+        return { [weak self] in
+            guard let weakSelf = self else { return }
+            weakSelf.setupValue()
+        }
+    }
+    
+    func didGetDailySuccess() -> (() -> Void) {
+        return { [weak self] in
+            guard let weakSelf = self else { return }
+            weakSelf.setupSelectDaily()
+        }
+    }
+    
+    func didGetTruckSuccess() -> (() -> Void) {
+        return { [weak self] in
+            guard let weakSelf = self else { return }
+            weakSelf.planTruckTableViewHeight.constant = 0
+            weakSelf.planTruckTableView.reloadData()
+        }
     }
     
     func didGetEmployeeSuccess() -> (() -> Void) {
@@ -84,7 +117,6 @@ extension EditPlanMasterViewController {
             guard let weakSelf = self else { return }
             weakSelf.tableViewHeight.constant = 0
             weakSelf.tableView.reloadData()
-            
         }
     }
     
@@ -96,11 +128,10 @@ extension EditPlanMasterViewController {
         }
     }
     
-    func didGetTruckSuccess() -> (() -> Void) {
+    func didGetTruckCarSuccess() -> (() -> Void) {
         return { [weak self] in
             guard let weakSelf = self else { return }
-            weakSelf.planTruckTableViewHeight.constant = 0
-            weakSelf.planTruckTableView.reloadData()
+            weakSelf.setValueListTruck()
         }
     }
 }
@@ -115,8 +146,10 @@ extension EditPlanMasterViewController {
         inputTypePlan.titleLabel.text = "ประเภทแผนการทำงาน"
         
         
-        inputTypePlan.setupRadio(listRadio: ["วันธรรมดา", "วันพิเศษ"])
+        inputTypePlan.setupRadio(listRadio: listPlanType)
         inputTypePlan.delegate = self
+        inputTypePlan.radioGroup.selectedIndex = 0
+        inputTypePlan.radioGroup.isEnabled = false
         
         buttonSave.setTitle(title: "บันทึก")
         buttonSave.delegate = self
@@ -125,8 +158,6 @@ extension EditPlanMasterViewController {
         dayCollectionView.viewModel.input.setList(days: days)
         dayCollectionView.viewModel.input.setDelegate(delegate: self)
         dayCollectionView.viewModel.input.setEdit(isEdit: viewModel.output.getViewEditing())
-        
-        setupDelegatesTypePickerView()
         
         if viewModel.output.getViewEditing() == true {
             self.planNameView.isHidden = true
@@ -140,13 +171,6 @@ extension EditPlanMasterViewController {
             self.inputTypePlan.isHidden = true
             self.buttonSave.isHidden = true
             self.inputPlanDesc.isHidden = true
-        }
-        
-        if viewModel.output.getViewEditing() {
-        } else {
-            viewModel.input.getEmployee()
-            viewModel.input.getShop()
-            viewModel.input.getTruck()
         }
     }
     
@@ -182,6 +206,37 @@ extension EditPlanMasterViewController {
         pickerTypeView.dataSource = self
         pickerTypeView.delegate = self
         pickerTypeView.toolbarDelegate = self
+    }
+    
+    func setupValue() {
+        guard let item = viewModel.output.getPlanMasterDetail() else { return }
+        planNameText.text = item.planName ?? "-"
+        planDescText.text = item.planDesc ?? "-"
+        if item.planType == "N" {
+            planTypeText.text = "วันธรรมดา"
+        } else if item.planType == "Y" {
+            planTypeText.text = "วันพิเศษ"
+        }
+    }
+    
+    func setupSelectDaily() {
+        let daySelect = viewModel.output.getSelectDailys()
+        dayCollectionView.viewModel.input.setSelectDailys(days: daySelect)
+    }
+    
+    
+    func setValueListTruck() {
+        guard let list = viewModel.output.getListTrukCar() else { return }
+        typeList.removeAll()
+        for item in list {
+            typeList.append("ทะเบียน : \(item.registration_number ?? "")")
+        }
+        
+        if typeList.count != 0 {
+            inputNumberTruck.inputText.text = typeList[0]
+            self.selectedType =  typeList[0]
+        }
+        setupDelegatesTypePickerView()
     }
 }
 
@@ -318,19 +373,34 @@ extension EditPlanMasterViewController : UITextFieldDelegate {
 
 extension EditPlanMasterViewController: ButtonPrimaryViewDelegate {
     func onClickButton() {
-        print("onClickButton")
+        guard let truckName = self.inputNumberTruck.inputText.text, truckName != "",
+              let planName = self.inputPlanName.inputText.text, planName != "",
+              let planDesc = self.inputPlanDesc.inputText.text, planDesc != ""
+        else { return }
+        
+        let planTypeText = listPlanType[self.inputTypePlan.radioGroup.selectedIndex]
+        var planType = "N"
+        if planTypeText == "วันธรรมดา"{
+            planType = "N"
+        } else if planTypeText == "วันพิเศษ" {
+            planType = "Y"
+        }
+        
+        viewModel.input.createProduct(truckName: truckName,
+                                      planType: planType,
+                                      planName: planName,
+                                      planDesc: planDesc)
     }
 }
 
 extension EditPlanMasterViewController: InputRadioGroupViewDelegate {
     func didSelectRadio(value: String, index: Int) {
-        print(value)
-        print(index)
+        self.selectedIndexPlanType = index
     }
 }
 
 extension EditPlanMasterViewController: DayCollectionViewModelDelegate {
-    func listSelectedDay(days: [WeeklyType]?) {
-        print(days)
+    func listSelectedDay(days: [WeeklyType]) {
+        viewModel.input.setSelectDays(dailys: days)
     }
 }

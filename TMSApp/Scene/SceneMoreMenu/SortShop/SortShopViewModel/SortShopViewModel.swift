@@ -10,12 +10,12 @@ import UIKit
 
 
 public protocol SortShopViewModelDelegate {
-    func updateSortItems(items: [GetShopResponse]?)
+    func updateSortItems(items: [CustomerItems]?)
 }
 
 protocol SortShopProtocolInput {
     func didOpenShop()
-    func setListSort(items: [GetShopResponse]?)
+    func setListSort(items: [CustomerItems]?)
     func getListSort()
     func setDelegate(delegate: SortShopViewModelDelegate)
     func swapItem(sourceIndex: Int, destinationIndex: Int)
@@ -55,7 +55,7 @@ class SortShopViewModel: SortShopProtocol, SortShopProtocolOutput {
     var didGetSortShopSuccess: (() -> Void)?
     var didGetSortShopError: (() -> Void)?
     
-    fileprivate var listSortShop: [GetShopResponse]? = []
+    fileprivate var listSortShop: [CustomerItems]? = []
     
     public var delegate: SortShopViewModelDelegate?
     
@@ -63,7 +63,7 @@ class SortShopViewModel: SortShopProtocol, SortShopProtocolOutput {
         self.delegate = delegate
     }
     
-    func setListSort(items: [GetShopResponse]?) {
+    func setListSort(items: [CustomerItems]?) {
         self.listSortShop = items
     }
     
@@ -95,7 +95,7 @@ class SortShopViewModel: SortShopProtocol, SortShopProtocolOutput {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: ShopTableViewCell.identifier, for: indexPath) as! ShopTableViewCell
             cell.selectionStyle = .none
-            cell.titleText.text = "Title \(self.listSortShop![indexPath.row].id)"
+            cell.items = self.listSortShop?[indexPath.item]
             return cell
         }
     }
@@ -129,7 +129,7 @@ class SortShopViewModel: SortShopProtocol, SortShopProtocolOutput {
 
 
 extension SortShopViewModel: SelectShopViewModelDelegate {
-    func updateItems(items: [GetShopResponse]?) {
+    func updateItems(items: [CustomerItems]?) {
         self.listSortShop = items
         didGetSortShopSuccess?()
         self.delegate?.updateSortItems(items: self.listSortShop)

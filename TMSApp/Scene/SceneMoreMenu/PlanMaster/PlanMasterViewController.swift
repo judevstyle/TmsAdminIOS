@@ -24,11 +24,14 @@ class PlanMasterViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         registerCell()
-        viewModel.input.getPlanMaster()
     }
     
     func configure(_ interface: PlanMasterProtocol) {
         self.viewModel = interface
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.input.getPlanMaster()
     }
 }
 

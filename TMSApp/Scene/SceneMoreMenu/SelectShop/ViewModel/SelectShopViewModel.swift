@@ -7,16 +7,17 @@
 
 import Foundation
 import UIKit
+import Combine
 
 public protocol SelectShopViewModelDelegate {
-    func updateItems(items: [GetShopResponse]?)
+    func updateItems(items: [CustomerItems]?)
 }
 
 protocol SelectShopProtocolInput {
     func getSelectShop()
     func didSelectItem(_ tableView: UITableView, indexPath: IndexPath)
     func setDelegate(delegate: SelectShopViewModelDelegate)
-    func setListSelectedShop(items: [GetShopResponse]?)
+    func setListSelectedShop(items: [CustomerItems]?)
 }
 
 protocol SelectShopProtocolOutput: class {
@@ -39,22 +40,26 @@ class SelectShopViewModel: SelectShopProtocol, SelectShopProtocolOutput {
     
     // MARK: - Properties
     private var selectShopViewController: SelectShopViewController
-    
+    // MARK: - UseCase
+    private var getCustomerUseCase: GetCustomerUseCase
+    private var anyCancellable: Set<AnyCancellable> = Set<AnyCancellable>()
     
     
     init(
-        selectShopViewController: SelectShopViewController
+        selectShopViewController: SelectShopViewController,
+        getCustomerUseCase: GetCustomerUseCase = GetCustomerUseCaseImpl()
     ) {
         self.selectShopViewController = selectShopViewController
+        self.getCustomerUseCase = getCustomerUseCase
     }
     
     // MARK - Data-binding OutPut
     var didGetSelectShopSuccess: (() -> Void)?
     var didGetSelectShopError: (() -> Void)?
     
-    fileprivate var listSelectShop: [GetShopResponse]? = []
-    fileprivate var listAllShop: [GetShopResponse]? = []
-    fileprivate var listAllCompareShop: [GetShopResponse]? = []
+    fileprivate var listSelectShop: [CustomerItems]? = []
+    fileprivate var listAllShop: [CustomerItems]? = []
+    fileprivate var listAllCompareShop: [CustomerItems]? = []
     
     public var delegate: SelectShopViewModelDelegate?
     
@@ -62,21 +67,24 @@ class SelectShopViewModel: SelectShopProtocol, SelectShopProtocolOutput {
         self.delegate = delegate
     }
     
-    func setListSelectedShop(items: [GetShopResponse]?) {
+    func setListSelectedShop(items: [CustomerItems]?) {
         self.listSelectShop = items
     }
     
     func getSelectShop() {
         listAllShop?.removeAll()
         selectShopViewController.startLoding()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-            guard let weakSelf = self else { return }
-            for index in 0..<10 {
-                weakSelf.listAllShop?.append(GetShopResponse(title: "testt", id: index))
+        
+        self.getCustomerUseCase.execute().sink { completion in
+            debugPrint("getCustomerUseCase \(completion)")
+            self.selectShopViewController.stopLoding()
+        } receiveValue: { resp in
+            if let item = resp?.items {
+                self.listAllShop = item
+                self.didGetSelectShopSuccess?()
+                self.compareSelectedShop()
             }
-            weakSelf.selectShopViewController.stopLoding()
-            weakSelf.compareSelectedShop()
-        }
+        }.store(in: &self.anyCancellable)
     }
     
     private func compareSelectedShop() {
@@ -85,7 +93,7 @@ class SelectShopViewModel: SelectShopProtocol, SelectShopProtocolOutput {
         for (index, item) in listAllShop.enumerated() {
             var isSelect: Bool = false
             self.listSelectShop?.forEach({ select in
-                if select.id == item.id {
+                if select.cusId == item.cusId {
                     isSelect = true
                 }
             })
@@ -123,7 +131,7 @@ class SelectShopViewModel: SelectShopProtocol, SelectShopProtocolOutput {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: ShopTableViewCell.identifier, for: indexPath) as! ShopTableViewCell
             cell.selectionStyle = .none
-            cell.titleText.text = "Title \(self.listAllCompareShop![indexPath.row].id)"
+            cell.items = self.listAllCompareShop?[indexPath.item]
             return cell
         }
     }

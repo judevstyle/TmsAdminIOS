@@ -19,6 +19,13 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "ProductCollectionViewCell"
     
+    
+    @IBOutlet var viewBoxPrice: UIView!
+    
+    @IBOutlet var viewBoxCount: UIView!
+    @IBOutlet var countText: UILabel!
+    
+    
     var itemsProductSpecial: ProductSpecialForTypeUserItems? {
         didSet {
             setupValueProductSpecial()
@@ -28,6 +35,12 @@ class ProductCollectionViewCell: UICollectionViewCell {
     var itemsProduct: Product? {
         didSet {
             setupValueProduct()
+        }
+    }
+    
+    var itemsShipmentStock: ShipmentStockItems? {
+        didSet {
+            setupValueShipmentStock()
         }
     }
 
@@ -43,6 +56,8 @@ class ProductCollectionViewCell: UICollectionViewCell {
     }
     
     func setupValueProductSpecial() {
+        viewBoxCount.isHidden = true
+        viewBoxPrice.isHidden = false
         titleText.text = itemsProductSpecial?.product?.productName ?? ""
         descText.text = itemsProductSpecial?.product?.productDesc ?? ""
         
@@ -50,23 +65,34 @@ class ProductCollectionViewCell: UICollectionViewCell {
         attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributeString.length))
         attributeString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.darkGray, range: NSMakeRange(0, attributeString.length))
         self.priceOld.attributedText = attributeString
-        
         self.priceNew.text = "\(itemsProductSpecial?.itemPrice ?? 0)"
         
-        guard let urlImage = URL(string: "\(DomainNameConfig.TMSImagePath.urlString)\(itemsProductSpecial?.product?.productImg ?? "")") else { return }
-        imageThumbnail.kf.setImageDefault(with: urlImage)
+        setImage(url: itemsProductSpecial?.product?.productImg)
     }
     
     func setupValueProduct() {
+        viewBoxCount.isHidden = true
+        viewBoxPrice.isHidden = false
         titleText.text = itemsProduct?.productName ?? ""
         descText.text = itemsProduct?.productDesc ?? ""
-    
-        
         self.priceOld.isHidden = true
-        
         self.priceNew.text = "\(itemsProduct?.productPrice ?? 0)"
+        setImage(url: itemsProduct?.productImg)
+    }
+    
+    
+    func setupValueShipmentStock() {
+        viewBoxCount.isHidden = false
+        viewBoxPrice.isHidden = true
         
-        guard let urlImage = URL(string: "\(DomainNameConfig.TMSImagePath.urlString)\(itemsProduct?.productImg ?? "")") else { return }
+        titleText.text = itemsShipmentStock?.product?.productName ?? ""
+        descText.text = itemsShipmentStock?.product?.productDesc ?? ""
+        self.countText.text = "\(itemsShipmentStock?.qty ?? 0)"
+        setImage(url: itemsShipmentStock?.product?.productImg)
+    }
+    
+    private func setImage(url: String?) {
+        guard let urlImage = URL(string: "\(DomainNameConfig.TMSImagePath.urlString)\(url ?? "")") else { return }
         imageThumbnail.kf.setImageDefault(with: urlImage)
     }
 }

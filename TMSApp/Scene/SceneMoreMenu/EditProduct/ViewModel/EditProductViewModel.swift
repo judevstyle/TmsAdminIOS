@@ -82,8 +82,6 @@ class EditProductViewModel: EditProductProtocol, EditProductProtocolOutput {
     }
     
     func createProduct(productCode: String, productName: String, productDesc: String, productDimension: String, productPrice: Double, productPoint: Int, productCountPerPoint: Int, productImg: String, productTypeName: String) {
-        print("createProduct")
-    
         
         var request = PostProductRequest()
         request.compId = 1

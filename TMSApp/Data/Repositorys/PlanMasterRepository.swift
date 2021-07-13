@@ -12,6 +12,7 @@ import Moya
 protocol PlanMasterRepository {
     func getPlanMaster(request: GetPlanMasterRequest) -> AnyPublisher<GetPlanMasterResponse, Error>
     func getPlanMasterDetail(planId: Int) -> AnyPublisher<GetPlanMasterDetailResponse, Error>
+    func createPlanMaster(request: PostPlanMasterRequest) -> AnyPublisher<PostPlanMasterResponse, Error>
 }
 
 final class PlanMasterRepositoryImpl: TMSApp.PlanMasterRepository {
@@ -29,5 +30,12 @@ final class PlanMasterRepositoryImpl: TMSApp.PlanMasterRepository {
             .cb
             .request(.getPlanMasterDetail(planId: planId))
             .map(GetPlanMasterDetailResponse.self)
+    }
+    
+    func createPlanMaster(request: PostPlanMasterRequest) -> AnyPublisher<PostPlanMasterResponse, Error> {
+        return self.provider
+            .cb
+            .request(.createPlanMaster(request: request))
+            .map(PostPlanMasterResponse.self)
     }
 }

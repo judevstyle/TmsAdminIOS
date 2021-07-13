@@ -9,18 +9,20 @@ import Foundation
 import UIKit
 
 protocol DayCollectionViewModelDelegate {
-    func listSelectedDay(days: [WeeklyType]?)
+    func listSelectedDay(days: [WeeklyType])
 }
 
 protocol DayCollectionProtocolInput {
-    func setList(days: [WeeklyType]?)
+    func setList(days: [WeeklyType])
     func didSelectItemAt(_ collectionView: UICollectionView, indexPath: IndexPath)
     func setDelegate(delegate: DayCollectionViewModelDelegate)
     func setEdit(isEdit: Bool)
+    func setSelectDailys(days: [WeeklyType])
 }
 
 protocol DayCollectionProtocolOutput: class {
     var didSetMenuSuccess: (() -> Void)? { get set }
+    var didSetSelectDailySuccess: (() -> Void)? { get set }
     
     func getNumberOfCollection() -> Int
     func getItemViewCell(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell
@@ -43,8 +45,10 @@ class DayCollectionViewModel: DayCollectionProtocol, DayCollectionProtocolOutput
     
     // MARK - Data-binding OutPut
     var didSetMenuSuccess: (() -> Void)?
-    fileprivate var listDay: [WeeklyType]? = []
-    fileprivate var listSelectedDay: [WeeklyType]? = []
+    var didSetSelectDailySuccess: (() -> Void)?
+    
+    fileprivate var listDay: [WeeklyType] = []
+    fileprivate var listSelectedDay: [WeeklyType] = []
     fileprivate var isEditing: Bool = false
     
     public var delegate: DayCollectionViewModelDelegate?
@@ -53,9 +57,14 @@ class DayCollectionViewModel: DayCollectionProtocol, DayCollectionProtocolOutput
         self.delegate = delegate
     }
     
-    func setList(days: [WeeklyType]?) {
+    func setList(days: [WeeklyType]) {
         listDay = days
         self.didSetMenuSuccess?()
+    }
+    
+    func setSelectDailys(days: [WeeklyType]) {
+        listSelectedDay = days
+        self.didSetSelectDailySuccess?()
     }
     
     func setEdit(isEdit: Bool) {
@@ -63,13 +72,18 @@ class DayCollectionViewModel: DayCollectionProtocol, DayCollectionProtocolOutput
     }
     
     func getNumberOfCollection() -> Int {
-        guard let count = listDay?.count, count != 0 else { return 0 }
-        return count
+        guard listDay.count != 0 else { return 0 }
+        return listDay.count
     }
     
     func getItemViewCell(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayListCollectionViewCell.identifier, for: indexPath) as! DayListCollectionViewCell
-        cell.titleText.text = self.listDay?[indexPath.row].title ?? ""
+        cell.titleText.text = self.listDay[indexPath.row].title ?? ""
+        for item in self.listSelectedDay {
+            if item == self.listDay[indexPath.item] {
+                cell.setState()
+            }
+        }
         return cell
     }
     
@@ -78,9 +92,9 @@ class DayCollectionViewModel: DayCollectionProtocol, DayCollectionProtocolOutput
         if let cell = collectionView.cellForItem(at: indexPath) as? DayListCollectionViewCell, isEditing == true {
             cell.setState()
             if cell.isSelectedItem {
-                addSelectedDay(day: (self.listDay?[indexPath.row]))
+                addSelectedDay(day: (self.listDay[indexPath.row]))
             } else {
-                deleteSelectedDay(day: (self.listDay?[indexPath.row]))
+                deleteSelectedDay(day: (self.listDay[indexPath.row]))
             }
             self.delegate?.listSelectedDay(days: self.listSelectedDay)
         }
@@ -88,15 +102,15 @@ class DayCollectionViewModel: DayCollectionProtocol, DayCollectionProtocolOutput
     
     func addSelectedDay(day: WeeklyType?) {
         guard let day = day else { return }
-        self.listSelectedDay?.append(day)
+        self.listSelectedDay.append(day)
         
     }
     func deleteSelectedDay(day: WeeklyType?) {
-        guard let day = day, let list = self.listSelectedDay else { return }
+        guard let day = day else { return }
 
-        for (index, item) in list.enumerated() {
+        for (index, item) in self.listSelectedDay.enumerated() {
             if item == day {
-                self.listSelectedDay?.remove(at: index)
+                self.listSelectedDay.remove(at: index)
                 return
             }
         }

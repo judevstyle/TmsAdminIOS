@@ -17,7 +17,7 @@ public enum NavigationOpeningSender {
     case order
     case appeal
     case menu
-    case shipmentDetail(item: ShipmentItems)
+    case shipmentDetail
     case shipmentMap
     case orderCart(orderId: String)
     case appealDetail
@@ -42,8 +42,8 @@ public enum NavigationOpeningSender {
     case editProduct(product: Product?)
     case editPlanMaster(planId :Int?, isEdit: Bool)
     case selectEmployee(delegate: SelectEmployeeViewModelDelegate)
-    case sortShop(items: [GetShopResponse]?, delegate: SortShopViewModelDelegate)
-    case selectShop(items: [GetShopResponse]?, delegate: SelectShopViewModelDelegate)
+    case sortShop(items: [CustomerItems]?, delegate: SortShopViewModelDelegate)
+    case selectShop(items: [CustomerItems]?, delegate: SelectShopViewModelDelegate)
     case assetList
     case editAsset
     case assetDetail(items: AssetsItems?)
@@ -53,6 +53,8 @@ public enum NavigationOpeningSender {
     case collectible
     case coleectibleDetail(items: CollectibleItems?)
     case editCollectible
+    
+    case shipmentFlowLayout(item: ShipmentItems)
     
     public var storyboardName: String {
         switch self {
@@ -132,6 +134,8 @@ public enum NavigationOpeningSender {
             return "CollectibleDetail"
         case .editCollectible:
             return "EditCollectible"
+        case .shipmentFlowLayout:
+            return "ShipmentFlowLayout"
         }
     }
     
@@ -213,6 +217,8 @@ public enum NavigationOpeningSender {
             return "CollectibleDetailViewController"
         case .editCollectible:
             return "EditCollectibleViewController"
+        case .shipmentFlowLayout:
+            return "ShipmentFlowLayoutViewController"
         }
     }
     
@@ -295,6 +301,8 @@ public enum NavigationOpeningSender {
             return "AssetWithdraw"
         case .chat:
             return "Chat"
+        case .shipmentFlowLayout(_):
+            return "รายละเอียด Shipment"
         default:
             return ""
         }
@@ -345,8 +353,8 @@ class NavigationManager {
         var viewController: UIViewController = UIViewController()
         
         switch to {
-        case .shipmentDetail(let item):
-            if let className = storyboard.instantiateInitialViewController() as? ShipmentDetailViewController {
+        case .shipmentFlowLayout(let item):
+            if let className = storyboard.instantiateInitialViewController() as? ShipmentFlowLayoutViewController {
                 className.viewModel.input.setShipment(item: item)
                 viewController = className
             }

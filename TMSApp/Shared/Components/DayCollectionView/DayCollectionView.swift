@@ -57,6 +57,7 @@ extension DayCollectionView {
     
     func bindToViewModel() {
         viewModel.output.didSetMenuSuccess = didSetMenuSuccess()
+        viewModel.output.didSetSelectDailySuccess = didSetSelectDailySuccess()
     }
     
     func didSetMenuSuccess() -> (() -> Void) {
@@ -65,6 +66,13 @@ extension DayCollectionView {
             weakSelf.collectionView.reloadData()
             let selectedIndexPath = IndexPath(item: 0, section: 0)
             weakSelf.collectionView.selectItem(at: selectedIndexPath, animated: true, scrollPosition: [])
+        }
+    }
+    
+    func didSetSelectDailySuccess() -> (() -> Void) {
+        return { [weak self] in
+            guard let weakSelf = self else { return }
+            weakSelf.collectionView.reloadData()
         }
     }
 }
@@ -112,7 +120,7 @@ extension DayCollectionView: UICollectionViewDataSource {
 }
 
 
-enum WeeklyType {
+public enum WeeklyType {
     case Monday
     case Tuesday
     case Wednesday
@@ -121,7 +129,7 @@ enum WeeklyType {
     case Saturday
     case Sunday
     
-    var title: String {
+    public var title: String {
         switch self {
         case .Monday:
             return "จ."
@@ -137,6 +145,25 @@ enum WeeklyType {
             return "ส."
         case .Sunday:
             return "อา."
+        }
+    }
+    
+    public var id: Int {
+        switch self {
+        case .Monday:
+            return 1
+        case .Tuesday:
+            return 2
+        case .Wednesday:
+            return 3
+        case .Thursday:
+            return 4
+        case .Friday:
+            return 5
+        case .Saturday:
+            return 6
+        case .Sunday:
+            return 7
         }
     }
 }
