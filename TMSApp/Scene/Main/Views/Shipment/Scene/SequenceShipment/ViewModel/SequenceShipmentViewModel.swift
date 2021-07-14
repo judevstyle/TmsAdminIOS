@@ -10,7 +10,7 @@ import UIKit
 import Combine
 
 protocol SequenceShipmentProtocolInput {
-    func setShipmentId(shipmentId: String)
+    func setShipmentId(shipmentId: Int?)
     func getSequenceShipment()
     func swapItem(sourceIndex: Int, destinationIndex: Int)
 }
@@ -22,6 +22,8 @@ protocol SequenceShipmentProtocolOutput: class {
     func getHeightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat
     func getNumberOfRowsInSection(_ tableView: UITableView, section: Int) -> Int
     func getCellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
+    
+    func getShipmentId() -> Int?
 }
 
 protocol SequenceShipmentProtocol: SequenceShipmentProtocolInput, SequenceShipmentProtocolOutput {
@@ -54,29 +56,36 @@ class SequenceShipmentViewModel: SequenceShipmentProtocol, SequenceShipmentProto
     var didGetSequenceShipmentError: (() -> Void)?
     
     fileprivate var listSequenceShipment: [ShipmentCustomerItems]? = []
-    private var shipmentId: String?
     
-    func setShipmentId(shipmentId: String) {
+    private var shipmentId: Int?
+    
+    func setShipmentId(shipmentId: Int?) {
         self.shipmentId = shipmentId
     }
     
+    func getShipmentId() -> Int? {
+        return self.shipmentId
+    }
+    
     func getSequenceShipment() {
-//        listSequenceShipment?.removeAll()
-//        sequenceShipmentViewController.startLoding()
-//        guard let shipmentId = self.shipmentId else { return }
-//        self.getShipmentCustomerUseCase.execute(shipmentId: shipmentId).sink { completion in
-//            debugPrint("ShipmentCustomer \(completion)")
-//        } receiveValue: { resp in
-//            if let items = resp?.data?.shipmentCustomer {
-//                self.listSequenceShipment = items
-//            }
-//            self.didGetSequenceShipmentSuccess?()
-//            self.sequenceShipmentViewController.stopLoding()
-//        }.store(in: &self.anyCancellable)
+        listSequenceShipment?.removeAll()
+        sequenceShipmentViewController.startLoding()
+        guard let shipmentId = self.shipmentId else { return }
+        self.getShipmentCustomerUseCase.execute(shipmentId: shipmentId).sink { completion in
+            debugPrint("getShipmentCustomer \(completion)")
+            self.sequenceShipmentViewController.stopLoding()
+        } receiveValue: { resp in
+            if let items = resp?.data {
+                self.listSequenceShipment = items
+                SelectCustomerManager.shared.setSelectCustomer(items: self.listSequenceShipment ?? [])
+                SelectCustomerManager.shared.setListDeleteCustomer(items: [])
+            }
+            self.didGetSequenceShipmentSuccess?()
+        }.store(in: &self.anyCancellable)
     }
     
     func getHeightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat {
-        return 116
+        return 104
     }
     
     func getNumberOfRowsInSection(_ tableView: UITableView, section: Int) -> Int {
@@ -86,6 +95,7 @@ class SequenceShipmentViewModel: SequenceShipmentProtocol, SequenceShipmentProto
     func getCellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SequenceShipmentTableViewCell.identifier, for: indexPath) as! SequenceShipmentTableViewCell
         cell.selectionStyle = .none
+        cell.items = self.listSequenceShipment?[indexPath.item]
         return cell
     }
     

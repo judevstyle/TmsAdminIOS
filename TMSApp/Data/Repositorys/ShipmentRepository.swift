@@ -12,7 +12,7 @@ import Moya
 protocol ShipmentRepository {
     func getShipment(request: GetShipmentRequest) -> AnyPublisher<GetShipmentResponse, Error>
     func getShipmentWorking(request: GetShipmentWorkingRequest) -> AnyPublisher<GetShipmentWorkingResponse, Error>
-    func GetShipmentCustomer(shipmentId: String) -> AnyPublisher<GetShipmentCustomerResponse, Error>
+    func GetShipmentCustomer(shipmentId: Int) -> AnyPublisher<GetShipmentCustomerResponse, Error>
 }
 
 final class ShipmentRepositoryImpl: TMSApp.ShipmentRepository {
@@ -32,7 +32,7 @@ final class ShipmentRepositoryImpl: TMSApp.ShipmentRepository {
             .map(GetShipmentWorkingResponse.self)
     }
     
-    func GetShipmentCustomer(shipmentId: String) -> AnyPublisher<GetShipmentCustomerResponse, Error> {
+    func GetShipmentCustomer(shipmentId: Int) -> AnyPublisher<GetShipmentCustomerResponse, Error> {
         return self.shipmentAPI
             .cb
             .request(.getShipmentCustomer(shipmentId: shipmentId))

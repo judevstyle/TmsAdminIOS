@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SukhumvitSet-Text.ttf">
+            <string>SukhumvitSet-Text</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Sort Shipment Option View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="SortShipmentOptionViewController" customModule="TMSApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="124"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VN5-bP-emv">
+                                <rect key="frame" x="0.0" y="8" width="414" height="108"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a0S-SF-kz6">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paperplane.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tCm-yP-lSW">
+                                                <rect key="frame" x="8" y="8.5" width="34" height="33.5"/>
+                                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="tCm-yP-lSW" secondAttribute="height" multiplier="1:1" id="nhz-bp-gMk"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ส่งด่วน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTb-4f-rrs">
+                                                <rect key="frame" x="50" y="13" width="43.5" height="24"/>
+                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="15"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="tCm-yP-lSW" firstAttribute="leading" secondItem="a0S-SF-kz6" secondAttribute="leading" constant="8" id="c8M-Op-j7A"/>
+                                            <constraint firstAttribute="bottom" secondItem="tCm-yP-lSW" secondAttribute="bottom" constant="8" id="fPY-w9-YfR"/>
+                                            <constraint firstItem="NTb-4f-rrs" firstAttribute="centerY" secondItem="tCm-yP-lSW" secondAttribute="centerY" id="o3J-JT-123"/>
+                                            <constraint firstItem="NTb-4f-rrs" firstAttribute="leading" secondItem="tCm-yP-lSW" secondAttribute="trailing" constant="8" id="zJE-PY-g4w"/>
+                                            <constraint firstItem="tCm-yP-lSW" firstAttribute="top" secondItem="a0S-SF-kz6" secondAttribute="top" constant="8" id="zRE-k2-XlT"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fbl-bm-c2p">
+                                        <rect key="frame" x="0.0" y="58" width="414" height="50"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark.bin.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="C5J-YW-wAC">
+                                                <rect key="frame" x="8" y="9" width="34" height="31.5"/>
+                                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="C5J-YW-wAC" secondAttribute="height" multiplier="1:1" id="kMB-Tr-hG1"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ลบ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FaD-O7-Cvq">
+                                                <rect key="frame" x="50" y="13" width="18" height="24"/>
+                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="15"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="C5J-YW-wAC" firstAttribute="leading" secondItem="Fbl-bm-c2p" secondAttribute="leading" constant="8" id="4pR-6p-XaR"/>
+                                            <constraint firstItem="FaD-O7-Cvq" firstAttribute="leading" secondItem="C5J-YW-wAC" secondAttribute="trailing" constant="8" id="SHn-p1-wyp"/>
+                                            <constraint firstItem="C5J-YW-wAC" firstAttribute="top" secondItem="Fbl-bm-c2p" secondAttribute="top" constant="8" id="dEr-3Z-SbZ"/>
+                                            <constraint firstItem="FaD-O7-Cvq" firstAttribute="centerY" secondItem="C5J-YW-wAC" secondAttribute="centerY" id="l5f-eK-m2i"/>
+                                            <constraint firstAttribute="bottom" secondItem="C5J-YW-wAC" secondAttribute="bottom" constant="8" id="vBs-Lo-0AH"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VN5-bP-emv" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="8" id="2wf-WK-VlE"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="VN5-bP-emv" secondAttribute="bottom" constant="8" id="byQ-1A-DB9"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="VN5-bP-emv" secondAttribute="trailing" id="iRJ-kd-wbz"/>
+                            <constraint firstItem="VN5-bP-emv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="vWB-CV-Oke"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="124"/>
+                    <connections>
+                        <outlet property="viewDelete" destination="Fbl-bm-c2p" id="hvg-Mf-dfB"/>
+                        <outlet property="viewExpress" destination="a0S-SF-kz6" id="XIA-KS-SSI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="39.508928571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="paperplane.fill" catalog="system" width="128" height="118"/>
+        <image name="xmark.bin.fill" catalog="system" width="128" height="93"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

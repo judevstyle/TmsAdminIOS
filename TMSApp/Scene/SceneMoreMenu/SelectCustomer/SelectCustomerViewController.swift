@@ -1,20 +1,19 @@
 //
-//  SequenceShipmentViewController.swift
+//  SelectCustomerViewController.swift
 //  TMSApp
 //
-//  Created by Nontawat Kanboon on 6/15/21.
+//  Created by Nontawat Kanboon on 7/14/21.
 //
 
 import UIKit
 
-class SequenceShipmentViewController: UIViewController {
-    
+class SelectCustomerViewController: UIViewController {
+
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var btnSort: UIBarButtonItem!
     
     // ViewModel
-    lazy var viewModel: SequenceShipmentProtocol = {
-        let vm = SequenceShipmentViewModel(sequenceShipmentViewController: self)
+    lazy var viewModel: SelectCustomerProtocol = {
+        let vm = SelectCustomerViewModel(selectCustomerViewController: self)
         self.configure(vm)
         self.bindToViewModel()
         return vm
@@ -24,10 +23,10 @@ class SequenceShipmentViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         registerCell()
-        viewModel.input.getSequenceShipment()
+        viewModel.input.getSelectCustomer()
     }
     
-    func configure(_ interface: SequenceShipmentProtocol) {
+    func configure(_ interface: SelectCustomerProtocol) {
         self.viewModel = interface
     }
     
@@ -38,21 +37,13 @@ class SequenceShipmentViewController: UIViewController {
 }
 
 // MARK: - Binding
-extension SequenceShipmentViewController {
+extension SelectCustomerViewController {
     
     func bindToViewModel() {
-        viewModel.output.didGetSequenceShipmentSuccess = didGetSequenceShipmentSuccess()
-        viewModel.output.didGetSequenceShipmentError = didGetSequenceShipmentError()
+        viewModel.output.didGetSelectCustomerSuccess = didGetSelectCustomerSuccess()
     }
     
-    func didGetSequenceShipmentSuccess() -> (() -> Void) {
-        return { [weak self] in
-            guard let weakSelf = self else { return }
-            weakSelf.tableView.reloadData()
-        }
-    }
-    
-    func didGetSequenceShipmentError() -> (() -> Void) {
+    func didGetSelectCustomerSuccess() -> (() -> Void) {
         return { [weak self] in
             guard let weakSelf = self else { return }
             weakSelf.tableView.reloadData()
@@ -61,7 +52,7 @@ extension SequenceShipmentViewController {
 }
 
 // MARK: - SETUP UI
-extension SequenceShipmentViewController {
+extension SelectCustomerViewController {
     func setupUI() {
 //        btnSort.image = UIImage(named: "gear")
     }
@@ -78,14 +69,13 @@ extension SequenceShipmentViewController {
 }
 
 // MARK: - Handles
-extension SequenceShipmentViewController {
+extension SelectCustomerViewController {
     
 }
 
-
-extension SequenceShipmentViewController: UITableViewDelegate {
+extension SelectCustomerViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        viewModel.input.didSelectItemAtRow(tableView, indexPath: indexPath)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -94,8 +84,7 @@ extension SequenceShipmentViewController: UITableViewDelegate {
     
 }
 
-
-extension SequenceShipmentViewController: UITableViewDataSource {
+extension SelectCustomerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.output.getNumberOfRowsInSection(tableView, section: section)
     }
@@ -103,21 +92,4 @@ extension SequenceShipmentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return viewModel.output.getCellForRowAt(tableView, indexPath: indexPath)
     }
-    
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        viewModel.input.swapItem(sourceIndex: sourceIndexPath.row, destinationIndex: destinationIndexPath.row)
-    }
-    
-    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-    
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .none
-    }
-    
 }

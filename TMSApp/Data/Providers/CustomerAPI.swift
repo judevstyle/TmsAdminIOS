@@ -11,12 +11,13 @@ import UIKit
 
 public enum CustomerAPI {
     case getCustomer(request: GetCustomerRequest)
+    case getCustomerSenderMatching(request: GetCustomerSenderMatchingRequest)
 }
 
 extension CustomerAPI: TargetType {
     public var baseURL: URL {
         switch self {
-        case .getCustomer(_):
+        case .getCustomer(_), .getCustomerSenderMatching(_):
             return DomainNameConfig.TMSCustomer.url
         }
     }
@@ -25,12 +26,14 @@ extension CustomerAPI: TargetType {
         switch self {
         case .getCustomer(_):
             return ""
+        case .getCustomerSenderMatching(_):
+            return "/customerSenderMatching"
         }
     }
     
     public var method: Moya.Method {
         switch self {
-        case .getCustomer(_):
+        case .getCustomer(_), .getCustomerSenderMatching(_):
             return .get
         }
     }
@@ -42,6 +45,8 @@ extension CustomerAPI: TargetType {
     public var task: Task {
         switch self {
         case let .getCustomer(request):
+            return .requestParameters(parameters: request.toJSON(), encoding: URLEncoding.queryString)
+        case let .getCustomerSenderMatching(request):
             return .requestParameters(parameters: request.toJSON(), encoding: URLEncoding.queryString)
         }
     }

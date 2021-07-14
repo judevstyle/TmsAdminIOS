@@ -12,7 +12,7 @@ import UIKit
 public enum ShipmentAPI {
     case getShipment(request: GetShipmentRequest)
     case getShipmentWorking(request: GetShipmentWorkingRequest)
-    case getShipmentCustomer(shipmentId: String)
+    case getShipmentCustomer(shipmentId: Int)
 }
 
 extension ShipmentAPI: TargetType {

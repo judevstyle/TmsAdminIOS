@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Qs4-oE-2Bv">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="819"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="brN-2L-7Rn">
                                     <size key="itemSize" width="128" height="128"/>
@@ -31,11 +31,38 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2YZ-WQ-04d">
+                                <rect key="frame" x="8" y="827" width="398" height="61"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fLd-uC-p9r">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="61"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4TB-uI-wZC" customClass="ButtonPrimaryView" customModule="TMSApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="61"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="61" id="SAD-DE-Pg8"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="fLd-uC-p9r" firstAttribute="top" secondItem="2YZ-WQ-04d" secondAttribute="top" id="4qG-Zq-LFz"/>
+                                    <constraint firstAttribute="bottom" secondItem="fLd-uC-p9r" secondAttribute="bottom" id="D1J-g5-VGP"/>
+                                    <constraint firstAttribute="trailing" secondItem="fLd-uC-p9r" secondAttribute="trailing" id="FO4-hW-XjZ"/>
+                                    <constraint firstItem="fLd-uC-p9r" firstAttribute="leading" secondItem="2YZ-WQ-04d" secondAttribute="leading" id="mkj-JY-PLv"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="2YZ-WQ-04d" firstAttribute="leading" secondItem="bZl-MN-RJi" secondAttribute="leading" constant="8" id="73D-Yz-Rzh"/>
+                            <constraint firstItem="2YZ-WQ-04d" firstAttribute="top" secondItem="Qs4-oE-2Bv" secondAttribute="bottom" constant="8" id="M6c-is-d9S"/>
                             <constraint firstItem="Qs4-oE-2Bv" firstAttribute="leading" secondItem="bZl-MN-RJi" secondAttribute="leading" id="MRX-Im-hd7"/>
-                            <constraint firstAttribute="bottom" secondItem="Qs4-oE-2Bv" secondAttribute="bottom" id="YTK-09-f3q"/>
+                            <constraint firstAttribute="trailing" secondItem="2YZ-WQ-04d" secondAttribute="trailing" constant="8" id="Pkn-mt-Woo"/>
+                            <constraint firstAttribute="bottom" secondItem="2YZ-WQ-04d" secondAttribute="bottom" constant="8" id="XCQ-HX-ApH"/>
                             <constraint firstItem="Qs4-oE-2Bv" firstAttribute="top" secondItem="bZl-MN-RJi" secondAttribute="top" id="Zwg-1I-Dfj"/>
                             <constraint firstAttribute="trailing" secondItem="Qs4-oE-2Bv" secondAttribute="trailing" id="y4W-yz-a3G"/>
                         </constraints>
@@ -50,9 +77,10 @@
                 <constraint firstAttribute="trailing" secondItem="bZl-MN-RJi" secondAttribute="trailing" id="tnz-nW-SK9"/>
             </constraints>
             <connections>
+                <outlet property="btnAdd" destination="4TB-uI-wZC" id="lbS-wJ-KVg"/>
                 <outlet property="collectionView" destination="Qs4-oE-2Bv" id="psE-lo-Kdj"/>
             </connections>
-            <point key="canvasLocation" x="132" y="74"/>
+            <point key="canvasLocation" x="131.8840579710145" y="73.660714285714278"/>
         </collectionViewCell>
     </objects>
     <resources>

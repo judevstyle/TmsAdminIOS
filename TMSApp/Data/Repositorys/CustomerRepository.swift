@@ -11,6 +11,7 @@ import Moya
 
 protocol CustomerRepository {
     func getCustomer(request: GetCustomerRequest) -> AnyPublisher<GetCustomerResponse, Error>
+    func getCustomerSenderMatching(request: GetCustomerSenderMatchingRequest) -> AnyPublisher<GetCustomerSenderMatchingResponse, Error>
 }
 
 final class CustomerRepositoryImpl: TMSApp.CustomerRepository {
@@ -21,5 +22,12 @@ final class CustomerRepositoryImpl: TMSApp.CustomerRepository {
             .cb
             .request(.getCustomer(request: request))
             .map(GetCustomerResponse.self)
+    }
+    
+    func getCustomerSenderMatching(request: GetCustomerSenderMatchingRequest) -> AnyPublisher<GetCustomerSenderMatchingResponse, Error> {
+        return self.provider
+            .cb
+            .request(.getCustomerSenderMatching(request: request))
+            .map(GetCustomerSenderMatchingResponse.self)
     }
 }

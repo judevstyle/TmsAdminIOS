@@ -54,10 +54,6 @@ class ShipmentDetailViewCell: UICollectionViewCell {
     func configure(_ interface: ShipmentDetailProtocol) {
         self.viewModel = interface
     }
-
-    @IBAction func btnShipmentAction(_ sender: Any) {
-        NavigationManager.instance.pushVC(to: .sequenceShipment)
-    }
 }
 
 // MARK: - Binding

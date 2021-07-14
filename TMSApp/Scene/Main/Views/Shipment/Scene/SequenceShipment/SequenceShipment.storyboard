@@ -32,7 +32,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="mmD-dd-koW">
-                        <barButtonItem key="rightBarButtonItem" image="square.and.pencil" catalog="system" id="ujL-vC-1t3">
+                        <barButtonItem key="rightBarButtonItem" image="pencil" catalog="system" id="ujL-vC-1t3">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="didTapSort:" destination="Y6W-OH-hqX" id="DGA-8W-yAF"/>
@@ -51,7 +51,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

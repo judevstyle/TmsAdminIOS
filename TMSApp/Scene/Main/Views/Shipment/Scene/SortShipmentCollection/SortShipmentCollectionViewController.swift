@@ -1,65 +1,93 @@
 //
-//  ShipmentProductCell.swift
+//  SortShipmentCollectionViewController.swift
 //  TMSApp
 //
-//  Created by Nontawat Kanboon on 7/13/21.
+//  Created by Nontawat Kanboon on 7/14/21.
 //
 
 import UIKit
 
-class ShipmentProductCell: UICollectionViewCell {
-
-    static let identifier = "ShipmentProductCell"
+class SortShipmentCollectionViewController: UIViewController {
     
     @IBOutlet var collectionView: UICollectionView!
-    
-    @IBOutlet weak var btnAdd: ButtonPrimaryView!
-    
+    @IBOutlet weak var btnSave: ButtonPrimaryView!
+
     let inset: CGFloat = 10
     let minimumLineSpacing: CGFloat = 10
     let minimumInteritemSpacing: CGFloat = 10
     let cellsPerRow = 3
     
     // ViewModel
-    lazy var viewModel: ShipmentProductCellProtocol = {
-        let vm = ShipmentProductCellViewModel(shipmentProductCell: self)
+    lazy var viewModel: SortShipmentProtocol = {
+        let vm = SortShipmentViewModel(sortShipmentCollectionViewController: self)
         self.configure(vm)
         self.bindToViewModel()
         return vm
     }()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    override func viewDidLoad() {
+        super.viewDidLoad()
         setupUI()
         registerCell()
     }
     
-    func configure(_ interface: ShipmentProductCellProtocol) {
+    func configure(_ interface: SortShipmentProtocol) {
         self.viewModel = interface
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.input.getShipmentCustomer()
+    }
 }
 
 // MARK: - Binding
-extension ShipmentProductCell {
+extension SortShipmentCollectionViewController {
     
     func bindToViewModel() {
-        viewModel.output.didGetShipmentStockSuccess = didGetShipmentStockSuccess()
+        viewModel.output.didGetShipmentCustomer = didGetShipmentCustomer()
+        viewModel.output.didEditActionSuccess = didEditActionSuccess()
     }
     
-    func didGetShipmentStockSuccess() -> (() -> Void) {
+    func didGetShipmentCustomer() -> (() -> Void) {
         return { [weak self] in
             guard let weakSelf = self else { return }
             weakSelf.collectionView.reloadData()
         }
     }
+    
+    func didEditActionSuccess() -> ((ShipmentCustomerItems?) -> Void) {
+        return { [weak self] item in
+            guard let weakSelf = self else { return }
+            NavigationManager.instance.pushVC(to: .sortShipmentOption(delegate: weakSelf, item: item), presentation: .BottomSheet(completion: {
+            }, height: 124))
+        }
+    }
 }
 
-extension ShipmentProductCell {
-    func setupUI(){
-        btnAdd.setTitle(title: "นำสินค้าเข้าขึ้นรถ")
-        btnAdd.delegate = self
+extension SortShipmentCollectionViewController: SortShipmentOptionViewModelDelegate {
+    func didTapFastExpress(item: ShipmentCustomerItems?) {
+        viewModel.input.didTapExpressCustomer(item: item)
+    }
+    
+    func didDeleteCustomer(item: ShipmentCustomerItems?) {
+        viewModel.input.didTapDeleteCustomer(item: item)
+    }
+}
+
+extension SortShipmentCollectionViewController {
+    
+    func setupUI() {
+        btnSave.setTitle(title: "บันทึกการเปลี่ยนแปลง")
+        btnSave.delegate = self
+        
+        let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didAddCustomer))
+        button.tintColor = .white
+        navigationItem.rightBarButtonItem = button
+    }
+    
+    @objc func didAddCustomer() {
+        guard let shipmentId = viewModel.output.getShipmentId() else { return }
+        NavigationManager.instance.pushVC(to: .selectCustomer(shipmentId: shipmentId))
     }
     
     fileprivate func registerCell() {
@@ -71,18 +99,18 @@ extension ShipmentProductCell {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionView?.collectionViewLayout = layout
         collectionView?.contentInsetAdjustmentBehavior = .always
-        collectionView.registerCell(identifier: ProductCollectionViewCell.identifier)
+        collectionView.registerCell(identifier: ShipmentCustomerCollectionViewCell.identifier)
     }
 }
 
-extension ShipmentProductCell: UICollectionViewDelegate {
+extension SortShipmentCollectionViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     }
 
 }
 
-extension ShipmentProductCell: UICollectionViewDataSource {
+extension SortShipmentCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.output.getNumberOfCollectionCell()
     }
@@ -92,7 +120,7 @@ extension ShipmentProductCell: UICollectionViewDataSource {
     }
 }
 
-extension ShipmentProductCell: UICollectionViewDelegateFlowLayout{
+extension SortShipmentCollectionViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
     }
@@ -109,12 +137,12 @@ extension ShipmentProductCell: UICollectionViewDelegateFlowLayout{
         let marginsAndInsets = inset * 2 + collectionView.safeAreaInsets.left + collectionView.safeAreaInsets.right + minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
         let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
     
-        return CGSize(width: itemWidth, height: itemWidth + 65)
+        return CGSize(width: itemWidth, height: itemWidth)
     }
 }
 
 
-extension ShipmentProductCell: ButtonPrimaryViewDelegate {
+extension SortShipmentCollectionViewController: ButtonPrimaryViewDelegate {
     func onClickButton() {
         debugPrint("onClick")
     }

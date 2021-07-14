@@ -29,7 +29,7 @@ public enum NavigationOpeningSender {
     case customer
     case truck
     case planMaster
-    case sequenceShipment
+    case sequenceShipment(shipmentId: Int?)
     case typeUserProductDetail(itemTypeUser: TypeUserData?,
                                itemProduct: Product?,
                                itemProductSpecial: ProductSpecialForTypeUserItems?,
@@ -53,8 +53,12 @@ public enum NavigationOpeningSender {
     case collectible
     case coleectibleDetail(items: CollectibleItems?)
     case editCollectible
+    case sortShipment(shipmentId: Int?)
     
     case shipmentFlowLayout(item: ShipmentItems)
+    case selectCustomer(shipmentId: Int?)
+    
+    case sortShipmentOption(delegate: SortShipmentOptionViewModelDelegate, item: ShipmentCustomerItems?)
     
     public var storyboardName: String {
         switch self {
@@ -136,6 +140,12 @@ public enum NavigationOpeningSender {
             return "EditCollectible"
         case .shipmentFlowLayout:
             return "ShipmentFlowLayout"
+        case .sortShipment:
+            return "SortShipmentCollection"
+        case .selectCustomer(_):
+            return "SelectCustomer"
+        case .sortShipmentOption:
+            return "SortShipmentOption"
         }
     }
     
@@ -219,6 +229,12 @@ public enum NavigationOpeningSender {
             return "EditCollectibleViewController"
         case .shipmentFlowLayout:
             return "ShipmentFlowLayoutViewController"
+        case .sortShipment:
+            return "SortShipmentCollectionViewController"
+        case .selectCustomer(_):
+            return "SelectCustomerViewController"
+        case .sortShipmentOption(_):
+            return "SortShipmentOptionViewController"
         }
     }
     
@@ -272,7 +288,7 @@ public enum NavigationOpeningSender {
         case .planMaster:
             return "PlanMaster"
         case .sequenceShipment:
-            return "SequenceShipment"
+            return "ลำดับการจัดส่ง"
         case .typeUserProductDetail:
             return "TypeUserProductDetail"
         case .typeUserProductAll:
@@ -303,6 +319,10 @@ public enum NavigationOpeningSender {
             return "Chat"
         case .shipmentFlowLayout(_):
             return "รายละเอียด Shipment"
+        case .sortShipment:
+            return "sortShipment"
+        case .selectCustomer(_):
+            return "เลือก Customer"
         default:
             return ""
         }
@@ -427,6 +447,27 @@ class NavigationManager {
             className.viewModel.input.setCollectibleDetail(items: items)
             viewController = className
         }
+        case .sequenceShipment(let shipmentId):
+        if let className = storyboard.instantiateInitialViewController() as? SequenceShipmentViewController {
+            className.viewModel.input.setShipmentId(shipmentId: shipmentId)
+            viewController = className
+        }
+        case .sortShipment(let shipmentId):
+        if let className = storyboard.instantiateInitialViewController() as? SortShipmentCollectionViewController {
+            className.viewModel.input.setShipmentId(shipmentId: shipmentId)
+            viewController = className
+        }
+        case .selectCustomer(let shipmentId):
+        if let className = storyboard.instantiateInitialViewController() as? SelectCustomerViewController {
+            className.viewModel.input.setShipmentId(shipmentId: shipmentId)
+            viewController = className
+        }
+        case .sortShipmentOption(let delegate, let item):
+        if let className = storyboard.instantiateInitialViewController() as? SortShipmentOptionViewController {
+            className.viewModel.input.setDelegate(delegate: delegate)
+            className.viewModel.input.setItem(item: item)
+            viewController = className
+        }
         default:
             viewController = storyboard.instantiateInitialViewController() ?? to.viewController
         }
@@ -460,7 +501,6 @@ class NavigationManager {
             viewController.modalPresentationStyle = .fullScreen
             self.navigationController.present(viewController, animated: true, completion: completion)
         case .BottomSheet(let completion, let height):
-            //            viewController.modalPresentationStyle = .automatic
             viewController.view.setRounded(rounded: 20)
             let bottomSheet: MDCBottomSheetController = MDCBottomSheetController(contentViewController: viewController)
             bottomSheet.preferredContentSize = CGSize(width: viewController.view.frame.size.width, height: height)

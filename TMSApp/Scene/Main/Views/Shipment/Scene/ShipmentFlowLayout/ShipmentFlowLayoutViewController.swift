@@ -27,6 +27,7 @@ class ShipmentFlowLayoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setupUI()
         setupTopnav()
         setupPageCollectionView()
     }
@@ -46,6 +47,17 @@ extension ShipmentFlowLayoutViewController {
 
 //MARK:- SegmentedControl
 extension ShipmentFlowLayoutViewController {
+    
+    func setupUI() {
+        let button = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(didSortShipment))
+        button.tintColor = .white
+        navigationItem.rightBarButtonItem = button
+    }
+    
+    @objc func didSortShipment() {
+        guard let item = viewModel.output.getItemShipment() else { return }
+        NavigationManager.instance.pushVC(to: .sequenceShipment(shipmentId: item.shipmentId))
+    }
     
     private func setupTopnav() {
 

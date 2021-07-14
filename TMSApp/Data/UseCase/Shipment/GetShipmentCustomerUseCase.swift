@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol GetShipmentCustomerUseCase {
-    func execute(shipmentId: String) -> AnyPublisher<GetShipmentCustomerResponse?, Error>
+    func execute(shipmentId: Int) -> AnyPublisher<GetShipmentCustomerResponse?, Error>
 }
 
 struct GetShipmentCustomerUseCaseImpl: GetShipmentCustomerUseCase {
@@ -20,7 +20,7 @@ struct GetShipmentCustomerUseCaseImpl: GetShipmentCustomerUseCase {
         self.shipmentRepository = shipmentRepository
     }
     
-    func execute(shipmentId: String) -> AnyPublisher<GetShipmentCustomerResponse?, Error> {
+    func execute(shipmentId: Int) -> AnyPublisher<GetShipmentCustomerResponse?, Error> {
         return shipmentRepository
             .GetShipmentCustomer(shipmentId: shipmentId)
             .map { $0 }

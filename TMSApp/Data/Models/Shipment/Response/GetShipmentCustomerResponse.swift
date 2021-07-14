@@ -11,7 +11,7 @@ public struct GetShipmentCustomerResponse: Codable, Hashable  {
     
     public var statusCode: Int?
     public var success: Bool = false
-    public var data: ShipmentCustomerData?
+    public var data: [ShipmentCustomerItems]?
     
     public init() {}
     
@@ -22,31 +22,30 @@ public struct GetShipmentCustomerResponse: Codable, Hashable  {
     }
 }
 
-public struct ShipmentCustomerData: Codable, Hashable  {
-    
-    public var shipmentId: Int?
-    public var planId: Int?
-    public var planSeq: Int?
-    public var shipmentNo: String?
-    public var status: Int?
-    public var shipmentCustomer: [ShipmentCustomerItems]?
-    public var shipmentStock: [ShipmentStockItems]?
-    public var planMaster: [PlanMasterItems]?
-    
-    public init() {}
-    
-    public init(from decoder: Decoder) throws {
-        try shipmentId        <- decoder["shipment_id"]
-        try planId            <- decoder["plan_id"]
-        try planSeq           <- decoder["plan_seq"]
-        try shipmentNo        <- decoder["shipment_no"]
-        try status            <- decoder["status"]
-        try shipmentCustomer  <- decoder["shipmentCustomer"]
-        try shipmentStock     <- decoder["shipmentStock"]
-        try planMaster        <- decoder["planMaster"]
-    }
-}
-
+//public struct ShipmentCustomerData: Codable, Hashable  {
+//
+//    public var shipmentId: Int?
+//    public var planId: Int?
+//    public var planSeq: Int?
+//    public var shipmentNo: String?
+//    public var status: Int?
+//    public var shipmentCustomer: [ShipmentCustomerItems]?
+//    public var shipmentStock: [ShipmentStockItems]?
+//    public var planMaster: [PlanMasterItems]?
+//
+//    public init() {}
+//
+//    public init(from decoder: Decoder) throws {
+//        try shipmentId        <- decoder["shipment_id"]
+//        try planId            <- decoder["plan_id"]
+//        try planSeq           <- decoder["plan_seq"]
+//        try shipmentNo        <- decoder["shipment_no"]
+//        try status            <- decoder["status"]
+//        try shipmentCustomer  <- decoder["shipmentCustomer"]
+//        try shipmentStock     <- decoder["shipmentStock"]
+//        try planMaster        <- decoder["planMaster"]
+//    }
+//}
 
 public struct ShipmentCustomerItems: Codable, Hashable  {
     

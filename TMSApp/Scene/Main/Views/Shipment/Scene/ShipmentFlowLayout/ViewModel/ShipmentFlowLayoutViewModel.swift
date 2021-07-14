@@ -17,6 +17,8 @@ protocol ShipmentFlowLayoutProtocolOutput: class {
     
     func getCellForItemAt(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell
     func getNumberOfItemsInSection(_ collectionView: UICollectionView, section: Int) -> Int
+    
+    func getItemShipment() -> ShipmentItems?
 }
 
 protocol ShipmentFlowLayoutProtocol: ShipmentFlowLayoutProtocolInput, ShipmentFlowLayoutProtocolOutput {
@@ -60,6 +62,10 @@ class ShipmentFlowLayoutViewModel: ShipmentFlowLayoutProtocol, ShipmentFlowLayou
         } else {
             return UICollectionViewCell()
         }
+    }
+    
+    func getItemShipment() -> ShipmentItems? {
+        return self.shipmentItem
     }
     
     func getNumberOfItemsInSection(_ collectionView: UICollectionView, section: Int) -> Int {
