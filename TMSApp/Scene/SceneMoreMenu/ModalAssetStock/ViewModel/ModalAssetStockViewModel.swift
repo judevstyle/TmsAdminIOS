@@ -90,6 +90,16 @@ class ModalAssetStockViewModel: ModalAssetStockProtocol, ModalAssetStockProtocol
         self.postAssetStockUseCase.execute(request: request).sink { completion in
             debugPrint("postAssetStock \(completion)")
             self.modalAssetStockViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "PostAssetStock finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "PostAssetStock failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp {
                 if items.success == true {
@@ -110,6 +120,16 @@ class ModalAssetStockViewModel: ModalAssetStockProtocol, ModalAssetStockProtocol
         self.postAssetPickupStockUseCase.execute(request: request).sink { completion in
             debugPrint("postAssetPickupStock \(completion)")
             self.modalAssetStockViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "PostAssetPickupStock finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "PostAssetPickupStock failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp {
                 if items.success == true {

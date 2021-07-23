@@ -10,9 +10,11 @@ import UIKit
 
 let kHost = "http://43.229.149.79:3010"
 let kDashboard = "dashboard-balance"
+let kTrackingByComp = "trackingByComp"
 
 typealias CompletionHandler = () -> Void
 typealias DashboardCompletionHandler = (Result<SocketDashboardResponse?, Error>) -> Void
+typealias MarkerCompletionHandler = (Result<SocketMarkerMapResponse?, Error>) -> Void
 
 extension Notification.Name {
     static let userTyping = Notification.Name("userTypingNotification")
@@ -57,6 +59,33 @@ final class SocketHelper: NSObject {
                 
                 let decode = try JSONDecoder().decode([SocketDashboardResponse].self, from: data)
                 if let item = decode[0] as? SocketDashboardResponse {
+                    completion(.success(item))
+                } else {
+                    completion(.success(nil))
+                }
+            } catch let error as NSError {
+                print("Failed to load: \(error.localizedDescription)")
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    
+    func emitTrackingByComp(request: SocketMarkerMapRequest, completion: CompletionHandler) {
+        let json = request.toJSON().convertToJSONString() ?? ""
+        _socket?.emit(kTrackingByComp, json)
+        completion()
+    }
+    
+    func fetchTrackingByComp(completion: @escaping MarkerCompletionHandler) {
+        _socket?.on(kTrackingByComp) { [weak self] (result, ack) in
+            do {
+                guard result.count > 0, let data = Utils.jsonData(from: result) else {
+                    return
+                }
+                
+                let decode = try JSONDecoder().decode([SocketMarkerMapResponse].self, from: data)
+                if let item = decode[0] as? SocketMarkerMapResponse {
                     completion(.success(item))
                 } else {
                     completion(.success(nil))

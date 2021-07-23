@@ -69,6 +69,16 @@ class EditProductViewModel: EditProductProtocol, EditProductProtocolOutput {
         self.getProductTypeUseCase.execute().sink { completion in
             debugPrint("getProductType \(completion)")
             self.editProductViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetProductType finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "GetProductType failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp {
                 self.listProductType = items
@@ -107,6 +117,16 @@ class EditProductViewModel: EditProductProtocol, EditProductProtocolOutput {
         self.postProductUseCase.execute(request: request).sink { completion in
             debugPrint("postProduct \(completion)")
             self.editProductViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "PostProduct finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "PostProduct failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp {
                 if items.success == true {

@@ -10,6 +10,7 @@
 		43C02A52D78B77370A2AEE77 /* Pods_TMSApp_TMSAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CD1BD90AFB294103F69E86C /* Pods_TMSApp_TMSAppUITests.framework */; };
 		4D346C5FA69DDB6D6396EADE /* Pods_TMSAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20480C8FB5A3102C2068456C /* Pods_TMSAppTests.framework */; };
 		8D115DF66119DEE986E16BA4 /* Pods_TMSApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40276A60BDA1976017E50C87 /* Pods_TMSApp.framework */; };
+		EF0685CA26AB1B5900D68A7D /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0685C926AB1B5900D68A7D /* ToastManager.swift */; };
 		EF09F436268BB0A600CB819F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF09F435268BB0A600CB819F /* Utils.swift */; };
 		EF0EA6832653763300148157 /* AppealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA6822653763300148157 /* AppealViewModel.swift */; };
 		EF0EA68B265376B800148157 /* GetAppealResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA68A265376B800148157 /* GetAppealResponse.swift */; };
@@ -36,6 +37,18 @@
 		EF110C0C269F57E2001C0258 /* SortShipmentOption.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF110C0B269F57E2001C0258 /* SortShipmentOption.storyboard */; };
 		EF110C0E269F57EF001C0258 /* SortShipmentOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF110C0D269F57EF001C0258 /* SortShipmentOptionViewController.swift */; };
 		EF110C11269F596C001C0258 /* SortShipmentOptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF110C10269F596C001C0258 /* SortShipmentOptionViewModel.swift */; };
+		EF125C7A26A0722600E29CC6 /* PutShipmentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF125C7926A0722600E29CC6 /* PutShipmentRequest.swift */; };
+		EF125C7C26A0723000E29CC6 /* PutShipmentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF125C7B26A0723000E29CC6 /* PutShipmentResponse.swift */; };
+		EF125C7E26A0785200E29CC6 /* PutShipmentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF125C7D26A0785200E29CC6 /* PutShipmentUseCase.swift */; };
+		EF19289326A39501005A45E1 /* SocketMarkerMapResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19289226A39501005A45E1 /* SocketMarkerMapResponse.swift */; };
+		EF19289526A39509005A45E1 /* SocketMarkerMapRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19289426A39509005A45E1 /* SocketMarkerMapRequest.swift */; };
+		EF19289926A4705A005A45E1 /* ProductDetailQtyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19289826A4705A005A45E1 /* ProductDetailQtyViewController.swift */; };
+		EF19289B26A47060005A45E1 /* ProductDetailQty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF19289A26A47060005A45E1 /* ProductDetailQty.storyboard */; };
+		EF19289D26A47221005A45E1 /* ProductDetailQtyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19289C26A47221005A45E1 /* ProductDetailQtyViewModel.swift */; };
+		EF19289F26A473B2005A45E1 /* PostShipmentStockRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19289E26A473B2005A45E1 /* PostShipmentStockRequest.swift */; };
+		EF1928A126A4745B005A45E1 /* PostShipmentStockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1928A026A4745B005A45E1 /* PostShipmentStockResponse.swift */; };
+		EF1928A326A47559005A45E1 /* PostShipmentStockUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1928A226A47559005A45E1 /* PostShipmentStockUseCase.swift */; };
+		EF1928A726A477BE005A45E1 /* ShipmentStockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1928A626A477BE005A45E1 /* ShipmentStockManager.swift */; };
 		EF19830D267913A700D6C597 /* SequenceShipmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19830C267913A700D6C597 /* SequenceShipmentViewModel.swift */; };
 		EF22DE06267DC62900EA131D /* SortShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF22DE05267DC62900EA131D /* SortShopViewModel.swift */; };
 		EF22DE09267DCC3C00EA131D /* SelectShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF22DE08267DCC3C00EA131D /* SelectShopViewModel.swift */; };
@@ -475,6 +488,7 @@
 		829279A9B8DF7F5A348CF243 /* Pods-TMSApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMSApp.debug.xcconfig"; path = "Target Support Files/Pods-TMSApp/Pods-TMSApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B6BE57EB110F1D5FD1D51761 /* Pods-TMSAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMSAppTests.debug.xcconfig"; path = "Target Support Files/Pods-TMSAppTests/Pods-TMSAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DA81F2E0EF4C483B6A33D4F6 /* Pods-TMSApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMSApp.release.xcconfig"; path = "Target Support Files/Pods-TMSApp/Pods-TMSApp.release.xcconfig"; sourceTree = "<group>"; };
+		EF0685C926AB1B5900D68A7D /* ToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
 		EF09F435268BB0A600CB819F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		EF0EA6822653763300148157 /* AppealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppealViewModel.swift; sourceTree = "<group>"; };
 		EF0EA68A265376B800148157 /* GetAppealResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppealResponse.swift; sourceTree = "<group>"; };
@@ -500,6 +514,18 @@
 		EF110C0B269F57E2001C0258 /* SortShipmentOption.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SortShipmentOption.storyboard; sourceTree = "<group>"; };
 		EF110C0D269F57EF001C0258 /* SortShipmentOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortShipmentOptionViewController.swift; sourceTree = "<group>"; };
 		EF110C10269F596C001C0258 /* SortShipmentOptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortShipmentOptionViewModel.swift; sourceTree = "<group>"; };
+		EF125C7926A0722600E29CC6 /* PutShipmentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutShipmentRequest.swift; sourceTree = "<group>"; };
+		EF125C7B26A0723000E29CC6 /* PutShipmentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutShipmentResponse.swift; sourceTree = "<group>"; };
+		EF125C7D26A0785200E29CC6 /* PutShipmentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutShipmentUseCase.swift; sourceTree = "<group>"; };
+		EF19289226A39501005A45E1 /* SocketMarkerMapResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketMarkerMapResponse.swift; sourceTree = "<group>"; };
+		EF19289426A39509005A45E1 /* SocketMarkerMapRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketMarkerMapRequest.swift; sourceTree = "<group>"; };
+		EF19289826A4705A005A45E1 /* ProductDetailQtyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailQtyViewController.swift; sourceTree = "<group>"; };
+		EF19289A26A47060005A45E1 /* ProductDetailQty.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductDetailQty.storyboard; sourceTree = "<group>"; };
+		EF19289C26A47221005A45E1 /* ProductDetailQtyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailQtyViewModel.swift; sourceTree = "<group>"; };
+		EF19289E26A473B2005A45E1 /* PostShipmentStockRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostShipmentStockRequest.swift; sourceTree = "<group>"; };
+		EF1928A026A4745B005A45E1 /* PostShipmentStockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostShipmentStockResponse.swift; sourceTree = "<group>"; };
+		EF1928A226A47559005A45E1 /* PostShipmentStockUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostShipmentStockUseCase.swift; sourceTree = "<group>"; };
+		EF1928A626A477BE005A45E1 /* ShipmentStockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentStockManager.swift; sourceTree = "<group>"; };
 		EF198309267911C300D6C597 /* TMSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF19830A267911C300D6C597 /* TMSAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMSAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF19830B267911C300D6C597 /* TMSAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMSAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -957,6 +983,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EF0685C726AB1B4500D68A7D /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				EF0685C826AB1B4B00D68A7D /* ToastManager */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		EF0685C826AB1B4B00D68A7D /* ToastManager */ = {
+			isa = PBXGroup;
+			children = (
+				EF0685C926AB1B5900D68A7D /* ToastManager.swift */,
+			);
+			path = ToastManager;
+			sourceTree = "<group>";
+		};
 		EF0EA6812653761D00148157 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1098,6 +1140,49 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		EF19288F26A394DA005A45E1 /* SocketMarkerMap */ = {
+			isa = PBXGroup;
+			children = (
+				EF19289226A39501005A45E1 /* SocketMarkerMapResponse.swift */,
+				EF19289426A39509005A45E1 /* SocketMarkerMapRequest.swift */,
+			);
+			path = SocketMarkerMap;
+			sourceTree = "<group>";
+		};
+		EF19289626A4702F005A45E1 /* ProductDetailQty */ = {
+			isa = PBXGroup;
+			children = (
+				EF19289726A47046005A45E1 /* ViewModel */,
+				EF19289826A4705A005A45E1 /* ProductDetailQtyViewController.swift */,
+				EF19289A26A47060005A45E1 /* ProductDetailQty.storyboard */,
+			);
+			path = ProductDetailQty;
+			sourceTree = "<group>";
+		};
+		EF19289726A47046005A45E1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EF19289C26A47221005A45E1 /* ProductDetailQtyViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EF1928A426A4778D005A45E1 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				EF1928A526A47791005A45E1 /* ShipmentStockManager */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		EF1928A526A47791005A45E1 /* ShipmentStockManager */ = {
+			isa = PBXGroup;
+			children = (
+				EF1928A626A477BE005A45E1 /* ShipmentStockManager.swift */,
+			);
+			path = ShipmentStockManager;
+			sourceTree = "<group>";
+		};
 		EF22DE04267DC61300EA131D /* SortShopViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1161,6 +1246,7 @@
 		EF2367A72691817900A4C7B6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EF19288F26A394DA005A45E1 /* SocketMarkerMap */,
 				EF2367AE2691BCFC00A4C7B6 /* SocketDashboard */,
 			);
 			path = Model;
@@ -1211,6 +1297,7 @@
 		EF2618912675FB7B00F826BC /* SceneMoreMenu */ = {
 			isa = PBXGroup;
 			children = (
+				EF19289626A4702F005A45E1 /* ProductDetailQty */,
 				EF110C0A269F57C3001C0258 /* SortShipmentOption */,
 				EF110BF8269F3E36001C0258 /* SelectCustomer */,
 				EF266CA0267F54F8006F3923 /* CollectibleDetail */,
@@ -1240,6 +1327,7 @@
 				EF2618A4267609BE00F826BC /* EditEmployee */,
 				EF2618922675FB8E00F826BC /* Employee */,
 				EFD4EE622667E37200A0FC75 /* AppealDetail */,
+				EF0EA82C2653C2E400148157 /* ShipmentMap */,
 			);
 			path = SceneMoreMenu;
 			sourceTree = "<group>";
@@ -1422,6 +1510,7 @@
 			isa = PBXGroup;
 			children = (
 				EF2852BE269E05A000A83712 /* GetShipmentStockResponse.swift */,
+				EF1928A026A4745B005A45E1 /* PostShipmentStockResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -1430,6 +1519,7 @@
 			isa = PBXGroup;
 			children = (
 				EF2852C0269E05A800A83712 /* GetShipmentStockRequest.swift */,
+				EF19289E26A473B2005A45E1 /* PostShipmentStockRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1438,6 +1528,7 @@
 			isa = PBXGroup;
 			children = (
 				EF2852C5269E06F000A83712 /* GetShipmentStockUseCase.swift */,
+				EF1928A226A47559005A45E1 /* PostShipmentStockUseCase.swift */,
 			);
 			path = ShipmentStock;
 			sourceTree = "<group>";
@@ -1595,6 +1686,8 @@
 		EF2F96FA26859B68000363B0 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				EF0685C726AB1B4500D68A7D /* Manager */,
+				EF1928A426A4778D005A45E1 /* Store */,
 				EF2F97262685C11A000363B0 /* Config */,
 				EF5E72C3264EF90900F5EE47 /* Utility */,
 				EF5E729C264EE71700F5EE47 /* Helpers */,
@@ -1741,6 +1834,7 @@
 			children = (
 				EF590A0726502DE7007248B4 /* GetShipmentRequest.swift */,
 				EF2F974826863586000363B0 /* GetShipmentWorkingRequest.swift */,
+				EF125C7926A0722600E29CC6 /* PutShipmentRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1751,6 +1845,7 @@
 				EF590A0D26502E1A007248B4 /* GetShipmentResponse.swift */,
 				EF2F974A26863596000363B0 /* GetShipmentWorkingResponse.swift */,
 				EF2F9761268658E4000363B0 /* GetShipmentCustomerResponse.swift */,
+				EF125C7B26A0723000E29CC6 /* PutShipmentResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -1769,6 +1864,7 @@
 				EF2F975226863B27000363B0 /* GetShipmentWorkingUseCase.swift */,
 				EF2F975426864821000363B0 /* GetShipmentUseCase.swift */,
 				EF2F976326865F08000363B0 /* GetShipmentCustomerUseCase.swift */,
+				EF125C7D26A0785200E29CC6 /* PutShipmentUseCase.swift */,
 			);
 			path = Shipment;
 			sourceTree = "<group>";
@@ -2049,7 +2145,6 @@
 				EF2852A4269DDFCD00A83712 /* ShipmentProductCell */,
 				EF28529F269DD71600A83712 /* ShipmentFlowLayout */,
 				EF7F4CFF26790B770096373E /* SequenceShipment */,
-				EF0EA82C2653C2E400148157 /* ShipmentMap */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -3682,6 +3777,7 @@
 				EF2852B0269DE55A00A83712 /* ShipmentProductCell.xib in Resources */,
 				EF9E341C267CC16700CE9DDC /* IconBadgeView.xib in Resources */,
 				EF266CA8267F552F006F3923 /* EditCollectible.storyboard in Resources */,
+				EF19289B26A47060005A45E1 /* ProductDetailQty.storyboard in Resources */,
 				EF6E70D4267E484500FABBFE /* AssetStockTableViewCell.xib in Resources */,
 				EFBDF6DA26781A4B00F5978F /* InputTextFieldPickerView.xib in Resources */,
 				EF7F4CE12678F8580096373E /* Customer.storyboard in Resources */,
@@ -3888,6 +3984,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF28529E269DC3FE00A83712 /* PostPlanMasterUseCase.swift in Sources */,
+				EF1928A326A47559005A45E1 /* PostShipmentStockUseCase.swift in Sources */,
 				EFCE9B0D26988E4700490129 /* TruckRepository.swift in Sources */,
 				EF2F975326863B27000363B0 /* GetShipmentWorkingUseCase.swift in Sources */,
 				EFBDF7122678423700F5978F /* TypeUserDetailViewModel.swift in Sources */,
@@ -3928,6 +4025,7 @@
 				EF0EA68B265376B800148157 /* GetAppealResponse.swift in Sources */,
 				EF2618882675CB6C00F826BC /* AppealFeedbackViewModel.swift in Sources */,
 				EF7F4CEC2678F9DF0096373E /* TruckTableViewCell.swift in Sources */,
+				EF19289526A39509005A45E1 /* SocketMarkerMapRequest.swift in Sources */,
 				EF2852B5269DEAE800A83712 /* ShipmentDetailCellViewModel.swift in Sources */,
 				EF110BF1269F31DD001C0258 /* SortShipmentCollectionViewController.swift in Sources */,
 				EFD1091C267A87DA00AF290D /* ImagePicker.swift in Sources */,
@@ -3935,6 +4033,7 @@
 				EF7F4CE32678F86A0096373E /* CustomerViewController.swift in Sources */,
 				EFE50EDF267BC51800C9498C /* TypeUserProductAllViewController.swift in Sources */,
 				EF2F974426863530000363B0 /* ShipmentAPI.swift in Sources */,
+				EF1928A726A477BE005A45E1 /* ShipmentStockManager.swift in Sources */,
 				EF590A1B265033A5007248B4 /* ShipmentTableViewCell.swift in Sources */,
 				EF2F975526864821000363B0 /* GetShipmentUseCase.swift in Sources */,
 				EFE50EF1267BDCB000C9498C /* ProductDetailViewController.swift in Sources */,
@@ -3942,7 +4041,9 @@
 				EF44C60B2656CAF10014F0D0 /* ShipmentMapViewController.swift in Sources */,
 				EF110C0E269F57EF001C0258 /* SortShipmentOptionViewController.swift in Sources */,
 				EF80A1EA26885ACA008A8828 /* ConfirmOrderCartUseCase.swift in Sources */,
+				EF19289D26A47221005A45E1 /* ProductDetailQtyViewModel.swift in Sources */,
 				EF680CA8267D24A9006BE9A7 /* SortShopViewController.swift in Sources */,
+				EF0685CA26AB1B5900D68A7D /* ToastManager.swift in Sources */,
 				EF5E7290264EDBB500F5EE47 /* LoginViewController.swift in Sources */,
 				EF0ED6A92699D24A008AC8BF /* PostTruckRequest.swift in Sources */,
 				EFD9AF67268B4F4400B7F907 /* AssetStockAPI.swift in Sources */,
@@ -3964,6 +4065,7 @@
 				EF9E3410267CB13900CE9DDC /* ButtonPrimaryView.swift in Sources */,
 				EFA60C6426961A3500157A74 /* JobPositionAPI.swift in Sources */,
 				EF525A9F2688875800DACBC5 /* ProductTypeAPI.swift in Sources */,
+				EF19289F26A473B2005A45E1 /* PostShipmentStockRequest.swift in Sources */,
 				EF864A5F269CC9FF0014F9F9 /* GetCustomerUseCase.swift in Sources */,
 				EF95A68226879F0D00DBFF6B /* GetTypeUserRequest.swift in Sources */,
 				EFCBAE74269B56D600922BA7 /* GetPlanMasterResponse.swift in Sources */,
@@ -3995,6 +4097,7 @@
 				EF22DE06267DC62900EA131D /* SortShopViewModel.swift in Sources */,
 				EF680C7A267CE32A006BE9A7 /* DayCollectionViewModel.swift in Sources */,
 				EF2F97122685AF3B000363B0 /* Decoder+Extension.swift in Sources */,
+				EF1928A126A4745B005A45E1 /* PostShipmentStockResponse.swift in Sources */,
 				EF2F972C2685C29A000363B0 /* GetDashboardUseCase.swift in Sources */,
 				EF6E70D7267E4A5C00FABBFE /* AssetDetailViewModel.swift in Sources */,
 				EF680CA0267D219E006BE9A7 /* SelectShopViewController.swift in Sources */,
@@ -4040,6 +4143,7 @@
 				EF864A57269CC7AD0014F9F9 /* GetCustomerRequest.swift in Sources */,
 				EF2F970C2685AB2B000363B0 /* GetDashboardRequest.swift in Sources */,
 				EF2852C3269E069300A83712 /* ShipmentStockRepository.swift in Sources */,
+				EF125C7E26A0785200E29CC6 /* PutShipmentUseCase.swift in Sources */,
 				EF2F97302685D9D1000363B0 /* DashBoardProductTableViewCell.swift in Sources */,
 				EF5E72ED264EFF0200F5EE47 /* AppealViewController.swift in Sources */,
 				EF95A6872687A05100DBFF6B /* GetTypeUserUseCase.swift in Sources */,
@@ -4073,6 +4177,7 @@
 				EFAD67132671665700FE5596 /* AppealSentByTableViewCell.swift in Sources */,
 				EF0EA691265376CC00148157 /* GetAppealRequest.swift in Sources */,
 				EFD52DF62689F89000DC1C50 /* GetProductDetailResponse.swift in Sources */,
+				EF125C7C26A0723000E29CC6 /* PutShipmentResponse.swift in Sources */,
 				EF26189E2675FE8000F826BC /* EmployeeTableViewCell.swift in Sources */,
 				EF6E70C4267E3AC000FABBFE /* EditAssetViewController.swift in Sources */,
 				EF2367B72691BEEC00A4C7B6 /* Dictionary+Extension.swift in Sources */,
@@ -4100,6 +4205,7 @@
 				EFA60C6926961AB700157A74 /* GetJobPositionRequest.swift in Sources */,
 				EF0ED6AB2699D258008AC8BF /* PostTruckResponse.swift in Sources */,
 				EFA60C6D26961C4E00157A74 /* JobPositionRepository.swift in Sources */,
+				EF19289326A39501005A45E1 /* SocketMarkerMapResponse.swift in Sources */,
 				EF110BEC269F2D7C001C0258 /* SortShipmentViewModel.swift in Sources */,
 				EF55E9692614F6E300915D1C /* UITextField+Extension.swift in Sources */,
 				EF2852BF269E05A000A83712 /* GetShipmentStockResponse.swift in Sources */,
@@ -4146,6 +4252,7 @@
 				EFD52E01268A427400DC1C50 /* EditProductViewModel.swift in Sources */,
 				EF2D2CEA2650F0310096F757 /* OrderTableViewCell.swift in Sources */,
 				EFCBAE72269B56CB00922BA7 /* GetPlanMasterRequest.swift in Sources */,
+				EF19289926A4705A005A45E1 /* ProductDetailQtyViewController.swift in Sources */,
 				EFD1091A267A757D00AF290D /* AlertCustomViewswift.swift in Sources */,
 				EF864A59269CC7B60014F9F9 /* GetCustomerResponse.swift in Sources */,
 				EF9E3425267CC9EB00CE9DDC /* EditPlanMasterViewController.swift in Sources */,
@@ -4180,6 +4287,7 @@
 				EF2618A12675FEA000F826BC /* EmployeeViewModel.swift in Sources */,
 				EF55E93F2614F51B00915D1C /* SplashViewController.swift in Sources */,
 				EF6E70CF267E3FEC00FABBFE /* AssetWithdrawViewController.swift in Sources */,
+				EF125C7A26A0722600E29CC6 /* PutShipmentRequest.swift in Sources */,
 				EF2852BA269E054200A83712 /* ShipmentStockAPI.swift in Sources */,
 				EF2F971A2685B805000363B0 /* CodableInfixOperator.swift in Sources */,
 				EFAD671926716B3900FE5596 /* AppealFeedbackTableViewCell.swift in Sources */,
@@ -4378,19 +4486,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = Y46GLN8894;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = 2DY57Q85QG;
 				INFOPLIST_FILE = TMSApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ssoft.TMSApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ssoft.tms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "TMS App Build AdHoc";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -4402,19 +4510,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = Y46GLN8894;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = 2DY57Q85QG;
 				INFOPLIST_FILE = TMSApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ssoft.TMSApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ssoft.tms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "TMS App Build AdHoc";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

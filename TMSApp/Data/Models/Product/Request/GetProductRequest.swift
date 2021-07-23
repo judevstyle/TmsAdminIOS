@@ -10,10 +10,12 @@ import Foundation
 public struct GetProductRequest: Codable, Hashable {
     
     public var compId: Int?
+    public var productTypeId: Int?
     
     public init() {}
     
     enum CodingKeys: String, CodingKey {
         case compId = "comp_id"
+        case productTypeId = "product_type_id"
     }
 }

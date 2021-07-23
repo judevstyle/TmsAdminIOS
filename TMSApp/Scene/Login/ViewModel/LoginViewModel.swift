@@ -51,6 +51,16 @@ class LoginViewModel: LoginProtocol, LoginProtocolOutput {
         self.postAuthEmployeeUseCase.execute(request: request).sink { completion in
             debugPrint("postAuthEmployee \(completion)")
             self.loginViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "Login finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "Login failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp, items.success {
                 if let accessToken = items.data?.accessToken, let expireAccessToken = items.data?.expire {

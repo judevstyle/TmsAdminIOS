@@ -76,6 +76,14 @@ class MainViewModel: MainProtocol, MainProtocolOutput {
         self.getDashboardUseCase
             .execute().sink { completion in
                 debugPrint("getDashboard \(completion)")
+                switch completion {
+                case .finished:
+                    ToastManager.shared.toastCallAPI(title: "GetDashboard finished")
+                    break
+                case .failure(_):
+                    ToastManager.shared.toastCallAPI(title: "GetDashboard failure")
+                    break
+                }
             } receiveValue: { resp in
                 if let summaryCustomer = resp?.summaryCustomer {
                     self.summaryCustomer = summaryCustomer
@@ -92,6 +100,16 @@ class MainViewModel: MainProtocol, MainProtocolOutput {
         
         self.getShipmentWorkingUseCase.execute().sink { completion in
             debugPrint("getShipment \(completion)")
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetShipmentWorking finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "GetShipmentWorking failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp?.data?.items {
                 self.listShipmentWorking = items

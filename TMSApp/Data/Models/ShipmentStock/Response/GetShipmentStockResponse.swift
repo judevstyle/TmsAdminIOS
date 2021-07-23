@@ -22,7 +22,6 @@ public struct GetShipmentStockResponse: Codable, Hashable  {
     }
 }
 
-
 public struct ShipmentStockItems: Codable, Hashable  {
     
     public var shipmentStockId: Int?

@@ -66,6 +66,16 @@ class EditEmployeeViewModel: EditEmployeeProtocol, EditEmployeeProtocolOutput {
         self.getJobPositionUseCase.execute().sink { completion in
             debugPrint("getJobPosition \(completion)")
             self.editEmployeeViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetJobPosition finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "GetJobPosition failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp {
                 self.listJobPosition = items
@@ -111,6 +121,16 @@ class EditEmployeeViewModel: EditEmployeeProtocol, EditEmployeeProtocolOutput {
         self.postEmployeeUseCase.execute(request: request).sink { completion in
             debugPrint("postEmployee \(completion)")
             self.editEmployeeViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "PostEmployee finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "PostEmployee failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp {
                 if items.success == true {

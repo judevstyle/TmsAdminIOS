@@ -28,7 +28,7 @@ class TypeUserProductAllViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
+        ShipmentStockManager.shared.setListSelectShipmentStock(items: [])
         viewModel.input.getCategory()
     }
     
@@ -68,6 +68,19 @@ extension TypeUserProductAllViewController {
         
         registerHeaderCell()
         registerProductCell()
+        
+        
+        
+        //Mock UI
+        if viewModel.output.getItemTypeUser() == nil {
+            let button = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didSaveShipmentStock))
+            button.tintColor = .white
+            navigationItem.rightBarButtonItem = button
+        }
+    }
+    
+    @objc func didSaveShipmentStock() {
+        viewModel.input.didSaveShipmentStock()
     }
     
     fileprivate func registerHeaderCell() {

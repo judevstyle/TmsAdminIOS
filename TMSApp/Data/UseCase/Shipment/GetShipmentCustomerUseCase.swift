@@ -22,7 +22,7 @@ struct GetShipmentCustomerUseCaseImpl: GetShipmentCustomerUseCase {
     
     func execute(shipmentId: Int) -> AnyPublisher<GetShipmentCustomerResponse?, Error> {
         return shipmentRepository
-            .GetShipmentCustomer(shipmentId: shipmentId)
+            .getShipmentCustomer(shipmentId: shipmentId)
             .map { $0 }
             .eraseToAnyPublisher()
     }

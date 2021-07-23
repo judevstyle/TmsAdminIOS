@@ -60,6 +60,16 @@ class AssetListViewModel: AssetListProtocol, AssetListProtocolOutput {
         self.getAssetsUseCase.execute().sink { completion in
             debugPrint("getAssets \(completion)")
             self.assetListViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetAssets finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "GetAssets failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp {
                 self.listAssetList = items

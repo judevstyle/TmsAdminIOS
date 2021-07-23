@@ -10,7 +10,7 @@ import UIKit
 import Combine
 
 protocol SequenceShipmentProtocolInput {
-    func setShipmentId(shipmentId: Int?)
+    func setItemShipment(items: ShipmentItems?)
     func getSequenceShipment()
     func swapItem(sourceIndex: Int, destinationIndex: Int)
 }
@@ -23,7 +23,7 @@ protocol SequenceShipmentProtocolOutput: class {
     func getNumberOfRowsInSection(_ tableView: UITableView, section: Int) -> Int
     func getCellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
     
-    func getShipmentId() -> Int?
+    func getShipmentItem() -> ShipmentItems?
 }
 
 protocol SequenceShipmentProtocol: SequenceShipmentProtocolInput, SequenceShipmentProtocolOutput {
@@ -57,27 +57,42 @@ class SequenceShipmentViewModel: SequenceShipmentProtocol, SequenceShipmentProto
     
     fileprivate var listSequenceShipment: [ShipmentCustomerItems]? = []
     
-    private var shipmentId: Int?
+    private var shipmentItem: ShipmentItems?
     
-    func setShipmentId(shipmentId: Int?) {
-        self.shipmentId = shipmentId
+    func setItemShipment(items: ShipmentItems?) {
+        self.shipmentItem = items
     }
     
-    func getShipmentId() -> Int? {
-        return self.shipmentId
+    func getShipmentItem() -> ShipmentItems? {
+        return self.shipmentItem
     }
     
     func getSequenceShipment() {
         listSequenceShipment?.removeAll()
         sequenceShipmentViewController.startLoding()
-        guard let shipmentId = self.shipmentId else { return }
+        guard let shipmentId = self.shipmentItem?.shipmentId else { return }
         self.getShipmentCustomerUseCase.execute(shipmentId: shipmentId).sink { completion in
             debugPrint("getShipmentCustomer \(completion)")
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetShipmentCustomer finished")
+                break
+            case .failure(_):
+                SelectCustomerManager.shared.setSelectCustomer(items: [])
+                SelectCustomerManager.shared.setListDeleteCustomer(items: [])
+                ToastManager.shared.toastCallAPI(title: "GetShipmentCustomer failure")
+                break
+            }
+            
             self.sequenceShipmentViewController.stopLoding()
         } receiveValue: { resp in
             if let items = resp?.data {
                 self.listSequenceShipment = items
                 SelectCustomerManager.shared.setSelectCustomer(items: self.listSequenceShipment ?? [])
+                SelectCustomerManager.shared.setListDeleteCustomer(items: [])
+            } else {
+                SelectCustomerManager.shared.setSelectCustomer(items: [])
                 SelectCustomerManager.shared.setListDeleteCustomer(items: [])
             }
             self.didGetSequenceShipmentSuccess?()

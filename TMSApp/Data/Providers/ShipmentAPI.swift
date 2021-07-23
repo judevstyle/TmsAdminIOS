@@ -13,12 +13,13 @@ public enum ShipmentAPI {
     case getShipment(request: GetShipmentRequest)
     case getShipmentWorking(request: GetShipmentWorkingRequest)
     case getShipmentCustomer(shipmentId: Int)
+    case updateShipment(shipmentId: Int, request: PutShipmentRequest)
 }
 
 extension ShipmentAPI: TargetType {
     public var baseURL: URL {
         switch self {
-        case .getShipment(_), .getShipmentWorking(_), .getShipmentCustomer(_):
+        case .getShipment(_), .getShipmentWorking(_), .getShipmentCustomer(_), .updateShipment(_, _):
             return DomainNameConfig.TMSShipment.url
         }
     }
@@ -31,6 +32,9 @@ extension ShipmentAPI: TargetType {
             return "shipmentWorking"
         case .getShipmentCustomer(let shipmentId):
             return "shipmentCustomer/\(shipmentId)"
+        case .updateShipment(let shipmentId, _):
+            return "/\(shipmentId)"
+        
         }
     }
     
@@ -38,6 +42,8 @@ extension ShipmentAPI: TargetType {
         switch self {
         case .getShipment(_), .getShipmentWorking(_), .getShipmentCustomer(_):
             return .get
+        case .updateShipment(_, _):
+            return .put
         }
     }
     
@@ -53,6 +59,8 @@ extension ShipmentAPI: TargetType {
             return .requestParameters(parameters: request.toJSON(), encoding: URLEncoding.queryString)
         case .getShipmentCustomer(_):
             return .requestPlain
+        case let .updateShipment(shipmentId, request):
+            return .requestCompositeParameters(bodyParameters: request.toJSON(), bodyEncoding: JSONEncoding.default, urlParameters: [:])
         }
     }
     

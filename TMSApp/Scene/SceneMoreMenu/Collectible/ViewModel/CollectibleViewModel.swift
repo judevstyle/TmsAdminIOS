@@ -59,6 +59,15 @@ class CollectibleViewModel: CollectibleProtocol, CollectibleProtocolOutput {
         self.getCollectibleUseCase.execute().sink { completion in
             debugPrint("getCollectible \(completion)")
             self.collectibleViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetCollectible finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "GetCollectible failure")
+                break
+            }
         } receiveValue: { resp in
             if let items = resp?.items {
                 self.listCollectible = items

@@ -79,6 +79,16 @@ class SelectCustomerViewModel: SelectCustomerProtocol, SelectCustomerProtocolOut
         self.getCustomerSenderMatchingUseCase.execute(request: request).sink { completion in
             debugPrint("getCustomerSenderMatching \(completion)")
             self.selectCustomerViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetCustomerSenderMatching finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "GetCustomerSenderMatching failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp?.items {
                 self.listAllCustomer = items
@@ -109,7 +119,6 @@ class SelectCustomerViewModel: SelectCustomerProtocol, SelectCustomerProtocolOut
         var listCompare: [CustomerItems]? = []
         
         //Delete
-        debugPrint(listDelete.count)
         listDelete.forEach({ itemDelete in
             var isMatch: Bool = false
             
@@ -158,8 +167,9 @@ class SelectCustomerViewModel: SelectCustomerProtocol, SelectCustomerProtocolOut
             }
         })
         
-        if let itemRequest = itemMatchDelete, let index = indexMatchDelete  {
+        if var itemRequest = itemMatchDelete, let index = indexMatchDelete  {
             listDelete.remove(at: index)
+            itemRequest.express = false
             listSelect.append(itemRequest)
         } else {
             var requestSelect: ShipmentCustomerItems = ShipmentCustomerItems()
@@ -168,7 +178,6 @@ class SelectCustomerViewModel: SelectCustomerProtocol, SelectCustomerProtocolOut
             requestSelect.customer = item
             listSelect.append(requestSelect)
         }
-        
         
         SelectCustomerManager.shared.setListDeleteCustomer(items: listDelete)
         SelectCustomerManager.shared.setSelectCustomer(items: listSelect)

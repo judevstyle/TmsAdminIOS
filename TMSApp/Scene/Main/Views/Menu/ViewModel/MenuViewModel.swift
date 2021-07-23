@@ -77,7 +77,7 @@ class MenuViewModel: MenuProtocol, MenuProtocolOutput {
             weakSelf.listMenu?.append(GetMenuResponse(title: "Shipment", image: "09"))
             weakSelf.listMenu?.append(GetMenuResponse(title: "Asset", image: "10", scene: .assetList))
             weakSelf.listMenu?.append(GetMenuResponse(title: "ของแลก", image: "11", scene: .collectible))
-            weakSelf.listMenu?.append(GetMenuResponse(title: "ออกจากระบบ", image: "shutdown"))
+            weakSelf.listMenu?.append(GetMenuResponse(title: "ออกจากระบบ", image: "shutdown", scene: .login))
             
             weakSelf.didGetMenuSuccess?()
             weakSelf.menuViewController.stopLoding()
@@ -114,11 +114,22 @@ class MenuViewModel: MenuProtocol, MenuProtocolOutput {
         self.postAuthEmployeeUseCase.executeLogout().sink { completion in
             debugPrint("postAuth Logout \(completion)")
             self.menuViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "Logout finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "Logout failure")
+                break
+            }
+            
         } receiveValue: { resp in
 
             if let items = resp{
                 if items.success == true {
                     UserDefaultsKey.AccessToken.remove()
+                    UserDefaultsKey.ExpireAccessToken.remove()
                     self.didLogoutSuccess?()
                 }
             }

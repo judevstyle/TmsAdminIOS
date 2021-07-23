@@ -57,6 +57,16 @@ class TypeUserViewModel: TypeUserProtocol, TypeUserProtocolOutput {
         typeUserViewController.startLoding()
         self.getTypeUserUseCase.execute().sink { completion in
             debugPrint("getTypeUser \(completion)")
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetTypeUser finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "GetTypeUser failure")
+                break
+            }
+            
         } receiveValue: { resp in
             self.listTypeUser = resp
             self.didGetTypeUserSuccess?()

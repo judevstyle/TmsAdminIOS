@@ -95,7 +95,7 @@ extension TypeUserDetailViewController {
     
     @objc func btnAddProduct() {
         let item = viewModel.output.getItemDetial()
-        NavigationManager.instance.pushVC(to: .typeUserProductAll(item: item))
+        NavigationManager.instance.pushVC(to: .typeUserProductAll(item: item, shipmentId: nil))
     }
 }
 

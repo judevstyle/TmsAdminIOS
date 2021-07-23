@@ -32,8 +32,8 @@ class SequenceShipmentViewController: UIViewController {
     }
     
     @IBAction func didTapSort(_ sender: Any) {
-        guard let shipmentId = viewModel.output.getShipmentId() else { return }
-        NavigationManager.instance.pushVC(to: .sortShipment(shipmentId: shipmentId))
+        guard let item = viewModel.output.getShipmentItem() else { return }
+        NavigationManager.instance.pushVC(to: .sortShipment(items: item, delegate: self))
     }
 }
 
@@ -82,7 +82,6 @@ extension SequenceShipmentViewController {
     
 }
 
-
 extension SequenceShipmentViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -93,7 +92,6 @@ extension SequenceShipmentViewController: UITableViewDelegate {
     }
     
 }
-
 
 extension SequenceShipmentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -119,5 +117,10 @@ extension SequenceShipmentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .none
     }
-    
+}
+
+extension SequenceShipmentViewController: SortShipmentViewModelDelegate {
+    func didUpdateShipmentSuccess() {
+        viewModel.input.getSequenceShipment()
+    }
 }

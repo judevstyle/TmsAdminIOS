@@ -29,10 +29,24 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         registerKeyboardObserver()
-
+        
         if let AccessToken = UserDefaultsKey.AccessToken.string, AccessToken != "" {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                NavigationManager.instance.pushVC(to: .mainTabBar, presentation: .Root, isHiddenNavigationBar: true)
+//                NavigationManager.instance.pushVC(to: .mainTabBar, presentation: .Root, isHiddenNavigationBar: true)
+                UIView.transition(
+                     with: UIApplication.shared.keyWindow!,
+                     duration: 0.25,
+                     options: .transitionFlipFromLeft,
+                     animations: {
+                        let loadingStoryBoard = NavigationOpeningSender.mainTabBar.storyboardName
+                        // Override point for customization after application launch.
+                        let storyboard = UIStoryboard(name: loadingStoryBoard, bundle: nil)
+                        let initialViewController = storyboard.instantiateInitialViewController()
+
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        appDelegate.window?.rootViewController = initialViewController
+                        appDelegate.window?.makeKeyAndVisible()
+                 })
             }
             debugPrint(AccessToken)
         }
@@ -67,7 +81,22 @@ extension LoginViewController {
     func didLoginSuccess() -> (() -> Void) {
         return { [weak self] in
             guard let weakSelf = self else { return }
-            NavigationManager.instance.pushVC(to: .mainTabBar, presentation: .Root, isHiddenNavigationBar: true)
+            //                NavigationManager.instance.pushVC(to: .mainTabBar, presentation: .Root, isHiddenNavigationBar: true)
+            UIView.transition(
+                 with: UIApplication.shared.keyWindow!,
+                 duration: 0.25,
+                 options: .transitionFlipFromLeft,
+                 animations: {
+                    let loadingStoryBoard = NavigationOpeningSender.mainTabBar.storyboardName
+                    // Override point for customization after application launch.
+                    let storyboard = UIStoryboard(name: loadingStoryBoard, bundle: nil)
+                    let initialViewController = storyboard.instantiateInitialViewController()
+
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    appDelegate.window?.rootViewController = initialViewController
+                    appDelegate.window?.makeKeyAndVisible()
+             })
+            
         }
     }
     
@@ -92,8 +121,8 @@ extension LoginViewController {
         btnLogin.setRounded(rounded: 6)
         
         //Demo User
-        inputUsername.text = "10003"
-        inputPassword.text = "0003"
+        inputUsername.text = "10005"
+        inputPassword.text = "0005"
     }
 }
 

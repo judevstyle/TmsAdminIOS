@@ -61,7 +61,17 @@ class OrderViewModel: OrderProtocol, OrderProtocolOutput {
         self.orderViewController.startLoding()
         
         self.getOrderUseCase.execute().sink { completion in
-            debugPrint("getShipment \(completion)")
+            debugPrint("getOrder \(completion)")
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetOrder finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "GetOrder failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp?.data?.items {
                 self.listOrder = items

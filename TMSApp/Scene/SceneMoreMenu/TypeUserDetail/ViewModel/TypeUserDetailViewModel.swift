@@ -64,6 +64,16 @@ class TypeUserDetailViewModel: TypeUserDetailProtocol, TypeUserDetailProtocolOut
         guard let typeUserId = self.itemTypeUser?.typeUserId else { return }
         self.getProductSpecialForTypeUserUseCase.execute(typeUserId: typeUserId).sink { completion in
             debugPrint("getProductSpecialForTypeUser \(completion)")
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetProductSpecialForTypeUser finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "GetProductSpecialForTypeUser failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp?.items {
                 self.listProduct = items

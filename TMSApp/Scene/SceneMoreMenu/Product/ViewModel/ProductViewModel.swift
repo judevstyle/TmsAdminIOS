@@ -56,10 +56,22 @@ class ProductViewModel: ProductProtocol, ProductProtocolOutput {
     func getProduct() {
         listProduct?.removeAll()
         productViewController.startLoding()
+        var request: GetProductRequest = GetProductRequest()
+        request.compId = 1
         
-        self.getProductUseCase.execute().sink { completion in
+        self.getProductUseCase.execute(request: request).sink { completion in
             debugPrint("getProduct \(completion)")
             self.productViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetProduct finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "GetProduct failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp?.items {
                 self.listProduct = items

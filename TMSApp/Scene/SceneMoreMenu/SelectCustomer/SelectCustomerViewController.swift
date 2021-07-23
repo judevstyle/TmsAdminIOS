@@ -32,7 +32,7 @@ class SelectCustomerViewController: UIViewController {
     
     @IBAction func didTapSort(_ sender: Any) {
         guard let shipmentId = viewModel.output.getShipmentId() else { return }
-        NavigationManager.instance.pushVC(to: .sortShipment(shipmentId: shipmentId))
+//        NavigationManager.instance.pushVC(to: .sortShipment(items: <#T##ShipmentItems?#>))
     }
 }
 

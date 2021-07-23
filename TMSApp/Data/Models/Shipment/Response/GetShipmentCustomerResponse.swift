@@ -55,6 +55,7 @@ public struct ShipmentCustomerItems: Codable, Hashable  {
     public var express: Bool?
     public var seq: Int?
     public var statusSend: Int?
+    public var statusSendRemark: String?
     public var customer: CustomerItems?
     
     public init() {}
@@ -66,6 +67,7 @@ public struct ShipmentCustomerItems: Codable, Hashable  {
         try express           <- decoder["express"]
         try seq               <- decoder["seq"]
         try statusSend       <- decoder["status_send"]
+        try statusSendRemark       <- decoder["status_send_remark"]
         try customer          <- decoder["customer"]
     }
 }

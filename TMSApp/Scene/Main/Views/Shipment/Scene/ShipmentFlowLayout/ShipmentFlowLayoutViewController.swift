@@ -36,6 +36,11 @@ class ShipmentFlowLayoutViewController: UIViewController {
         self.viewModel = interface
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        ShipmentStockManager.shared.setListSelectShipmentStock(items: [])
+        pageCollectionView.reloadData()
+    }
 }
 
 // MARK: - Binding
@@ -56,7 +61,7 @@ extension ShipmentFlowLayoutViewController {
     
     @objc func didSortShipment() {
         guard let item = viewModel.output.getItemShipment() else { return }
-        NavigationManager.instance.pushVC(to: .sequenceShipment(shipmentId: item.shipmentId))
+        NavigationManager.instance.pushVC(to: .sequenceShipment(items: item))
     }
     
     private func setupTopnav() {

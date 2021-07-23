@@ -13,13 +13,16 @@ import GoogleMaps
 protocol ShipmentMapProtocolInput {
     func getShipmentMap()
     func didSelectMarkerAt(_ mapView: GMSMapView, marker: GMSMarker) -> Bool
+    func fetchMapMarker()
 }
 
 protocol ShipmentMapProtocolOutput: class {
     var didGetShipmentMapSuccess: (() -> Void)? { get set }
     var didGetShipmentDetailError: (() -> Void)? { get set }
     
-    func getListMarkerMap() -> [GetShipmentMapResponse]
+    func getMapMarkerResponse() -> [MarkerMapItems]?
+    
+    var didGetMapMarkerSuccess: (() -> Void)? { get set }
 }
 
 protocol ShipmentMapProtocol: ShipmentMapProtocolInput, ShipmentMapProtocolOutput {
@@ -50,21 +53,12 @@ class ShipmentMapViewModel: ShipmentMapProtocol, ShipmentMapProtocolOutput {
     var didGetShipmentMapSuccess: (() -> Void)?
     var didGetShipmentDetailError: (() -> Void)?
     
-    fileprivate var listMarker: [GetShipmentMapResponse]? = []
+    var didGetMapMarkerSuccess: (() -> Void)?
+    
+    private var dataMapMarker: SocketMarkerMapResponse?
     
     func getShipmentMap() {
-        shipmentMapViewController.startLoding()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-            guard let weakSelf = self else { return }
-            
-            weakSelf.listMarker?.append(GetShipmentMapResponse(title: "001", lat: 13.663517, long: 100.607846))
-            weakSelf.listMarker?.append(GetShipmentMapResponse(title: "002", lat: 13.662474, long: 100.605250))
-            weakSelf.listMarker?.append(GetShipmentMapResponse(title: "003", lat: 13.660087, long: 100.608973))
-            weakSelf.listMarker?.append(GetShipmentMapResponse(title: "004", lat: 13.661536, long: 100.614262))
-            
-            weakSelf.didGetShipmentMapSuccess?()
-            weakSelf.shipmentMapViewController.stopLoding()
-        }
+
     }
     
     func didSelectMarkerAt(_ mapView: GMSMapView, marker: GMSMarker) -> Bool {
@@ -89,10 +83,34 @@ class ShipmentMapViewModel: ShipmentMapProtocol, ShipmentMapProtocolOutput {
         
         return true
     }
+}
+
+//MARK:- Fetch Socket
+extension ShipmentMapViewModel {
     
-    func getListMarkerMap() -> [GetShipmentMapResponse] {
-        guard let markers = self.listMarker else { return [] }
-        return markers
+    func getMapMarkerResponse() -> [MarkerMapItems]? {
+        return self.dataMapMarker?.data
+    }
+    
+    func fetchMapMarker() {
+        SocketHelper.shared.fetchTrackingByComp { result in
+            switch result {
+            case .success(let resp):
+                self.dataMapMarker = resp
+                self.didGetMapMarkerSuccess?()
+            case .failure(_ ):
+                break
+            }
+        }
+        emitMapMarker()
+    }
+    
+    private func emitMapMarker(){
+        var request: SocketMarkerMapRequest = SocketMarkerMapRequest()
+        request.compId = 1
+        SocketHelper.shared.emitTrackingByComp(request: request) {
+            debugPrint("requestTrackingByComp\(request)")
+        }
     }
 }
 

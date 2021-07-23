@@ -78,6 +78,16 @@ class SelectShopViewModel: SelectShopProtocol, SelectShopProtocolOutput {
         self.getCustomerUseCase.execute().sink { completion in
             debugPrint("getCustomerUseCase \(completion)")
             self.selectShopViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetCustomerUseCase finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "GetCustomerUseCase failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let item = resp?.items {
                 self.listAllShop = item

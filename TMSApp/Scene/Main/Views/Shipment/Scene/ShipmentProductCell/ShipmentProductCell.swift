@@ -78,6 +78,7 @@ extension ShipmentProductCell {
 extension ShipmentProductCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.input.didSelectItemAt(collectionView, indexPath: indexPath)
     }
 
 }
@@ -116,6 +117,7 @@ extension ShipmentProductCell: UICollectionViewDelegateFlowLayout{
 
 extension ShipmentProductCell: ButtonPrimaryViewDelegate {
     func onClickButton() {
-        debugPrint("onClick")
+        let shipmentId = viewModel.output.getShipmentId()
+        NavigationManager.instance.pushVC(to: .typeUserProductAll(item: nil, shipmentId: shipmentId))
     }
 }

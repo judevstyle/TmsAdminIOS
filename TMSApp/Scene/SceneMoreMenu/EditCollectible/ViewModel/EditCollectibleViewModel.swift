@@ -61,6 +61,16 @@ class EditCollectibleViewModel: EditCollectibleProtocol, EditCollectibleProtocol
         self.postCollectibleUseCase.execute(request: request).sink { completion in
             debugPrint("postCollectible \(completion)")
             self.editCollectibleViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "PostCollectible finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "PostCollectible failure")
+                break
+            }
+            
         } receiveValue: { resp in
             debugPrint(resp)
             if let items = resp {

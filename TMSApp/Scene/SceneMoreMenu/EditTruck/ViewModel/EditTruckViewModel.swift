@@ -65,8 +65,18 @@ class EditTruckViewModel: EditTruckProtocol, EditTruckProtocolOutput {
         
         editTruckViewController.startLoding()
         self.postTruckUseCase.execute(request: request).sink { completion in
-            debugPrint("postProduct \(completion)")
+            debugPrint("postTruck \(completion)")
             self.editTruckViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "PostTruck finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "PostTruck failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp {
                 if items.success == true {

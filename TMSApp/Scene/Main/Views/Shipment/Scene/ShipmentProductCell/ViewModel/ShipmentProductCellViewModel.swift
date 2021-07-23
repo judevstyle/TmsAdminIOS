@@ -11,6 +11,7 @@ import Combine
 
 protocol ShipmentProductCellProtocolInput {
     func getShipmentStock(shipmentId: Int?)
+    func didSelectItemAt(_ collectionView: UICollectionView, indexPath: IndexPath)
 }
 
 protocol ShipmentProductCellProtocolOutput: class {
@@ -21,6 +22,8 @@ protocol ShipmentProductCellProtocolOutput: class {
     func getItemViewCell(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell
     func getItemViewCellHeight() -> CGFloat
     func getSizeItemViewCell() -> CGSize
+    
+    func getShipmentId() -> Int?
 }
 
 protocol ShipmentProductCellProtocol: ShipmentProductCellProtocolInput, ShipmentProductCellProtocolOutput {
@@ -49,13 +52,25 @@ class ShipmentProductCellViewModel: ShipmentProductCellProtocol, ShipmentProduct
     var didGetShipmentStockSuccess: (() -> Void)?
     
     private var litShipmentStock: [ShipmentStockItems]?
+    fileprivate var shipmentId: Int?
     
     func getShipmentStock(shipmentId: Int?) {
+        self.shipmentId = shipmentId
         litShipmentStock?.removeAll()
         var request: GetShipmentStockRequest = GetShipmentStockRequest()
         request.shipmentId = shipmentId
         self.getShipmentStockUseCase.execute(request: request).sink { completion in
             debugPrint("getShipmentStock \(completion)")
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetShipmentStock finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "GetShipmentStock failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp {
                 self.litShipmentStock = items
@@ -67,6 +82,10 @@ class ShipmentProductCellViewModel: ShipmentProductCellProtocol, ShipmentProduct
     func getNumberOfCollectionCell() -> Int {
         guard let count = litShipmentStock?.count, count != 0 else { return 0 }
         return count
+    }
+    
+    func getShipmentId() -> Int? {
+        return self.shipmentId
     }
     
     func getItemShipmentProductCell(index: Int) -> ShipmentStockItems? {
@@ -87,5 +106,18 @@ class ShipmentProductCellViewModel: ShipmentProductCellProtocol, ShipmentProduct
     func getSizeItemViewCell() -> CGSize {
         let width = UIScreen.main.bounds.width / 4
         return CGSize(width: width, height: width)
+    }
+    
+    func didSelectItemAt(_ collectionView: UICollectionView, indexPath: IndexPath) {
+        guard let itemShipmentStock = getItemShipmentProductCell(index: indexPath.row)  else { return }
+        NavigationManager.instance.pushVC(to: .productDetailQty(shipmentId: itemShipmentStock.shipmentId, itemProduct: itemShipmentStock.product, typeAction: .remove, delegate: self, qty: itemShipmentStock.qty), presentation: .BottomSheet(completion: {
+                                            }, height: 588))
+    }
+}
+
+
+extension ShipmentProductCellViewModel: ProductDetailQtyViewModelDelegate {
+    func didConfirmQtyProductComplete() {
+        debugPrint("OK")
     }
 }

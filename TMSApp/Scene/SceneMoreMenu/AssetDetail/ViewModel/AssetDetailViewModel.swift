@@ -64,6 +64,16 @@ class AssetDetailViewModel: AssetDetailProtocol, AssetDetailProtocolOutput {
         self.getAssetStockUseCase.execute(astId: astId).sink { completion in
             debugPrint("getAssetStock \(completion)")
             self.assetDetailViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetAssetStock finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "GetAssetStock failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp?.items {
                 self.listAssetStock = items

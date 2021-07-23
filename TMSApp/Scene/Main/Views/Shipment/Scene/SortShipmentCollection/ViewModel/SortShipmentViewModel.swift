@@ -9,12 +9,22 @@ import Foundation
 import UIKit
 import Combine
 
+public protocol SortShipmentViewModelDelegate {
+    func didUpdateShipmentSuccess()
+}
+
 protocol SortShipmentProtocolInput {
-    func setShipmentId(shipmentId: Int?)
+    func setItemShipment(items: ShipmentItems?)
     func getShipmentCustomer()
     
     func didTapExpressCustomer(item: ShipmentCustomerItems?)
     func didTapDeleteCustomer(item: ShipmentCustomerItems?)
+    
+    func moveItemAt(_ collectionView: UICollectionView, sourceIndexPath: IndexPath, destinationIndexPath: IndexPath)
+    
+    func saveShipmentCustomer()
+    
+    func setDelegate(delegate: SortShipmentViewModelDelegate?)
 }
 
 protocol SortShipmentProtocolOutput: class {
@@ -26,7 +36,7 @@ protocol SortShipmentProtocolOutput: class {
     func getItemViewCell(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell
     func getSizeItemViewCell() -> CGSize
     
-    func getShipmentId() -> Int?
+    func getShipmentItem() -> ShipmentItems?
 }
 
 protocol SortShipmentProtocol: SortShipmentProtocolInput, SortShipmentProtocolOutput {
@@ -35,21 +45,23 @@ protocol SortShipmentProtocol: SortShipmentProtocolInput, SortShipmentProtocolOu
 }
 
 class SortShipmentViewModel: SortShipmentProtocol, SortShipmentProtocolOutput {
-    
+
     var input: SortShipmentProtocolInput { return self }
     var output: SortShipmentProtocolOutput { return self }
+    
+    public var delegate: SortShipmentViewModelDelegate?
     
     // MARK: - Properties
     private var sortShipmentCollectionViewController: SortShipmentCollectionViewController
     // MARK: - UseCase
-    private var getShipmentCustomerUseCase: GetShipmentCustomerUseCase
+    private var putShipmentUseCase: PutShipmentUseCase
     private var anyCancellable: Set<AnyCancellable> = Set<AnyCancellable>()
     
     init(sortShipmentCollectionViewController: SortShipmentCollectionViewController,
-         getShipmentCustomerUseCase: GetShipmentCustomerUseCase = GetShipmentCustomerUseCaseImpl()
+         putShipmentUseCase: PutShipmentUseCase = PutShipmentUseCaseImpl()
     ) {
         self.sortShipmentCollectionViewController = sortShipmentCollectionViewController
-        self.getShipmentCustomerUseCase = getShipmentCustomerUseCase
+        self.putShipmentUseCase = putShipmentUseCase
     }
     
     // MARK - Data-binding OutPut
@@ -57,14 +69,18 @@ class SortShipmentViewModel: SortShipmentProtocol, SortShipmentProtocolOutput {
     var didEditActionSuccess: ((ShipmentCustomerItems?) -> Void)?
     
     private var listSortShipmentStock: [ShipmentCustomerItems]?
-    private var shipmentId: Int?
+    private var shipmentItem: ShipmentItems?
     
-    func setShipmentId(shipmentId: Int?) {
-        self.shipmentId = shipmentId
+    func setItemShipment(items: ShipmentItems?) {
+        self.shipmentItem = items
     }
     
-    func getShipmentId() -> Int? {
-        return self.shipmentId
+    func setDelegate(delegate: SortShipmentViewModelDelegate?) {
+        self.delegate = delegate
+    }
+    
+    func getShipmentItem() -> ShipmentItems? {
+        return self.shipmentItem
     }
     
     func getShipmentCustomer() {
@@ -130,6 +146,80 @@ class SortShipmentViewModel: SortShipmentProtocol, SortShipmentProtocolOutput {
         SelectCustomerManager.shared.setSelectCustomer(items: listSortShipmentStock ?? [])
         getShipmentCustomer()
     }
+    
+    
+    func moveItemAt(_ collectionView: UICollectionView, sourceIndexPath: IndexPath, destinationIndexPath: IndexPath) {
+        if let item = self.listSortShipmentStock?.remove(at: sourceIndexPath.row) {
+            self.listSortShipmentStock?.insert(item, at: destinationIndexPath.row)
+            SelectCustomerManager.shared.setSelectCustomer(items: self.listSortShipmentStock ?? [])
+        }
+    }
+    
+    func saveShipmentCustomer() {
+        let shipmentCustomer = SelectCustomerManager.shared.getSelectCustomer()
+        let shipmentDeleteCustomer = SelectCustomerManager.shared.getListDeleteCustomer()
+        
+        guard let item = self.shipmentItem,
+              let shipmentId = item.shipmentId,
+              let planId = item.planId,
+              let status = item.status
+              else { return }
+        var request: PutShipmentRequest = PutShipmentRequest()
+        request.planId = planId
+        request.status = status
+        request.shipmentStock = []
+        
+        var listRequest: [ShipmentCustomerRequest] = []
+        shipmentCustomer.enumerated().forEach({ (index, item) in
+            var requestCustomer: ShipmentCustomerRequest = ShipmentCustomerRequest()
+            requestCustomer.shipmentCusId = item.shipmentCusId
+            requestCustomer.seq = item.seq
+            requestCustomer.cusId = item.customer?.cusId
+            requestCustomer.statusSend = item.statusSend ?? 1
+            requestCustomer.statusSendRemark = item.statusSendRemark ?? ""
+            requestCustomer.express = item.express ?? false
+            requestCustomer.del = 0
+            listRequest.append(requestCustomer)
+        })
+        
+        shipmentDeleteCustomer.enumerated().forEach({(index, item) in
+            if let shipmentCusId = item.shipmentCusId {
+                var requestDeleteCustomer: ShipmentCustomerRequest = ShipmentCustomerRequest()
+                requestDeleteCustomer.shipmentCusId = shipmentCusId
+                requestDeleteCustomer.seq = item.seq
+                requestDeleteCustomer.cusId = item.customer?.cusId
+                requestDeleteCustomer.statusSend = item.statusSend ?? 1
+                requestDeleteCustomer.statusSendRemark = item.statusSendRemark ?? ""
+                requestDeleteCustomer.express = item.express ?? false
+                requestDeleteCustomer.del = 1
+                listRequest.append(requestDeleteCustomer)
+            }
+        })
+
+        request.shipmentCustomer = listRequest
+    
+        self.sortShipmentCollectionViewController.startLoding()
+        self.putShipmentUseCase.execute(shipmentId: shipmentId, request: request).sink { completion in
+            debugPrint("putShipment \(completion)")
+            self.sortShipmentCollectionViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "PutShipment finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "PutShipment failure")
+                break
+            }
+            
+        } receiveValue: { resp in
+            debugPrint(resp.success)
+            if resp.success == true {
+                self.delegate?.didUpdateShipmentSuccess()
+                self.sortShipmentCollectionViewController.navigationController?.popViewController(animated: true)
+            }
+        }.store(in: &self.anyCancellable)
+    }
 }
 
 extension SortShipmentViewModel: ShipmentCustomerCollectionViewCellDelegate {
@@ -137,4 +227,3 @@ extension SortShipmentViewModel: ShipmentCustomerCollectionViewCellDelegate {
         didEditActionSuccess?(items)
     }
 }
-

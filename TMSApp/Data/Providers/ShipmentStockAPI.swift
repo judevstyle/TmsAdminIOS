@@ -11,19 +11,20 @@ import UIKit
 
 public enum ShipmentStockAPI {
     case getShipmentStock(request: GetShipmentStockRequest)
+    case postShipmentStock(request: [PostShipmentStockRequest])
 }
 
 extension ShipmentStockAPI: TargetType {
     public var baseURL: URL {
         switch self {
-        case .getShipmentStock(_):
+        case .getShipmentStock(_), .postShipmentStock(_):
             return DomainNameConfig.TMSShipmentStock.url
         }
     }
     
     public var path: String {
         switch self {
-        case .getShipmentStock(_):
+        case .getShipmentStock(_), .postShipmentStock(_):
             return ""
         }
     }
@@ -32,6 +33,8 @@ extension ShipmentStockAPI: TargetType {
         switch self {
         case .getShipmentStock(_):
             return .get
+        case .postShipmentStock(_):
+            return .post
         }
     }
     
@@ -43,6 +46,8 @@ extension ShipmentStockAPI: TargetType {
         switch self {
         case let .getShipmentStock(request):
             return .requestParameters(parameters: request.toJSON(), encoding: URLEncoding.queryString)
+        case let .postShipmentStock(request):
+            return .requestJSONEncodable(request)
         }
     }
     

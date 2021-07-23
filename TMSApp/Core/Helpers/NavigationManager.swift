@@ -29,14 +29,14 @@ public enum NavigationOpeningSender {
     case customer
     case truck
     case planMaster
-    case sequenceShipment(shipmentId: Int?)
+    case sequenceShipment(items: ShipmentItems?)
     case typeUserProductDetail(itemTypeUser: TypeUserData?,
                                itemProduct: Product?,
                                itemProductSpecial: ProductSpecialForTypeUserItems?,
                                typeAction: TypeUserProductDetailAction,
                                delegate: TypeUserProductDetailViewModelDelegate
          )
-    case typeUserProductAll(item: TypeUserData?)
+    case typeUserProductAll(item: TypeUserData?, shipmentId: Int?)
     case productDetail(productId: Int)
     case editTruck
     case editProduct(product: Product?)
@@ -53,12 +53,17 @@ public enum NavigationOpeningSender {
     case collectible
     case coleectibleDetail(items: CollectibleItems?)
     case editCollectible
-    case sortShipment(shipmentId: Int?)
+    case sortShipment(items: ShipmentItems?, delegate: SortShipmentViewModelDelegate)
     
     case shipmentFlowLayout(item: ShipmentItems)
     case selectCustomer(shipmentId: Int?)
     
     case sortShipmentOption(delegate: SortShipmentOptionViewModelDelegate, item: ShipmentCustomerItems?)
+    case productDetailQty(shipmentId: Int?,
+                          itemProduct: Product?,
+                          typeAction: TypeProductQtyAction,
+                          delegate: ProductDetailQtyViewModelDelegate,
+                          qty: Int? = 0)
     
     public var storyboardName: String {
         switch self {
@@ -146,6 +151,8 @@ public enum NavigationOpeningSender {
             return "SelectCustomer"
         case .sortShipmentOption:
             return "SortShipmentOption"
+        case .productDetailQty:
+            return "ProductDetailQty"
         }
     }
     
@@ -235,6 +242,8 @@ public enum NavigationOpeningSender {
             return "SelectCustomerViewController"
         case .sortShipmentOption(_):
             return "SortShipmentOptionViewController"
+        case .productDetailQty:
+            return "ProductDetailQtyViewController"
         }
     }
     
@@ -266,7 +275,7 @@ public enum NavigationOpeningSender {
         case .shipmentDetail:
             return "ShipmentDetail"
         case .shipmentMap:
-            return "ShipmentMap"
+            return "แผนที่"
         case .orderCart:
             return "OrderCart"
         case .appealDetail:
@@ -411,9 +420,9 @@ class NavigationManager {
                 className.viewModel.input.setItemTypeUserData(item: item)
                 viewController = className
             }
-        case .typeUserProductAll(let item):
+        case .typeUserProductAll(let item, let shipmentId):
             if let className = storyboard.instantiateInitialViewController() as? TypeUserProductAllViewController {
-                className.viewModel.input.setItemTypeUserData(item: item)
+                className.viewModel.input.setData(item: item, shipmentId: shipmentId)
                 viewController = className
             }
         case .typeUserProductDetail(let itemTypeUser, let itemProduct, let itemProductSpecial, let typeAction, let delegate):
@@ -447,14 +456,15 @@ class NavigationManager {
             className.viewModel.input.setCollectibleDetail(items: items)
             viewController = className
         }
-        case .sequenceShipment(let shipmentId):
+        case .sequenceShipment(let items):
         if let className = storyboard.instantiateInitialViewController() as? SequenceShipmentViewController {
-            className.viewModel.input.setShipmentId(shipmentId: shipmentId)
+            className.viewModel.input.setItemShipment(items: items)
             viewController = className
         }
-        case .sortShipment(let shipmentId):
+        case .sortShipment(let items, let delegate):
         if let className = storyboard.instantiateInitialViewController() as? SortShipmentCollectionViewController {
-            className.viewModel.input.setShipmentId(shipmentId: shipmentId)
+            className.viewModel.input.setItemShipment(items: items)
+            className.viewModel.input.setDelegate(delegate: delegate)
             viewController = className
         }
         case .selectCustomer(let shipmentId):
@@ -468,6 +478,11 @@ class NavigationManager {
             className.viewModel.input.setItem(item: item)
             viewController = className
         }
+        case .productDetailQty(let shipmentId, let itemProduct, let typeAction, let delegate, let qty):
+        if let className = storyboard.instantiateInitialViewController() as? ProductDetailQtyViewController {
+            className.viewModel.input.setData(shipmentId: shipmentId, itemProduct: itemProduct, typeAction: typeAction, delegate: delegate, qty: qty)
+            viewController = className
+        }
         default:
             viewController = storyboard.instantiateInitialViewController() ?? to.viewController
         }
@@ -479,7 +494,9 @@ class NavigationManager {
     }
     
     private func presentVC(viewController: UIViewController, presentation: Presentation, isHiddenNavigationBar: Bool = false) {
-        self.navigationController.isNavigationBarHidden = isHiddenNavigationBar
+        if let nav = self.navigationController {
+            nav.isNavigationBarHidden = isHiddenNavigationBar
+        }
         switch presentation {
         case .Push:
             if (self.navigationController.tabBarController != nil) {

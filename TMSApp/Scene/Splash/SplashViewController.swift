@@ -23,7 +23,16 @@ class SplashViewController: UIViewController {
     
     
     func onDidLoadSplashSuccess() {
-        NavigationManager.instance.pushVC(to: .login, presentation: .Root, isHiddenNavigationBar: true)
+//        NavigationManager.instance.pushVC(to: .login, presentation: .Root, isHiddenNavigationBar: true)
+        
+        let loadingStoryBoard = NavigationOpeningSender.login.storyboardName
+        // Override point for customization after application launch.
+        let storyboard = UIStoryboard(name: loadingStoryBoard, bundle: nil)
+        let initialViewController = storyboard.instantiateInitialViewController()
+
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = initialViewController
+        appDelegate.window?.makeKeyAndVisible()
     }
     
 }

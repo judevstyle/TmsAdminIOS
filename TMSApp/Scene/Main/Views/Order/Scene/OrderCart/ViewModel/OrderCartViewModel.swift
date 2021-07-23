@@ -76,6 +76,16 @@ class OrderCartViewModel: OrderCartProtocol, OrderCartProtocolOutput {
         guard let orderId = self.orderId else { return }
         self.getOrderCartUseCase.execute(orderId: orderId).sink { completion in
             debugPrint("getOrderCart \(completion)")
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetOrderCart finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "GetOrderCart failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp?.data {
                 self.itemDetail = items
@@ -147,6 +157,16 @@ class OrderCartViewModel: OrderCartProtocol, OrderCartProtocolOutput {
         guard let orderId = self.orderId else { return }
         self.confirmOrderCartUseCase.execute(orderId: orderId).sink { completion in
             debugPrint("confirmOrderCart \(completion)")
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "confirmOrderCart finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "confirmOrderCart failure")
+                break
+            }
+            
         } receiveValue: { resp in
             self.orderCartViewController.stopLoding()
             self.orderCartViewController.navigationController?.popViewController(animated: true)

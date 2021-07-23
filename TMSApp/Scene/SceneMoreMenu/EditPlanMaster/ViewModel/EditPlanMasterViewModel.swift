@@ -126,6 +126,16 @@ class EditPlanMasterViewModel: EditPlanMasterProtocol, EditPlanMasterProtocolOut
         self.getPlanMasterDetailUseCase.execute(planId: planId).sink { completion in
             debugPrint("getPlanMasterDetail \(completion)")
             self.editPlanMasterViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetPlanMasterDetail finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "GetPlanMasterDetail failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let item = resp?.data {
                 self.planMasterDetail = item
@@ -262,6 +272,16 @@ class EditPlanMasterViewModel: EditPlanMasterProtocol, EditPlanMasterProtocolOut
         self.postPlanMasterUseCase.execute(request: request).sink { completion in
             debugPrint("postPlanMaster \(completion)")
             self.editPlanMasterViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "PostPlanMaster finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "PostPlanMaster failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp {
                 if items.success == true {
@@ -283,6 +303,16 @@ class EditPlanMasterViewModel: EditPlanMasterProtocol, EditPlanMasterProtocolOut
         self.getTruckUseCase.execute().sink { completion in
             debugPrint("getTruckUseCase \(completion)")
             self.editPlanMasterViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetTruck finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "GetTruck failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp?.items {
                 self.listTruckCar = items

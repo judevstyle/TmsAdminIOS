@@ -18,14 +18,22 @@ class MarkerMapView: UIView {
     
     public var index: Int!
     
-    static func instantiate(index: Int, message: String) -> MarkerMapView {
+    static func instantiate(index: Int, message: String?, imageUrl: String?) -> MarkerMapView {
         let view: MarkerMapView = initFromNib()
         view.ImageBg.image?.withRenderingMode(.alwaysTemplate)
         let pin = UIImage(named: "map-customer")!.withRenderingMode(.alwaysTemplate)
         view.ImageBg.image = pin
         view.ImageBg.tintColor = UIColor.Primary
+        
+        
         view.imageAvatar.setRounded(rounded: view.imageAvatar.frame.width/2)
-        view.imageAvatar.image = UIImage(named: "nontawat")?.withRenderingMode(.alwaysOriginal)
+        view.imageAvatar.contentMode = .scaleAspectFill
+        if let urlImage = URL(string: "\(DomainNameConfig.TMSImagePath.urlString)\(imageUrl ?? "")") {
+            view.imageAvatar.kf.setImageDefault(with: urlImage)
+        } else {
+            view.imageAvatar.image = UIImage(named: "placeholder")?.withRenderingMode(.alwaysOriginal)
+        }
+        
         view.bgTitle.setRounded(rounded: 3)
         view.Title.text = message
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
@@ -38,7 +46,6 @@ class MarkerMapView: UIView {
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
         print("TEST")
     }
-    
 }
 
 

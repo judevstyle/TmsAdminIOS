@@ -61,6 +61,16 @@ class ShipmentViewModel: ShipmentProtocol, ShipmentProtocolOutput {
         
         self.getShipmentUseCase.execute().sink { completion in
             debugPrint("getShipment \(completion)")
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetShipment finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "GetShipment failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp?.data?.items {
                 self.listShipment = items

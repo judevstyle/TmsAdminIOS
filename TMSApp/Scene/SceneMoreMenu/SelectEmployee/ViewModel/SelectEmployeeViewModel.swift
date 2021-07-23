@@ -73,6 +73,16 @@ class SelectEmployeeViewModel: SelectEmployeeProtocol, SelectEmployeeProtocolOut
         self.getEmployeeUseCase.execute().sink { completion in
             debugPrint("getEmployeeUseCase \(completion)")
             self.selectEmployeeViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetEmployee finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "GetEmployee failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let item = resp {
                 self.listSelectEmployee = item

@@ -53,8 +53,8 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func tappedMap(_ sender: Any) {
-//        NavigationManager.instance.pushVC(to: .shipmentMap, presentation: .Push)
-        NavigationManager.instance.pushVC(to: .chat)
+        NavigationManager.instance.pushVC(to: .shipmentMap, presentation: .Push)
+//        NavigationManager.instance.pushVC(to: .chat)
     }
 }
 

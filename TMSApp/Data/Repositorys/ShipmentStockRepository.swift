@@ -11,6 +11,7 @@ import Moya
 
 protocol ShipmentStockRepository {
     func getShipmentStock(request: GetShipmentStockRequest) -> AnyPublisher<GetShipmentStockResponse, Error>
+    func postShipmentStock(request: [PostShipmentStockRequest]) -> AnyPublisher<PostShipmentStockResponse, Error>
 }
 
 final class ShipmentStockRepositoryImpl: TMSApp.ShipmentStockRepository {
@@ -21,5 +22,12 @@ final class ShipmentStockRepositoryImpl: TMSApp.ShipmentStockRepository {
             .cb
             .request(.getShipmentStock(request: request))
             .map(GetShipmentStockResponse.self)
+    }
+    
+    func postShipmentStock(request: [PostShipmentStockRequest]) -> AnyPublisher<PostShipmentStockResponse, Error> {
+        return self.provider
+            .cb
+            .request(.postShipmentStock(request: request))
+            .map(PostShipmentStockResponse.self)
     }
 }

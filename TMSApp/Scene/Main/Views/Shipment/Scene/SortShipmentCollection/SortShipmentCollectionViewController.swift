@@ -86,8 +86,8 @@ extension SortShipmentCollectionViewController {
     }
     
     @objc func didAddCustomer() {
-        guard let shipmentId = viewModel.output.getShipmentId() else { return }
-        NavigationManager.instance.pushVC(to: .selectCustomer(shipmentId: shipmentId))
+        guard let item = viewModel.output.getShipmentItem() else { return }
+        NavigationManager.instance.pushVC(to: .selectCustomer(shipmentId: item.shipmentId))
     }
     
     fileprivate func registerCell() {
@@ -100,8 +100,34 @@ extension SortShipmentCollectionViewController {
         collectionView?.collectionViewLayout = layout
         collectionView?.contentInsetAdjustmentBehavior = .always
         collectionView.registerCell(identifier: ShipmentCustomerCollectionViewCell.identifier)
+        
+        let gesture = UILongPressGestureRecognizer(target: self,
+                                                   action: #selector(handleLongPress))
+        
+        collectionView.addGestureRecognizer(gesture)
+    }
+    
+    
+    @objc func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
+        guard let collectionView = collectionView else { return }
+        
+        
+        switch gesture.state {
+        case .began:
+            guard let targetIndexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else { return }
+            
+            collectionView.beginInteractiveMovementForItem(at: targetIndexPath)
+        case .changed:
+            collectionView.updateInteractiveMovementTargetPosition(gesture.location(in: collectionView))
+        case .ended:
+            collectionView.endInteractiveMovement()
+        default:
+            collectionView.cancelInteractiveMovement()
+        }
+        
     }
 }
+
 
 extension SortShipmentCollectionViewController: UICollectionViewDelegate {
     
@@ -139,11 +165,21 @@ extension SortShipmentCollectionViewController: UICollectionViewDelegateFlowLayo
     
         return CGSize(width: itemWidth, height: itemWidth)
     }
+    
+    //Re-Order
+    
+    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        viewModel.input.moveItemAt(collectionView, sourceIndexPath: sourceIndexPath, destinationIndexPath: destinationIndexPath)
+    }
 }
 
 
 extension SortShipmentCollectionViewController: ButtonPrimaryViewDelegate {
     func onClickButton() {
-        debugPrint("onClick")
+        viewModel.input.saveShipmentCustomer()
     }
 }

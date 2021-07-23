@@ -65,7 +65,20 @@ extension MenuViewController {
     
     func didLogoutSuccess() -> (() -> Void) {
         return { [weak self] in
-            NavigationManager.instance.pushVC(to: .login, presentation: .Replace, isHiddenNavigationBar: true)
+            UIView.transition(
+                 with: UIApplication.shared.keyWindow!,
+                 duration: 0.25,
+                 options: .transitionFlipFromLeft,
+                 animations: {
+                    let loadingStoryBoard = NavigationOpeningSender.login.storyboardName
+                    // Override point for customization after application launch.
+                    let storyboard = UIStoryboard(name: loadingStoryBoard, bundle: nil)
+                    let initialViewController = storyboard.instantiateInitialViewController()
+
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    appDelegate.window?.rootViewController = initialViewController
+                    appDelegate.window?.makeKeyAndVisible()
+             })
         }
     }
 }
@@ -94,10 +107,11 @@ extension MenuViewController {
 extension MenuViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.item == 11 {
+
+        guard let scene = viewModel.output.getItemMenu(index: indexPath.item)?.scene else { return }
+        if scene.storyboardName == NavigationOpeningSender.login.storyboardName {
             viewModel.input.didLogout()
         } else {
-            guard let scene = viewModel.output.getItemMenu(index: indexPath.item)?.scene else { return }
             NavigationManager.instance.pushVC(to: scene)
         }
     }

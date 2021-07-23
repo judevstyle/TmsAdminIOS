@@ -115,6 +115,16 @@ class TypeUserProductDetailViewModel: TypeUserProductDetailProtocol, TypeUserPro
                 productSpcIid: productSpcId).sink { completion in
                 debugPrint("putProductSpecialForType \(completion)")
                 self.typeUserProductDetailViewController.stopLoding()
+                    
+                    switch completion {
+                    case .finished:
+                        ToastManager.shared.toastCallAPI(title: "PutProductSpecialForType finished")
+                        break
+                    case .failure(_):
+                        ToastManager.shared.toastCallAPI(title: "PutProductSpecialForType failure")
+                        break
+                    }
+                    
             } receiveValue: { resp in
                 if let items = resp {
                     if items.success == true {
@@ -133,6 +143,16 @@ class TypeUserProductDetailViewModel: TypeUserProductDetailProtocol, TypeUserPro
             self.deleteProductSpecialForTypeUserUseCase.execute(productSpcIid: productSpcId).sink { completion in
                 debugPrint("deleteProductSpecialForTypeUser \(completion)")
                 self.typeUserProductDetailViewController.stopLoding()
+                
+                switch completion {
+                case .finished:
+                    ToastManager.shared.toastCallAPI(title: "DeleteProductSpecialForTypeUser finished")
+                    break
+                case .failure(_):
+                    ToastManager.shared.toastCallAPI(title: "DeleteProductSpecialForTypeUser failure")
+                    break
+                }
+                
             } receiveValue: { resp in
                 if let items = resp {
                     if items.success == true {

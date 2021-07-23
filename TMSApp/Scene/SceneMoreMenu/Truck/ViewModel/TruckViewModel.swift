@@ -59,6 +59,16 @@ class TruckViewModel: TruckProtocol, TruckProtocolOutput {
         self.getTruckUseCase.execute().sink { completion in
             debugPrint("getTruck \(completion)")
             self.truckViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetTruck finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "GetTruck failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp?.items {
                 self.listTruck = items

@@ -66,6 +66,16 @@ class AssetWithdrawViewModel: AssetWithdrawProtocol, AssetWithdrawProtocolOutput
         self.getAssetPickupStockUseCase.execute(astId: astId).sink { completion in
             debugPrint("getAssetPickupStock \(completion)")
             self.assetWithdrawViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetAssetPickupStock finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "GetAssetPickupStock failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp?.items {
                 self.listAssetWithdraw = items

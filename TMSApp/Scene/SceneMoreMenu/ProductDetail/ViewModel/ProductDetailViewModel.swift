@@ -59,6 +59,16 @@ class ProductDetailViewModel: ProductDetailProtocol, ProductDetailProtocolOutput
         self.getProductDetailUseCase.execute(productId: productId).sink { completion in
             debugPrint("getProductDetail \(completion)")
             self.productDetailViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetProductDetail finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "GetProductDetail failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp {
                 self.productDetail = items

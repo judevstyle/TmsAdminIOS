@@ -15,6 +15,7 @@ target 'TMSApp' do
   pod 'Charts'
   pod 'MaterialComponents/BottomSheet'
   pod 'MessageKit'
+  pod 'Toast-Swift'
   
   # Pods for Socket-Chat
   pod 'Socket.IO-Client-Swift', '~> 15.2.0'

@@ -60,6 +60,16 @@ class PlanMasterViewModel: PlanMasterProtocol, PlanMasterProtocolOutput {
         self.getPlanMasterUseCase.execute().sink { completion in
             debugPrint("getPlanMaster \(completion)")
             self.planMasterViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "GetPlanMaster finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "GetPlanMaster failure")
+                break
+            }
+            
         } receiveValue: { resp in
             if let items = resp?.items {
                 self.listPlanMaster = items
