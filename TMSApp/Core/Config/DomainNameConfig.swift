@@ -34,45 +34,45 @@ extension DomainNameConfig {
     public var urlString: String {
         switch self {
         case .TMSDashboard:
-            return "http://43.229.149.79:3010/dashboard"
+            return "http://185.78.165.78:3010/dashboard"
         case .TMSShipment:
-            return "http://43.229.149.79:3010/shipment"
+            return "http://185.78.165.78:3010/shipment"
         case .TMSOrder:
-            return "http://43.229.149.79:3010/orders"
+            return "http://185.78.165.78:3010/orders"
         case .TMSTypeUser:
-            return "http://43.229.149.79:3010/type-user"
+            return "http://185.78.165.78:3010/type-user"
         case .TMSProductSpecialForTypeUser:
-            return "http://43.229.149.79:3010/product-special-for-type-user"
+            return "http://185.78.165.78:3010/product-special-for-type-user"
         case .TMSProductType:
-            return "http://43.229.149.79:3010/product-type"
+            return "http://185.78.165.78:3010/product-type"
         case .TMSProduct:
-            return "http://43.229.149.79:3010/products"
+            return "http://185.78.165.78:3010/products"
         case .TMSProductForTypeUser:
-            return "http://43.229.149.79:3010/product-for-type-user"
+            return "http://185.78.165.78:3010/product-for-type-user"
         case .TMSAssets:
-            return "http://43.229.149.79:3010/assets"
+            return "http://185.78.165.78:3010/assets"
         case .TMSAssetStock:
-            return "http://43.229.149.79:3010/asset-stock"
+            return "http://185.78.165.78:3010/asset-stock"
         case .TMSAssetPickupStock:
-            return "http://43.229.149.79:3010/asset-pickup-stock"
+            return "http://185.78.165.78:3010/asset-pickup-stock"
         case .TMSCollectible:
-            return "http://43.229.149.79:3010/collectibles"
+            return "http://185.78.165.78:3010/collectibles"
         case .TMSAuthEmployee:
-            return "http://43.229.149.79:3010/auth"
+            return "http://185.78.165.78:3010/auth"
         case .TMSEmployee:
-            return "http://43.229.149.79:3010/employee"
+            return "http://185.78.165.78:3010/employee"
         case .TMSJobPosition:
-            return "http://43.229.149.79:3010/jobposition"
+            return "http://185.78.165.78:3010/jobposition"
         case .TMSTruck:
-            return "http://43.229.149.79:3010/truck"
+            return "http://185.78.165.78:3010/truck"
         case .TMSPlanMaster:
-            return "http://43.229.149.79:3010/plan-master"
+            return "http://185.78.165.78:3010/plan-master"
         case .TMSCustomer:
-            return "http://43.229.149.79:3010/customer"
+            return "http://185.78.165.78:3010/customer"
         case .TMSShipmentStock:
-            return "http://43.229.149.79:3010/shipment-stock"
+            return "http://185.78.165.78:3010/shipment-stock"
         case .TMSImagePath:
-            return "http://43.229.149.79:3010/" //+ path image url
+            return "http://185.78.165.78:3010/" //+ path image url
         }
     }
     

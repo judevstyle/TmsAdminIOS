@@ -54,7 +54,6 @@ class LoginViewModel: LoginProtocol, LoginProtocolOutput {
             
             switch completion {
             case .finished:
-                ToastManager.shared.toastCallAPI(title: "Login finished")
                 break
             case .failure(_):
                 ToastManager.shared.toastCallAPI(title: "Login failure")
@@ -62,12 +61,16 @@ class LoginViewModel: LoginProtocol, LoginProtocolOutput {
             }
             
         } receiveValue: { resp in
-            if let items = resp, items.success {
-                if let accessToken = items.data?.accessToken, let expireAccessToken = items.data?.expire {
-                    debugPrint(accessToken)
-                    UserDefaultsKey.AccessToken.set(value: accessToken)
-                    UserDefaultsKey.ExpireAccessToken.set(value: expireAccessToken)
-                    self.didLoginSuccess?()
+            if let items = resp {
+                if  items.success == true {
+                    if let accessToken = items.data?.accessToken, let expireAccessToken = items.data?.expire {
+                        debugPrint(accessToken)
+                        UserDefaultsKey.AccessToken.set(value: accessToken)
+                        UserDefaultsKey.ExpireAccessToken.set(value: expireAccessToken)
+                        self.didLoginSuccess?()
+                    }
+                } else {
+                    ToastManager.shared.toastCallAPI(title: "\(items.message ?? "")")
                 }
             }
         }.store(in: &self.anyCancellable)

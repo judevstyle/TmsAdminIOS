@@ -12,6 +12,7 @@ public struct PostAuthEmployeeResponse: Codable, Hashable  {
     public var statusCode: Int?
     public var success: Bool = false
     public var data: AuthEmployeeData?
+    public var message: String?
     
     public init() {}
     
@@ -19,6 +20,7 @@ public struct PostAuthEmployeeResponse: Codable, Hashable  {
         try statusCode    <- decoder["statusCode"]
         try success       <- decoder["success"]
         try data          <- decoder["data"]
+        try message       <- decoder["message"]
     }
 }
 
