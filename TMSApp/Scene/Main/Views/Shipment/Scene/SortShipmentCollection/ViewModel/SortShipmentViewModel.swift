@@ -195,14 +195,16 @@ class SortShipmentViewModel: SortShipmentProtocol, SortShipmentProtocolOutput {
                 listRequest.append(requestDeleteCustomer)
             }
         })
-
+        
+        listRequest.enumerated().forEach({(index, item) in
+            listRequest[index].seq = (index + 1)
+        })
+        
         request.shipmentCustomer = listRequest
-    
+        
         self.sortShipmentCollectionViewController.startLoding()
         self.putShipmentUseCase.execute(shipmentId: shipmentId, request: request).sink { completion in
-            debugPrint("putShipment \(completion)")
             self.sortShipmentCollectionViewController.stopLoding()
-            
             switch completion {
             case .finished:
                 ToastManager.shared.toastCallAPI(title: "PutShipment finished")
@@ -211,7 +213,7 @@ class SortShipmentViewModel: SortShipmentProtocol, SortShipmentProtocolOutput {
                 ToastManager.shared.toastCallAPI(title: "PutShipment failure")
                 break
             }
-            
+
         } receiveValue: { resp in
             debugPrint(resp.success)
             if resp.success == true {

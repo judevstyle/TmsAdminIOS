@@ -407,17 +407,26 @@ class EditPlanMasterViewModel: EditPlanMasterProtocol, EditPlanMasterProtocolOut
         if type == .EmployeeShopTableView {
             switch section {
             case 0:
-                let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: HeaderPrimaryBottomLineTableViewCell.identifier)
-                if let header = header as? HeaderPrimaryBottomLineTableViewCell {
-                    header.delegate = self
-                    header.setState(title: "พนักงาน", isEdit: self.getViewEditing(), section: section)
+                let header = HeaderPrimaryBottomLineViewCell()
+                header.delegate = self
+                header.setState(title: "พนักงาน", isEdit: self.getViewEditing(), section: section)
+                
+                if self.getViewEditing() {
+                    let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleEditEmployeeTap(_:)))
+                    header.addGestureRecognizer(tap)
+                    header.isUserInteractionEnabled = true
                 }
+                
                 return header
             default:
-                let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: HeaderPrimaryBottomLineTableViewCell.identifier)
-                if let header = header as? HeaderPrimaryBottomLineTableViewCell {
-                    header.delegate = self
-                    header.setState(title: "ร้านค้า", isEdit: self.getViewEditing(), section: section)
+                let header = HeaderPrimaryBottomLineViewCell()
+                header.delegate = self
+                header.setState(title: "ร้านค้า", isEdit: self.getViewEditing(), section: section)
+                
+                if self.getViewEditing() {
+                    let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleEditCustomerTap(_:)))
+                    header.addGestureRecognizer(tap)
+                    header.isUserInteractionEnabled = true
                 }
                 return header
             }
@@ -426,17 +435,27 @@ class EditPlanMasterViewModel: EditPlanMasterProtocol, EditPlanMasterProtocolOut
         }
         
     }
+    
+    
+    @objc func handleEditEmployeeTap(_ sender: UITapGestureRecognizer) {
+        NavigationManager.instance.pushVC(to: .selectEmployee(delegate: self))
+     }
+    
+    @objc func handleEditCustomerTap(_ sender: UITapGestureRecognizer) {
+        NavigationManager.instance.pushVC(to: .sortShop(items: self.listShop, delegate: self))
+     }
+
 }
 
 
-extension EditPlanMasterViewModel: HeaderPrimaryBottomLineTableViewCellDelegate {
+extension EditPlanMasterViewModel: HeaderPrimaryBottomLineViewCellDelegate {
     func didSelectHeader(section: Int) {
-        switch section {
-        case 0:
-            NavigationManager.instance.pushVC(to: .selectEmployee(delegate: self))
-        default:
-            NavigationManager.instance.pushVC(to: .sortShop(items: self.listShop, delegate: self))
-        }
+//        switch section {
+//        case 0:
+//            NavigationManager.instance.pushVC(to: .selectEmployee(delegate: self))
+//        default:
+//            NavigationManager.instance.pushVC(to: .sortShop(items: self.listShop, delegate: self))
+//        }
     }
     
 }

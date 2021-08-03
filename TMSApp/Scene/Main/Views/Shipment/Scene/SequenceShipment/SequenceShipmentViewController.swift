@@ -84,7 +84,7 @@ extension SequenceShipmentViewController {
 
 extension SequenceShipmentViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        NavigationManager.instance.pushVC(to: .productShipment)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

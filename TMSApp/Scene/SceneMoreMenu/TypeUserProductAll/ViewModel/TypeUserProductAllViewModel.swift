@@ -283,9 +283,6 @@ extension TypeUserProductAllViewModel {
         if listShipmentStock.count > 0 {
             self.typeUserProductAllViewController.startLoding()
             self.postShipmentStockUseCase.execute(request: listShipmentStock).sink { completion in
-                debugPrint("postShipmentStock \(completion)")
-                self.typeUserProductAllViewController.stopLoding()
-                
                 switch completion {
                 case .finished:
                     ToastManager.shared.toastCallAPI(title: "PostShipmentStock finished")
@@ -296,6 +293,7 @@ extension TypeUserProductAllViewModel {
                 }
                 
             } receiveValue: { resp in
+                debugPrint(resp)
                 if resp?.success == true {
                     self.typeUserProductAllViewController.navigationController?.popViewController(animated: true)
                     ShipmentStockManager.shared.setListSelectShipmentStock(items: [])

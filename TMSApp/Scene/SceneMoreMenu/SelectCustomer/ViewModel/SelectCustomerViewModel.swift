@@ -77,7 +77,6 @@ class SelectCustomerViewModel: SelectCustomerProtocol, SelectCustomerProtocolOut
         request.limit = 50
         request.page = 1
         self.getCustomerSenderMatchingUseCase.execute(request: request).sink { completion in
-            debugPrint("getCustomerSenderMatching \(completion)")
             self.selectCustomerViewController.stopLoding()
             
             switch completion {

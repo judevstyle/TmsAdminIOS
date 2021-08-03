@@ -69,6 +69,7 @@ extension ShipmentViewController {
         tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         tableView.separatorStyle = .none
         tableViewRegister(identifier: ShipmentTableViewCell.identifier)
+        tableViewRegister(identifier: EmptyTableViewCell.identifier)
     }
     
     fileprivate func tableViewRegister(identifier: String) {

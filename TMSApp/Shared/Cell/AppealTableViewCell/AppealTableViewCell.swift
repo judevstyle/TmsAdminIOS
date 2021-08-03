@@ -19,6 +19,13 @@ class AppealTableViewCell: UITableViewCell {
     @IBOutlet weak var badgeVipName: UILabel!
     @IBOutlet var favoriteIcons: [UIImageView]!
     
+    
+    var items: FeedbackItems? {
+        didSet {
+            setupValue()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,10 +37,6 @@ class AppealTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
         if selected {
-            print("Nontawat \(favoriteIcons.count)")
-            for item in favoriteIcons {
-                item.tintColor = .Primary
-            }
         }
     }
     
@@ -45,6 +48,7 @@ class AppealTableViewCell: UITableViewCell {
         appealView.layer.shadowRadius = 2
         
         appealImage.setRounded(rounded: 8)
+        appealImage.contentMode = .scaleAspectFill
         
         appealId.font = UIFont.PrimaryText(size: 14)
         appealName.font = UIFont.PrimaryText(size: 14)
@@ -57,7 +61,50 @@ class AppealTableViewCell: UITableViewCell {
         badgeVipName.font = UIFont.PrimaryText(size: 10)
     }
     
-    func setData(item: GetOrderResponse?) {
+    func setupValue() {
+        appealId.text = items?.order?.orderNo ?? "-"
+        appealName.text = items?.order?.customer?.displayName ?? "-"
+//        badgeVipName.text = items?.order?.customer. ?? "-"
+        guard let urlImage = URL(string: "\(DomainNameConfig.TMSImagePath.urlString)\(items?.order?.customer?.avatar ?? "")") else { return }
+        appealImage.kf.setImageDefault(with: urlImage)
         
+        if let rate = Double("\(items?.rate ?? "")") {
+            if (Int(rate * 10) % 10) == 5 {
+                let newRate = (Int(rate * 10) - (Int(rate * 10) % 10))/10
+                favoriteIcons.enumerated().forEach({ (index, item) in
+                    if index < newRate {
+                        item.tintColor = .Primary
+                    } else {
+                        if index == newRate {
+                            item.image = UIImage(systemName: "star.fill.left")?.withRenderingMode(.alwaysTemplate)
+                            item.tintColor = .Primary
+                        } else {
+                            item.image = UIImage(systemName: "star.fill")?.withRenderingMode(.alwaysTemplate)
+                            item.tintColor = .lightGray
+                        }
+                    }
+                })
+            } else {
+                let newRate = Int(rate * 10)/10
+                favoriteIcons.enumerated().forEach({ (index, item) in
+                    if index < newRate {
+                        item.tintColor = .Primary
+                    } else {
+                        item.tintColor = .lightGray
+                    }
+                })
+            }
+//            if (Int(rate * 10) % 10) == 5 {
+//                let newRate = (Int(rate * 10) - (Int(rate * 10) % 10))/10
+//                for index in 0...newRate {
+//                    favoriteIcons[index].tintColor = .Primary
+//                }
+//            } else {
+//                let newRate = Int(rate * 10)/10
+//                for index in 0...newRate {
+//                    favoriteIcons[index].tintColor = .Primary
+//                }
+//            }
+        }
     }
 }

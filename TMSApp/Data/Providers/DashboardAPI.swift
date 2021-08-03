@@ -50,14 +50,14 @@ extension DashboardAPI: TargetType {
         var authenToken = ""
         switch self {
         case .getDashboard(_):
-            authenToken = ""
+            authenToken = UserDefaultsKey.AccessToken.string ?? ""
         }
         
         if authenToken.isEmpty {
             return ["Content-Type": "application/json"]
         }
         
-        return ["Authorization": authenToken,
+        return ["Authorization": "Bearer \(authenToken)",
             "Content-Type": "application/json"]
     }
 }

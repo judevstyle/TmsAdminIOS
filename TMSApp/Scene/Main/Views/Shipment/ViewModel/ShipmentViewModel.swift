@@ -60,8 +60,7 @@ class ShipmentViewModel: ShipmentProtocol, ShipmentProtocolOutput {
         shipmentViewController.startLoding()
         
         self.getShipmentUseCase.execute().sink { completion in
-            debugPrint("getShipment \(completion)")
-            
+            self.shipmentViewController.stopLoding()
             switch completion {
             case .finished:
                 ToastManager.shared.toastCallAPI(title: "GetShipment finished")
@@ -81,7 +80,7 @@ class ShipmentViewModel: ShipmentProtocol, ShipmentProtocolOutput {
     }
     
     func getNumberOfShipment() -> Int {
-        guard let count = listShipment?.count, count != 0 else { return 0 }
+        guard let count = listShipment?.count, count != 0 else { return 1 }
         return count
     }
     
@@ -91,13 +90,23 @@ class ShipmentViewModel: ShipmentProtocol, ShipmentProtocolOutput {
     }
     
     func getItemViewCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ShipmentTableViewCell.identifier, for: indexPath) as! ShipmentTableViewCell
-        cell.selectionStyle = .none
-        cell.items = self.listShipment?[indexPath.item]
-        return cell
+        if listShipment?.count == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: EmptyTableViewCell.identifier, for: indexPath) as! EmptyTableViewCell
+            cell.selectionStyle = .none
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ShipmentTableViewCell.identifier, for: indexPath) as! ShipmentTableViewCell
+            cell.selectionStyle = .none
+            cell.items = self.listShipment?[indexPath.item]
+            return cell
+        }
     }
     
     func getItemViewCellHeight() -> CGFloat {
-        return UITableView.automaticDimension
+        if listShipment?.count == 0  {
+            return 50
+        } else {
+            return UITableView.automaticDimension
+        }
     }
 }

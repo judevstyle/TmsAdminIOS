@@ -146,10 +146,11 @@ extension MainViewController {
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableView.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 8, right: 0)
         tableView.separatorStyle = .none
-        tableView.register(HeaderPrimaryBottomLineTableViewCell.self, forHeaderFooterViewReuseIdentifier: HeaderPrimaryBottomLineTableViewCell.identifier)
+//        tableView.register(HeaderPrimaryBottomLineTableViewCell.self, forHeaderFooterViewReuseIdentifier: HeaderPrimaryBottomLineTableViewCell.identifier)
         tableViewRegister(identifier: MainDashBoardTableViewCell.identifier)
         tableViewRegister(identifier: DashBoardProductTableViewCell.identifier)
         tableViewRegister(identifier: DashBoardWorkingTableViewCell.identifier)
+        tableViewRegister(identifier: EmptyTableViewCell.identifier)
     }
     
     fileprivate func tableViewRegister(identifier: String) {

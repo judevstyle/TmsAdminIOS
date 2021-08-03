@@ -39,7 +39,6 @@ class LoginViewController: UIViewController {
                      options: .transitionFlipFromLeft,
                      animations: {
                         let loadingStoryBoard = NavigationOpeningSender.mainTabBar.storyboardName
-                        // Override point for customization after application launch.
                         let storyboard = UIStoryboard(name: loadingStoryBoard, bundle: nil)
                         let initialViewController = storyboard.instantiateInitialViewController()
 

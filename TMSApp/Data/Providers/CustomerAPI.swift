@@ -55,16 +55,16 @@ extension CustomerAPI: TargetType {
         var authenToken = ""
         switch self {
         case .getCustomer(_):
-            authenToken = ""
+            authenToken = UserDefaultsKey.AccessToken.string ?? ""
         default:
-            authenToken = ""
+            authenToken = UserDefaultsKey.AccessToken.string ?? ""
         }
         
         if authenToken.isEmpty {
             return ["Content-Type": "application/json"]
         }
         
-        return ["Authorization": authenToken,
+        return ["Authorization": "Bearer \(authenToken)",
             "Content-Type": "application/json"]
     }
 }

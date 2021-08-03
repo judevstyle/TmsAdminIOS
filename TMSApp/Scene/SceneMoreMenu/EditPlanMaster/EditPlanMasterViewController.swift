@@ -180,7 +180,6 @@ extension EditPlanMasterViewController {
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         tableView.separatorStyle = .none
-        tableView.register(HeaderPrimaryBottomLineTableViewCell.self, forHeaderFooterViewReuseIdentifier: HeaderPrimaryBottomLineTableViewCell.identifier)
         tableView.registerCell(identifier: EmployeeTableViewCell.identifier)
         tableView.registerCell(identifier: EmptyTableViewCell.identifier)
         tableView.registerCell(identifier: ShopTableViewCell.identifier)

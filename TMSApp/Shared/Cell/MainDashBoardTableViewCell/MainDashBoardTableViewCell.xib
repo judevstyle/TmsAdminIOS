@@ -36,7 +36,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="การจัดส่ง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U42-Te-qYV">
-                                        <rect key="frame" x="8" y="22" width="46.5" height="19"/>
+                                        <rect key="frame" x="8" y="22" width="84" height="19"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -56,6 +56,7 @@
                                     <constraint firstItem="U42-Te-qYV" firstAttribute="top" secondItem="apM-7N-nkF" secondAttribute="bottom" constant="3" id="a1x-r0-Ie8"/>
                                     <constraint firstAttribute="trailing" secondItem="sJZ-2g-bxf" secondAttribute="trailing" constant="8" id="drb-TA-fX6"/>
                                     <constraint firstItem="apM-7N-nkF" firstAttribute="top" secondItem="UWa-HH-pPE" secondAttribute="top" constant="8" id="lD1-Wb-b5n"/>
+                                    <constraint firstAttribute="trailing" secondItem="U42-Te-qYV" secondAttribute="trailing" constant="8" id="mEQ-5c-sF1"/>
                                     <constraint firstItem="apM-7N-nkF" firstAttribute="leading" secondItem="UWa-HH-pPE" secondAttribute="leading" constant="8" id="qXJ-Yw-8Wv"/>
                                 </constraints>
                             </view>
@@ -70,7 +71,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="การจัดส่ง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09X-dC-DYh">
-                                        <rect key="frame" x="8" y="22" width="46.5" height="19"/>
+                                        <rect key="frame" x="8" y="22" width="83.5" height="19"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -88,6 +89,7 @@
                                     <constraint firstItem="33t-Ot-amR" firstAttribute="leading" secondItem="fma-Z4-eyg" secondAttribute="leading" constant="8" id="0r6-KN-1tk"/>
                                     <constraint firstItem="lS9-nx-z4R" firstAttribute="top" secondItem="09X-dC-DYh" secondAttribute="bottom" id="2eE-k0-f9a"/>
                                     <constraint firstItem="33t-Ot-amR" firstAttribute="top" secondItem="fma-Z4-eyg" secondAttribute="top" constant="8" id="6B9-du-moc"/>
+                                    <constraint firstAttribute="trailing" secondItem="09X-dC-DYh" secondAttribute="trailing" constant="8" id="D4G-M8-t16"/>
                                     <constraint firstItem="lS9-nx-z4R" firstAttribute="leading" secondItem="fma-Z4-eyg" secondAttribute="leading" constant="8" id="Qk7-Ap-yN4"/>
                                     <constraint firstItem="09X-dC-DYh" firstAttribute="top" secondItem="33t-Ot-amR" secondAttribute="bottom" constant="3" id="alQ-Yp-r3y"/>
                                     <constraint firstAttribute="trailing" secondItem="lS9-nx-z4R" secondAttribute="trailing" constant="8" id="yxy-H6-FPk"/>
@@ -104,7 +106,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="การจัดส่ง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cV-SQ-fRJ">
-                                        <rect key="frame" x="8" y="22" width="46.5" height="19"/>
+                                        <rect key="frame" x="8" y="22" width="84" height="19"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -122,6 +124,7 @@
                                     <constraint firstAttribute="trailing" secondItem="jP7-JW-tbK" secondAttribute="trailing" constant="8" id="Umq-oC-KyA"/>
                                     <constraint firstItem="XTk-Uu-PTk" firstAttribute="leading" secondItem="Rw1-aL-bsK" secondAttribute="leading" constant="8" id="bl8-c3-rAC"/>
                                     <constraint firstItem="XTk-Uu-PTk" firstAttribute="top" secondItem="Rw1-aL-bsK" secondAttribute="top" constant="8" id="dMw-QV-D1N"/>
+                                    <constraint firstAttribute="trailing" secondItem="3cV-SQ-fRJ" secondAttribute="trailing" constant="8" id="e5S-y2-MwV"/>
                                     <constraint firstItem="jP7-JW-tbK" firstAttribute="top" secondItem="3cV-SQ-fRJ" secondAttribute="bottom" id="fsh-cJ-2Vk"/>
                                     <constraint firstItem="3cV-SQ-fRJ" firstAttribute="leading" secondItem="Rw1-aL-bsK" secondAttribute="leading" constant="8" id="gtR-I7-cF7"/>
                                     <constraint firstItem="3cV-SQ-fRJ" firstAttribute="top" secondItem="XTk-Uu-PTk" secondAttribute="bottom" constant="3" id="w8K-8P-ptg"/>
@@ -138,7 +141,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="การจัดส่ง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohP-h0-9oB">
-                                        <rect key="frame" x="8" y="22" width="46.5" height="19"/>
+                                        <rect key="frame" x="8" y="22" width="83.5" height="19"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -157,6 +160,7 @@
                                     <constraint firstItem="ohP-h0-9oB" firstAttribute="top" secondItem="Vo0-iL-xtd" secondAttribute="bottom" constant="3" id="aL0-Qk-zzn"/>
                                     <constraint firstItem="lMe-h0-Oyf" firstAttribute="top" secondItem="ohP-h0-9oB" secondAttribute="bottom" id="bEJ-4x-a2h"/>
                                     <constraint firstItem="Vo0-iL-xtd" firstAttribute="top" secondItem="1SO-J7-bZy" secondAttribute="top" constant="8" id="iA9-2s-d5p"/>
+                                    <constraint firstAttribute="trailing" secondItem="ohP-h0-9oB" secondAttribute="trailing" constant="8" id="joA-ba-hpM"/>
                                     <constraint firstAttribute="trailing" secondItem="lMe-h0-Oyf" secondAttribute="trailing" constant="8" id="tKr-MO-dDy"/>
                                     <constraint firstItem="ohP-h0-9oB" firstAttribute="leading" secondItem="1SO-J7-bZy" secondAttribute="leading" constant="8" id="zss-qa-pU5"/>
                                 </constraints>

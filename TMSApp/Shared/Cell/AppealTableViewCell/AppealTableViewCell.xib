@@ -166,6 +166,10 @@
                 <outlet property="badgeVipName" destination="n9s-wg-a3j" id="gb4-dx-MNH"/>
                 <outlet property="badgeVipView" destination="LMg-hg-Yjp" id="h8V-i8-IpN"/>
                 <outletCollection property="favoriteIcons" destination="L4S-Qs-AIB" collectionClass="NSMutableArray" id="dcH-tV-E46"/>
+                <outletCollection property="favoriteIcons" destination="gzw-Zb-PDz" collectionClass="NSMutableArray" id="dub-Tr-azR"/>
+                <outletCollection property="favoriteIcons" destination="kPe-9p-fGd" collectionClass="NSMutableArray" id="siI-IG-i4f"/>
+                <outletCollection property="favoriteIcons" destination="iwC-Qe-8Nm" collectionClass="NSMutableArray" id="Q5H-bd-Ps5"/>
+                <outletCollection property="favoriteIcons" destination="Rc1-SN-em3" collectionClass="NSMutableArray" id="1d7-pT-gds"/>
             </connections>
             <point key="canvasLocation" x="117.39130434782609" y="104.79910714285714"/>
         </tableViewCell>

@@ -33,23 +33,23 @@
                                     <constraint firstAttribute="width" secondItem="GMq-be-JeZ" secondAttribute="height" multiplier="1:1" id="rnS-sh-vqA"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PQK-uM-A0m">
-                                <rect key="frame" x="84" y="8" width="306" height="56.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="PQK-uM-A0m">
+                                <rect key="frame" x="84" y="8" width="306" height="51"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Water" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D89-i3-tyS">
-                                        <rect key="frame" x="0.0" y="0.0" width="306" height="22.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="306" height="15"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGE-bQ-zEe">
-                                        <rect key="frame" x="0.0" y="22.5" width="306" height="19"/>
+                                        <rect key="frame" x="0.0" y="18" width="306" height="15"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="91H-J4-6Nv">
-                                        <rect key="frame" x="0.0" y="41.5" width="306" height="15"/>
+                                        <rect key="frame" x="0.0" y="36" width="306" height="15"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vns-af-9WO">
                                                 <rect key="frame" x="0.0" y="0.0" width="33" height="15"/>
@@ -72,9 +72,9 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="vns-af-9WO" secondAttribute="bottom" id="7ni-vV-MfQ"/>
-                                            <constraint firstItem="vns-af-9WO" firstAttribute="leading" secondItem="91H-J4-6Nv" secondAttribute="leading" id="bce-m5-gjI"/>
-                                            <constraint firstItem="vns-af-9WO" firstAttribute="top" secondItem="91H-J4-6Nv" secondAttribute="top" id="rYn-5d-v54"/>
+                                            <constraint firstAttribute="bottom" secondItem="vns-af-9WO" secondAttribute="bottom" id="UMr-rJ-59Q"/>
+                                            <constraint firstItem="vns-af-9WO" firstAttribute="top" secondItem="91H-J4-6Nv" secondAttribute="top" id="ZzC-J5-e6C"/>
+                                            <constraint firstItem="vns-af-9WO" firstAttribute="leading" secondItem="91H-J4-6Nv" secondAttribute="leading" id="bj9-Z5-Lor"/>
                                             <constraint firstAttribute="height" constant="15" id="zI2-SL-Bfm"/>
                                         </constraints>
                                     </view>
@@ -138,7 +138,7 @@
                 <outlet property="titleBadge" destination="Hbs-zU-14e" id="N57-bV-IgU"/>
                 <outlet property="titletext" destination="D89-i3-tyS" id="Nxk-jw-f7U"/>
             </connections>
-            <point key="canvasLocation" x="132" y="88"/>
+            <point key="canvasLocation" x="131.8840579710145" y="87.723214285714278"/>
         </tableViewCell>
     </objects>
     <resources>

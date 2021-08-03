@@ -64,6 +64,7 @@ public enum NavigationOpeningSender {
                           typeAction: TypeProductQtyAction,
                           delegate: ProductDetailQtyViewModelDelegate,
                           qty: Int? = 0)
+    case productShipment
     
     public var storyboardName: String {
         switch self {
@@ -153,6 +154,8 @@ public enum NavigationOpeningSender {
             return "SortShipmentOption"
         case .productDetailQty:
             return "ProductDetailQty"
+        case .productShipment:
+            return "ProductShipment"
         }
     }
     
@@ -244,6 +247,8 @@ public enum NavigationOpeningSender {
             return "SortShipmentOptionViewController"
         case .productDetailQty:
             return "ProductDetailQtyViewController"
+        case .productShipment:
+            return "ProductShipmentViewController"
         }
     }
     
@@ -332,6 +337,8 @@ public enum NavigationOpeningSender {
             return "sortShipment"
         case .selectCustomer(_):
             return "เลือก Customer"
+        case .productShipment:
+            return "S1140027"
         default:
             return ""
         }
@@ -488,6 +495,7 @@ class NavigationManager {
         }
         
         viewController.navigationItem.title = to.titleNavigation
+
         viewController.hideKeyboardWhenTappedAround()
         
         self.presentVC(viewController: viewController, presentation: presentation, isHiddenNavigationBar: isHiddenNavigationBar)

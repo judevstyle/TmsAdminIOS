@@ -71,6 +71,7 @@ class SequenceShipmentViewModel: SequenceShipmentProtocol, SequenceShipmentProto
         listSequenceShipment?.removeAll()
         sequenceShipmentViewController.startLoding()
         guard let shipmentId = self.shipmentItem?.shipmentId else { return }
+        debugPrint("shipmentId \(shipmentId)")
         self.getShipmentCustomerUseCase.execute(shipmentId: shipmentId).sink { completion in
             debugPrint("getShipmentCustomer \(completion)")
             
@@ -87,6 +88,7 @@ class SequenceShipmentViewModel: SequenceShipmentProtocol, SequenceShipmentProto
             
             self.sequenceShipmentViewController.stopLoding()
         } receiveValue: { resp in
+            
             if let items = resp?.data {
                 self.listSequenceShipment = items
                 SelectCustomerManager.shared.setSelectCustomer(items: self.listSequenceShipment ?? [])

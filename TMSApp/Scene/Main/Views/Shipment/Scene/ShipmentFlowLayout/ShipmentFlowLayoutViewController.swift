@@ -71,13 +71,14 @@ extension ShipmentFlowLayoutViewController {
             "สินค้า",
         ]
         
-        segmentedControl.frame = CGRect(x: 0, y: 12, width: 170, height: 35)
+        segmentedControl.frame = CGRect(x: 0, y: 12, width: topnavView.frame.width, height: 35)
         segmentedControl.selectionIndicatorLocation = .bottom
         segmentedControl.selectionIndicatorColor = .Primary
+        segmentedControl.autoresizingMask = [.flexibleRightMargin, .flexibleWidth]
+        segmentedControl.selectionStyle = .fullWidthStripe
         segmentedControl.contentVerticalAlignment = .center
         segmentedControl.enlargeEdgeInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         segmentedControl.segmentEdgeInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        segmentedControl.selectionIndicatorEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         let segmentedFont = UIFont.PrimaryText(size: 17)
         segmentedControl.titleTextAttributes = [NSAttributedString.Key.font: segmentedFont, NSAttributedString.Key.foregroundColor: UIColor.Primary]

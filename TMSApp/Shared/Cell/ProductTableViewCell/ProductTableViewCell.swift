@@ -46,11 +46,6 @@ class ProductTableViewCell: UITableViewCell {
         bgView.setShadowBoxView()
         
         //BadgeVIP
-        bgBadge.setRounded(rounded: 3)
-        bgBadge.layer.borderWidth = 0.3
-        bgBadge.layer.borderColor = UIColor.Primary.cgColor
-        titleBadge.text = "น้ำดื่ม"
-        titleBadge.font = UIFont.PrimaryText(size: 10)
         
         iconImage.setRounded(rounded: 8)
     }
@@ -62,6 +57,12 @@ class ProductTableViewCell: UITableViewCell {
         titleBadge.text = items?.productType?.productTypeName ?? ""
         
         priceText.text = "\(items?.productPrice ?? 0)"
+        
+        bgBadge.setRounded(rounded: 3)
+        bgBadge.layer.borderWidth = 0.3
+        bgBadge.layer.borderColor = UIColor.Primary.cgColor
+        bgBadge.layer.masksToBounds = true
+        titleBadge.font = UIFont.PrimaryText(size: 10)
         
         guard let urlImage = URL(string: "\(DomainNameConfig.TMSImagePath.urlString)\(items?.productImg ?? "")") else { return }
         iconImage.kf.setImageDefault(with: urlImage)

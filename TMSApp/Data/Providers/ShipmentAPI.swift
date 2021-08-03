@@ -29,7 +29,7 @@ extension ShipmentAPI: TargetType {
         case .getShipment(_):
             return ""
         case .getShipmentWorking(_):
-            return "shipmentWorking"
+            return "shipmentWorkingByComp"
         case .getShipmentCustomer(let shipmentId):
             return "shipmentCustomer/\(shipmentId)"
         case .updateShipment(let shipmentId, _):

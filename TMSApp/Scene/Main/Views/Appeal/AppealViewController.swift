@@ -31,7 +31,7 @@ class AppealViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         NavigationManager.instance.setupWithNavigationController(navigationController: self.navigationController)
-        viewModel.input.getAppeal(request: GetAppealRequest(title: ""))
+        viewModel.input.getFeedback()
     }
 }
 

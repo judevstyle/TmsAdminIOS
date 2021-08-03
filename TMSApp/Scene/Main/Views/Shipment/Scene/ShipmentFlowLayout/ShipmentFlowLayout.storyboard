@@ -19,11 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MyF-bh-elu">
-                                <rect key="frame" x="122" y="52" width="170" height="50"/>
+                                <rect key="frame" x="0.0" y="52" width="414" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="QGI-N6-lp8"/>
-                                    <constraint firstAttribute="width" constant="170" id="lBw-to-iIc"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l1L-Dp-QN5">
@@ -53,9 +52,11 @@
                             <constraint firstItem="MyF-bh-elu" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="87V-23-dk4"/>
                             <constraint firstItem="l1L-Dp-QN5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="DGm-no-nvS"/>
                             <constraint firstItem="MyF-bh-elu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="H0Z-gL-Z41"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="MyF-bh-elu" secondAttribute="trailing" id="JqR-KO-WsL"/>
                             <constraint firstItem="l1L-Dp-QN5" firstAttribute="top" secondItem="MyF-bh-elu" secondAttribute="bottom" id="Kww-qB-UTS"/>
                             <constraint firstItem="l1L-Dp-QN5" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="NaB-9J-Ddg"/>
                             <constraint firstItem="l1L-Dp-QN5" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="VAZ-lL-qBU"/>
+                            <constraint firstItem="MyF-bh-elu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="urP-zW-evp"/>
                         </constraints>
                     </view>
                     <connections>

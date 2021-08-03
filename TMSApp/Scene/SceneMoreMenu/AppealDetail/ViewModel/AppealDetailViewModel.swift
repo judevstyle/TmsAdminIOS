@@ -108,13 +108,11 @@ class AppealDetailViewModel: AppealDetailProtocol, AppealDetailProtocolOutput {
     }
     
     func getHeaderViewCell(_ tableView: UITableView, section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: HeaderPrimaryBottomLineTableViewCell.identifier)
-        if let header = header as? HeaderPrimaryBottomLineTableViewCell {
-            if section == 0 {
-                header.setState(title: "จัดส่งโดย", isEdit: false, section: section)
-            } else {
-                header.setState(title: "คะแนนการทำงาน", isEdit: false, section: section)
-            }
+        let header = HeaderPrimaryBottomLineViewCell()
+        if section == 0 {
+            header.setState(title: "จัดส่งโดย", isEdit: false, section: section)
+        } else {
+            header.setState(title: "คะแนนการทำงาน", isEdit: false, section: section)
         }
         return header
     }

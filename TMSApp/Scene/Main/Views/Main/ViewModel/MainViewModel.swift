@@ -151,9 +151,9 @@ class MainViewModel: MainProtocol, MainProtocolOutput {
         case 0:
             return 1
         case 1:
-            return self.listProduct?.count ?? 0
+            return self.listProduct?.count == 0 ? 1 : self.listProduct?.count ?? 1
         case 2:
-            return self.listShipmentWorking?.count ?? 0
+            return self.listShipmentWorking?.count == 0 ? 1 : self.listShipmentWorking?.count ?? 1
         default:
             return 0
         }
@@ -167,15 +167,27 @@ class MainViewModel: MainProtocol, MainProtocolOutput {
             cell.setValue(summaryCustomer: self.summaryCustomer)
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: DashBoardProductTableViewCell.identifier, for: indexPath) as! DashBoardProductTableViewCell
-            cell.selectionStyle = .none
-            cell.viewModel.input.setDashBoardProduct(products: self.listProduct ?? [])
-            return cell
+            if self.listProduct?.count == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: EmptyTableViewCell.identifier, for: indexPath) as! EmptyTableViewCell
+                cell.selectionStyle = .none
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: DashBoardProductTableViewCell.identifier, for: indexPath) as! DashBoardProductTableViewCell
+                cell.selectionStyle = .none
+                cell.viewModel.input.setDashBoardProduct(products: self.listProduct ?? [])
+                return cell
+            }
         case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: DashBoardWorkingTableViewCell.identifier, for: indexPath) as! DashBoardWorkingTableViewCell
-            cell.selectionStyle = .none
-            cell.items = self.listShipmentWorking?[indexPath.item]
-            return cell
+            if self.listShipmentWorking?.count == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: EmptyTableViewCell.identifier, for: indexPath) as! EmptyTableViewCell
+                cell.selectionStyle = .none
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: DashBoardWorkingTableViewCell.identifier, for: indexPath) as! DashBoardWorkingTableViewCell
+                cell.selectionStyle = .none
+                cell.items = self.listShipmentWorking?[indexPath.item]
+                return cell
+            }
         default:
             return UITableViewCell()
         }
@@ -187,14 +199,22 @@ class MainViewModel: MainProtocol, MainProtocolOutput {
             let height = (tableView.frame.width - 24)/4
             return height
         case 1:
-            let marginsAndInsets = 10 * 2 + 0 + 0 + 10 * CGFloat(5 - 1)
-            guard let count = self.listProduct?.count, count != 0 else { return 0 }
-            let itemWidth = ((tableView.bounds.size.width - marginsAndInsets) / CGFloat(5)).rounded(.down)
-            var height:CGFloat = 0.0
-            height = CGFloat((count/5 + 1)) * (itemWidth + 34)
-            return height
+            if self.listProduct?.count == 0 {
+                return 50
+            } else {
+                let marginsAndInsets = 10 * 2 + 0 + 0 + 10 * CGFloat(5 - 1)
+                guard let count = self.listProduct?.count, count != 0 else { return 0 }
+                let itemWidth = ((tableView.bounds.size.width - marginsAndInsets) / CGFloat(5)).rounded(.down)
+                var height:CGFloat = 0.0
+                height = CGFloat((count/5 + 1)) * (itemWidth + 34)
+                return height
+            }
         case 2:
-            return UITableView.automaticDimension
+            if self.listProduct?.count == 0 {
+                return 50
+            } else {
+                return UITableView.automaticDimension
+            }
         default:
             return 0
         }
@@ -217,13 +237,11 @@ class MainViewModel: MainProtocol, MainProtocolOutput {
         case 0:
             return nil
         default:
-            let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: HeaderPrimaryBottomLineTableViewCell.identifier)
-            if let header = header as? HeaderPrimaryBottomLineTableViewCell {
-                if section == 1 {
-                    header.setState(title: "รายการขายสินค้า", isEdit: false, section: section)
-                } else {
-                    header.setState(title: "กำลังทำงาน", isEdit: false, section: section)
-                }
+            let header = HeaderPrimaryBottomLineViewCell()
+            if section == 1 {
+                header.setState(title: "รายการขายสินค้า", isEdit: false, section: section)
+            } else {
+                header.setState(title: "กำลังทำงาน", isEdit: false, section: section)
             }
             return header
         }

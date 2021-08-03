@@ -91,6 +91,7 @@ class ProductViewModel: ProductProtocol, ProductProtocolOutput {
     
     func getCellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProductTableViewCell.identifier, for: indexPath) as! ProductTableViewCell
+        cell.layer.masksToBounds = true
         cell.selectionStyle = .none
         cell.items = self.listProduct?[indexPath.item]
         return cell

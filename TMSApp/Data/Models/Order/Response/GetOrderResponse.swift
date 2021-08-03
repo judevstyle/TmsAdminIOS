@@ -40,6 +40,7 @@ public struct OrderData: Codable, Hashable  {
 public struct OrderItems: Codable, Hashable  {
     
     public var orderId: Int?
+    public var orderNo: String?
     public var orderShipingStatus: String?
     public var status: String?
     public var creditStatus: String?
@@ -56,11 +57,13 @@ public struct OrderItems: Codable, Hashable  {
     public var customerAvatar: String?
     public var totalItem: Int?
     public var totalPrice: Double?
+    public var customer: CustomerItems?
     
     public init() {}
     
     public init(from decoder: Decoder) throws {
         try orderId              <- decoder["order_id"]
+        try orderNo              <- decoder["order_no"]
         try orderShipingStatus   <- decoder["order_shiping_status"]
         try status               <- decoder["status"]
         try creditStatus         <- decoder["credit_status"]
@@ -76,5 +79,6 @@ public struct OrderItems: Codable, Hashable  {
         try customerAvatar       <- decoder["customer_avatar"]
         try totalItem            <- decoder["total_item"]
         try totalPrice           <- decoder["total_price"]
+        try customer             <- decoder["customer"]
     }
 }
