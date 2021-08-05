@@ -18,11 +18,21 @@ class BillPaymentTableViewCell: UITableViewCell {
     @IBOutlet var paymentPrice: UILabel!
     @IBOutlet var paymentOverduePrice: UILabel!
     
-    var items: ShipmentItems? {
+    @IBOutlet var statusHead: UILabel!
+    
+    var itemsBillNow: OrderItems? {
         didSet {
-            setupValue()
+            setupBillNowValue()
         }
     }
+    
+    var itemsBillPayment: OrderItems? {
+        didSet {
+            setupBillPaymentValue()
+        }
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -43,7 +53,27 @@ class BillPaymentTableViewCell: UITableViewCell {
 
     }
     
-    func setupValue(){
-
+    func setupBillNowStlye() {
+        productCount.textColor = .darkGray
+        paymentPrice.textColor = .darkGray
+        paymentOverduePrice.textColor = .darkGray
+        
+        //shipping status
+        statusHead.text = "สถานะ"
+        paymentOverduePrice.text = "รอจัดส่ง"
+    }
+    
+    
+    func setupBillNowValue(){
+        orderNo.text =  "Order No. \(itemsBillNow?.orderId ?? 0)"
+        productCount.text = "\(itemsBillNow?.totalItem ?? 0)"
+        paymentPrice.text = "\(itemsBillNow?.totalPrice ?? 0)"
+    }
+    
+    func setupBillPaymentValue(){
+        orderNo.text =  "Order No. \(itemsBillPayment?.orderId ?? 0)"
+        productCount.text = "\(itemsBillPayment?.totalItem ?? 0)"
+        paymentPrice.text = "\(itemsBillPayment?.totalPrice ?? 0)"
+        paymentOverduePrice.text = "\(itemsBillPayment?.totalPrice ?? 0)"
     }
 }

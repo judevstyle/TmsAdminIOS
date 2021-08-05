@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol PostShipmentStockUseCase {
-    func execute(request: [PostShipmentStockRequest]) -> AnyPublisher<PostShipmentStockResponse?, Error>
+    func execute(request: PostShipmentStockRequest) -> AnyPublisher<PostShipmentStockResponse?, Error>
 }
 
 struct PostShipmentStockUseCaseImpl: PostShipmentStockUseCase {
@@ -20,7 +20,7 @@ struct PostShipmentStockUseCaseImpl: PostShipmentStockUseCase {
         self.repository = repository
     }
     
-    func execute(request: [PostShipmentStockRequest]) -> AnyPublisher<PostShipmentStockResponse?, Error> {
+    func execute(request: PostShipmentStockRequest) -> AnyPublisher<PostShipmentStockResponse?, Error> {
         return repository
             .postShipmentStock(request: request)
             .map { $0 }

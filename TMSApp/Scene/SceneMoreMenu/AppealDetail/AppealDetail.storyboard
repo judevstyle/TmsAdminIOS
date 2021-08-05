@@ -37,7 +37,7 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nh9-qW-6zU">
-                                        <rect key="frame" x="120" y="16" width="278" height="88"/>
+                                        <rect key="frame" x="120" y="8" width="278" height="88"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#10009283" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mqp-d2-Xtk">
                                                 <rect key="frame" x="0.0" y="0.0" width="278" height="24"/>
@@ -86,7 +86,7 @@
                                     <constraint firstItem="nhR-I7-9LT" firstAttribute="leading" secondItem="UpB-Ng-Hy2" secondAttribute="leading" constant="16" id="7qQ-lU-Ke5"/>
                                     <constraint firstAttribute="trailing" secondItem="nh9-qW-6zU" secondAttribute="trailing" constant="16" id="TjY-qz-9pg"/>
                                     <constraint firstAttribute="bottom" secondItem="nhR-I7-9LT" secondAttribute="bottom" constant="8" id="ggt-hv-KT3"/>
-                                    <constraint firstItem="nh9-qW-6zU" firstAttribute="top" secondItem="nhR-I7-9LT" secondAttribute="top" constant="8" id="j3t-hZ-e3R"/>
+                                    <constraint firstItem="nh9-qW-6zU" firstAttribute="top" secondItem="UpB-Ng-Hy2" secondAttribute="top" constant="8" id="nTb-Gw-82J"/>
                                     <constraint firstItem="nhR-I7-9LT" firstAttribute="top" secondItem="UpB-Ng-Hy2" secondAttribute="top" constant="8" id="pg7-Cq-YQN"/>
                                     <constraint firstItem="nh9-qW-6zU" firstAttribute="leading" secondItem="nhR-I7-9LT" secondAttribute="trailing" constant="8" id="yGd-jk-pcB"/>
                                 </constraints>
@@ -166,6 +166,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="OrderNo" destination="5PR-FF-xox" id="JdG-RZ-efO"/>
+                        <outlet property="feedbackCustomerAddress" destination="Ffo-nn-TbB" id="MFM-DT-Pyf"/>
+                        <outlet property="feedbackCustomerImageView" destination="nhR-I7-9LT" id="fQs-le-l43"/>
+                        <outlet property="feedbackCustomerName" destination="eVa-WR-Pvs" id="u4o-Dq-WNG"/>
+                        <outlet property="feedbackCustomerNo" destination="Mqp-d2-Xtk" id="ykR-qO-MJZ"/>
+                        <outlet property="shipmentOrderNo" destination="dWK-6k-J4B" id="rOj-U7-Xoc"/>
                         <outlet property="tableView" destination="LGZ-9r-YR6" id="NEb-A1-56T"/>
                         <outlet property="topDetailView" destination="UpB-Ng-Hy2" id="fYs-bP-DZz"/>
                     </connections>

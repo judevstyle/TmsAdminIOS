@@ -50,16 +50,16 @@ extension TypeUserAPI: TargetType {
         var authenToken = ""
         switch self {
         case .getTypeUser(_):
-            authenToken = ""
+            authenToken = UserDefaultsKey.AccessToken.string ?? ""
         default:
-            authenToken = ""
+            authenToken = UserDefaultsKey.AccessToken.string ?? ""
         }
         
         if authenToken.isEmpty {
             return ["Content-Type": "application/json"]
         }
         
-        return ["Authorization": authenToken,
+        return ["Authorization": "Bearer \(authenToken)",
             "Content-Type": "application/json"]
     }
 }

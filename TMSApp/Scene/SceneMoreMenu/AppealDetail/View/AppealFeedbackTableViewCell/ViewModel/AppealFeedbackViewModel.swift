@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol AppealFeedbackProtocolInput {
-    func getAppeal(request: GetAppealRequest)
+    func setData(listImage: [String], comment: String)
 }
 
 protocol AppealFeedbackProtocolOutput: class {
@@ -18,6 +18,9 @@ protocol AppealFeedbackProtocolOutput: class {
 
     func getNumberOfMenu() -> Int
     func getItemViewCell(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell
+    
+    func getCommentText() -> String
+    func getListImageCount() -> Int
 }
 
 protocol AppealFeedbackProtocol: AppealFeedbackProtocolInput, AppealFeedbackProtocolOutput {
@@ -44,26 +47,29 @@ class AppealFeedbackViewModel: AppealFeedbackProtocol, AppealFeedbackProtocolOut
     var didGetAppealSuccess: (() -> Void)?
     var didGetAppealError: (() -> Void)?
     
-    fileprivate var listFeedback: [GetAppealResponse]? = []
+    fileprivate var listImage: [String]? = []
+    fileprivate var comment: String?
+
     
-    func getAppeal(request: GetAppealRequest) {
-        listFeedback?.removeAll()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-            guard let weakSelf = self else { return }
-            for _ in 0..<15 {
-                weakSelf.listFeedback?.append(GetAppealResponse(title: "test"))
-            }
-            weakSelf.didGetAppealSuccess?()
-        }
+    func setData(listImage: [String], comment: String) {
+        self.listImage = listImage
+        self.comment = comment
+    }
+
+    func getNumberOfMenu() -> Int {
+        return self.listImage?.count ?? 0
     }
     
-    func getNumberOfMenu() -> Int {
-        return self.listFeedback?.count ?? 0
+    func getCommentText() -> String {
+        return self.comment ?? ""
+    }
+    
+    func getListImageCount() -> Int {
+        return self.listImage?.count ?? 0
     }
     
     func getItemViewCell(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageFeedbackCollectionViewCell.identifier, for: indexPath) as! ImageFeedbackCollectionViewCell
-
         return cell
     }
     

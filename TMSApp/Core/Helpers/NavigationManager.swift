@@ -19,8 +19,9 @@ public enum NavigationOpeningSender {
     case menu
     case shipmentDetail
     case shipmentMap
-    case orderCart(orderId: String)
-    case appealDetail
+    case orderCart(orderId: Int?)
+    case orderCartBill(orderId: Int?)
+    case appealDetail(item: FeedbackItems)
     case employee
     case editEmployee
     case typeUser
@@ -64,7 +65,10 @@ public enum NavigationOpeningSender {
                           typeAction: TypeProductQtyAction,
                           delegate: ProductDetailQtyViewModelDelegate,
                           qty: Int? = 0)
-    case productShipment
+    case productShipment(item: ShipmentCustomerItems?)
+    case confirmOrder
+    case historyPayment(orderId: Int?)
+    case imageListScroll(listImage: [String?], index: Int?)
     
     public var storyboardName: String {
         switch self {
@@ -88,7 +92,7 @@ public enum NavigationOpeningSender {
             return "ShipmentMap"
         case .orderCart:
             return "OrderCart"
-        case .appealDetail:
+        case .appealDetail(_):
             return "AppealDetail"
         case .employee:
             return "Employee"
@@ -154,8 +158,16 @@ public enum NavigationOpeningSender {
             return "SortShipmentOption"
         case .productDetailQty:
             return "ProductDetailQty"
-        case .productShipment:
+        case .productShipment(_):
             return "ProductShipment"
+        case .confirmOrder:
+            return "ConfirmOrder"
+        case .historyPayment(_):
+            return "HistoryPayment"
+        case .orderCartBill(_):
+            return "OrderCartBill"
+        case .imageListScroll(_):
+            return "ImageListScrollViewController"
         }
     }
     
@@ -181,7 +193,7 @@ public enum NavigationOpeningSender {
             return "ShipmentMapViewController"
         case .orderCart:
             return "OrderCartViewController"
-        case .appealDetail:
+        case .appealDetail(_):
             return "AppealDetailViewController"
         case .employee:
             return "EmployeeViewController"
@@ -247,8 +259,16 @@ public enum NavigationOpeningSender {
             return "SortShipmentOptionViewController"
         case .productDetailQty:
             return "ProductDetailQtyViewController"
-        case .productShipment:
+        case .productShipment(_):
             return "ProductShipmentViewController"
+        case .confirmOrder:
+            return "ConfirmOrderViewController"
+        case .historyPayment(_):
+            return "HistoryPaymentViewController"
+        case .orderCartBill(_):
+            return "OrderCartBillViewController"
+        case .imageListScroll(_):
+            return "ImageListScrollViewController"
         }
     }
     
@@ -283,7 +303,7 @@ public enum NavigationOpeningSender {
             return "แผนที่"
         case .orderCart:
             return "OrderCart"
-        case .appealDetail:
+        case .appealDetail(_):
             return "AppealDetail"
         case .employee:
             return "Employee"
@@ -339,6 +359,10 @@ public enum NavigationOpeningSender {
             return "เลือก Customer"
         case .productShipment:
             return "S1140027"
+        case .confirmOrder:
+            return "สั่งซื้อสินค้า"
+        case .historyPayment(_):
+            return "ประวัติการชำระเงิน"
         default:
             return ""
         }
@@ -355,10 +379,11 @@ class NavigationManager {
         case Root
         case Replace
         case Push
-        case Modal(completion: (() -> Void)?)
+        case Modal(completion: (() -> Void)?, withNav: Bool?)
         case ModelNav(completion: (() -> Void)?)
         case BottomSheet(completion: (() -> Void)?, height: CGFloat)
         case PopupSheet(completion: (() -> Void)?)
+        case presentFullSceen(completion: (() -> Void)?)
         
     }
     
@@ -449,7 +474,7 @@ class NavigationManager {
             }
         case .modalAssetStock(let astId, let delegate, let modalAssetType):
             if let className = storyboard.instantiateInitialViewController() as? ModalAssetStockViewController {
-//                className.viewModel.input.setAssetStock(astId: astId, delegate: delegat)
+                //                className.viewModel.input.setAssetStock(astId: astId, delegate: delegat)
                 className.viewModel.input.setAssetData(astId: astId, delegate: delegate, modalAssetType: modalAssetType)
                 viewController = className
             }
@@ -459,49 +484,75 @@ class NavigationManager {
                 viewController = className
             }
         case .coleectibleDetail(let items):
-        if let className = storyboard.instantiateInitialViewController() as? CollectibleDetailViewController {
-            className.viewModel.input.setCollectibleDetail(items: items)
-            viewController = className
-        }
+            if let className = storyboard.instantiateInitialViewController() as? CollectibleDetailViewController {
+                className.viewModel.input.setCollectibleDetail(items: items)
+                viewController = className
+            }
         case .sequenceShipment(let items):
-        if let className = storyboard.instantiateInitialViewController() as? SequenceShipmentViewController {
-            className.viewModel.input.setItemShipment(items: items)
-            viewController = className
-        }
+            if let className = storyboard.instantiateInitialViewController() as? SequenceShipmentViewController {
+                className.viewModel.input.setItemShipment(items: items)
+                viewController = className
+            }
         case .sortShipment(let items, let delegate):
-        if let className = storyboard.instantiateInitialViewController() as? SortShipmentCollectionViewController {
-            className.viewModel.input.setItemShipment(items: items)
-            className.viewModel.input.setDelegate(delegate: delegate)
-            viewController = className
-        }
+            if let className = storyboard.instantiateInitialViewController() as? SortShipmentCollectionViewController {
+                className.viewModel.input.setItemShipment(items: items)
+                className.viewModel.input.setDelegate(delegate: delegate)
+                viewController = className
+            }
         case .selectCustomer(let shipmentId):
-        if let className = storyboard.instantiateInitialViewController() as? SelectCustomerViewController {
-            className.viewModel.input.setShipmentId(shipmentId: shipmentId)
-            viewController = className
-        }
+            if let className = storyboard.instantiateInitialViewController() as? SelectCustomerViewController {
+                className.viewModel.input.setShipmentId(shipmentId: shipmentId)
+                viewController = className
+            }
         case .sortShipmentOption(let delegate, let item):
-        if let className = storyboard.instantiateInitialViewController() as? SortShipmentOptionViewController {
-            className.viewModel.input.setDelegate(delegate: delegate)
-            className.viewModel.input.setItem(item: item)
-            viewController = className
-        }
+            if let className = storyboard.instantiateInitialViewController() as? SortShipmentOptionViewController {
+                className.viewModel.input.setDelegate(delegate: delegate)
+                className.viewModel.input.setItem(item: item)
+                viewController = className
+            }
         case .productDetailQty(let shipmentId, let itemProduct, let typeAction, let delegate, let qty):
-        if let className = storyboard.instantiateInitialViewController() as? ProductDetailQtyViewController {
-            className.viewModel.input.setData(shipmentId: shipmentId, itemProduct: itemProduct, typeAction: typeAction, delegate: delegate, qty: qty)
-            viewController = className
-        }
+            if let className = storyboard.instantiateInitialViewController() as? ProductDetailQtyViewController {
+                className.viewModel.input.setData(shipmentId: shipmentId, itemProduct: itemProduct, typeAction: typeAction, delegate: delegate, qty: qty)
+                viewController = className
+            }
+        case .appealDetail(let item):
+            if let className = storyboard.instantiateInitialViewController() as? AppealDetailViewController {
+                className.viewModel.input.setItemFeedback(item: item)
+                viewController = className
+            }
+        case .productShipment(let item):
+            if let className = storyboard.instantiateInitialViewController() as? ProductShipmentViewController {
+                className.viewModel.input.setShipmentCustomer(item: item)
+                viewController = className
+            }
+        case .historyPayment(let orderId):
+            if let className = storyboard.instantiateInitialViewController() as? HistoryPaymentViewController {
+                className.viewModel.input.setOrderId(orderId: orderId)
+                viewController = className
+            }
+        case .orderCartBill(let orderId):
+            if let className = storyboard.instantiateInitialViewController() as? OrderCartBillViewController {
+                className.viewModel.input.setOrderId(orderId: orderId)
+                viewController = className
+            }
+        case .imageListScroll(let listImage ,let index):
+            if let className = storyboard.instantiateInitialViewController() as? ImageListScrollViewController {
+                className.viewModel.setListImage(listImage: listImage)
+                className.viewModel.setSelectedIndex(index: index)
+                viewController = className
+            }
         default:
             viewController = storyboard.instantiateInitialViewController() ?? to.viewController
         }
         
         viewController.navigationItem.title = to.titleNavigation
-
+        
         viewController.hideKeyboardWhenTappedAround()
         
-        self.presentVC(viewController: viewController, presentation: presentation, isHiddenNavigationBar: isHiddenNavigationBar)
+        self.presentVC(viewController: viewController, presentation: presentation, isHiddenNavigationBar: isHiddenNavigationBar, to: to)
     }
     
-    private func presentVC(viewController: UIViewController, presentation: Presentation, isHiddenNavigationBar: Bool = false) {
+    private func presentVC(viewController: UIViewController, presentation: Presentation, isHiddenNavigationBar: Bool = false, to: NavigationOpeningSender) {
         if let nav = self.navigationController {
             nav.isNavigationBarHidden = isHiddenNavigationBar
         }
@@ -516,8 +567,22 @@ class NavigationManager {
             
         case .Root:
             self.navigationController.setViewControllers([viewController], animated: true)
-        case .Modal(let completion):
-            self.navigationController.present(viewController, animated: true, completion: completion)
+        case .Modal(let completion, let withNav):
+            if withNav == true {
+                let navBarOnModal: UINavigationController = UINavigationController(rootViewController: viewController)
+                navBarOnModal.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.PrimaryMedium(size: 18), NSAttributedString.Key.foregroundColor: UIColor.white]
+                navBarOnModal.navigationBar.barTintColor = UIColor.Primary
+                navBarOnModal.navigationBar.setBackgroundImage(UIImage(), for: UIBarPosition.bottom, barMetrics: .default)
+                navBarOnModal.navigationBar.shadowImage = UIImage()
+                navBarOnModal.navigationBar.isTranslucent = false
+                navBarOnModal.navigationBar.barStyle = .black
+                navBarOnModal.navigationBar.tintColor = .white
+                
+                navBarOnModal.navigationItem.title = to.titleNavigation
+                self.navigationController.present(navBarOnModal, animated: true, completion: completion)
+            } else {
+                self.navigationController.present(viewController, animated: true, completion: completion)
+            }
         case .Replace:
             var viewControllers = Array(self.navigationController.viewControllers.dropLast())
             viewControllers.append(viewController)
@@ -536,6 +601,18 @@ class NavigationManager {
             viewController.modalPresentationStyle = .overFullScreen
             viewController.modalTransitionStyle = .crossDissolve
             self.navigationController.present(viewController, animated: true, completion: completion)
+        case .presentFullSceen(let completion):
+            
+            let nav: UINavigationController = UINavigationController(rootViewController: viewController)
+            nav.navigationBar.setBackgroundImage(UIImage(), for: .default)
+            nav.navigationBar.shadowImage = UIImage()
+            nav.navigationBar.isTranslucent = true
+            
+            nav.view.backgroundColor = UIColor.black
+            nav.modalPresentationStyle = .overFullScreen
+            nav.modalTransitionStyle = .crossDissolve
+            
+            self.navigationController.present(nav, animated: true, completion: completion)
         }
         self.currentPresentation = presentation
     }

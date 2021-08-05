@@ -10,7 +10,7 @@ import UIKit
 import Combine
 
 protocol OrderCartProtocolInput {
-    func setOrderId(orderId: String)
+    func setOrderId(orderId: Int?)
     func fetchOrderCart()
     func confirmOrderCart()
 }
@@ -47,7 +47,7 @@ class OrderCartViewModel: OrderCartProtocol, OrderCartProtocolOutput {
     // MARK: - Properties
     private var orderCartViewController: OrderCartViewController
     
-    fileprivate var orderId: String?
+    fileprivate var orderId: Int?
     fileprivate var itemDetail: OrderCartData?
     fileprivate var listOrderCart: [OrderCartD]? = []
 
@@ -65,7 +65,7 @@ class OrderCartViewModel: OrderCartProtocol, OrderCartProtocolOutput {
     var didGetOrderCartSuccess: (() -> Void)?
     var didGetOrderCartError: (() -> Void)?
     
-    func setOrderId(orderId: String) {
+    func setOrderId(orderId: Int?) {
         self.orderId = orderId
     }
     

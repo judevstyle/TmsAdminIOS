@@ -7,14 +7,15 @@
 
 import Foundation
 import UIKit
+import Combine
 
 protocol AppealDetailProtocolInput {
-    func getAppeal(request: GetAppealRequest)
+    func setItemFeedback(item: FeedbackItems)
+    func getItemFeedbackDetail()
 }
 
 protocol AppealDetailProtocolOutput: class {
-    var didGetAppealSuccess: (() -> Void)? { get set }
-    var didGetAppealError: (() -> Void)? { get set }
+    var didGetFeedbackDetailSuccess: (() -> Void)? { get set }
     
     func getNumberOfAppeal(section: Int) -> Int
     func getItemAppeal(index: Int) -> GetAppealResponse?
@@ -23,6 +24,8 @@ protocol AppealDetailProtocolOutput: class {
     
     func getHeightSectionView(section: Int) -> CGFloat
     func getHeaderViewCell(_ tableView: UITableView, section: Int) -> UIView?
+    
+    func getItemFeedback() -> FeedbackItems?
 }
 
 protocol AppealDetailProtocol: AppealDetailProtocolInput, AppealDetailProtocolOutput {
@@ -35,34 +38,60 @@ class AppealDetailViewModel: AppealDetailProtocol, AppealDetailProtocolOutput {
     var output: AppealDetailProtocolOutput { return self }
     
     // MARK: - Properties
-//    private var getProductUseCase: GetProductUseCase
+    private var getFeedbackOneUseCase: GetFeedbackOneUseCase
+    private var anyCancellable: Set<AnyCancellable> = Set<AnyCancellable>()
+    
     private var appealDetailViewController: AppealDetailViewController
     
     
     init(
-        appealDetailViewController: AppealDetailViewController
+        appealDetailViewController: AppealDetailViewController,
+        getFeedbackOneUseCase: GetFeedbackOneUseCase = GetFeedbackOneUseCaseImpl()
     ) {
         self.appealDetailViewController = appealDetailViewController
+        self.getFeedbackOneUseCase = getFeedbackOneUseCase
     }
     
     // MARK - Data-binding OutPut
-    var didGetAppealSuccess: (() -> Void)?
-    var didGetAppealError: (() -> Void)?
+    var didGetFeedbackDetailSuccess: (() -> Void)?
     
     fileprivate var listAppeal: [GetAppealResponse]? = []
+    fileprivate var itemFeedback: FeedbackItems? = nil
+    fileprivate var itemFeedbackDetail: FeedbackItems? = nil
     
-    func getAppeal(request: GetAppealRequest) {
-        listAppeal?.removeAll()
+    func setItemFeedback(item: FeedbackItems) {
+        self.itemFeedback = item
+    }
+    
+    func getItemFeedbackDetail() {
+        itemFeedbackDetail = nil
         appealDetailViewController.startLoding()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-            guard let weakSelf = self else { return }
-            for _ in 0..<3 {
-                weakSelf.listAppeal?.append(GetAppealResponse(title: "test"))
+        guard let item = self.itemFeedback else { return }
+        var  request: GetFeedbackOneRequest = GetFeedbackOneRequest()
+        request.feedbackId = item.feedId
+        self.getFeedbackOneUseCase.execute(request: request).sink { completion in
+            debugPrint("getFeedbackOne \(completion)")
+            self.appealDetailViewController.stopLoding()
+            
+            switch completion {
+            case .finished:
+                ToastManager.shared.toastCallAPI(title: "getCustomer finished")
+                break
+            case .failure(_):
+                ToastManager.shared.toastCallAPI(title: "getCustomer failure")
+                break
             }
-
-            weakSelf.didGetAppealSuccess?()
-            weakSelf.appealDetailViewController.stopLoding()
-        }
+            
+        } receiveValue: { resp in
+            if let items = resp?.data {
+                self.itemFeedbackDetail = items
+                self.didGetFeedbackDetailSuccess?()
+            }
+        }.store(in: &self.anyCancellable)
+    }
+    
+    func getItemFeedback() -> FeedbackItems? {
+        return self.itemFeedback
     }
     
     func getNumberOfAppeal(section: Int) -> Int {
@@ -88,7 +117,10 @@ class AppealDetailViewModel: AppealDetailProtocol, AppealDetailProtocolOutput {
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: AppealFeedbackTableViewCell.identifier, for: indexPath) as! AppealFeedbackTableViewCell
             cell.selectionStyle = .none
-            cell.imageItemCount = 15
+            cell.delegate = self
+            cell.imageItemCount = 3
+            cell.viewModel.input.setData(listImage: ["", "", ""], comment: "asdasdasdasdasasd")
+            cell.setupValue()
             return cell
         }
     }
@@ -98,9 +130,8 @@ class AppealDetailViewModel: AppealDetailProtocol, AppealDetailProtocolOutput {
         case 0:
             return 91
         default:
-            return UITableView.automaticDimension
+            return 250
         }
-        return 91
     }
     
     func getHeightSectionView(section: Int) -> CGFloat {
@@ -115,5 +146,17 @@ class AppealDetailViewModel: AppealDetailProtocol, AppealDetailProtocolOutput {
             header.setState(title: "คะแนนการทำงาน", isEdit: false, section: section)
         }
         return header
+    }
+}
+
+
+extension AppealDetailViewModel:  AppealFeedbackTableViewCellDelegate {
+    func didSelectImage(index: Int?) {
+        
+        //Mock
+        let urlImage = itemFeedback?.order?.customer?.avatar
+        let listImage: [String?] = [urlImage, urlImage, urlImage, urlImage, urlImage]
+        
+        NavigationManager.instance.pushVC(to: .imageListScroll(listImage: listImage, index: index), presentation: .presentFullSceen(completion: nil))
     }
 }

@@ -58,16 +58,16 @@ extension CollectibleAPI: TargetType {
         var authenToken = ""
         switch self {
         case .getCollectible:
-            authenToken = ""
+            authenToken = UserDefaultsKey.AccessToken.string ?? ""
         default:
-            authenToken = ""
+            authenToken = UserDefaultsKey.AccessToken.string ?? ""
         }
         
         if authenToken.isEmpty {
             return ["Content-Type": "application/json"]
         }
         
-        return ["Authorization": authenToken,
+        return ["Authorization": "Bearer \(authenToken)",
             "Content-Type": "application/json"]
     }
 }

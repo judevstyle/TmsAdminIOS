@@ -38,7 +38,9 @@ class ShipmentFlowLayoutViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        ShipmentStockManager.shared.setListSelectShipmentStock(items: [])
+        var shipmentStock = ShipmentStockManager.shared.getListSelectShipmentStock()
+        shipmentStock.data = []
+        ShipmentStockManager.shared.setListSelectShipmentStock(item: shipmentStock)
         pageCollectionView.reloadData()
     }
 }

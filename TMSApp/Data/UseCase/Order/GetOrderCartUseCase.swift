@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol GetOrderCartUseCase {
-    func execute(orderId: String) -> AnyPublisher<GetOrderCartResponse?, Error>
+    func execute(orderId: Int?) -> AnyPublisher<GetOrderCartResponse?, Error>
 }
 
 struct GetOrderCartUseCaseImpl: GetOrderCartUseCase {
@@ -20,7 +20,7 @@ struct GetOrderCartUseCaseImpl: GetOrderCartUseCase {
         self.orderRepository = orderRepository
     }
     
-    func execute(orderId: String) -> AnyPublisher<GetOrderCartResponse?, Error> {
+    func execute(orderId: Int?) -> AnyPublisher<GetOrderCartResponse?, Error> {
         return orderRepository
             .getOrderCart(orderId: orderId)
             .map { $0 }

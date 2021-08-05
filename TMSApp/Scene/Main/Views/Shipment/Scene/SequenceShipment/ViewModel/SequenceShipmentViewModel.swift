@@ -24,6 +24,8 @@ protocol SequenceShipmentProtocolOutput: class {
     func getCellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
     
     func getShipmentItem() -> ShipmentItems?
+    
+    func getShipmentCustomerItems(index: Int) -> ShipmentCustomerItems?
 }
 
 protocol SequenceShipmentProtocol: SequenceShipmentProtocolInput, SequenceShipmentProtocolOutput {
@@ -67,6 +69,10 @@ class SequenceShipmentViewModel: SequenceShipmentProtocol, SequenceShipmentProto
         return self.shipmentItem
     }
     
+    func getShipmentCustomerItems(index: Int) -> ShipmentCustomerItems? {
+        return self.listSequenceShipment?[index]
+    }
+    
     func getSequenceShipment() {
         listSequenceShipment?.removeAll()
         sequenceShipmentViewController.startLoding()
@@ -102,7 +108,7 @@ class SequenceShipmentViewModel: SequenceShipmentProtocol, SequenceShipmentProto
     }
     
     func getHeightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat {
-        return 104
+        return 115
     }
     
     func getNumberOfRowsInSection(_ tableView: UITableView, section: Int) -> Int {

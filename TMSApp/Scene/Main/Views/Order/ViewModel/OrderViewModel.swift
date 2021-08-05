@@ -60,7 +60,10 @@ class OrderViewModel: OrderProtocol, OrderProtocolOutput {
         self.listOrder?.removeAll()
         self.orderViewController.startLoding()
         
-        self.getOrderUseCase.execute().sink { completion in
+        var request = GetOrderRequest()
+        request.status = "R"
+        request.page = 1
+        self.getOrderUseCase.execute(request: request).sink { completion in
             debugPrint("getOrder \(completion)")
             
             switch completion {

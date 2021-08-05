@@ -7,15 +7,22 @@
 
 import UIKit
 
+protocol AppealFeedbackTableViewCellDelegate {
+    func didSelectImage(index: Int?)
+}
+
 class AppealFeedbackTableViewCell: UITableViewCell {
     static let identifier = "AppealFeedbackTableViewCell"
     
     @IBOutlet weak var appealView: UIView!
+    @IBOutlet var commentText: UILabel!
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
     
     lazy public var imageItemCount = 0
+    
+    public var delegate: AppealFeedbackTableViewCellDelegate?
     
     let inset: CGFloat = 10
     let minimumLineSpacing: CGFloat = 10
@@ -33,9 +40,8 @@ class AppealFeedbackTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        setupUI()
         registerCell()
-        viewModel.input.getAppeal(request: GetAppealRequest())
+        setupUI()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -55,6 +61,13 @@ extension AppealFeedbackTableViewCell {
 //        appealView.layer.shadowOpacity = 0.5
 //        appealView.layer.shadowOffset = .zero
 //        appealView.layer.shadowRadius = 3
+    }
+    
+    public func setupValue() {
+        self.imageItemCount = viewModel.output.getListImageCount()
+        commentText.text = viewModel.output.getCommentText()
+        debugPrint("Comment \(viewModel.output.getCommentText())")
+        collectionView.reloadData()
     }
     
     fileprivate func registerCell() {
@@ -105,14 +118,18 @@ extension AppealFeedbackTableViewCell: UICollectionViewDelegate {
 extension AppealFeedbackTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-        let lineHeight = String(format: "%.0f", Double(imageItemCount)/4.00 )
-        let roundedLineHeight = CGFloat((lineHeight as NSString).doubleValue)
-        collectionViewHeight.constant = roundedLineHeight * 91.5
+//        let lineHeight = String(format: "%.0f", Double(imageItemCount)/4.00 )
+//        let roundedLineHeight = CGFloat((lineHeight as NSString).doubleValue)
+//        collectionViewHeight.constant = roundedLineHeight * 91.5
         return viewModel.output.getNumberOfMenu()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return viewModel.output.getItemViewCell(collectionView, indexPath: indexPath)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.delegate?.didSelectImage(index: indexPath.item)
     }
 }
 

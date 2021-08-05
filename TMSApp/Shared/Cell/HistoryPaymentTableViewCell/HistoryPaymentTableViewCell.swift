@@ -1,48 +1,45 @@
 //
-//  BillNowTableViewCell.swift
+//  HistoryPaymentTableViewCell.swift
 //  TMSApp
 //
-//  Created by Nontawat Kanboon on 8/3/21.
+//  Created by Nontawat Kanboon on 8/5/21.
 //
 
 import UIKit
 
-class BillNowTableViewCell: UITableViewCell {
+class HistoryPaymentTableViewCell: UITableViewCell {
     
-    static let identifier = "BillNowTableViewCell"
-    
+    static let identifier = "HistoryPaymentTableViewCell"
+
     @IBOutlet var bgView: UIView!
-    @IBOutlet var orderNo: UILabel!
-    @IBOutlet var productCount: UILabel!
-    @IBOutlet var paymentPrice: UILabel!
-    @IBOutlet var status: UILabel!
+    @IBOutlet var priceTotal: UILabel!
     
-    var items: ShipmentItems? {
+    var item: CreditPaymentItems? {
         didSet {
             setupValue()
         }
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         setupUI()
     }
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
+
         // Configure the view for the selected state
     }
-    
+
     func setupUI() {
-        
-        bgView.setRounded(rounded: 5)
+        bgView.setRounded(rounded: 8)
         bgView.layer.borderWidth = 1.0
         bgView.layer.borderColor = UIColor.Primary.cgColor
-
     }
     
-    func setupValue(){
-
+    func setupValue() {
+        priceTotal.text = "\(item?.balance ?? 0)"
     }
+    
 }

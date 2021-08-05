@@ -85,7 +85,7 @@ extension OrderViewController {
 extension OrderViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let orderId = viewModel.output.getItemOrder(index: indexPath.item)?.orderId else { return }
-        NavigationManager.instance.pushVC(to: .orderCart(orderId: "\(orderId)"))
+        NavigationManager.instance.pushVC(to: .orderCart(orderId: orderId))
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

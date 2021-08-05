@@ -32,7 +32,6 @@ class LoginViewController: UIViewController {
         
         if let AccessToken = UserDefaultsKey.AccessToken.string, AccessToken != "" {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-//                NavigationManager.instance.pushVC(to: .mainTabBar, presentation: .Root, isHiddenNavigationBar: true)
                 UIView.transition(
                      with: UIApplication.shared.keyWindow!,
                      duration: 0.25,
@@ -47,7 +46,7 @@ class LoginViewController: UIViewController {
                         appDelegate.window?.makeKeyAndVisible()
                  })
             }
-            debugPrint(AccessToken)
+            debugPrint("AccessToken \(AccessToken)")
         }
     }
     

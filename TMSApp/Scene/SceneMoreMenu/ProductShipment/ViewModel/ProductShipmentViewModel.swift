@@ -10,7 +10,7 @@ import UIKit
 import Combine
 
 protocol ProductShipmentProtocolInput {
-    func setShipment(item: ShipmentItems)
+    func setShipmentCustomer(item: ShipmentCustomerItems?)
 }
 
 protocol ProductShipmentProtocolOutput: class {
@@ -18,7 +18,7 @@ protocol ProductShipmentProtocolOutput: class {
     func getCellForItemAt(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell
     func getNumberOfItemsInSection(_ collectionView: UICollectionView, section: Int) -> Int
     
-    func getItemShipment() -> ShipmentItems?
+    func getItemShipmentCustomer() -> ShipmentCustomerItems?
 }
 
 protocol ProductShipmentProtocol: ProductShipmentProtocolInput, ProductShipmentProtocolOutput {
@@ -39,27 +39,31 @@ class ProductShipmentViewModel: ProductShipmentProtocol, ProductShipmentProtocol
         self.productShipmentViewController = productShipmentViewController
     }
     
-    private var shipmentItem: ShipmentItems?
+    private var shipmentCustomer: ShipmentCustomerItems?
     // MARK - Data-binding OutPut
     
-    func setShipment(item: ShipmentItems) {
-        self.shipmentItem = item
+    func setShipmentCustomer(item: ShipmentCustomerItems?) {
+        self.shipmentCustomer = item
     }
     
     func getCellForItemAt(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.item == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BillNowCollectionViewCell.identifier, for: indexPath) as! BillNowCollectionViewCell
+            cell.viewModel.input.setShipmentCustomerItems(item: self.shipmentCustomer)
+            cell.viewModel.input.getOrder()
             return cell
         } else if indexPath.item == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BillPaymentCollectionViewCell.identifier, for: indexPath) as! BillPaymentCollectionViewCell
+            cell.viewModel.input.setShipmentCustomerItems(item: self.shipmentCustomer)
+            cell.viewModel.input.getOrder()
             return cell
         } else {
             return UICollectionViewCell()
         }
     }
     
-    func getItemShipment() -> ShipmentItems? {
-        return self.shipmentItem
+    func getItemShipmentCustomer() -> ShipmentCustomerItems? {
+        return self.shipmentCustomer
     }
     
     func getNumberOfItemsInSection(_ collectionView: UICollectionView, section: Int) -> Int {

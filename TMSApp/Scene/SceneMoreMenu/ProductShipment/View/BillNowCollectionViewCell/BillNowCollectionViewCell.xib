@@ -19,17 +19,18 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F1j-br-QAR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="860"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </tableView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="F1j-br-QAR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="P4k-pg-bhJ"/>
                 <constraint firstItem="F1j-br-QAR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Snn-af-cyu"/>
+                <constraint firstAttribute="bottom" secondItem="F1j-br-QAR" secondAttribute="bottom" constant="8" id="Xd9-f7-nKy"/>
                 <constraint firstAttribute="trailing" secondItem="F1j-br-QAR" secondAttribute="trailing" id="j8t-Vc-HHL"/>
-                <constraint firstAttribute="bottom" secondItem="F1j-br-QAR" secondAttribute="bottom" id="v83-Mm-uwF"/>
             </constraints>
             <connections>
                 <outlet property="tableView" destination="F1j-br-QAR" id="GKl-vo-GWB"/>

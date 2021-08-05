@@ -13,6 +13,14 @@ class AppealDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet var feedbackCustomerImageView: UIImageView!
+    @IBOutlet var feedbackCustomerNo: UILabel!
+    @IBOutlet var feedbackCustomerName: UILabel!
+    @IBOutlet var feedbackCustomerAddress: UILabel!
+    
+    @IBOutlet var shipmentOrderNo: UILabel!
+    @IBOutlet var OrderNo: UILabel!
+    
     // ViewModel
     lazy var viewModel: AppealDetailProtocol = {
         let vm = AppealDetailViewModel(appealDetailViewController: self)
@@ -32,7 +40,7 @@ class AppealDetailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        viewModel.input.getAppeal(request: GetAppealRequest(title: ""))
+        viewModel.input.getItemFeedbackDetail()
     }
     
 }
@@ -41,18 +49,10 @@ class AppealDetailViewController: UIViewController {
 extension AppealDetailViewController {
     
     func bindToViewModel() {
-        viewModel.output.didGetAppealSuccess = didGetAppealSuccess()
-        viewModel.output.didGetAppealError = didGetAppealError()
+        viewModel.output.didGetFeedbackDetailSuccess = didGetFeedbackDetailSuccess()
     }
     
-    func didGetAppealSuccess() -> (() -> Void) {
-        return { [weak self] in
-            guard let weakSelf = self else { return }
-            weakSelf.tableView.reloadData()
-        }
-    }
-    
-    func didGetAppealError() -> (() -> Void) {
+    func didGetFeedbackDetailSuccess() -> (() -> Void) {
         return { [weak self] in
             guard let weakSelf = self else { return }
             weakSelf.tableView.reloadData()
@@ -62,7 +62,12 @@ extension AppealDetailViewController {
 
 extension AppealDetailViewController {
     func setupUI(){
+        
+        feedbackCustomerImageView.setRounded(rounded: 8)
+        feedbackCustomerImageView.contentMode = .scaleAspectFill
         topDetailView.roundCorners(corners: .bottomLeft, radius: 25)
+        
+        setupValue()
     }
     
     fileprivate func registerCell() {
@@ -77,6 +82,20 @@ extension AppealDetailViewController {
     
     fileprivate func tableViewRegister(identifier: String) {
         self.tableView.register(UINib.init(nibName: identifier, bundle: Bundle.main), forCellReuseIdentifier: identifier)
+    }
+    
+    func setupValue() {
+        guard let item = viewModel.output.getItemFeedback() else { return }
+        
+        feedbackCustomerNo.text = item.order?.orderNo ?? "-"
+        feedbackCustomerName.text = item.order?.customer?.displayName ?? "-"
+        feedbackCustomerAddress.text = item.order?.customer?.address
+//        badgeVipName.text = items?.order?.customer. ?? "-"
+        
+        shipmentOrderNo.text = "Shipment Order : -"
+        OrderNo.text = "เลขใบสั่งซื้อ #\(item.order?.orderNo ?? "")"
+        guard let urlImage = URL(string: "\(DomainNameConfig.TMSImagePath.urlString)\(item.order?.customer?.avatar ?? "")") else { return }
+        feedbackCustomerImageView.kf.setImageDefault(with: urlImage)
     }
 }
 

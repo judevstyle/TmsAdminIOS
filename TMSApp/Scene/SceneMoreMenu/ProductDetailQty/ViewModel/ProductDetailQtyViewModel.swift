@@ -72,11 +72,12 @@ class ProductDetailQtyViewModel: ProductDetailQtyProtocol, ProductDetailQtyProto
     }
     
     func didConfirmQtyProduct(qty: Int) {
-        let shipmentStock = ShipmentStockManager.shared.getListSelectShipmentStock()
-
-        var requestShipmentStock: PostShipmentStockRequest = PostShipmentStockRequest()
+        var shipmentStock = ShipmentStockManager.shared.getListSelectShipmentStock()
+        shipmentStock.shipmentId = self.shipmentId
+        
+        var requestShipmentStock: ShipmentStockData = ShipmentStockData()
         var isMatchItem: Bool = false
-        shipmentStock.forEach({ item in
+        shipmentStock.data?.forEach({ item in
             if item.productId == itemProduct?.productId {
                 isMatchItem = true
                 requestShipmentStock = item
@@ -87,15 +88,14 @@ class ProductDetailQtyViewModel: ProductDetailQtyProtocol, ProductDetailQtyProto
             let oldQty = requestShipmentStock.qty ?? 0
             requestShipmentStock.qty = oldQty + qty
         } else {
-            requestShipmentStock.shipmentId = self.shipmentId
             requestShipmentStock.productId = self.itemProduct?.productId
             requestShipmentStock.qty = qty
             requestShipmentStock.mark = 0
             requestShipmentStock.status = "R"
         }
         
-        var newList: [PostShipmentStockRequest] = []
-        shipmentStock.forEach({ item in
+        var newList: [ShipmentStockData] = []
+        shipmentStock.data?.forEach({ item in
             if requestShipmentStock.productId == item.productId {
                 
             } else {
@@ -105,7 +105,8 @@ class ProductDetailQtyViewModel: ProductDetailQtyProtocol, ProductDetailQtyProto
         
         newList.append(requestShipmentStock)
         
-        ShipmentStockManager.shared.setListSelectShipmentStock(items: newList)
+        shipmentStock.data = newList
+        ShipmentStockManager.shared.setListSelectShipmentStock(item: shipmentStock)
         
         self.productDetailQtyViewController.dismiss(animated: true, completion: nil)
     }

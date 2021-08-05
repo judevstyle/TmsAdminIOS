@@ -11,7 +11,7 @@ import UIKit
 
 public enum ShipmentStockAPI {
     case getShipmentStock(request: GetShipmentStockRequest)
-    case postShipmentStock(request: [PostShipmentStockRequest])
+    case postShipmentStock(request: PostShipmentStockRequest)
 }
 
 extension ShipmentStockAPI: TargetType {
@@ -55,16 +55,16 @@ extension ShipmentStockAPI: TargetType {
         var authenToken = ""
         switch self {
         case .getShipmentStock(_):
-            authenToken = ""
+            authenToken = UserDefaultsKey.AccessToken.string ?? ""
         default:
-            authenToken = ""
+            authenToken = UserDefaultsKey.AccessToken.string ?? ""
         }
         
         if authenToken.isEmpty {
             return ["Content-Type": "application/json"]
         }
         
-        return ["Authorization": authenToken,
+        return ["Authorization": "Bearer \(authenToken)",
             "Content-Type": "application/json"]
     }
 }

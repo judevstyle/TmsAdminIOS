@@ -13,9 +13,18 @@ class BillPaymentCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet var tableView: UITableView!
     
+    // ViewModel
+    lazy var viewModel: BillPaymentCollectionViewCellProtocol = {
+        let vm = BillPaymentCollectionViewCellViewModel()
+        self.configure(vm)
+        self.bindToViewModel()
+        return vm
+    }()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        setupUI()
         setupTableView()
     }
     
@@ -26,21 +35,48 @@ class BillPaymentCollectionViewCell: UICollectionViewCell {
         
         tableView.registerCell(identifier: BillPaymentTableViewCell.identifier)
     }
+    
+    func setupUI() {
+
+    }
+    
+    func configure(_ interface: BillPaymentCollectionViewCellProtocol) {
+        self.viewModel = interface
+    }
 
 }
 
+// MARK: - Binding
+extension BillPaymentCollectionViewCell {
+    
+    func bindToViewModel() {
+        viewModel.output.didGetOrderSuccess = didGetOrderSuccess()
+    }
+    
+    func didGetOrderSuccess() -> (() -> Void) {
+        return { [weak self] in
+            guard let weakSelf = self else { return }
+            weakSelf.tableView.reloadData()
+        }
+    }
+}
+
 extension BillPaymentCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let item = viewModel.output.getItemOrder(index: indexPath.item) else { return }
+        NavigationManager.instance.pushVC(to: .historyPayment(orderId: item.orderId))
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel.output.getNumberOfRowsInSection(tableView, section: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: BillPaymentTableViewCell.identifier, for: indexPath) as! BillPaymentTableViewCell
-        cell.selectionStyle = .none
-        return cell
+        return viewModel.output.getItemViewCell(tableView, indexPath: indexPath)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 121
+        return viewModel.output.getItemViewCellHeight()
     }
 }

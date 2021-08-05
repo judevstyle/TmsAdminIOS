@@ -28,7 +28,9 @@ class TypeUserProductAllViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        ShipmentStockManager.shared.setListSelectShipmentStock(items: [])
+        var shipmentStock = ShipmentStockManager.shared.getListSelectShipmentStock()
+        shipmentStock.data = []
+        ShipmentStockManager.shared.setListSelectShipmentStock(item: shipmentStock)
         viewModel.input.getCategory()
     }
     
@@ -69,8 +71,6 @@ extension TypeUserProductAllViewController {
         registerHeaderCell()
         registerProductCell()
         
-        
-        
         //Mock UI
         if viewModel.output.getItemTypeUser() == nil {
             let button = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didSaveShipmentStock))
@@ -80,7 +80,12 @@ extension TypeUserProductAllViewController {
     }
     
     @objc func didSaveShipmentStock() {
-        viewModel.input.didSaveShipmentStock()
+        self.showAlertComfirm(titleText: "ยืนยันการนำเข้าสินค้า ?", messageText: "", dismissAction: {
+            print("dismissAction")
+        }, confirmAction: {
+            print("confirmAction")
+            self.viewModel.input.didSaveShipmentStock()
+        })
     }
     
     fileprivate func registerHeaderCell() {

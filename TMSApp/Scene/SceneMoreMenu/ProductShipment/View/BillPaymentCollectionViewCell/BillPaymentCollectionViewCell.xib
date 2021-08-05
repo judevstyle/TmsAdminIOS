@@ -19,14 +19,15 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b6u-9u-elY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="864"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="856"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </tableView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="b6u-9u-elY" secondAttribute="bottom" id="0l7-dh-hFD"/>
+                <constraint firstAttribute="bottom" secondItem="b6u-9u-elY" secondAttribute="bottom" constant="8" id="ldw-uu-PDn"/>
                 <constraint firstItem="b6u-9u-elY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="tPW-io-9o1"/>
                 <constraint firstAttribute="trailing" secondItem="b6u-9u-elY" secondAttribute="trailing" id="tkf-lC-FUZ"/>
                 <constraint firstItem="b6u-9u-elY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="x6c-Q5-iA8"/>

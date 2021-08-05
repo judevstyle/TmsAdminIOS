@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol GetOrderUseCase {
-    func execute() -> AnyPublisher<GetOrderResponse?, Error>
+    func execute(request: GetOrderRequest) -> AnyPublisher<GetOrderResponse?, Error>
 }
 
 struct GetOrderUseCaseImpl: GetOrderUseCase {
@@ -20,10 +20,7 @@ struct GetOrderUseCaseImpl: GetOrderUseCase {
         self.orderRepository = orderRepository
     }
     
-    func execute() -> AnyPublisher<GetOrderResponse?, Error> {
-        var request = GetOrderRequest()
-        request.status = "R"
-        request.page = 1
+    func execute(request: GetOrderRequest) -> AnyPublisher<GetOrderResponse?, Error> {
         return orderRepository
             .getOrder(request: request)
             .map { $0 }

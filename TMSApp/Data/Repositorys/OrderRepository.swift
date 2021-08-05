@@ -11,8 +11,8 @@ import Moya
 
 protocol OrderRepository {
     func getOrder(request: GetOrderRequest) -> AnyPublisher<GetOrderResponse, Error>
-    func getOrderCart(orderId: String) -> AnyPublisher<GetOrderCartResponse, Error>
-    func confirmOrderCart(orderId: String) -> AnyPublisher<GetOrderCartResponse, Error>
+    func getOrderCart(orderId: Int?) -> AnyPublisher<GetOrderCartResponse, Error>
+    func confirmOrderCart(orderId: Int?) -> AnyPublisher<GetOrderCartResponse, Error>
 }
 
 final class OrderRepositoryImpl: TMSApp.OrderRepository {
@@ -25,14 +25,14 @@ final class OrderRepositoryImpl: TMSApp.OrderRepository {
             .map(GetOrderResponse.self)
     }
     
-    func getOrderCart(orderId: String) -> AnyPublisher<GetOrderCartResponse, Error> {
+    func getOrderCart(orderId: Int?) -> AnyPublisher<GetOrderCartResponse, Error> {
         return self.orderAPI
             .cb
             .request(.getOrderCart(orderId: orderId))
             .map(GetOrderCartResponse.self)
     }
     
-    func confirmOrderCart(orderId: String) -> AnyPublisher<GetOrderCartResponse, Error> {
+    func confirmOrderCart(orderId: Int?) -> AnyPublisher<GetOrderCartResponse, Error> {
         return self.orderAPI
             .cb
             .request(.confirmOrderCart(orderId: orderId))

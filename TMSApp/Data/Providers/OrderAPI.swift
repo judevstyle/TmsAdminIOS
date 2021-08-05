@@ -11,8 +11,8 @@ import UIKit
 
 public enum OrderAPI {
     case getOrder(request: GetOrderRequest)
-    case getOrderCart(orderId: String)
-    case confirmOrderCart(orderId: String)
+    case getOrderCart(orderId: Int?)
+    case confirmOrderCart(orderId: Int?)
 }
 
 extension OrderAPI: TargetType {
@@ -28,9 +28,9 @@ extension OrderAPI: TargetType {
         case .getOrder(_):
             return ""
         case .getOrderCart(let orderId):
-            return "/\(orderId)"
+            return "/\(orderId ?? 0)"
         case .confirmOrderCart(let orderId):
-            return "confirmOrder/\(orderId)"
+            return "confirmOrder/\(orderId ?? 0)"
         }
     }
     
@@ -60,16 +60,16 @@ extension OrderAPI: TargetType {
         var authenToken = ""
         switch self {
         case .getOrder(_):
-            authenToken = ""
+            authenToken = UserDefaultsKey.AccessToken.string ?? ""
         default:
-            authenToken = ""
+            authenToken = UserDefaultsKey.AccessToken.string ?? ""
         }
         
         if authenToken.isEmpty {
             return ["Content-Type": "application/json"]
         }
         
-        return ["Authorization": authenToken,
+        return ["Authorization": "Bearer \(authenToken)",
             "Content-Type": "application/json"]
     }
 }

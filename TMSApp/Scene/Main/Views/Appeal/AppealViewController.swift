@@ -78,8 +78,8 @@ extension AppealViewController {
 
 extension AppealViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let itemAppeal = viewModel.output.getItemAppeal(index: indexPath.item) else { return }
-        NavigationManager.instance.pushVC(to: .appealDetail)
+        guard let itemFeedback = viewModel.output.getItemAppeal(index: indexPath.item) else { return }
+        NavigationManager.instance.pushVC(to: .appealDetail(item: itemFeedback))
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

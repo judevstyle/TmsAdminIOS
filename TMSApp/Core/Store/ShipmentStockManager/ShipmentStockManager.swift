@@ -11,15 +11,15 @@ public class ShipmentStockManager {
     
     public static let shared: ShipmentStockManager = ShipmentStockManager()
     
-    fileprivate var listSelectShipmentStock: [PostShipmentStockRequest] = []
+    fileprivate var selectShipmentStock: PostShipmentStockRequest = PostShipmentStockRequest()
     
     public init() { }
     
-    public func getListSelectShipmentStock() -> [PostShipmentStockRequest] {
-        return self.listSelectShipmentStock
+    public func getListSelectShipmentStock() -> PostShipmentStockRequest {
+        return self.selectShipmentStock
     }
     
-    public func setListSelectShipmentStock(items: [PostShipmentStockRequest]) {
-        self.listSelectShipmentStock = items
+    public func setListSelectShipmentStock(item: PostShipmentStockRequest) {
+        self.selectShipmentStock = item
     }
 }
