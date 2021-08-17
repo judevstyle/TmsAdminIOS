@@ -40,6 +40,7 @@ class HeaderLabelTableViewCell: UITableViewHeaderFooterView {
     func render(title:String) {
         self.leftLabel.text = title
         self.contentView.backgroundColor = .white
+        self.leftLabel.sizeToFit()
     }
     
 }

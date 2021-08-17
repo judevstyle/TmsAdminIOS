@@ -50,6 +50,7 @@ extension OrderAPI: TargetType {
     public var task: Task {
         switch self {
         case let .getOrder(request):
+            debugPrint("Request : \(request.toJSON())")
             return .requestParameters(parameters: request.toJSON(), encoding: URLEncoding.queryString)
         case .getOrderCart(_), .confirmOrderCart(_):
             return .requestPlain

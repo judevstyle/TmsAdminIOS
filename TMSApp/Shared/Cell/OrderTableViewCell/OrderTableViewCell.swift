@@ -62,7 +62,7 @@ class OrderTableViewCell: UITableViewCell {
         descText.text = "\(items?.customerDisplayName ?? "")"
         orderAddress.text = "\(items?.customerAddress ?? "")"
         orderList.text = "\(items?.totalItem ?? 0) รายการ"
-        orderPrice.text = "\(Int(items?.totalPrice ?? 0.0) ?? 0) บาท"
+        orderPrice.text = "\(Int(items?.balance ?? 0.0) ?? 0) บาท"
         
         guard let urlImage = URL(string: "\(DomainNameConfig.TMSImagePath.urlString)\(items?.customerAvatar ?? "")") else { return }
         orderImage.kf.setImageDefault(with: urlImage)

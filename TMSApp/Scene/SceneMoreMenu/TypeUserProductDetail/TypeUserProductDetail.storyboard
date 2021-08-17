@@ -77,31 +77,31 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEM-2O-TTq">
-                                        <rect key="frame" x="0.0" y="436" width="374" height="14"/>
+                                        <rect key="frame" x="0.0" y="436" width="374" height="12.5"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9X-Aj-XNj">
-                                        <rect key="frame" x="0.0" y="450" width="374" height="30.5"/>
+                                        <rect key="frame" x="0.0" y="448.5" width="374" height="32"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dDi-Yh-bBK">
-                                                <rect key="frame" x="0.0" y="0.0" width="63.5" height="30.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="62.5" height="32"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPC-uI-dZw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="20.5" height="30.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="20.5" height="32"/>
                                                         <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVc-Eq-cCg">
-                                                        <rect key="frame" x="25.5" y="0.0" width="11.5" height="30.5"/>
+                                                        <rect key="frame" x="25.5" y="0.0" width="11.5" height="32"/>
                                                         <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="20"/>
                                                         <color key="textColor" name="Primary"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="บาท" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxL-3P-ZDD">
-                                                        <rect key="frame" x="42" y="0.0" width="21.5" height="30.5"/>
+                                                        <rect key="frame" x="42" y="0.0" width="20.5" height="32"/>
                                                         <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -127,16 +127,16 @@
                                         <rect key="frame" x="0.0" y="481" width="374" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sjl-nZ-QqR">
-                                                <rect key="frame" x="105.5" y="0.0" width="163.5" height="50"/>
+                                                <rect key="frame" x="108" y="0.0" width="158" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ราคาใหม่" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sxx-AH-s9R">
-                                                        <rect key="frame" x="0.0" y="0.0" width="47.5" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="42" height="50"/>
                                                         <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="8" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Znc-zJ-haR">
-                                                        <rect key="frame" x="55.5" y="8" width="100" height="34"/>
+                                                        <rect key="frame" x="50" y="8" width="100" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="100" id="1Uy-3U-Tcr"/>
                                                         </constraints>

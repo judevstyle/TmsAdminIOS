@@ -31,22 +31,22 @@ class LoginViewController: UIViewController {
         registerKeyboardObserver()
         
         if let AccessToken = UserDefaultsKey.AccessToken.string, AccessToken != "" {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                UIView.transition(
-                     with: UIApplication.shared.keyWindow!,
-                     duration: 0.25,
-                     options: .transitionFlipFromLeft,
-                     animations: {
-                        let loadingStoryBoard = NavigationOpeningSender.mainTabBar.storyboardName
-                        let storyboard = UIStoryboard(name: loadingStoryBoard, bundle: nil)
-                        let initialViewController = storyboard.instantiateInitialViewController()
-
-                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                        appDelegate.window?.rootViewController = initialViewController
-                        appDelegate.window?.makeKeyAndVisible()
-                 })
-            }
-            debugPrint("AccessToken \(AccessToken)")
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+//                UIView.transition(
+//                     with: UIApplication.shared.keyWindow!,
+//                     duration: 0.25,
+//                     options: .transitionFlipFromLeft,
+//                     animations: {
+//                        let loadingStoryBoard = NavigationOpeningSender.mainTabBar.storyboardName
+//                        let storyboard = UIStoryboard(name: loadingStoryBoard, bundle: nil)
+//                        let initialViewController = storyboard.instantiateInitialViewController()
+//
+//                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//                        appDelegate.window?.rootViewController = initialViewController
+//                        appDelegate.window?.makeKeyAndVisible()
+//                 })
+//            }
+//            debugPrint("AccessToken \(AccessToken)")
         }
     }
     
