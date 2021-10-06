@@ -10,6 +10,7 @@ import UIKit
 import MaterialComponents
 
 public enum NavigationOpeningSender {
+    case intro
     case login
     case mainTabBar
     case main
@@ -69,9 +70,12 @@ public enum NavigationOpeningSender {
     case confirmOrder
     case historyPayment(orderId: Int?)
     case imageListScroll(listImage: [String?], index: Int?)
+    case editCustomer
     
     public var storyboardName: String {
         switch self {
+        case .intro:
+            return "Intro"
         case .login:
             return "Login"
         case .mainTabBar:
@@ -168,11 +172,15 @@ public enum NavigationOpeningSender {
             return "OrderCartBill"
         case .imageListScroll(_):
             return "ImageListScrollViewController"
+        case .editCustomer:
+            return "EditCustomer"
         }
     }
     
     public var classNameString: String {
         switch self {
+        case .intro:
+            return "IntroViewController"
         case .login:
             return "LoginViewController"
         case .mainTabBar:
@@ -269,6 +277,8 @@ public enum NavigationOpeningSender {
             return "OrderCartBillViewController"
         case .imageListScroll(_):
             return "ImageListScrollViewController"
+        case .editCustomer:
+            return "EditCustomerViewController"
         }
     }
     
@@ -283,8 +293,6 @@ public enum NavigationOpeningSender {
     
     public var titleNavigation: String {
         switch self {
-        case .login:
-            return "Login"
         case .mainTabBar:
             return "MainTabBar"
         case .main:
@@ -363,6 +371,8 @@ public enum NavigationOpeningSender {
             return "สั่งซื้อสินค้า"
         case .historyPayment(_):
             return "ประวัติการชำระเงิน"
+        case .editCustomer:
+            return "Customer Managment"
         default:
             return ""
         }
@@ -381,6 +391,7 @@ class NavigationManager {
         case Push
         case Modal(completion: (() -> Void)?, withNav: Bool?)
         case ModelNav(completion: (() -> Void)?)
+        case ModalNoNav(completion: (() -> Void)?)
         case BottomSheet(completion: (() -> Void)?, height: CGFloat)
         case PopupSheet(completion: (() -> Void)?)
         case presentFullSceen(completion: (() -> Void)?)
@@ -567,6 +578,9 @@ class NavigationManager {
             
         case .Root:
             self.navigationController.setViewControllers([viewController], animated: true)
+        case .ModalNoNav(let completion):
+            let nav: UINavigationController = getNavigationController(vc: viewController, isTranslucent: true)
+            self.navigationController.present(nav, animated: true, completion: completion)
         case .Modal(let completion, let withNav):
             if withNav == true {
                 let navBarOnModal: UINavigationController = UINavigationController(rootViewController: viewController)
@@ -617,11 +631,52 @@ class NavigationManager {
         self.currentPresentation = presentation
     }
     
-    func setRootViewController(rootView: NavigationOpeningSender) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        guard let window = appDelegate.window else {
-            return
+    func setRootViewController(rootView: NavigationOpeningSender, withNav: Bool = true, isTranslucent: Bool = false, isAnimate: Bool = false, options: UIView.AnimationOptions = .curveEaseIn) {
+        if isAnimate == true {
+            UIView.transition(
+                 with: UIApplication.shared.keyWindow!,
+                 duration: 0.25,
+                 options: options,
+                 animations: {
+                    let storyboard = UIStoryboard(name: rootView.storyboardName, bundle: nil)
+                    if let vc = storyboard.instantiateInitialViewController() {
+                        let nav: UINavigationController = self.getNavigationController(vc: vc, isTranslucent: isTranslucent)
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        if withNav {
+                            appDelegate.window?.rootViewController = nav
+                        } else {
+                            appDelegate.window?.rootViewController = vc
+                        }
+                        appDelegate.window?.makeKeyAndVisible()
+                    }
+             })
+        } else {
+            let storyboard = UIStoryboard(name: rootView.storyboardName, bundle: nil)
+            if let vc = storyboard.instantiateInitialViewController() {
+                let nav: UINavigationController = getNavigationController(vc: vc, isTranslucent: isTranslucent)
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                if withNav {
+                    appDelegate.window?.rootViewController = nav
+                } else {
+                    appDelegate.window?.rootViewController = vc
+                }
+                appDelegate.window?.makeKeyAndVisible()
+            }
         }
+    }
+    
+    private func getNavigationController(vc: UIViewController, isTranslucent: Bool, isFullScreen: Bool = false) -> UINavigationController {
+        let nav: UINavigationController = UINavigationController(rootViewController: vc)
+        nav.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        nav.navigationBar.shadowImage = UIImage()
+        nav.navigationBar.isTranslucent = isTranslucent == true ? true : false
+        nav.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.PrimaryMedium(size: 18), NSAttributedString.Key.foregroundColor: UIColor.white]
+        nav.navigationBar.barTintColor = UIColor.Primary
+        
+        if isFullScreen == true {
+            nav.modalPresentationStyle = .overFullScreen
+        }
+        return nav
     }
     
 }

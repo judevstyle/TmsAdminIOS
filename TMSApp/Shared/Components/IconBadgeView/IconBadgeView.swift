@@ -49,5 +49,6 @@ class IconBadgeView: UIView {
     
     func setTitle(title: String) {
         labelBadge.text = title
+        labelBadge.sizeToFit()
     }
 }

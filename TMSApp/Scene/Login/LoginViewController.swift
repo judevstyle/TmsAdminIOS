@@ -8,14 +8,14 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-    
+
+    @IBOutlet var topView: UIView!
     @IBOutlet var inputUsername: UITextField!
-    @IBOutlet var inputLineUsername: UIView!
     @IBOutlet var inputPassword: UITextField!
-    @IBOutlet var inputLinePassword: UIView!
     @IBOutlet var btnLogin: UIButton!
-    @IBOutlet var viewKeyboardHeight: NSLayoutConstraint!
+    @IBOutlet var bottomView: UIView!
     
+    @IBOutlet var bottomConstraint: NSLayoutConstraint!
     
     // ViewModel
     lazy var viewModel: LoginProtocol = {
@@ -29,34 +29,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         registerKeyboardObserver()
-        
-        if let AccessToken = UserDefaultsKey.AccessToken.string, AccessToken != "" {
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-//                UIView.transition(
-//                     with: UIApplication.shared.keyWindow!,
-//                     duration: 0.25,
-//                     options: .transitionFlipFromLeft,
-//                     animations: {
-//                        let loadingStoryBoard = NavigationOpeningSender.mainTabBar.storyboardName
-//                        let storyboard = UIStoryboard(name: loadingStoryBoard, bundle: nil)
-//                        let initialViewController = storyboard.instantiateInitialViewController()
-//
-//                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//                        appDelegate.window?.rootViewController = initialViewController
-//                        appDelegate.window?.makeKeyAndVisible()
-//                 })
-//            }
-//            debugPrint("AccessToken \(AccessToken)")
-        }
-    }
-    
-    @IBAction func handleLogin(_ sender: Any) {
-        guard let username = self.inputUsername.text, username != "",
-              let password = self.inputPassword.text, password != "" else { return }
-        var request: PostAuthEmployeeRequest = PostAuthEmployeeRequest()
-        request.username = username
-        request.password = password
-        viewModel.input.authLogin(request: request)
+
     }
     
     func configure(_ interface: LoginProtocol) {
@@ -79,22 +52,7 @@ extension LoginViewController {
     func didLoginSuccess() -> (() -> Void) {
         return { [weak self] in
             guard let weakSelf = self else { return }
-            //                NavigationManager.instance.pushVC(to: .mainTabBar, presentation: .Root, isHiddenNavigationBar: true)
-            UIView.transition(
-                 with: UIApplication.shared.keyWindow!,
-                 duration: 0.25,
-                 options: .transitionFlipFromLeft,
-                 animations: {
-                    let loadingStoryBoard = NavigationOpeningSender.mainTabBar.storyboardName
-                    // Override point for customization after application launch.
-                    let storyboard = UIStoryboard(name: loadingStoryBoard, bundle: nil)
-                    let initialViewController = storyboard.instantiateInitialViewController()
-
-                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                    appDelegate.window?.rootViewController = initialViewController
-                    appDelegate.window?.makeKeyAndVisible()
-             })
-            
+            NavigationManager.instance.setRootViewController(rootView: .mainTabBar, withNav: false, isTranslucent: true)
         }
     }
     
@@ -106,43 +64,39 @@ extension LoginViewController {
 }
 
 extension LoginViewController {
-    func setupUI(){
+    func setupUI() {
+        topView.roundCorners(corners: .bottomLeft, radius: 20)
         
-        inputUsername.delegate = self
-        inputPassword.delegate = self
+        bottomView.roundedTop(radius: 20)
         
-        viewKeyboardHeight.constant = 0
-        hideKeyboardWhenTappedAround()
-        inputUsername.setPaddingLeft(padding: 29)
-        inputPassword.setPaddingLeft(padding: 29)
+        btnLogin.setRounded(rounded: 8)
+        inputUsername.setRounded(rounded: 8)
+        inputPassword.setRounded(rounded: 8)
         
-        btnLogin.setRounded(rounded: 6)
+        inputUsername.setBorder(width: 1.0, color: UIColor.Primary)
+        inputPassword.setBorder(width: 1.0, color: UIColor.Primary)
         
-        //Demo User
-        inputUsername.text = "10005"
-        inputPassword.text = "0005"
+        btnLogin.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
+        
+        inputUsername.text = "asdasd"
+        inputPassword.text = "123456"
+        inputPassword.isSecureTextEntry = true
     }
 }
 
-
-//MARK: - UITextFieldDelegate
-extension LoginViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        switch textField {
-        case inputUsername:
-            inputLineUsername.backgroundColor = UIColor.Primary
-            inputLinePassword.backgroundColor = UIColor.PrimaryGray
-        case inputPassword:
-            inputLinePassword.backgroundColor = UIColor.Primary
-            inputLineUsername.backgroundColor = UIColor.PrimaryGray
-        default:
-            break
-        }
+extension LoginViewController {
+    @objc func handleLogin() {
+        guard let username = self.inputUsername.text, username != "",
+              let password = self.inputPassword.text, password != "" else { return }
+        var request: PostAuthEmployeeRequest = PostAuthEmployeeRequest()
+        request.username = username
+        request.password = password
+        viewModel.input.authLogin(request: request)
     }
 }
 
 extension LoginViewController : KeyboardListener {
     func keyboardDidUpdate(keyboardHeight: CGFloat) {
-        viewKeyboardHeight.constant = keyboardHeight
+        bottomConstraint.constant = keyboardHeight
     }
 }

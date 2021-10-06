@@ -48,6 +48,10 @@ class CollectibleTableViewCell: UITableViewCell {
         countStore.text = "\(items?.qty ?? 0)"
         pointText.text = "\(items?.rewardPoint ?? 0)"
         
+        titleText.sizeToFit()
+        countStore.sizeToFit()
+        pointText.sizeToFit()
+        
         guard let urlImage = URL(string: "\(DomainNameConfig.TMSImagePath.urlString)\(items?.clbImg ?? "")") else { return }
         iconImage.kf.setImageDefault(with: urlImage)
     }

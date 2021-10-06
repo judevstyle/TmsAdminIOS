@@ -58,6 +58,10 @@ class PlanMasterTableViewCell: UITableViewCell {
             badgeView.setTitle(title: "วันพิเศษ")
         }
         
+        titleText.sizeToFit()
+        taskCount.sizeToFit()
+        nameEmployee.sizeToFit()
+        
         guard let urlImage = URL(string: "\(DomainNameConfig.TMSImagePath.urlString)\(items?.empoyeeImg ?? "")") else { return }
         imageEmployee.kf.setImageDefault(with: urlImage)
     }

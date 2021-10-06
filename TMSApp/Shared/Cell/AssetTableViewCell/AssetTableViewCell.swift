@@ -52,6 +52,11 @@ class AssetTableViewCell: UITableViewCell {
         countItemText.text = "\(items?.stockTotal ?? 0)"
         unitNameText.text = items?.assetUnit ?? ""
         
+        titleText.sizeToFit()
+        descText.sizeToFit()
+        countItemText.sizeToFit()
+        unitNameText.sizeToFit()
+        
         guard let urlImage = URL(string: "\(DomainNameConfig.TMSImagePath.urlString)\(items?.assetImg ?? "")") else { return }
         iconImage.kf.setImageDefault(with: urlImage)
         

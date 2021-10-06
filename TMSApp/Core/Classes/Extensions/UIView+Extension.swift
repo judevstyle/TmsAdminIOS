@@ -21,11 +21,71 @@ extension UIView {
     }
     
     func roundCorners(corners: UIRectCorner, radius: CGFloat) {
-        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        if #available(iOS 11.0, *) {
+            clipsToBounds = true
+            layer.cornerRadius = radius
+            layer.maskedCorners = CACornerMask(rawValue: corners.rawValue)
+        } else {
+            let path = UIBezierPath(
+                roundedRect: bounds,
+                byRoundingCorners: corners,
+                cornerRadii: CGSize(width: radius, height: radius)
+            )
+            let mask = CAShapeLayer()
+            mask.path = path.cgPath
+            layer.mask = mask
+        }
+    }
+    
+    func roundedTop(radius: CGFloat){
+        let path = UIBezierPath(
+            roundedRect: bounds,
+            byRoundingCorners: [.topLeft, .topRight],
+            cornerRadii: CGSize(width: radius, height: radius)
+        )
         let mask = CAShapeLayer()
         mask.path = path.cgPath
         layer.mask = mask
+     }
+    
+    func roundedBottom(radius: CGFloat){
+        let path = UIBezierPath(
+            roundedRect: bounds,
+            byRoundingCorners: [.bottomLeft, .bottomRight],
+            cornerRadii: CGSize(width: radius, height: radius)
+        )
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
+     }
+    
+    func roundedLeft(radius: CGFloat){
+        let path = UIBezierPath(
+            roundedRect: bounds,
+            byRoundingCorners: [.topLeft, .bottomLeft],
+            cornerRadii: CGSize(width: radius, height: radius)
+        )
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
+     }
+    
+    func roundedRight(radius: CGFloat){
+        let path = UIBezierPath(
+            roundedRect: bounds,
+            byRoundingCorners: [.topRight, .bottomRight],
+            cornerRadii: CGSize(width: radius, height: radius)
+        )
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
+     }
+    
+    func setBorder(width: CGFloat, color: UIColor) {
+        self.layer.borderWidth = width
+        self.layer.borderColor = color.cgColor
     }
+    
 }
 
 

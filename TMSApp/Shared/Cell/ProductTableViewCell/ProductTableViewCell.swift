@@ -64,6 +64,11 @@ class ProductTableViewCell: UITableViewCell {
         bgBadge.layer.masksToBounds = true
         titleBadge.font = UIFont.PrimaryText(size: 10)
         
+        titletext.sizeToFit()
+        descText.sizeToFit()
+        titleBadge.sizeToFit()
+        priceText.sizeToFit()
+        
         guard let urlImage = URL(string: "\(DomainNameConfig.TMSImagePath.urlString)\(items?.productImg ?? "")") else { return }
         iconImage.kf.setImageDefault(with: urlImage)
     }

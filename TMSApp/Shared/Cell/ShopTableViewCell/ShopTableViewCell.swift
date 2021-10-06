@@ -54,6 +54,10 @@ class ShopTableViewCell: UITableViewCell {
         titleText.text = items?.displayName ?? "-"
         titleBadge.text = items?.typeUser?.typeName ?? "-"
         addresText.text = items?.address ?? "-"
+        
+        titleText.sizeToFit()
+        titleBadge.sizeToFit()
+        addresText.sizeToFit()
         guard let urlImage = URL(string: "\(DomainNameConfig.TMSImagePath.urlString)\(items?.avatar ?? "")") else { return }
         imageShop.kf.setImageDefault(with: urlImage)
     }

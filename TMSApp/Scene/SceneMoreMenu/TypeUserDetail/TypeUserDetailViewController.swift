@@ -71,6 +71,7 @@ extension TypeUserDetailViewController {
         if let item = viewModel.output.getItemDetial() {
             titleTopView.text = item.typeName ?? ""
         }
+        titleTopView.sizeToFit()
         registerCell()
     }
     

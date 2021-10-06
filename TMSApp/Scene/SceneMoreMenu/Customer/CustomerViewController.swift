@@ -73,7 +73,7 @@ extension CustomerViewController {
 // MARK: - Handles
 extension CustomerViewController {
     @objc func btnAddCustomerAction() {
-//        NavigationManager.instance.pushVC(to: .editEmployee)
+        NavigationManager.instance.pushVC(to: .editCustomer)
     }
 }
 

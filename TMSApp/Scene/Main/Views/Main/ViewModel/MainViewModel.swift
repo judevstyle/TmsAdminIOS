@@ -73,6 +73,7 @@ class MainViewModel: MainProtocol, MainProtocolOutput {
     func getHome() {
         self.listProduct?.removeAll()
         mainViewController.startLoding()
+        
         self.getDashboardUseCase
             .execute().sink { completion in
                 debugPrint("getDashboard \(completion)")
@@ -99,7 +100,7 @@ class MainViewModel: MainProtocol, MainProtocolOutput {
         
         
         self.getShipmentWorkingUseCase.execute().sink { completion in
-            debugPrint("getShipment \(completion)")
+            debugPrint("getShipmentWorking \(completion)")
             
             switch completion {
             case .finished:
@@ -210,7 +211,7 @@ class MainViewModel: MainProtocol, MainProtocolOutput {
                 return height
             }
         case 2:
-            if self.listProduct?.count == 0 {
+            if self.listShipmentWorking?.count == 0 {
                 return 50
             } else {
                 return UITableView.automaticDimension
